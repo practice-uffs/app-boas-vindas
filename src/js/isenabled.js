@@ -19,6 +19,8 @@ var IsEnabled = {
     settingsPage: true,
 
     aboutPage: true,
+    
+    bottomNavigationBar: false,
 }
 
 export default IsEnabled;

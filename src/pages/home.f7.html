@@ -14,7 +14,11 @@
         </div>
       </div>
     </div>
+    
+    
     <!-- Tabs toolbar -->
+    {{#if isEnabled.bottomNavigationBar}}
+
     <div class="toolbar tabbar toolbar-bottom">
       <div class="toolbar-inner">
         {{#if isEnabled.servicesPage}}
@@ -25,6 +29,8 @@
         {{/if}}
       </div>
     </div>
+    {{/if}}
+
     <!-- Tabs content -->
     <div class="tabs-animated-wrap">
       <div class="tabs tabs-routable">

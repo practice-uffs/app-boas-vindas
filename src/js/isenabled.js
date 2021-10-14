@@ -19,6 +19,18 @@ var IsEnabled = {
     settingsPage: true,
 
     aboutPage: true,
+
+    aboutMorePage: true,
+
+    localClimatePage: true,
+
+    studentAidPage: true,
+
+    leisurePage: true,
+
+    groupsPage: true,
+
+    channelsPage: true,
     
     bottomNavigationBar: false,
 }

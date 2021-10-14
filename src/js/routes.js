@@ -10,9 +10,20 @@ import SettingsPage from "../pages/settings.f7.html";
 import AboutPage from "../pages/about.f7.html";
 import LoginPage from "../pages/login.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
+import AboutMorePage from "../pages/about-more.f7.html";
+import LocalClimatePage from "../pages/local-climate.f7.html";
+import StudentAidPage from "../pages/student-aid.f7.html";
+import LeisurePage from "../pages/leisure.f7.html";
+import GroupsPage from "../pages/groups.f7.html";
+import ChannelsPage from "../pages/channels.f7.html";
 
 import { storage } from "../js/storage.js";
 import IsEnabled from "./isenabled";
+
+
+
+
+//routes from template-apps-f7
 
 const authenticated = function (to, from, resolve, reject) {
   let self = this;
@@ -60,11 +71,8 @@ const homePageRoute = function () {
     });
 
   route.tabs = tabs;
-
   return route;
 };
-
-
 
 const rightPanelRoute = function () {
   let route = {
@@ -77,7 +85,6 @@ const rightPanelRoute = function () {
 
   if (IsEnabled.rightPanel) return route;
 };
-
 
 const notificationsPageRoute = function () {
   let route = {
@@ -93,7 +100,6 @@ const settingsPageRoute = function () {
   let route = {
     path: "/settings/",
     component: SettingsPage,
-    beforeEnter: authenticated,
   };
 
   if (IsEnabled.settingsPage) return route;
@@ -109,6 +115,7 @@ const aboutPageRoute = function () {
   if (IsEnabled.aboutPage) return route;
 };
 
+//unauthenticated
 
 const initialPageRoute = function () {
   return {
@@ -135,6 +142,73 @@ const notFoundPageRoute = function () {
   };
 };
 
+
+
+
+
+//new routes
+
+const aboutMorePageRoute = function () {
+  let route = {
+    path: '/about-more/',
+    component: AboutMorePage,
+  };
+
+  if (IsEnabled.aboutMorePage) return route;
+}
+
+const localClimatePageRoute = function () {
+  let route = {
+    path: '/local-climate/',
+    component: LocalClimatePage,
+  };
+
+  if (IsEnabled.localClimatePage) return route;
+}
+
+const studentAidPageRoute = function () {
+  let route = {
+    path: '/student-aid/',
+    component: StudentAidPage,
+  };
+
+  if (IsEnabled.studentAidPage) return route;
+}
+
+const leisurePageRoute = function () {
+  let route = {
+    path: '/leisure/',
+    component: LeisurePage,
+  };
+
+  if (IsEnabled.leisurePage) return route;
+}
+
+const groupsPageRoute = function () {
+  let route = {
+    path: '/groups/',
+    component: GroupsPage,
+  };
+
+  if (IsEnabled.groupsPage) return route;
+}
+
+const channelsPageRoute = function () {
+  let route = {
+    path: '/channels/',
+    component: ChannelsPage,
+  };
+
+  if (IsEnabled.channelsPage) return route;
+}
+
+
+
+
+
+
+
+
 var routes = [
   // Authenticated routes
   homePageRoute(),
@@ -142,6 +216,14 @@ var routes = [
   notificationsPageRoute(),
   settingsPageRoute(),
   aboutPageRoute(),
+  
+  //new routes
+  aboutMorePageRoute(),
+  localClimatePageRoute(),
+  studentAidPageRoute(),
+  leisurePageRoute(),
+  groupsPageRoute(),
+  channelsPageRoute(),
 
   // Unauthenticated routes
   initialPageRoute(),

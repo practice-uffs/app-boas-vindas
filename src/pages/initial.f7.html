@@ -1,27 +1,92 @@
 <template>
   <div class="page" data-name="initial">
-    <div class="display-flex flex-direction-column justify-content-space-between" style="height: 100%;">
-      <!-- Logo -->
-      <div  class="margin">
-        <img src="static/images/logo/logo 915x286.png" style="width: 100%; height: auto;" />
+    <div class="display-flex flex-direction-column justify-content-space-evenly" style="height: 100%;">
+
+      <div class="item-input-wrap" style="
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+      color: #FF0C50;
+      font-weight: 700;
+      ">
+        <label for="append">Escolha o Campus:</label>
+        <select class="item-input-outline" id="append"></select>
       </div>
 
-      <!-- Wellcome message -->
-      <h2 class="margin-horizontal text-align-center text-color-primary">Prepare-se para a inovação!</h2>
-
-      <!-- Some information -->
-      <div class="margin-horizontal">
-        <p class="text-align-center" style="max-width: 60%; margin: auto;">Descubra um ambiente interativo e dinâmico para elevar sua vida acadêmica a um novo patamar</p>
-      </div>
-
-      <!-- Login button -->
       <div class="margin">
-        <img src="static/images/mountains.png" style="width: 100%; height: auto;" />
-        <a href="/login/" class="button button-raised button-fill">Acessar com seu idUFFS</a>
+        <a href="/" onclick="loadInfo();" class="button button-outline button-round"
+          style="margin-left:20%; width:60%">
+          Acessar</a>
       </div>
+
     </div>
   </div>
 </template>
+
 <script>
   export default {};
+
+  var cidades = [];
+  var campus = [];
+
+  //carrega informações da planilha contendo a planilha dos campi
+  window.getCampiSheet = async function () {
+    let response = await fetch('https://opensheet.vercel.app/1sN1gbMambszu_ZDA3vEX1hMlB2dgmExyNYMrc3KThNs/Campi');
+
+    let data = await response.json();
+
+    cidades = data.map(item => Object.keys(item).map(i => item[i]));
+    console.log(cidades);
+
+    for (var cidade in cidades) {
+      var select = document.getElementById('append');
+      var opt = document.createElement('option');
+      //opt.value = cidade;
+      opt.label = cidades[cidade][0]; //nome da cidade
+      opt.innerHTML = cidades[cidade][2]; //id
+      opt.value = cidades[cidade][3]; //tab
+      select.appendChild(opt);
+    }
+  }
+  getCampiSheet(); // invoca a função
+
+  //carrega as informações do campus escolhido
+  window.getCampusData = async function (id, tab) {
+    let url = 'https://opensheet.vercel.app/' + id + '/' + tab;
+    let response = await fetch(url);
+
+    let data = await response.json();
+
+    campus = data.map(item => Object.keys(item).map(i => item[i]));
+    console.log(campus);
+
+    return campus;
+  }
+
+
+
+  window.store = async function (id, tab) {
+    var campus = await getCampusData(id, tab);
+    //console.log(campus);
+
+    sessionStorage.setItem('sobre', campus[0][1]);
+    sessionStorage.setItem('clima', campus[1][1]);
+    sessionStorage.setItem('lazer', campus[2][1]);
+
+    // document.getElementById('city').innerHTML = sessionStorage.getItem('cidade');
+    // document.getElementById('about').innerHTML = sessionStorage.getItem('sobre');
+    // document.getElementById('weather').innerHTML = "Clima: " + sessionStorage.getItem('clima');
+  }
+
+  window.loadInfo = function () {
+    let selected = document.getElementById('append').selectedIndex;
+    let id = document.getElementById('append')[selected].text;//id
+    let tab = document.getElementById('append')[selected].value;//tab
+    
+    sessionStorage.setItem('cidade', document.getElementById('append')[selected].label);
+
+    store(id, tab);
+  }
+
 </script>

@@ -12,7 +12,7 @@ var IsEnabled = {
 
     servicesPage: true,
 
-    rightPanel: true,
+    rightPanel: false,
 
     notificationsPage: true,
 

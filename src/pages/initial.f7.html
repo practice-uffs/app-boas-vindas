@@ -15,11 +15,13 @@
       </div>
 
       <div class="margin">
-        <a href="/" onclick="loadInfo();" class="button button-outline button-round"
-          style="margin-left:20%; width:60%">
+        <a href="/" onclick="loadInfo();" class="button button-outline button-round" style="margin-left:20%; width:60%">
           Acessar</a>
       </div>
 
+      <script>
+        getCampiSheet(); 
+      </script>
     </div>
   </div>
 </template>
@@ -49,7 +51,6 @@
       select.appendChild(opt);
     }
   }
-  getCampiSheet(); // invoca a função
 
   //carrega as informações do campus escolhido
   window.getCampusData = async function (id, tab) {
@@ -71,6 +72,7 @@
     //console.log(campus);
 
     sessionStorage.setItem('sobre', campus[0][1]);
+    sessionStorage.setItem('mapa',  campus[0][2]);
     sessionStorage.setItem('clima', campus[1][1]);
     sessionStorage.setItem('lazer', campus[2][1]);
 
@@ -83,7 +85,7 @@
     let selected = document.getElementById('append').selectedIndex;
     let id = document.getElementById('append')[selected].text;//id
     let tab = document.getElementById('append')[selected].value;//tab
-    
+
     sessionStorage.setItem('cidade', document.getElementById('append')[selected].label);
 
     store(id, tab);

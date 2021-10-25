@@ -20,7 +20,7 @@
       </div>
 
       <script>
-        getCampiSheet(); 
+        getCampiSheet();
       </script>
     </div>
   </div>
@@ -32,6 +32,7 @@
   var cidades = [];
   var campus = [];
 
+ 
   //carrega informações da planilha contendo a planilha dos campi
   window.getCampiSheet = async function () {
     let response = await fetch('https://opensheet.vercel.app/1sN1gbMambszu_ZDA3vEX1hMlB2dgmExyNYMrc3KThNs/Campi');
@@ -44,10 +45,10 @@
     for (var cidade in cidades) {
       var select = document.getElementById('append');
       var opt = document.createElement('option');
-      //opt.value = cidade;
       opt.label = cidades[cidade][0]; //nome da cidade
       opt.innerHTML = cidades[cidade][2]; //id
       opt.value = cidades[cidade][3]; //tab
+
       select.appendChild(opt);
     }
   }
@@ -60,25 +61,34 @@
     let data = await response.json();
 
     campus = data.map(item => Object.keys(item).map(i => item[i]));
-    console.log(campus);
 
     return campus;
   }
 
 
-
+  //um loop que armazena 
   window.store = async function (id, tab) {
+    var categories = [];
     var campus = await getCampusData(id, tab);
-    //console.log(campus);
 
-    sessionStorage.setItem('sobre', campus[0][1]);
-    sessionStorage.setItem('mapa',  campus[0][2]);
-    sessionStorage.setItem('clima', campus[1][1]);
-    sessionStorage.setItem('lazer', campus[2][1]);
+    console.log(campus);
+     
+    //console.log(JSON.parse(campus));
 
-    // document.getElementById('city').innerHTML = sessionStorage.getItem('cidade');
-    // document.getElementById('about').innerHTML = sessionStorage.getItem('sobre');
-    // document.getElementById('weather').innerHTML = "Clima: " + sessionStorage.getItem('clima');
+    sessionStorage.setItem(campus[0][0], campus[0]);
+
+    for (let i = 1; i < campus.length; i++) {
+      if (campus[i][0] == campus[i - 1][0]) {
+        var data = sessionStorage.getItem(campus[i][0]);
+        
+        data = data.concat("|", campus[i]);
+
+        sessionStorage.setItem(campus[i][0], data);
+      }
+      else {
+        sessionStorage.setItem(campus[i][0], campus[i]);
+      }    
+    }
   }
 
   window.loadInfo = function () {

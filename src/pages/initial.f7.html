@@ -30,66 +30,21 @@
   export default {};
 
   var cidades = [];
-  var campus = [];
 
- 
-  //carrega informações da planilha contendo a planilha dos campi
-  window.getCampiSheet = async function () {
-    let response = await fetch('https://opensheet.vercel.app/1sN1gbMambszu_ZDA3vEX1hMlB2dgmExyNYMrc3KThNs/Campi');
 
-    let data = await response.json();
 
-    cidades = data.map(item => Object.keys(item).map(i => item[i]));
-    console.log(cidades);
-
-    for (var cidade in cidades) {
-      var select = document.getElementById('append');
-      var opt = document.createElement('option');
-      opt.label = cidades[cidade][0]; //nome da cidade
-      opt.innerHTML = cidades[cidade][2]; //id
-      opt.value = cidades[cidade][3]; //tab
-
-      select.appendChild(opt);
-    }
-  }
-
-  //carrega as informações do campus escolhido
-  window.getCampusData = async function (id, tab) {
+  //armazena o json carregado do excel no item da sessionStorage 'pages_content'
+  window.store = async function (id, tab) {    
     let url = 'https://opensheet.vercel.app/' + id + '/' + tab;
     let response = await fetch(url);
 
-    let data = await response.json();
+    let campus = await response.json();
 
-    campus = data.map(item => Object.keys(item).map(i => item[i]));
-
-    return campus;
+    //armazena o json como string
+    sessionStorage.setItem('pages_content', JSON.stringify(campus)); 
   }
 
 
-  //um loop que armazena 
-  window.store = async function (id, tab) {
-    var categories = [];
-    var campus = await getCampusData(id, tab);
-
-    console.log(campus);
-     
-    //console.log(JSON.parse(campus));
-
-    sessionStorage.setItem(campus[0][0], campus[0]);
-
-    for (let i = 1; i < campus.length; i++) {
-      if (campus[i][0] == campus[i - 1][0]) {
-        var data = sessionStorage.getItem(campus[i][0]);
-        
-        data = data.concat("|", campus[i]);
-
-        sessionStorage.setItem(campus[i][0], data);
-      }
-      else {
-        sessionStorage.setItem(campus[i][0], campus[i]);
-      }    
-    }
-  }
 
   window.loadInfo = function () {
     let selected = document.getElementById('append').selectedIndex;
@@ -101,4 +56,23 @@
     store(id, tab);
   }
 
+
+  window.getCampiSheet = async function () {
+      let response = await fetch('https://opensheet.vercel.app/1sN1gbMambszu_ZDA3vEX1hMlB2dgmExyNYMrc3KThNs/Campi');
+
+    let data = await response.json();
+
+    cidades = data.map(item => Object.keys(item).map(i => item[i]));
+    // console.log(cidades);
+
+    for (var cidade in cidades) {
+      var select = document.getElementById('append');
+      var opt = document.createElement('option');
+      opt.label = cidades[cidade][0]; //nome da cidade
+      opt.innerHTML = cidades[cidade][2]; //id
+      opt.value = cidades[cidade][3]; //tab
+
+      select.appendChild(opt);
+    }
+  }
 </script>

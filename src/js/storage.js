@@ -589,8 +589,52 @@ const storage = {
 
   removeFcmToken: () => {
     localStorage.removeItem("fcmToken");
-  }
+  },
 
+  fetchContentAboutMorePage: () => {
+    var contentJson = JSON.parse(sessionStorage.getItem('pages_content'));
+
+    var result = contentJson.filter((x)=>x['item do menu'] === "sobre");
+
+    result.forEach(element => {
+
+        switch (element['tipo']) {
+
+          case 'texto':
+            //caso a categoria seja um texto
+            var paragraph = document.createElement("P");
+            paragraph.innerText = element['conteudo'];
+            paragraph.className = "item-text";
+            document.getElementById('about-more').appendChild(paragraph);
+            break;
+
+          case 'mapa':
+            //caso a categoria seja um mapa
+            var iframe = document.createElement("iframe");
+            iframe.setAttribute("src",  element['conteudo']);
+            iframe.style.width = "100%";
+            iframe.style.height = "300px";
+            iframe.style.border = '0';
+            document.getElementById('about-more').appendChild(iframe);
+            break;
+
+          case 'link':
+            var link = document.createElement("a");
+            link.innerText =  element['conteudo'];
+            link.setAttribute("href",  element['extra']);
+            document.getElementById('about-more').appendChild(link);
+  
+            break;
+  
+          default:
+            console.log("a categoria é indefinida");
+            //Instruções executadas quando o valor da expressão é diferente de todos os cases
+            break;
+        }
+
+    });
+
+  }
 };
 
 export { storage };

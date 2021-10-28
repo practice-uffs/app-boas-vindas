@@ -18,6 +18,7 @@ import ChannelsPage from "../pages/channels.f7.html";
 
 import { storage } from "../js/storage.js";
 import IsEnabled from "./isenabled";
+import App from '../js/app.js';
 
 
 
@@ -93,7 +94,7 @@ const aboutPageRoute = function () {
 const initialPageRoute = function () {
   return {
     path: "/initial/",
-    component: InitialPage,
+    component: InitialPage
   };
 };
 
@@ -115,6 +116,9 @@ const aboutMorePageRoute = function () {
   let route = {
     path: '/about-more/',
     component: AboutMorePage,
+    on: {
+      pageInit: storage.fetchContentAboutMorePage, //carrega conteúdo do json pra tela
+    }
   };
 
   if (IsEnabled.aboutMorePage) return route;

@@ -20,9 +20,6 @@ import { storage } from "../js/storage.js";
 import IsEnabled from "./isenabled";
 import App from '../js/app.js';
 
-
-
-
 //routes from template-apps-f7
 
 const homePageRoute = function () {
@@ -117,7 +114,7 @@ const aboutMorePageRoute = function () {
     path: '/about-more/',
     component: AboutMorePage,
     on: {
-      pageInit: storage.fetchContentAboutMorePage, //carrega conteúdo do json pra tela
+      // pageInit: storage.fetchContentAboutMorePage, //carrega conteúdo do json pra tela
     }
   };
 

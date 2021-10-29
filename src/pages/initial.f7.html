@@ -2,6 +2,7 @@
   <div class="page" data-name="initial">
     <div class="display-flex flex-direction-column justify-content-space-evenly" style="height: 100%;">
 
+      {{#if campus}} 
       <div class="item-input-wrap" style="
       display: flex;
       flex-direction: column;
@@ -11,68 +12,60 @@
       font-weight: 700;
       ">
         <label for="append">Escolha o Campus:</label>
-        <select class="item-input-outline" id="append"></select>
+        <select class="item-input-outline" id="cities">
+          {{#each campus}}
+            <option value="{{this.cidade}}">{{this.cidade}}</option>
+          {{/each}} 
+        </select>
       </div>
+      {{/if}}
 
       <div class="margin">
-        <a href="/" onclick="loadInfo();" class="button button-outline button-round" style="margin-left:20%; width:60%">
+        <a href="/" @click="setSelectedCampusLink" class="button button-outline button-round" style="margin-left:20%; width:60%">
           Acessar</a>
       </div>
-
-      <script>
-        getCampiSheet();
-      </script>
     </div>
   </div>
 </template>
 
 <script>
-  export default {};
+  export default {
+    data: function () {
+      return {
+        campus: null,
+      }
+    },
+    methods: {
+      loadData: async function () {
+        var self = this;
+        var app = self.$app;
 
-  var cidades = [];
+        await app.api.getCampus().then(campus => {
+          self.$setState({
+            campus: campus,
+          });
+        });
 
+        for await(let item of this.campus){
+          app.api.getCampusContent(item.planilha).then(data => {
+            app.storage.setCampusContent(item.cidade, data);
+          })
+        }
+      },
+      setSelectedCampusLink: function(){
+        var self = this;
+        var app = self.$app;
 
-
-  //armazena o json carregado do excel no item da sessionStorage 'pages_content'
-  window.store = async function (id, tab) {    
-    let url = 'https://opensheet.vercel.app/' + id + '/' + tab;
-    let response = await fetch(url);
-
-    let campus = await response.json();
-
-    //armazena o json como string
-    sessionStorage.setItem('pages_content', JSON.stringify(campus)); 
-  }
-
-
-
-  window.loadInfo = function () {
-    let selected = document.getElementById('append').selectedIndex;
-    let id = document.getElementById('append')[selected].text;//id
-    let tab = document.getElementById('append')[selected].value;//tab
-
-    sessionStorage.setItem('cidade', document.getElementById('append')[selected].label);
-
-    store(id, tab);
-  }
-
-
-  window.getCampiSheet = async function () {
-      let response = await fetch('https://opensheet.vercel.app/1sN1gbMambszu_ZDA3vEX1hMlB2dgmExyNYMrc3KThNs/Campi');
-
-    let data = await response.json();
-
-    cidades = data.map(item => Object.keys(item).map(i => item[i]));
-    // console.log(cidades);
-
-    for (var cidade in cidades) {
-      var select = document.getElementById('append');
-      var opt = document.createElement('option');
-      opt.label = cidades[cidade][0]; //nome da cidade
-      opt.innerHTML = cidades[cidade][2]; //id
-      opt.value = cidades[cidade][3]; //tab
-
-      select.appendChild(opt);
+        let city = app.$$('#cities')[0].selectedOptions[0].value;
+        let found = self.campus.find(element => element.cidade == city);
+        
+        app.storage.setSelectedCampus(found);
+      }
+    },
+    on: {
+      pageInit: function (e, page) {
+        this.loadData();
+      },
     }
-  }
+  };
 </script>

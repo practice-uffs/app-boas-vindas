@@ -42,13 +42,25 @@
 </template>
 
 <script>
-      export default {
-          mounted: function(){
-              var tooltipInfo = this.$$('.tooltip-info');
-              tooltipInfo.on('contextmenu', function(e){
-                  e.preventDefault();
-            });
-          }
+    export default {
+        data: function () {
+            return {
+                title: null,
+            }
+        },
+        methods: {
+            getTitle: function () {
+                let self = this;
+                var app = self.$app;
+
+                app.content.text("teste");
+            }
+        },
+        on: {
+            tabInit: function (e, page) {
+                this.getTitle();
+            },
+        }
     }
 </script>
 

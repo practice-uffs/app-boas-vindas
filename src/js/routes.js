@@ -15,6 +15,8 @@ import StudentAidPage from "../pages/student-aid.f7.html";
 import LeisurePage from "../pages/leisure.f7.html";
 import GroupsPage from "../pages/groups.f7.html";
 import ChannelsPage from "../pages/channels.f7.html";
+import ContentPage from "../pages/content-page.f7.html";
+
 
 import { storage } from "../js/storage.js";
 import IsEnabled from "./isenabled";
@@ -166,9 +168,12 @@ const channelsPageRoute = function () {
   if (IsEnabled.channelsPage) return route;
 }
 
-
-
-
+const contentPageRoute = function () {
+  return {
+    path: '/content/:name',
+    component: ContentPage,
+  };
+}
 
 var routes = [
   homePageRoute(),
@@ -184,6 +189,7 @@ var routes = [
   leisurePageRoute(),
   groupsPageRoute(),
   channelsPageRoute(),
+  contentPageRoute(),
 
   initialPageRoute(),
   notFoundPageRoute(),

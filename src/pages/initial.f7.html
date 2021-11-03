@@ -14,14 +14,14 @@
         <label for="append">Escolha o Campus:</label>
         <select class="item-input-outline" id="cities">
           {{#each campus}}
-            <option value="{{this.cidade}}">{{this.cidade}}</option>
+            <option value="{{this.aba}}">{{this.cidade}}</option>
           {{/each}} 
         </select>
       </div>
       {{/if}}
 
       <div class="margin">
-        <a href="/" @click="setSelectedCampusLink" class="button button-outline button-round" style="margin-left:20%; width:60%">
+        <a href="#" @click="setSelectedCampusLink" class="button button-outline button-round" style="margin-left:20%; width:60%">
           Acessar</a>
       </div>
     </div>
@@ -48,7 +48,7 @@
 
         for await(let item of this.campus){
           app.api.getCampusContent(item.planilha).then(data => {
-            app.storage.setCampusContent(item.cidade, data);
+            app.storage.setCampusContent(item.aba, data);
           })
         }
       },
@@ -57,9 +57,15 @@
         var app = self.$app;
 
         let city = app.$$('#cities')[0].selectedOptions[0].value;
-        let found = self.campus.find(element => element.cidade == city);
+        let found = self.campus.find(element => element.aba == city);
         
         app.storage.setSelectedCampus(found);
+
+        app.preloader.show();
+        setTimeout(function () {
+          app.preloader.hide();
+          app.views.main.router.navigate('/');
+        }, 500);
       }
     },
     on: {

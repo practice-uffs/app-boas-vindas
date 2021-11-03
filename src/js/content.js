@@ -50,7 +50,7 @@ export class Content{
     async map(data) {
         let item = `<div class="card">
             <div class="card-content card-content-padding">
-                <iframe src="${data.conteudo}" width="100%" height="100%" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+                <iframe src="${data.conteudo}" width="100%" height="100%" style="border:0;" allowfullscreen="true"></iframe>
             </div>
         </div>`;
 

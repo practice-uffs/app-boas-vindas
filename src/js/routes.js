@@ -9,12 +9,6 @@ import NotificationsPage from "../pages/notifications.f7.html";
 import SettingsPage from "../pages/settings.f7.html";
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
-import AboutMorePage from "../pages/about-more.f7.html";
-import LocalClimatePage from "../pages/local-climate.f7.html";
-import StudentAidPage from "../pages/student-aid.f7.html";
-import LeisurePage from "../pages/leisure.f7.html";
-import GroupsPage from "../pages/groups.f7.html";
-import ChannelsPage from "../pages/channels.f7.html";
 import ContentPage from "../pages/content-page.f7.html";
 
 
@@ -105,69 +99,7 @@ const notFoundPageRoute = function () {
   };
 };
 
-
-
-
-
 //new routes
-
-const aboutMorePageRoute = function () {
-  let route = {
-    path: '/about-more/',
-    component: AboutMorePage,
-    on: {
-      // pageInit: storage.fetchContentAboutMorePage, //carrega conteúdo do json pra tela
-    }
-  };
-
-  if (IsEnabled.aboutMorePage) return route;
-}
-
-const localClimatePageRoute = function () {
-  let route = {
-    path: '/local-climate/',
-    component: LocalClimatePage,
-  };
-
-  if (IsEnabled.localClimatePage) return route;
-}
-
-const studentAidPageRoute = function () {
-  let route = {
-    path: '/student-aid/',
-    component: StudentAidPage,
-  };
-
-  if (IsEnabled.studentAidPage) return route;
-}
-
-const leisurePageRoute = function () {
-  let route = {
-    path: '/leisure/',
-    component: LeisurePage,
-  };
-
-  if (IsEnabled.leisurePage) return route;
-}
-
-const groupsPageRoute = function () {
-  let route = {
-    path: '/groups/',
-    component: GroupsPage,
-  };
-
-  if (IsEnabled.groupsPage) return route;
-}
-
-const channelsPageRoute = function () {
-  let route = {
-    path: '/channels/',
-    component: ChannelsPage,
-  };
-
-  if (IsEnabled.channelsPage) return route;
-}
-
 const contentPageRoute = function () {
   return {
     path: '/content/:name',
@@ -183,12 +115,6 @@ var routes = [
   aboutPageRoute(),
   
   //new routes
-  aboutMorePageRoute(),
-  localClimatePageRoute(),
-  studentAidPageRoute(),
-  leisurePageRoute(),
-  groupsPageRoute(),
-  channelsPageRoute(),
   contentPageRoute(),
 
   initialPageRoute(),

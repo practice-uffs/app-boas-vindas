@@ -62,7 +62,7 @@
                 var app = self.$app;
 
                 let campus = await app.storage.getSelectedCampus();
-                campus = campus.cidade;
+                campus = campus.aba;
                 await app.storage.getCampusContent(campus).then(content => {
                     app.content.filter(name, content).then(data => {
                         self.$setState({

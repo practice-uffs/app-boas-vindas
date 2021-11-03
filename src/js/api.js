@@ -6,10 +6,12 @@ export class Api{
     }
 
     async getCampus() {
+        console.log((await fetch(this.url)).json());
         return await (await fetch(this.url)).json();
     }
 
     async getCampusContent(url) {
+        console.log((await fetch(url)).json());
         return await (await fetch(url)).json();
     }
 }

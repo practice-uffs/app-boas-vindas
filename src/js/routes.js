@@ -2,7 +2,7 @@ import InitialPage from "../pages/initial.f7.html";
 import HomePage from "../pages/home.f7.html";
 import RightPanelPage from "../pages/right-panel.f7.html";
 
-import ServicesPage from "../pages/services.f7.html";
+import MenuPage from "../pages/menu.f7.html";
 
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
@@ -21,8 +21,8 @@ const homePageRoute = function () {
 
   tabs.push({
     path: "/",
-    id: "services",
-    component: ServicesPage,
+    id: "menu",
+    component: MenuPage,
   });
 
   route.tabs = tabs;

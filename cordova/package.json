@@ -14,6 +14,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-ios": "^5.1.1",
+    "cordova-plugin-android-permissions": "^1.1.2",
     "cordova-plugin-keyboard": "^1.2.0",
     "cordova-plugin-splashscreen": "^5.0.4",
     "cordova-plugin-statusbar": "^2.4.3",
@@ -41,8 +42,7 @@
       "cordova-plugin-device": {}
     },
     "platforms": [
-      "ios",
-      "android"
+      "ios"
     ]
   },
   "devDependencies": {

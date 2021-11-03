@@ -14,32 +14,11 @@
         </div>
       </div>
     </div>
-    
-    
-    <!-- Tabs toolbar -->
-    {{#if isEnabled.bottomNavigationBar}}
-
-    <div class="toolbar tabbar toolbar-bottom">
-      <div class="toolbar-inner">
-        {{#if isEnabled.servicesPage}}
-          <a href="/" class="tab-link" data-route-tab-id="services"><i class="f7-icons">app</i></a>
-        {{/if}}
-        {{#if isEnabled.envPage}}
-          <a href="/env/" class="tab-link" data-route-tab-id="env"><i class="f7-icons">book</i></a>
-        {{/if}}
-      </div>
-    </div>
-    {{/if}}
 
     <!-- Tabs content -->
     <div class="tabs-animated-wrap">
       <div class="tabs tabs-routable">
-        {{#if isEnabled.servicesPage}}
-          <div class="page-content tab" id="services"></div>
-        {{/if}}
-        {{#if isEnabled.envPage}}
-          <div class="page-content tab" id="env"></div>
-        {{/if}}
+          <div class="page-content tab" id="menu"></div>
       </div>
     </div>
   </div>

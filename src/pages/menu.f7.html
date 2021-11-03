@@ -1,82 +1,80 @@
 <template>
-  <div data-name="services">
-    <div class="tab tab-active" id="tab-1">
-
+  <div data-name="menu">
+    <div class="page">
       <!-- Conteúdo da página -->
       <div class="page-content">
-        <div class="menu-grid">
+        <div class="block-title block-title-medium">Campus {{title}}</div>
 
-          <a href="/about-more/" class="menu-grid__item">
+        <div class="menu-grid">
+          <a href="/content/sobre" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/school.png" class="menu-grid__icon">
               <div class="item-title">Sobre o Campus</div>
             </div>
           </a>
-
-          <a href="/local-climate/" class="menu-grid__item" onclick="loadData('clima');">
+  
+          <a href="/content/clima" class="menu-grid__item" onclick="loadData('clima');">
             <div class="item-inner">
               <img src="static/images/stormy.png" class="menu-grid__icon">
               <div class="item-title">Clima Local</div>
             </div>
           </a>
-
-          <a href="/student-aid/" class="menu-grid__item">
+  
+          <a href="/content/auxilio" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/scholarship.png" class="menu-grid__icon">
               <div class="item-title">Auxílio Estudantil</div>
             </div>
           </a>
-
+  
           <a href="/groups/" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/group-chat.png" class="menu-grid__icon">
               <div class="item-title">Grupos e projetos</div>
             </div>
           </a>
-
+  
           <a href="/channels/" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/channel.png" class="menu-grid__icon">
               <div class="item-title">Canais UFFS</div>
             </div>
           </a>
-
-          <a href="/leisure/" class="menu-grid__item">
+  
+          <a href="/content/lazer" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/park.png" class="menu-grid__icon">
               <div class="item-title">Lazer</div>
             </div>
           </a>
-
+  
           <a href="/contact/" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/talking.png" class="menu-grid__icon">
               <div class="item-title">Dicionário local do sul</div>
             </div>
           </a>
-
+  
           <a href="/contact/" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/map.png" class="menu-grid__icon">
               <div class="item-title">Locomoção</div>
             </div>
           </a>
-
+  
           <a href="/library/" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/library.png" class="menu-grid__icon">
               <div class="item-title">Biblioteca</div>
             </div>
           </a>
-
+  
           <a href="/help/" class="menu-grid__item">
             <div class="item-inner">
               <img src="static/images/support.png" class="menu-grid__icon">
               <div class="item-title">Ajuda</div>
             </div>
           </a>
-
-
         </div>
       </div>
     </div>
@@ -84,61 +82,28 @@
 </template>
 
 <script>
-  export default {};
-
-  //função utilitária, creio que não está sendo usada
-  window.splitString = function (stringToSplit, separator) {
-    var arrayOfStrings = stringToSplit.split(separator);
-  }
-
-
-  window.loadData = function (itemMenu) {
-    //console.log(itemMenu);
-    let string = sessionStorage.getItem(itemMenu);
-    //console.log(string);
-
-    var item = string.split('|'); //Separa todos os dados da session storage / item == vetor com strings
-    //console.log('vetor ITEM: ' + item[0]);
-
-    for (let campo in item) {
-      var dadoItem = item[campo].split(','); //Separa todos os dados do vetor item
-      switch (dadoItem[1]) {
-        case 'texto':
-          //caso a categoria seja um texto
-
-          var paragraph = document.createElement("P");
-          paragraph.innerText = dadoItem[2];
-          paragraph.className = "item-text";
-          document.getElementById('page-content-filler').appendChild(paragraph);
-
-          break;
-
-        case 'mapa':
-          //caso a categoria seja um mapa
-
-          var iframe = document.createElement("iframe");
-          iframe.setAttribute("src", dadoItem[2]);
-          iframe.style.width = "100%";
-          iframe.style.height = "300px";
-          iframe.style.border = '0';
-          document.getElementById('page-content-filler').appendChild(iframe);
-
-          break;
-
-        case 'link':
-          var link = document.createElement("a");
-          link.innerText = dadoItem[2];
-          link.setAttribute("href", dadoItem[3]);
-          document.getElementById('page-content-filler').appendChild(link);
-
-          break;
-
-        default:
-          console.log("a categoria é indefinida");
-          //Instruções executadas quando o valor da expressão é diferente de todos os cases
-          break;
+  export default {
+    data: function () {
+      return {
+        title: null,
       }
+    },
+    methods: {
+      getTitle: function() {
+        let self = this;
+        var app = self.$app;
+
+        app.storage.getSelectedCampus().then(data => {
+          self.$setState({
+            title: data.cidade,
+          });
+        })
+      }
+    },
+    on: {
+      tabInit: function (e, page) {
+        this.getTitle();
+      },
     }
   }
-
 </script>

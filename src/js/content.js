@@ -5,17 +5,18 @@ export class Content{
     }
 
     async filter(page, contents) {
+
         var data = [];
         for (let content of contents) {
-            if (content.item_menu == page) {
-                data.push(content);
+            if (content.aba == page) {
+                data.push(content.data);
             }
         }
-
         return data;
     }
 
     async contentsTreatment(contents) {
+
         var treatedContent = [];
         for await(let content of contents) {
             switch (content.tipo) {

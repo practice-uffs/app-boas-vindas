@@ -64,7 +64,6 @@
                 let campus = await app.storage.getSelectedCampus();
                 // let campusContent = await app.storage.getCampusContent(campus.id);
                 
-
                 await app.storage.getPageContent(name).then(content => {
                     self.$setState({
                         filterData: content,

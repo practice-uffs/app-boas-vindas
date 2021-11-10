@@ -14,7 +14,7 @@
         <label for="append">Escolha o Campus:</label>
         <select class="item-input-outline" id="cities">
           {{#each campus}}
-            <option value="{{this.aba}}">{{this.cidade}}</option>
+            <option value="{{this.id}}">{{this.cidade}}</option>
           {{/each}} 
         </select>
       </div>
@@ -33,13 +33,15 @@
     data: function () {
       return {
         campus: null,
+        abas:  ['sobre', 'clima', 'auxilio'],
+        campus_content : [],
       }
     },
     methods: {
       loadData: async function () {
         var self = this;
         var app = self.$app;
-
+      
         await app.api.getCampus().then(campus => {
           self.$setState({
             campus: campus,
@@ -47,26 +49,41 @@
         });
 
         for await(let item of this.campus){
-          app.api.getCampusContent(item.planilha).then(data => {
-            app.storage.setCampusContent(item.aba, data);
-          })
+          for await(let aba of this.abas){
+            app.api.getCampusContent('https://opensheet.vercel.app/'+item.id+'/'+aba).then(data => {
+              if(data)
+                this.campus_content.push([item.id, aba, data]);
+            });
+          }
         }
+
+     
+
       },
       setSelectedCampusLink: function(){
         var self = this;
         var app = self.$app;
 
         let city = app.$$('#cities')[0].selectedOptions[0].value;
-        let found = self.campus.find(element => element.aba == city);
+        let found = self.campus.find(element => element.id == city);
         
         app.storage.setSelectedCampus(found);
+
+        var filtered_content = (self.campus_content);
+
+        for (let item of filtered_content) {
+          if(item[0] == found.id){
+            app.storage.setPageContent(item[1], item[2]);
+          }
+        }
 
         app.preloader.show();
         setTimeout(function () {
           app.preloader.hide();
           app.views.main.router.navigate('/');
         }, 500);
-      }
+      },
+
     },
     on: {
       pageInit: function (e, page) {

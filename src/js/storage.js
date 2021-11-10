@@ -13,12 +13,11 @@ export class Storage{
 		return JSON.parse(campus);
 	}
 
-	async setCampusContent(campus, content) {
-		localStorage[campus] = JSON.stringify(content);
+	async setPageContent(id, content) {
+		localStorage.setItem(id, JSON.stringify(content));
 	}
 
-	async getCampusContent(campus) {
-		let content = localStorage.getItem(campus);
-		return JSON.parse(content);
+	async getPageContent(page) {
+		return JSON.parse(localStorage.getItem(page));
 	}
 }

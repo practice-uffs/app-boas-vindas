@@ -62,13 +62,12 @@
                 var app = self.$app;
 
                 let campus = await app.storage.getSelectedCampus();
-                campus = campus.aba;
-                await app.storage.getCampusContent(campus).then(content => {
-                    app.content.filter(name, content).then(data => {
-                        self.$setState({
-                            filterData: data,
-                        });
-                    })
+                // let campusContent = await app.storage.getCampusContent(campus.id);
+                
+                await app.storage.getPageContent(name).then(content => {
+                    self.$setState({
+                        filterData: content,
+                    });
                 })
             },
             handleData: async function () {

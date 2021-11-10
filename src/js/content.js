@@ -1,23 +1,24 @@
-export class Content{
+export class Content {
     constructor(app) {
         this.app = app;
         this.app.content = this;
     }
 
     async filter(page, contents) {
+
         var data = [];
         for (let content of contents) {
-            if (content.item_menu == page) {
-                data.push(content);
+            if (content.aba == page) {
+                data.push(content.data);
             }
         }
-
         return data;
     }
 
     async contentsTreatment(contents) {
+
         var treatedContent = [];
-        for await(let content of contents) {
+        for await (let content of contents) {
             switch (content.tipo) {
                 case "texto":
                     treatedContent.push(await this.text(content));
@@ -27,6 +28,18 @@ export class Content{
                     break;
                 case "link":
                     treatedContent.push(await this.link(content));
+                    break;
+                case "video":
+                    treatedContent.push(await this.video(content));
+                    break;
+                case "telefone":
+                    treatedContent.push(await this.telefone(content));
+                    break;
+                case "email":
+                    treatedContent.push(await this.email(content));
+                    break;
+                case "imagem":
+                    treatedContent.push(await this.imagem(content));
                     break;
                 default:
                     treatedContent.push(content.conteudo);
@@ -50,7 +63,7 @@ export class Content{
     async map(data) {
         let item = `<div class="card">
             <div class="card-content card-content-padding">
-                <iframe src="${data.conteudo}" width="100%" height="100%" style="border:0;" allowfullscreen="true"></iframe>
+                <iframe src="${data.conteudo}" width="100%" height="100%" style="border:0; aspect-ratio: 1;" allowfullscreen="true"></iframe>
             </div>
         </div>`;
 
@@ -60,7 +73,48 @@ export class Content{
     async link(data) {
         let item = `<div class="card">
             <div class="card-content card-content-padding">
-                <a href="${data.extra}">${data.conteudo}</a>
+                <a href="${data.conteudo}">${data.extra}</a>
+            </div>
+        </div>`;
+
+        return item;
+    }
+    async video(data) {
+        let item = `<div class="card">
+            <div class="card-content card-content-padding">
+                <p><strong>${data.extra}</strong></p>
+                <iframe frameborder="0" src="${data.conteudo}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%; min-height: 250px;"></iframe>
+            </div>
+        </div>`;
+
+        return item;
+    }
+
+    async telefone(data) {
+        let item = `<div class="card">
+            <div class="card-content card-content-padding">
+                <a href="${data.conteudo}">${data.conteudo}</a>
+            </div>
+        </div>`;
+
+        return item;
+    }
+
+    async email(data) {
+        let item = `<div class="card">
+            <div class="card-content card-content-padding">
+                <a href="mailto:${data.conteudo}">${data.conteudo}</a>
+            </div>
+        </div>`;
+
+        return item;
+    }
+ 
+    async imagem(data) {
+        let item = `<div class="card">
+            <div class="card-content card-content-padding">
+                <img src="${data.conteudo}" alt="Imagem" width="100%">
+                <p><em>${data.extra}</em></p>
             </div>
         </div>`;
 

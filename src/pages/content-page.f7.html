@@ -14,7 +14,7 @@
         </div>
         <div class="page-content">
             {{#each content}}
-                {{this}}
+            {{this}}
             {{/each}}
         </div>
     </div>
@@ -25,16 +25,16 @@
         data: function () {
             return {
                 title: null,
-                content : [],
+                content: [],
                 filterData: null,
             }
         },
         methods: {
-            setTitle: async function(name) {
+            setTitle: async function (name) {
                 var self = this;
                 var app = self.$app;
 
-                switch(name){
+                switch (name) {
                     case "sobre":
                         self.$setState({
                             title: "Sobre o Campus",
@@ -45,14 +45,44 @@
                             title: "Clima Local",
                         });
                         break;
+                    case "auxilio":
+                        self.$setState({
+                            title: "Auxílio Estudantil",
+                        });
+                        break;
+                    case "projetos":
+                        self.$setState({
+                            title: "Grupos e Projetos",
+                        });
+                        break;
                     case "lazer":
                         self.$setState({
                             title: "Lazer",
                         });
                         break;
-                    case "auxilio":
+                    case "canais":
                         self.$setState({
-                            title: "Auxílio Estudantil",
+                            title: "Canais UFFS",
+                        });
+                        break;
+                    case "dicionario":
+                        self.$setState({
+                            title: "Dicionário Sulista",
+                        });
+                        break;
+                    case "locomocao":
+                        self.$setState({
+                            title: "Locomoção",
+                        });
+                        break;
+                    case "biblioteca":
+                        self.$setState({
+                            title: "Biblioteca",
+                        });
+                        break;
+                    case "ajuda":
+                        self.$setState({
+                            title: "Ajuda",
                         });
                         break;
                 }
@@ -63,7 +93,7 @@
 
                 let campus = await app.storage.getSelectedCampus();
                 // let campusContent = await app.storage.getCampusContent(campus.id);
-                
+
                 await app.storage.getPageContent(name).then(content => {
                     self.$setState({
                         filterData: content,
@@ -78,7 +108,7 @@
                     self.$setState({
                         content: newData,
                     });
-                });                
+                });
             }
         },
         on: {

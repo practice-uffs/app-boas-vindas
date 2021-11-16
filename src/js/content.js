@@ -109,8 +109,17 @@ export class Content {
 
         return item;
     }
- 
+
     async imagem(data) {
+        let url = data.conteudo;
+        let found = url.match(/d\/([A-Za-z0-9\-]+)/);
+
+        if (found) {
+            let new_url = 'https://drive.google.com/uc?export=view&id=' + found[1];
+            console.log(new_url)
+            data.conteudo = new_url;
+        };
+
         let item = `<div class="card">
             <div class="card-content card-content-padding">
                 <img src="${data.conteudo}" alt="Imagem" width="100%">

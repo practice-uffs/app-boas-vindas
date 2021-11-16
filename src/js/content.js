@@ -41,6 +41,12 @@ export class Content {
                 case "imagem":
                     treatedContent.push(await this.imagem(content));
                     break;
+                case undefined:
+                    treatedContent.push(await this.breakline(content));
+                    break;
+                case 'breakscreen':
+                    treatedContent.push(await this.breakscreen(content));
+                    break;
                 default:
                     treatedContent.push(content.conteudo);
                     break;
@@ -51,61 +57,36 @@ export class Content {
     }
 
     async text(data) {
-        let item = `<div class="card">
-            <div class="card-content card-content-padding">
-                ${data.conteudo}
-            </div>
-        </div>`;
+        let item = `<span>${data.conteudo}</span>`;
 
         return item;
     }
 
     async map(data) {
-        let item = `<div class="card">
-            <div class="card-content card-content-padding">
-                <iframe src="${data.conteudo}" width="100%" height="100%" style="border:0; aspect-ratio: 1;" allowfullscreen="true"></iframe>
-            </div>
-        </div>`;
+        let item = `<iframe src="${data.conteudo}" width="100%" height="100%" style="border:0; aspect-ratio: 1;" allowfullscreen="true"></iframe>`;
 
         return item;
     }
 
     async link(data) {
-        let item = `<div class="card">
-            <div class="card-content card-content-padding">
-                <a href="${data.conteudo}">${data.extra}</a>
-            </div>
-        </div>`;
+        let item = `<a href="${data.conteudo}">${data.extra}</a>`;
 
         return item;
     }
     async video(data) {
-        let item = `<div class="card">
-            <div class="card-content card-content-padding">
-                <p><strong>${data.extra}</strong></p>
-                <iframe frameborder="0" src="${data.conteudo}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%; min-height: 250px;"></iframe>
-            </div>
-        </div>`;
+        let item = `<p><strong>${data.extra}</strong></p><iframe frameborder="0" src="${data.conteudo}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%; min-height: 250px;"></iframe>`;
 
         return item;
     }
 
     async telefone(data) {
-        let item = `<div class="card">
-            <div class="card-content card-content-padding">
-                <a href="${data.conteudo}">${data.conteudo}</a>
-            </div>
-        </div>`;
+        let item = `<a href="${data.conteudo}">${data.conteudo}</a>`;
 
         return item;
     }
 
     async email(data) {
-        let item = `<div class="card">
-            <div class="card-content card-content-padding">
-                <a href="mailto:${data.conteudo}">${data.conteudo}</a>
-            </div>
-        </div>`;
+        let item = `<a href="mailto:${data.conteudo}">${data.conteudo}</a>`;
 
         return item;
     }
@@ -120,13 +101,22 @@ export class Content {
             data.conteudo = new_url;
         };
 
-        let item = `<div class="card">
-            <div class="card-content card-content-padding">
-                <img src="${data.conteudo}" alt="Imagem" width="100%">
-                <p><em>${data.extra}</em></p>
-            </div>
-        </div>`;
+        let item = `<img src="${data.conteudo}" alt="Imagem" width="100%"><p><em>${data.extra}</em></p>`;
 
         return item;
     }
+
+    async breakline(data){
+        let item = `<br>`;
+
+        return item;
+    }
+
+    async breakscreen(data){
+        let item = `</div></div><div class="card"><div class="card-content card-content-padding">`;
+
+        return item;
+    }
+
+
 }

@@ -6,11 +6,9 @@ export class Content {
 
     async contentsTreatment(contents) {
 
-        var treatedContent = [];
-        var openCard = false;
+        var treatedContent = [`<div class="card"><div class="card-content card-content-padding">`];
         for await (let content of contents) {
 
-           
 
             switch (content.tipo) {
                 case "texto":
@@ -20,35 +18,16 @@ export class Content {
                     treatedContent.push(await this.map(content));
                     break;
                 case "link":
-                    if(openCard){
-                        treatedContent.push(await this.closeCard());
-                    }
-                    treatedContent.push(await this.openCard());
                     treatedContent.push(await this.link(content));
-                    treatedContent.push(await this.closeCard());
-                    openCard = false;
-
                     break;
                 case "video":
                     treatedContent.push(await this.video(content));
                     break;
                 case "telefone":
-                    if(openCard){
-                        treatedContent.push(await this.closeCard());
-                    }
-                    treatedContent.push(await this.openCard());
                     treatedContent.push(await this.telefone(content));
-                    treatedContent.push(await this.closeCard());
-                    openCard = false;
                     break;
                 case "email":
-                    if(openCard){
-                        treatedContent.push(await this.closeCard());
-                    }
-                    treatedContent.push(await this.openCard());
                     treatedContent.push(await this.email(content));
-                    treatedContent.push(await this.closeCard());
-                    openCard = false;
                     break;
                 case "imagem":
                     treatedContent.push(await this.imagem(content));
@@ -56,15 +35,8 @@ export class Content {
                 case undefined:
                     treatedContent.push(await this.breakline(content));
                     break;
-                case "swiper":
-                    treatedContent.push(await this.swiper(content));
-                    break;
-                case 'novo bloco':
-                    if(openCard){
-                        treatedContent.push(await this.closeCard());
-                    }
-                    treatedContent.push(await this.openCard(content));
-                    openCard = true;
+                case "novo bloco":
+                    treatedContent.push(await this.newCard(content));
                     break;
                 default:
                     treatedContent.push(content.conteudo);
@@ -77,7 +49,7 @@ export class Content {
 
     async text(data) {
         let item = '';
-        switch(data.estilo){
+        switch (data.estilo) {
             case "grande":
                 item = `<div class="custom-text-large">${data.conteudo}</div>`;
                 break;
@@ -90,13 +62,13 @@ export class Content {
             case undefined:
                 item = `<div>${data.conteudo}</div>`;
         }
-        
+
         return item;
     }
 
     async map(data) {
         let item = '';
-        switch(data.estilo){
+        switch (data.estilo) {
             case "grande":
                 item = `<iframe class="custom-map-large" src="${data.conteudo}" width="100%" height="100%" style="border:0; aspect-ratio: 1;" allowfullscreen="true"></iframe>`;
                 break;
@@ -113,32 +85,16 @@ export class Content {
     }
 
 
-
-    async breakline(data){
+    async breakline(data) {
         let item = `<br>`;
-
         return item;
     }
 
-    async breakscreen(data){
+    async newCard(data) {
         let item = `</div></div><div class="card"><div class="card-content card-content-padding">`;
 
         return item;
     }
-
-
-    async openCard(data){
-        let item = `<div class="card"><div class="card-content card-content-padding">`;
-
-        return item;
-    }
-
-    async closeCard(){
-        let item = `</div></div>`;
-
-        return item;
-    }
-
 
 
     async link(data) {
@@ -150,9 +106,11 @@ export class Content {
 
         let item = `
             <div style='display: flex; align-items: center; justify-content: space-between; width:100%;'>
-                <div class="item-media"><i class="f7-icons">globe</i></div>
-                <p style='text-align: center;'>${data.extra}</p>
-                <a href="${data.conteudo}" class="external" target="_blank">Acessar</a>
+                <div class="item-media" style="padding-right: 8px;"><i class="f7-icons">globe</i></div>
+                <div  style='display: flex; align-items: center; justify-content: space-between; width:100%;'>
+                    <p style='text-align: center;'>${data.extra}</p>
+                    <a href="${data.conteudo}" class="external" target="_blank">Acessar</a>
+                </div>
             </div>`;
 
         return item;
@@ -226,31 +184,21 @@ export class Content {
         }
 
 
-        switch(data.estilo){
+        switch (data.estilo) {
             case "grande":
-                item = `<img class="custom-image-large" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>'+data.extra+'</em></p>' : '')}`;
+                item = `<img class="custom-image-large" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
                 break;
             case "médio":
-                item = `<img class="custom-image-medium" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>'+data.extra+'</em></p>' : '')}`;
+                item = `<img class="custom-image-medium" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
                 break;
             case "pequeno":
-                item = `<img class="custom-image-small" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>'+data.extra+'</em></p>' : '')}`;
+                item = `<img class="custom-image-small" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
                 break;
             case undefined:
-                item = `<img src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>'+data.extra+'</em></p>' : '')}`;
+                item = `<img src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
                 break;
         }
         return item;
     }
-
-
-
-
-
-
-
-
-
-    
 
 }

@@ -18,16 +18,16 @@ export class Content {
                     treatedContent.push(await this.map(content));
                     break;
                 case "link":
-                    treatedContent.push(await this.link(content));
+                    treatedContent.push(await this.littleCard(content));
                     break;
                 case "video":
                     treatedContent.push(await this.video(content));
                     break;
                 case "telefone":
-                    treatedContent.push(await this.telefone(content));
+                    treatedContent.push(await this.littleCard(content));
                     break;
                 case "email":
-                    treatedContent.push(await this.email(content));
+                    treatedContent.push(await this.littleCard(content));
                     break;
                 case "imagem":
                     treatedContent.push(await this.imagem(content));
@@ -96,26 +96,6 @@ export class Content {
         return item;
     }
 
-
-    async link(data) {
-        let site = data.extra;
-
-        if (site == undefined) {
-            data.extra = 'Link';
-        };
-
-        let item = `
-            <div style='display: flex; align-items: center; justify-content: space-between; width:100%;'>
-                <div class="item-media" style="padding-right: 8px;"><i class="f7-icons">globe</i></div>
-                <div  style='display: flex; align-items: center; justify-content: space-between; width:100%;'>
-                    <p style='text-align: center;'>${data.extra}</p>
-                    <a href="${data.conteudo}" class="external" target="_blank">Acessar</a>
-                </div>
-            </div>`;
-
-        return item;
-    }
-
     async video(data) {
         if (data.extra == undefined) {
             data.extra = ' ';
@@ -141,33 +121,19 @@ export class Content {
         return item;
     }
 
-    async telefone(data) {
+    async littleCard(data){
         if (data.extra == undefined) {
-            data.extra = 'Telefone';
-        };
-
-        let item = `<div  style='display: flex; align-items: center; justify-content: space-between; width:100%;'>
-                <div class="item-media"><i class="f7-icons">phone</i></div>
-                <p style='max-width: 40%; text-align: center;'>${data.extra}</p>
-                <a class="external" href="tel:+${data.conteudo}">${data.conteudo}</a>
-            </div>`;
-
-        return item;
-    }
-
-    async email(data) {
-        if (data.extra == undefined) {
-            data.extra = 'Email';
-        };
-
-        let item = `<div style='display: flex; align-items: center; justify-content: space-between; width:100%;'>
-                        <div class="item-media"><i class="f7-icons">rectangle_paperclip</i></div>
-                        <p style='max-width: 40%; text-align: center;'>${data.extra}</p>
-                        <a class="external" href="mailto:${data.conteudo}">${data.conteudo}</a>
-                    </div>`;
-
-        return item;
-    }
+            data.extra = data.tipo == "email" ? "E-mail" : (data.tipo == "telefone" ? "Telefone" : undefined);
+        }
+        
+        return `<div style='display: flex; align-items: center; justify-content: space-between; width:100%; margin: 7px 0 7px 0'>
+                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">${data.tipo == "email" ? "rectangle_paperclip" : (data.tipo == "telefone" ? "phone" : "globe")}</i></div>
+                    <div style='display: flex; align-items: center; justify-content: ${data.extra == undefined ? "flex-end" : "space-between"}; width:100%;'>
+                        ${data.extra == undefined ? "" : "<p style='max-width: 50%; text-align: center;'>" + data.extra.substr(0, 25) + "</p>"}
+                        <a class="external" href="${data.tipo == "email" ? "mailto:" : (data.tipo == "telefone" ? "tel:+" : "")}${data.conteudo}">${data.extra != undefined ? "Acessar" : data.conteudo.substr(0, 50)}</a>
+                    </div>
+                </div>`;    
+    } 
 
     async imagem(data) {
         let url = data.conteudo;
@@ -182,7 +148,6 @@ export class Content {
         if (data.extra == undefined) {
             data.extra = ' ';
         }
-
 
         switch (data.estilo) {
             case "grande":

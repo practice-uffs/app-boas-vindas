@@ -323,7 +323,6 @@ a.link {
   width: 100%;
 }
 
-
 .custom-text-small{
   font-size: 2vw;
   line-height: 2.2vw;
@@ -338,25 +337,9 @@ a.link {
   width: 60%;
 }
 
-
 .custom-image-small{
   width:30%;
 }
-
-
-.custom-map-large{
-  width:100%;
-}
-
-.custom-map-medium{
-  width: 60%;
-}
-
-
-.custom-map-small{
-  width:30%;
-}
-
 
 .width-100{
   width:100%;
@@ -364,14 +347,17 @@ a.link {
 
 .custom-video-small{
   height:150px;
+  padding: 12px 0 12px 0;
 }
 
 .custom-video-medium{
   height: 200px;
+  padding: 12px 0 12px 0;
 }
 
 .custom-video-large{
   aspect-ratio: 1;
+  padding: 12px 0 12px 0;
 }
 
 .card-content{

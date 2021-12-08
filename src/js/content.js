@@ -109,8 +109,6 @@ export class Content {
     }
 
     async video(data) {
-        let custom_class = '';
-
         function getId(url) {
             var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             var match = url.match(regExp);
@@ -120,15 +118,9 @@ export class Content {
         }
 
         var videoId = getId(data.conteudo);
-
-        switch (data.estilo) {
-            case "pequeno": custom_class = `custom-video-small`;  break;
-            case "médio":   custom_class = `custom-video-medium`; break;
-            default: custom_class = `custom-video-large`;  break;
-        }
-
+        
         let item = `${data.extra == undefined ? '' : '<h3><strong>$'+ data.extra+ '</strong></h3>' } + 
-        '<iframe class="width-100 ${custom_class}" frameborder="0" src="//www.youtube.com/embed/${videoId}"></iframe>`;
+        '<iframe class="width-100 ${style_video_image(data)}" frameborder="0" src="//www.youtube.com/embed/${videoId}"></iframe>`;
 
         return item;
     }

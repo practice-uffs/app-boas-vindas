@@ -96,6 +96,18 @@ export class Content {
         return item;
     }
 
+    async style_video_image(data) {
+        switch (data.estilo) {
+            case "pequeno": 
+                return data.tipo == 'imagem' ? 'custom-image-small' : 'custom-video-small';  
+            case "médio":   
+                return data.tipo == 'imagem' ? 'custom-image-medium' : `custom-video-medium`; 
+            default: 
+                return data.tipo == 'imagem' ? 'custom-image-large' : `custom-video-large`;  
+        }
+
+    }
+
     async video(data) {
         let custom_class = '';
 
@@ -110,15 +122,9 @@ export class Content {
         var videoId = getId(data.conteudo);
 
         switch (data.estilo) {
-            case "pequeno":
-                custom_class = `custom-video-small`;
-                break;
-            case "médio":
-                custom_class = `custom-video-medium`;
-                break;
-            case undefined:
-                custom_class = `custom-video-large`;
-                break;
+            case "pequeno": custom_class = `custom-video-small`;  break;
+            case "médio":   custom_class = `custom-video-medium`; break;
+            default: custom_class = `custom-video-large`;  break;
         }
 
         let item = `${data.extra == undefined ? '' : '<h3><strong>$'+ data.extra+ '</strong></h3>' } + 
@@ -144,33 +150,14 @@ export class Content {
     async imagem(data) {
         let url = data.conteudo;
         let found = url.match(/d\/([A-Za-z0-9\-_]+)/);
-        let custom_class = '';
 
         if (found) {
             let new_url = 'https://drive.google.com/uc?export=view&id=' + found[1];
             console.log(new_url)
             data.conteudo = new_url;
         };
-        if (data.extra == undefined) {
-            data.extra = ' ';
-        }
 
-        switch (data.estilo) {
-            case "grande":
-                custom_class = `class="custom-image-large"`;
-                break;
-            case "médio":
-                custom_class = `class="custom-image-medium"`;
-                break;
-            case "pequeno":
-                custom_class = `class="custom-image-small"`;
-                break;
-            case undefined:
-                custom_class = ``;
-                break;
-        }
-
-        let item = `<img ${custom_class} src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
+        let item = `<img class="${style_video_image(data)}" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
         return item;
     }
 

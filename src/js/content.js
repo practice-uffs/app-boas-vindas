@@ -97,6 +97,8 @@ export class Content {
     }
 
     async video(data) {
+        let custom_class = '';
+
         if (data.extra == undefined) {
             data.extra = ' ';
         }
@@ -114,9 +116,21 @@ export class Content {
 
         var videoId = getId(data.conteudo);
 
-        let item = `
-                <p><strong>${data.extra}</strong></p>
-                <iframe frameborder="0" src="//www.youtube.com/embed/${videoId}" style="width: 100%; min-height: 250px;"></iframe>`;
+
+        switch (data.estilo) {
+            case "pequeno":
+                custom_class = `custom-image-small`;
+                break;
+            case "médio":
+                custom_class = `custom-image-medium`;
+                break;
+            case undefined:
+                custom_class = `custom-image-large`;
+                break;
+        }
+
+        let item = `<p><strong>${data.extra}</strong></p>
+                    <iframe class="${custom_class}" frameborder="0" style="aspect-ratio: 1;" src="//www.youtube.com/embed/${videoId}"></iframe>`;
 
         return item;
     }
@@ -138,7 +152,7 @@ export class Content {
     async imagem(data) {
         let url = data.conteudo;
         let found = url.match(/d\/([A-Za-z0-9\-_]+)/);
-        let item = '';
+        let custom_class = '';
 
         if (found) {
             let new_url = 'https://drive.google.com/uc?export=view&id=' + found[1];
@@ -151,18 +165,20 @@ export class Content {
 
         switch (data.estilo) {
             case "grande":
-                item = `<img class="custom-image-large" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
+                custom_class = `class="custom-image-large"`;
                 break;
             case "médio":
-                item = `<img class="custom-image-medium" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
+                custom_class = `class="custom-image-medium"`;
                 break;
             case "pequeno":
-                item = `<img class="custom-image-small" src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
+                custom_class = `class="custom-image-small"`;
                 break;
             case undefined:
-                item = `<img src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
+                custom_class = ``;
                 break;
         }
+
+        let item = `<img ${custom_class} src="${data.conteudo}" alt="Imagem" width="100%"/>${(((data.extra != undefined) && (data.extra != '')) ? '<p><em>' + data.extra + '</em></p>' : '')}`;
         return item;
     }
 

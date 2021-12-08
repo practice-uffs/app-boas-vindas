@@ -99,8 +99,6 @@ export class Content {
     async video(data) {
         let custom_class = '';
 
-        if (data.extra == undefined) data.extra = ' ';
-
         function getId(url) {
             var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             var match = url.match(regExp);

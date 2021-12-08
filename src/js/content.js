@@ -119,18 +119,18 @@ export class Content {
 
         switch (data.estilo) {
             case "pequeno":
-                custom_class = `custom-image-small`;
+                custom_class = `custom-video-small`;
                 break;
             case "médio":
-                custom_class = `custom-image-medium`;
+                custom_class = `custom-video-medium`;
                 break;
             case undefined:
-                custom_class = `custom-image-large`;
+                custom_class = `custom-video-large`;
                 break;
         }
 
-        let item = `<p><strong>${data.extra}</strong></p>
-                    <iframe class="${custom_class}" frameborder="0" style="aspect-ratio: 1;" src="//www.youtube.com/embed/${videoId}"></iframe>`;
+        let item = `<h3><strong>${data.extra}</strong></h3>
+                    <iframe class="width-100 ${custom_class}" frameborder="0" src="//www.youtube.com/embed/${videoId}"></iframe>`;
 
         return item;
     }

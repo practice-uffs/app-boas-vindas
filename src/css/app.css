@@ -358,6 +358,22 @@ a.link {
 }
 
 
+.width-100{
+  width:100%;
+}
+
+.custom-video-small{
+  height:150px;
+}
+
+.custom-video-medium{
+  height: 200px;
+}
+
+.custom-video-large{
+  aspect-ratio: 1;
+}
+
 .card-content{
   display: flex;
   align-items: center;

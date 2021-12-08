@@ -99,23 +99,17 @@ export class Content {
     async video(data) {
         let custom_class = '';
 
-        if (data.extra == undefined) {
-            data.extra = ' ';
-        }
+        if (data.extra == undefined) data.extra = ' ';
 
         function getId(url) {
             var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             var match = url.match(regExp);
 
-            if (match && match[2].length == 11) {
-                return match[2];
-            } else {
-                return 'error';
-            }
+            if (match && match[2].length == 11) return match[2];
+            else return 'error';
         }
 
         var videoId = getId(data.conteudo);
-
 
         switch (data.estilo) {
             case "pequeno":
@@ -129,8 +123,8 @@ export class Content {
                 break;
         }
 
-        let item = `<h3><strong>${data.extra}</strong></h3>
-                    <iframe class="width-100 ${custom_class}" frameborder="0" src="//www.youtube.com/embed/${videoId}"></iframe>`;
+        let item = `${data.extra == undefined ? '' : '<h3><strong>$'+ data.extra+ '</strong></h3>' } + 
+        '<iframe class="width-100 ${custom_class}" frameborder="0" src="//www.youtube.com/embed/${videoId}"></iframe>`;
 
         return item;
     }

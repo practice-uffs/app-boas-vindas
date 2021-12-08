@@ -308,3 +308,58 @@ a.link {
 
 
 /* end css app-covid */
+
+
+/* custom styles from app sheet contents */
+
+.custom-text-large{
+  font-size: 4vw;
+  line-height: 4.5vw;
+}
+
+.custom-text-medium{
+  font-size: 3vw;
+  line-height: 3.2vw;
+  width: 100%;
+}
+
+
+.custom-text-small{
+  font-size: 2vw;
+  line-height: 2.2vw;
+}
+
+
+.custom-image-large{
+  width:100%;
+}
+
+.custom-image-medium{
+  width: 60%;
+}
+
+
+.custom-image-small{
+  width:30%;
+}
+
+
+.custom-map-large{
+  width:100%;
+}
+
+.custom-map-medium{
+  width: 60%;
+}
+
+
+.custom-map-small{
+  width:30%;
+}
+
+
+.card-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

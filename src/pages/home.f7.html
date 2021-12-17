@@ -1,131 +1,231 @@
 <template>
-  <div class="page" data-name="home">
-    <!-- Navbar -->
-    <div class="navbar">
-      <div class="navbar-bg"></div>
-      <div class="navbar-inner">
-        <div class="left">
-          <img src="static/images/logo/icon.svg" class="navbar-icon">
-          <div class="title">PRACTICE</div>
-        </div>
+	<div class="page" data-name="home">
+		<!-- Navbar -->
+		<div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner">
+				<div class="left">
+					<img src="static/images/logo/icon.svg" class="navbar-icon">
+					<div class="title">UFFS Virtual</div>
+				</div>
 
-        <div class="right">
-          <a href="/right-panel/" class="link"><i class="f7-icons">bars</i></a>
-        </div>
-      </div>
-    </div>
+				<div class="right">
+					{{#if user}}			
+					<div @click="logout()" class="display-flex flex-direction-column justify-content-center align-items-center">
+							<i class="f7-icons">square_arrow_left</i>
+							<span class="badge color-green">{{user.username}}</span>
+					</div>
+					{{else}}
+					<a href="/login/" class="link"><i class="f7-icons">person_crop_circle</i></a>
+					{{/if}}
+					<a href="/about/" class="link"><i class="f7-icons">info_circle</i></a>
+				</div>
+			</div>
+		</div>
 
-    <!-- Tabs content -->
-    <div class="tabs-animated-wrap">
-      <div class="tabs tabs-routable">
-          <div class="page-content tab" id="menu"></div>
-      </div>
-    </div>
-  </div>
+		<!-- Tabs toolbar -->
+		<div class="toolbar tabbar toolbar-bottom">
+			<div class="toolbar-inner">
+				{{#if isEnabled.menuPage}}
+				<a href="/" class="tab-link" data-route-tab-id="menu"><i class="f7-icons">menu</i></a>
+				{{/if}}
+
+				{{#if isEnabled.auraPage}}
+					{{#if user}}
+					<a href="/aura/" class="tab-link" data-route-tab-id="aura"><i class="f7-icons">asterisk_circle</i></a>
+					{{else}}
+					<a href="#" @click="auraRedirect()" class="tab-link" data-route-tab-id="aura"><i class="f7-icons">asterisk_circle</i></a>
+					{{/if}}
+				{{/if}}
+			</div>
+		</div>
+
+		<!-- Tabs content -->
+		<div class="tabs-animated-wrap">
+			<div class="tabs tabs-routable">
+				{{#if isEnabled.menuPage}}
+				<div class="page-content tab" id="menu"></div>
+				{{/if}}
+
+				{{#if isEnabled.auraPage}}
+				<div class="page-content tab" id="aura"></div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
-  import IsEnabled from '../js/isenabled.js'
+	import IsEnabled from '../js/isenabled.js'
 
-  export default {
-    data: function() {
-      return {
-        isEnabled: IsEnabled,
-        appShareURL: 'https://uffs.cc/app-covid-chapeco',
-        installAd: function() {
-          return !window.matchMedia('(display-mode: standalone)').matches && IsEnabled.installAd;
-        },
-        shareAd: IsEnabled.shareAd
-      }
-    },
+	export default {
+		data: function () {
+			return {
+				isEnabled: IsEnabled,
+				appShareURL: 'https://uffs.cc/app-covid-chapeco',
+				installAd: function () {
+					return !window.matchMedia('(display-mode: standalone)').matches && IsEnabled.installAd;
+				},
+				shareAd: IsEnabled.shareAd,
+				user: null,
+			}
+		},
 
-    on: {
-      pageInit: function(e, page) {
-        var app = this.$app;
-        var link = document.getElementById('link-install-app');
+		on: {
+			pageInit: function (e, page) {
+				var app = this.$app;
+				var link = document.getElementById('link-install-app');
 
-        if(!link) {
-          return;
-        }
+				this.loadUser();
 
-        window.addEventListener('appinstalled', function(evt) {
-          app.toast.create({
-            text: 'Pronto! Adicionado à tela inicial.',
-            closeTimeout: 3000,
-          }).open();
+				if (!link) {
+					return;
+				}
 
-          link.style.display = 'none';
-        });
-      }
-    },
+				window.addEventListener('appinstalled', function (evt) {
+					app.toast.create({
+						text: 'Pronto! Adicionado à tela inicial.',
+						closeTimeout: 3000,
+					}).open();
 
-    methods: {
-      install: function() {
-        var app = this.$app;
-        var deferredPrompt = app.deferredInstallPrompt;
+					link.style.display = 'none';
+				});
+			},
+			pageAfterIn: function(e, page){
+				this.loadUser();
+			}
+		},
 
-        if(!deferredPrompt) {
-          app.toast.create({
-            text: 'Não foi possível adicionar à tela inicial.',
-            closeTimeout: 2000,
-          }).open();
-          return;
-        }
+		methods: {
+			install: function () {
+				var app = this.$app;
+				var deferredPrompt = app.deferredInstallPrompt;
 
-        // Show the install prompt
-        deferredPrompt.prompt();
+				if (!deferredPrompt) {
+					app.toast.create({
+						text: 'Não foi possível adicionar à tela inicial.',
+						closeTimeout: 2000,
+					}).open();
+					return;
+				}
 
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice.then(function(choiceResult) {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the install prompt');
-          } else {
-            console.log('User dismissed the install prompt');
-          }
-        });
-      },
+				// Show the install prompt
+				deferredPrompt.prompt();
 
-      shareToClipboard: function() {
-        var app = this.$app;
+				// Wait for the user to respond to the prompt
+				deferredPrompt.userChoice.then(function (choiceResult) {
+					if (choiceResult.outcome === 'accepted') {
+						console.log('User accepted the install prompt');
+					} else {
+						console.log('User dismissed the install prompt');
+					}
+				});
+			},
 
-        if(!navigator.clipboard) {
-          return;
-        }
+			shareToClipboard: function () {
+				var app = this.$app;
 
-        navigator.clipboard.writeText(this.appShareURL).then(function() {
-          // success
-          app.toast.create({
-            text: 'Link copiado! Basta colar ele agora, ex. no WhatsApp.',
-            closeTimeout: 5000,
-          }).open();
-        }, function() {
-          // fail
-          app.toast.create({
-            text: 'Hum, algum problema aconteceu. Desculpe.',
-            closeTimeout: 2000,
-          }).open();
-        });
-      },
+				if (!navigator.clipboard) {
+					return;
+				}
 
-      share: function() {
-        var app = this.$app;
+				navigator.clipboard.writeText(this.appShareURL).then(function () {
+					// success
+					app.toast.create({
+						text: 'Link copiado! Basta colar ele agora, ex. no WhatsApp.',
+						closeTimeout: 5000,
+					}).open();
+				}, function () {
+					// fail
+					app.toast.create({
+						text: 'Hum, algum problema aconteceu. Desculpe.',
+						closeTimeout: 2000,
+					}).open();
+				});
+			},
 
-        app.toast.create({
-          text: this.appShareURL,
-          closeTimeout: 6000,
-        }).open();
+			share: function () {
+				var app = this.$app;
 
-        if(!navigator.share) {
-          this.shareToClipboard();
-          return;
-        }
+				app.toast.create({
+					text: this.appShareURL,
+					closeTimeout: 6000,
+				}).open();
 
-        navigator.share({
-          title: 'PRACTICE',
-          text: 'Toda inovação do PRACTICE ao alcance de um toque!',
-          url: this.appShareURL,
-        });
-      }
-    }
-  }
+				if (!navigator.share) {
+					this.shareToClipboard();
+					return;
+				}
+
+				navigator.share({
+					title: 'PRACTICE',
+					text: 'Toda inovação do PRACTICE ao alcance de um toque!',
+					url: this.appShareURL,
+				});
+			},
+
+			logout: function () {
+				let self = this;
+				let app = self.$app;
+
+				app.dialog.confirm("Tem certeza que deseja sair?", function () {
+					app.api_practice.requestLogout().then((res) => {
+						if (res) {
+							return;
+						}
+						app.dialog.alert("Não foi possível te desconectar, tente novamente!");
+					})
+					.catch(() => {
+						app.dialog.alert("Ocorreu um erro em sua rede, tente novamente!");
+					});
+					self.loadUser();
+				});
+
+			},
+
+			loadUser: function () {
+				let self = this;
+				let app = self.$app;
+
+				app.storage.getUserData().then( async (userData) => {
+					self.$setState({
+						user: userData,
+					});
+
+					await app.storage.getUserCredentials();
+				}).catch(err => {
+					self.$setState({
+						user: null,
+					});
+				});
+			},
+
+			auraRedirect: async function() {
+				let self = this;
+				let app = self.$app;
+
+				let auraDialog = await app.dialog.create({
+					title: "🤖 Aura",
+					text: `Para conversar com a <b>Aura</b>, você terá que fazer login com seu idUFFS`,
+					content: "",
+					buttons: [
+						{
+							text: "Cancelar",
+							bold: true,
+						},
+						{
+							text: "Fazer Login",
+							bold: true,
+							onClick: () => {
+								app.view.main.router.navigate('/login/');
+							}
+						},
+					]
+					
+				})
+
+				auraDialog.open(true);
+			}
+		}
+	}
 </script>

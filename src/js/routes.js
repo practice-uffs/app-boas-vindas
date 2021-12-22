@@ -3,6 +3,8 @@ import HomePage from "../pages/home.f7.html";
 import RightPanelPage from "../pages/right-panel.f7.html";
 
 import MenuPage from "../pages/menu.f7.html";
+import ProceduresGuidesPage from "../pages/procedures.f7.html";
+ 
 
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
@@ -28,6 +30,13 @@ const homePageRoute = function () {
   route.tabs = tabs;
   return route;
 };
+
+const proceduresGuidesPage = function () {
+  return {
+    path: '/procedures/',
+    component: ProceduresGuidesPage,
+  };
+}
 
 const rightPanelRoute = function () {
   let route = {
@@ -80,6 +89,7 @@ var routes = [
   
   //new routes
   contentPageRoute(),
+  proceduresGuidesPage(),
 
   initialPageRoute(),
   notFoundPageRoute(),

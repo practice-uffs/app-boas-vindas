@@ -7,6 +7,7 @@ import MenuPage from "../pages/menu.f7.html";
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
 import ContentPage from "../pages/content-page.f7.html";
+import FreshmanGuidePage from "../pages/freshman-guide-page.f7.html";
 
 import IsEnabled from "./isenabled";
 
@@ -73,6 +74,15 @@ const contentPageRoute = function () {
   };
 }
 
+const freshmanGuidePageRoute = function () {
+  let route = {
+    path: "/guia_calouros/",
+    component: FreshmanGuidePage,
+  };
+
+  return route;
+};
+
 var routes = [
   homePageRoute(),
   rightPanelRoute(),
@@ -80,7 +90,8 @@ var routes = [
   
   //new routes
   contentPageRoute(),
-
+  freshmanGuidePageRoute(),
+  
   initialPageRoute(),
   notFoundPageRoute(),
 ];

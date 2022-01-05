@@ -9,26 +9,38 @@ import ProceduresGuidesPage from "../pages/procedures.f7.html";
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
 import ContentPage from "../pages/content-page.f7.html";
+import AuraPage from "../pages/aura.f7.html";
+import LoginPage from "../pages/login.f7.html";
+
 
 import IsEnabled from "./isenabled";
 
 //routes from template-apps-f7
 
 const homePageRoute = function () {
-  let route = {
-    path: "/",
-    component: HomePage,
-  };
-  let tabs = [];
+	let route = {
+		path: "/",
+		component: HomePage,
+	};
+	let tabs = [];
 
-  tabs.push({
-    path: "/",
-    id: "menu",
-    component: MenuPage,
-  });
+	if (IsEnabled.menuPage) {
+		tabs.push({
+			path: "/",
+			id: "menu",
+			component: MenuPage,
+		});
+	}
+	if (IsEnabled.auraPage) {
+		tabs.push({
+			path: "/aura/",
+			id: "aura",
+			component: AuraPage,
+		})
+	}
 
-  route.tabs = tabs;
-  return route;
+	route.tabs = tabs;
+	return route;
 };
 
 const proceduresGuidesPage = function () {
@@ -39,65 +51,74 @@ const proceduresGuidesPage = function () {
 }
 
 const rightPanelRoute = function () {
-  let route = {
-    path: "/right-panel/",
-    panel: {
-      component: RightPanelPage,
-    },
-  };
+	let route = {
+		path: "/right-panel/",
+		panel: {
+			component: RightPanelPage,
+		},
+	};
 
-  if (IsEnabled.rightPanel) return route;
+	if (IsEnabled.rightPanel) return route;
 };
 
 const aboutPageRoute = function () {
-  let route = {
-    path: "/about/",
-    component: AboutPage,
-  };
+	let route = {
+		path: "/about/",
+		component: AboutPage,
+	};
 
-  if (IsEnabled.aboutPage) return route;
+	if (IsEnabled.aboutPage) return route;
+};
+
+const loginPageRoute = function () {
+	let route = {
+		path: "/login/",
+		component: LoginPage,
+	};
+
+	if (IsEnabled.loginPage) return route;
 };
 
 
 const initialPageRoute = function () {
-  return {
-    path: "/initial/",
-    component: InitialPage
-  };
+	return {
+		path: "/initial/",
+		component: InitialPage
+	};
 };
 
 
 const notFoundPageRoute = function () {
-  return {
-    path: "(.*)",
-    component: NotFoundPage,
-  };
+	return {
+		path: "(.*)",
+		component: NotFoundPage,
+	};
 };
 
 //new routes
 const contentPageRoute = function () {
-  return {
-    path: '/content/:name',
-    component: ContentPage,
-  };
+	return {
+		path: '/content/:name',
+		component: ContentPage,
+	};
 }
 
 var routes = [
-  homePageRoute(),
-  rightPanelRoute(),
-  aboutPageRoute(),
-  
-  //new routes
-  contentPageRoute(),
-  proceduresGuidesPage(),
+	homePageRoute(),
+	rightPanelRoute(),
+	aboutPageRoute(),
+	loginPageRoute(),
 
-  initialPageRoute(),
-  notFoundPageRoute(),
+	//new routes
+	contentPageRoute(),
+  proceduresGuidesPage(),
+	initialPageRoute(),
+	notFoundPageRoute(),
 ];
 
 // Removing undefined routes
 var routes = routes.filter(function (el) {
-  return el != null;
+	return el != null;
 });
 
 export default routes;

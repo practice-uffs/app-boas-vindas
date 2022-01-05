@@ -5,34 +5,17 @@
  * @license MIT
  */
 var IsEnabled = {
-    addToHomeScreen: false,
-    shareAd: false,
+	menuPage: true,
+	
+	auraPage: true,
+	
+	rightPanel: true,
+	
+	aboutPage: true,
 
-    envPage: true,
-
-    servicesPage: true,
-
-    rightPanel: true,
-
-    notificationsPage: true,
-
-    settingsPage: true,
-
-    aboutPage: true,
-
-    aboutMorePage: true,
-
-    localClimatePage: true,
-
-    studentAidPage: true,
-
-    leisurePage: true,
-
-    groupsPage: true,
-
-    channelsPage: true,
-    
-    bottomNavigationBar: false,
+	loginPage: true,
+	
+    bottomNavigationBar: true,
 }
 
 export default IsEnabled;

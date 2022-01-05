@@ -1,0 +1,119 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback" data-name="login">
+		<div class="page-content login-screen-content display-flex flex-direction-column justify-content-center">
+			<div>
+				<div class="login-screen-title">UFFS Virtual</div>
+				<div class="block-header">
+					<p>Entre com seu idUFFS e senha</p>
+				</div>
+				<form id="login-form" action="#" >
+					<div class="list">
+						<ul>
+							<li class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">idUFFS</div>
+									<div class="item-input-wrap">
+										<input type="text" name="username" placeholder="Seu idUFFS" pattern="[a-zA-Z.]+"
+											data-error-message="Digite apenas letras ou pontos" required validate>
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+							<li class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">Senha</div>
+									<div class="display-flex justify-content-center width-100">
+										<div class="item-input-wrap">
+											<input id="input_password" type="password" name="password"
+												placeholder="Sua senha"
+												data-error-message="Esse campo precisa ser preenchido" required
+												validate />
+											<span class="input-clear-button"></span>
+										</div>
+										<div class="padding-left display-flex align-items-center"
+											@click="viewPassword()">
+											<i class="f7-icons" id="eye_icon">eye_slash</i>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					
+					<div class="list">
+						<ul>
+							<li>
+								<button class="button list-button" type="submit">Entrar</button>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+			<div class="margin-top-half margin-right-half" style="position: fixed; top: 0; right: 0;">
+				<a class="link back"><i class="f7-icons">xmark_circle_fill</i></a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<style>
+
+</style>
+
+<script>
+	export default {
+		data: function () {
+			return {
+
+			}
+		},
+		methods: {
+			login: function () {
+				let self = this;
+				let app = self.$app;
+
+				app.dialog.preloader("Carregando...");
+				let loginData = app.form.convertToData("#login-form");
+
+				app.api_practice.requestLogin(loginData.username, loginData.password).then((res) => {
+						app.dialog.close();
+						if (res) {
+							app.view.main.router.back();
+						} else {
+							app.dialog.alert("Credenciais incorretas, tente novamente!");
+						}
+					})
+					.catch(() => {
+						app.dialog.alert("Ocorreu um erro em sua rede, tente novamente!");
+					});
+
+				return;
+			},
+			viewPassword: function () {
+				let self = this;
+				let app = self.$app;
+
+				let eye = app.$$("#eye_icon");
+				let input = app.$$("#input_password");
+				if (eye.text() == "eye_slash") {
+					eye.text("eye");
+					input.attr("type", "text");
+				} else if (eye.text() == "eye") {
+					eye.text("eye_slash");
+					input.attr("type", "password");
+				}
+			},
+		},
+		on: {
+			pageInit: function (e, page){
+				let self = this;
+				let app = self.$app;
+
+				app.$$('#login-form').submit((e) => {
+					e.preventDefault();
+					self.login();
+				})
+			}
+		}
+	};
+</script>

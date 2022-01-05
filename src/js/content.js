@@ -9,7 +9,6 @@ export class Content {
         var treatedContent = [`<div class="card"><div class="card-content card-content-padding">`];
         var newbloc = `</div></div><div class="card"><div class="card-content card-content-padding">`;
         for await (let content of contents) {
-
             switch (content.tipo) {
                 case "texto":      treatedContent.push(await this.text(content));       break;
                 case "mapa":       treatedContent.push(await this.map(content));        break;
@@ -27,7 +26,7 @@ export class Content {
     }
 
     async text(data) {
-        return `<div class="${style_video_image(data)}">${data.conteudo}</div>`
+        return `<div class="${style_video_image_text(data)}">${data.conteudo}</div>`
     }
 
     async map(data) {
@@ -43,14 +42,14 @@ export class Content {
         }
         var videoId = getId(data.conteudo);
 
-        return `<iframe class="width-100 ${style_video_image(data)}" frameborder="0" src="//www.youtube.com/embed/${videoId}"></iframe>`;
+        return `<iframe class="width-100 ${style_video_image_text(data)}" frameborder="0" src="//www.youtube.com/embed/${videoId}"></iframe>`;
     }
 
     async imagem(data) {
         let found = data.conteudo.match(/d\/([A-Za-z0-9\-_]+)/);
         if (found) data.conteudo = 'https://drive.google.com/uc?export=view&id=' + found[1];
 
-        return `<img class="${style_video_image(data)}" src="${data.conteudo}" alt="Imagem" width="100%"/>`;
+        return `<img class="${style_video_image_text(data)}" src="${data.conteudo}" alt="Imagem" width="100%"/>`;
     }
 
     async littleCard(data){
@@ -68,16 +67,19 @@ export class Content {
     } 
 }
 
-function style_video_image(data) {
+function style_video_image_text(data) {
     switch (data.estilo) {
         case "pequeno": 
             return data.tipo == "imagem" ? "custom-image-small"  :  
-                   data.tipo == "texto"  ? "custom-text-small"   : "custom-video-small";  
+                   data.tipo == "texto"  ? "custom-text-font-legend"   : "custom-video-small";  
         case "medio":   
             return data.tipo == "imagem" ? "custom-image-medium" : 
-                   data.tipo == "texto"  ? "custom-text-medium"  : "custom-video-medium"; 
-        default: 
+                   data.tipo == "texto"  ? "custom-text-subtitle"  : "custom-video-medium";
+        case "grande": 
             return data.tipo == "imagem" ? "custom-image-large"  :  
-                   data.tipo == "texto"  ? "custom-text-large"   : "custom-video-large";  
+                   data.tipo == "texto"  ? "custom-text-title"   : "custom-video-large"; 
+        default:
+            return data.tipo == "imagem" ? "custom-image-large"  :  
+                   data.tipo == "texto"  ? "custom-text-default"   : "custom-video-large";
     }
 }

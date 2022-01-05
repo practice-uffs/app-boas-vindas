@@ -4,7 +4,7 @@
     "pwa",
     "cordova"
   ],
-  "name": "practice",
+  "name": "uffs-virtual",
   "framework": "core",
   "template": "tabs",
   "bundler": "webpack",
@@ -24,7 +24,7 @@
     "preserveAssetsPaths": false,
     "inlineAssets": true
   },
-  "pkg": "cc.uffs.practice",
+  "pkg": "cc.uffs.practice.uffs_virtual",
   "cordova": {
     "folder": "cordova",
     "platforms": [

@@ -5,8 +5,8 @@
 
 /* Custom color theme properties */
 :root {
-  --color-1: #264653;
-  --color-2: #2F7B9A;
+  --color-1: rgb(2, 43, 20);
+  --color-2: #0e9c2b;
   --color-3: #FCAE17;
   --color-4: #FA8334;
   --color-5: #07a092;
@@ -312,20 +312,30 @@ a.link {
 
 /* custom styles from app sheet contents */
 
-.custom-text-large{
-  font-size: 4vw;
-  line-height: 4.5vw;
+.custom-text-title{
+  font-size: 6vw;
+  line-height: 7vw;
+  text-align: center;
 }
 
-.custom-text-medium{
-  font-size: 3vw;
-  line-height: 3.2vw;
+.custom-text-subtitle{
+  font-size: 5vw;
+  line-height: 5.5vw;
+  text-align: center;
+}
+
+.custom-text-default{
+  font-size: 4.2vw;
+  line-height: 4.8vw;
   width: 100%;
 }
 
-.custom-text-small{
-  font-size: 2vw;
-  line-height: 2.2vw;
+.custom-text-font-legend{
+  width: 100%;
+  margin-top: 3px;
+  font-size: 3.3vw;
+  line-height: 3.3vw;  
+  text-align: right;
 }
 
 

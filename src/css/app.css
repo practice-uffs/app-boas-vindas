@@ -202,7 +202,7 @@ a.link {
 }
 
 .menu-grid__icon {
-  height: 90px;
+  height: 45px;
 }
 
 .prevention-list .item-text {
@@ -374,4 +374,41 @@ a.link {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: auto !important;
+}
+
+.card-header{
+  font-size: 18px !important;
+  height: auto !important;
+  min-height: auto !important;
+  padding-top: 10px;
+}
+
+
+.custom-header-card-expansive{
+  height: auto;
+  width: 99%;
+  background-color: #7a98b1;
+  border: 2px solid rgb(255 255 255);
+  border-radius: 15px 15px 0 0;
+  color: black !important;
+
+}
+
+.custom-header-card-expansive div{
+  color: black;
+}
+
+.custom-link{
+ height: 100px; width:100%; color: black; border: 1px solid white;
+}
+
+
+.card-expandable{
+  border: 2px solid #7a98b1;
+}
+
+.card-expandable.card-opened{
+  width: 100% !important;
+  margin: 0;
 }

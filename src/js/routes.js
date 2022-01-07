@@ -9,9 +9,10 @@ import ProceduresGuidesPage from "../pages/procedures.f7.html";
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
 import ContentPage from "../pages/content-page.f7.html";
+
+import FreshmanGuidePage from "../pages/freshman-guide-page.f7.html";
 import AuraPage from "../pages/aura.f7.html";
 import LoginPage from "../pages/login.f7.html";
-
 
 import IsEnabled from "./isenabled";
 
@@ -103,17 +104,29 @@ const contentPageRoute = function () {
 	};
 }
 
-var routes = [
-	homePageRoute(),
-	rightPanelRoute(),
-	aboutPageRoute(),
-	loginPageRoute(),
+const freshmanGuidePageRoute = function () {
+  let route = {
+    path: "/guia_calouros/",
+    component: FreshmanGuidePage,
+  };
 
-	//new routes
-	contentPageRoute(),
+  return route;
+};
+
+var routes = [
+
+  homePageRoute(),
+  rightPanelRoute(),
+  aboutPageRoute(),
+	loginPageRoute(),
+  
+  //new routes
+  contentPageRoute(),
   proceduresGuidesPage(),
-	initialPageRoute(),
-	notFoundPageRoute(),
+  freshmanGuidePageRoute(),
+
+  initialPageRoute(),
+  notFoundPageRoute(),
 ];
 
 // Removing undefined routes

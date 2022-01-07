@@ -10,18 +10,40 @@ export class Storage{
 
 	async getSelectedCampus() {
 		let campus = localStorage.getItem("selectedCampus");
-		return JSON.parse(campus);
+		if (campus && campus != "undefined") {
+			return JSON.parse(campus);
+		}
 	}
 
-	async setPageContent(id, content) {
-		localStorage.setItem(id, JSON.stringify(content));
+	async setSpreadsheetContent(content) {
+		localStorage.setItem("spreadsheetContent", JSON.stringify(content));
+	}
+
+	async getSpreadsheetContent() {
+		return JSON.parse(localStorage.getItem("spreadsheetContent"));
+	}
+
+	async setCampusInformation(information) {
+		localStorage.setItem("campusInformation", JSON.stringify(information));
+	}
+
+	async getCampusInformation() {
+		return JSON.parse(localStorage.getItem("campusInformation"));
+	}
+	
+
+	async setPageContent(pageContent) {
+		localStorage.setItem("pageContent", JSON.stringify(pageContent));
 	}
 
 	async getPageContent(page) {
-		return JSON.parse(localStorage.getItem(page));
+		return JSON.parse(localStorage.getItem("pageContent"))[page];
 	}
 
-	// User Storage
+	async removePageContent() {
+		delete localStorage.pageContent;
+	}
+
 	setUserData(userData) {
 		localStorage["userData"] = JSON.stringify(userData);
 	};

@@ -1,119 +1,323 @@
 <template>
-  <div data-name="menu">
-    <div class="page">
-      <!-- Conteúdo da página -->
-      <div class="page-content">
-        <div class="block-title block-title-medium">Campus {{title}}</div>
+	<div data-name="menu">
+		<div class="page">
+			<!-- Conteúdo da página -->
+			<div class="page-content">
+				<div class="list no-margin margin-top">
+					<ul>
+						<li class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" placeholder="Selecione seu Campus" readonly="readonly"
+										id="picker-device" disabled/>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="menu-grid">
 
-        <div class="menu-grid">
+					<a href="/content/guia_calouros" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/school.png" class="menu-grid__icon">
+							<div class="item-title">Guia dos Calouros</div>
+						</div>
+					</a>
 
-          <a href="/content/guia_calouros" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/school.png" class="menu-grid__icon">
-              <div class="item-title">Guia dos Calouros</div>
-            </div>
-          </a>
-  
+					<a href="/content/sobre" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/school.png" class="menu-grid__icon">
+							<div class="item-title">Sobre o Campus</div>
+						</div>
+					</a>
 
+					<a href="/content/clima" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/stormy.png" class="menu-grid__icon">
+							<div class="item-title">Clima Local</div>
+						</div>
+					</a>
 
-          <a href="/content/sobre" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/school.png" class="menu-grid__icon">
-              <div class="item-title">Sobre o Campus</div>
-            </div>
-          </a>
-  
-          <a href="/content/clima" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/stormy.png" class="menu-grid__icon">
-              <div class="item-title">Clima Local</div>
-            </div>
-          </a>
-  
-          <a href="/content/auxilio" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/scholarship.png" class="menu-grid__icon">
-              <div class="item-title">Auxílio Estudantil</div>
-            </div>
-          </a>
-  
-          <a href="/content/projetos" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/group-chat.png" class="menu-grid__icon">
-              <div class="item-title">Grupos e projetos</div>
-            </div>
-          </a>
-  
-          <a href="/content/canais" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/channel.png" class="menu-grid__icon">
-              <div class="item-title">Canais UFFS</div>
-            </div>
-          </a>
-  
-          <a href="/content/lazer" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/park.png" class="menu-grid__icon">
-              <div class="item-title">Lazer</div>
-            </div>
-          </a>
-  
-          <a href="/content/dicionario" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/talking.png" class="menu-grid__icon">
-              <div class="item-title">Dicionário local do sul</div>
-            </div>
-          </a>
-  
-          <a href="/content/locomocao" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/map.png" class="menu-grid__icon">
-              <div class="item-title">Locomoção</div>
-            </div>
-          </a>
-  
-          <a href="/content/biblioteca" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/library.png" class="menu-grid__icon">
-              <div class="item-title">Biblioteca</div>
-            </div>
-          </a>
-  
-          <a href="/content/ajuda" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/support.png" class="menu-grid__icon">
-              <div class="item-title">Ajuda</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+					<a href="/content/auxilio" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/scholarship.png" class="menu-grid__icon">
+							<div class="item-title">Auxílio Estudantil</div>
+						</div>
+					</a>
+
+					<a href="/content/projetos" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/group-chat.png" class="menu-grid__icon">
+							<div class="item-title">Grupos e projetos</div>
+						</div>
+					</a>
+
+					<a href="/content/canais" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/channel.png" class="menu-grid__icon">
+							<div class="item-title">Canais UFFS</div>
+						</div>
+					</a>
+
+					<a href="/content/lazer" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/park.png" class="menu-grid__icon">
+							<div class="item-title">Lazer</div>
+						</div>
+					</a>
+
+					<a href="/content/dicionario" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/talking.png" class="menu-grid__icon">
+							<div class="item-title">Dicionário local do sul</div>
+						</div>
+					</a>
+
+					<a href="/content/locomocao" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/map.png" class="menu-grid__icon">
+							<div class="item-title">Locomoção</div>
+						</div>
+					</a>
+
+					<a href="/content/biblioteca" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/library.png" class="menu-grid__icon">
+							<div class="item-title">Biblioteca</div>
+						</div>
+					</a>
+
+					<a href="/content/ajuda" class="menu-grid__item">
+						<div class="item-inner">
+							<img src="static/images/support.png" class="menu-grid__icon">
+							<div class="item-title">Ajuda</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
-<script>
-  export default {
-    data: function () {
-      return {
-        title: null,
-      }
-    },
-    methods: {
-      getTitle: function() {
-        let self = this;
-        var app = self.$app;
+<style>
+	a.disabled {
+		pointer-events: none;
+		cursor: default;
+		filter: grayscale(100%);
+	}
+</style>
 
-        app.storage.getSelectedCampus().then(data => {
-          self.$setState({
-            title: data.cidade,
-          });
-        })
-      }
-    },
-    on: {
-      tabInit: function (e, page) {
-        this.getTitle();
-      },
-    }
-  }
+<script>
+	export default {
+		data: function () {
+			return {
+				campus: null,
+				tabs: ['guia_calouros', 'sobre', 'clima', 'auxilio', 'lazer', 'projetos', 'canais', 'dicionario',
+					'locomocao',
+					'biblioteca', 'ajuda'
+				],
+				availableTabs : {},
+				spreadsheetContent: null,
+				selectedCampus: null,
+				smartSelect: null,
+				picker: null
+			}
+		},
+		methods: {
+			startSmartSelect: async function() {
+				var self = this;
+				var app = self.$app;
+
+				self.picker = app.picker.create({
+					rotateEffect: true,
+					freeMode: true,
+					inputEl: '#picker-device',
+					cols: [
+						{
+							textAlign: 'center',
+							values: []
+						}
+					],
+					on: {
+						change: () => {
+							self.setSelectedCampusLink(self.picker.getValue());
+						}
+					}
+				});
+
+				console.log(self.picker.params.cols[0].values);
+			},
+			loadStorageData: async function() {
+				var self = this;
+				var app = self.$app;
+
+				self.loadingEffects(true);
+
+				await app.storage.getCampusInformation().then(campusInformation => {
+					if(campusInformation){
+						self.$setState({
+							campus: campusInformation,
+						});
+
+						self.createPickerCampusArray(campusInformation);
+					}
+				});
+
+				await app.storage.getSelectedCampus().then(selectedCampus => {
+					if(selectedCampus){
+						self.$setState({
+							selectedCampus: selectedCampus,
+						});
+					}
+				});
+
+				await app.storage.getSpreadsheetContent().then(content => {
+					if(content){
+						self.$setState({
+							spreadsheetContent: content,
+						});
+						self.loadingEffects(false);
+					}
+				});
+
+				if(self.spreadsheetContent  && self.selectedCampus){
+					self.displayContent();
+					console.log(self.selectedCampus);
+					self.picker.setValue([self.selectedCampus.cidade], 100);
+				}
+				self.loadData();
+			},
+			loadData: async function () {
+				var self = this;
+				var app = self.$app;
+
+				await app.api.getCampus().then(campus => {
+					self.$setState({
+						campus: campus,
+					});
+					app.storage.setCampusInformation(campus);
+					self.createPickerCampusArray(campus);
+				});
+
+				var newSpreadsheetContent = [];
+
+				for (let item of this.campus) {
+					for (let tab of this.tabs) {
+						await app.api.getCampusContent('https://opensheet.vercel.app/' + item.id + '/' + tab).then(data => {
+							if (data) {
+								newSpreadsheetContent.push([item.id, tab, data]);
+							}
+						});
+					}
+				}
+
+				self.$setState({
+					spreadsheetContent : newSpreadsheetContent,
+				});
+
+				app.storage.setSpreadsheetContent(newSpreadsheetContent);
+
+				if(self.selectedCampus){
+					self.picker.setValue([self.selectedCampus.cidade], 100);
+				}
+
+				console.log(self.spreadsheetContent);
+				
+				self.loadingEffects(false);
+			},
+			setSelectedCampusLink: function (campusName) {
+				var self = this;
+				var app = self.$app;
+
+				let found = self.campus.find(element => element.cidade == campusName);
+
+				app.storage.setSelectedCampus(found);
+
+				self.$setState({
+					selectedCampus : found
+				});
+
+				self.displayContent();
+			},
+			displayContent: function() {
+				var self = this;
+				var app = self.$app;
+
+				app.storage.removePageContent();
+
+				let pageContent = {};
+
+				for (let item of self.spreadsheetContent) {
+					if (item[0] == self.selectedCampus.id && !item[2].error) {
+						pageContent[item[1]] = item[2];
+					}
+				}
+
+				self.availableTabs = {};
+
+				for(let tab of self.tabs){
+					if(pageContent[tab]){
+						self.availableTabs[tab] = true;
+					}
+				}
+
+				app.storage.setPageContent(pageContent);
+
+				self.setAvailableItems();
+			},
+			setAvailableItems: function(){
+				var self = this;
+				var app = self.$app;
+
+				let items = app.$$(".menu-grid__item");
+
+				items.each((index, value) => {
+					let item = app.$$(value);
+					let tabId = item.attr('href').replace('/content/', '');
+					if(!self.availableTabs[tabId]){
+						item.addClass('disabled');
+					} else {
+						item.removeClass('disabled');
+					}
+				})
+			},
+			loadingEffects: function(loading) {
+				var self = this;
+				var app = self.$app;
+
+				let menuGrid = app.$$('.menu-grid');
+				let picker = app.$$('#picker-device');
+
+				if(loading) {
+					menuGrid.addClass('skeleton-text');
+					menuGrid.addClass('skeleton-effect-blink');
+					picker.prop({disabled: true});
+					app.progressbar.show();
+					return;
+				} 
+				menuGrid.removeClass('skeleton-text');
+				menuGrid.removeClass('skeleton-effect-blink');
+				picker.prop({disabled: false});
+				app.progressbar.hide();
+			},
+			createPickerCampusArray: function(campusObject) {
+				var self = this;
+				var app = self.$app;
+
+				var campusArray = []
+				campusObject.forEach(element => {
+					campusArray.push(element.cidade);
+				});
+				self.picker.params.cols[0].values = campusArray;
+			}
+		},
+		on: {
+			tabInit: function (e, page) {
+				this.startSmartSelect();
+				this.loadStorageData();
+				this.setAvailableItems();
+			},
+		}
+	}
 </script>

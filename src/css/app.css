@@ -31,8 +31,9 @@
   --f7-tabbar-link-inactive-color: var(--color-1);
   --f7-sheet-border-color: transparent;
   --f7-tabbar-link-active-border-color: #444;
-  --f7-navbar-subtitle-text-color: rgba(34,34,34,0.85);
+  --f7-navbar-subtitle-text-color: rgba(34, 34, 34, 0.85);
 }
+
 .appbar,
 .navbar,
 .toolbar,
@@ -42,8 +43,9 @@
   --f7-touch-ripple-color: var(--f7-touch-ripple-white);
   --f7-link-highlight-color: var(--f7-link-highlight-white);
   --f7-button-text-color: #fff;
-  --f7-button-pressed-bg-color: rgba(255,255,255,0.1);
+  --f7-button-pressed-bg-color: rgba(255, 255, 255, 0.1);
 }
+
 .navbar-large-transparent,
 .navbar-large.navbar-transparent {
   --f7-navbar-large-title-text-color: #000;
@@ -52,12 +54,11 @@
   --g: 111;
   --b: 60;
   --progress: var(--f7-navbar-large-collapse-progress);
-  --f7-bars-link-color: rgb(
-    calc(var(--r) + (255 - var(--r)) * var(--progress)),
-    calc(var(--g) + (255 - var(--g)) * var(--progress)),
-    calc(var(--b) + (255 - var(--b)) * var(--progress))
-  );
+  --f7-bars-link-color: rgb(calc(var(--r) + (255 - var(--r)) * var(--progress)),
+      calc(var(--g) + (255 - var(--g)) * var(--progress)),
+      calc(var(--b) + (255 - var(--b)) * var(--progress)));
 }
+
 .theme-dark .navbar-large-transparent,
 .theme-dark .navbar-large.navbar-transparent {
   --f7-navbar-large-title-text-color: #fff;
@@ -66,43 +67,43 @@
 /* Your app custom styles here */
 
 div.block-title i.f7-icons {
-    font-size: 1.4em;
-    margin-right: 0.2em;
+  font-size: 1.4em;
+  margin-right: 0.2em;
 }
 
 div.stat div.card-content strong {
-    font-size: 3em;
+  font-size: 3em;
 }
 
 div.stat div.card-footer {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .stat-footnote {
-    line-height: 0.8em;
-    opacity: 0.7;
+  line-height: 0.8em;
+  opacity: 0.7;
 }
 
 .stat-footnote i {
-    font-size: 1.3em;
-    opacity: 0.6;
+  font-size: 1.3em;
+  opacity: 0.6;
 }
 
 .navbar-icon {
-    width: 40px;
-    width: 40px;
-    margin-left: 0.5em;
+  width: 40px;
+  width: 40px;
+  margin-left: 0.5em;
 }
 
 .card-header-pic .card-header {
-    height: 40vw;
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+  height: 40vw;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 }
 
 .card-header-pic .card-content-padding .date {
-    color: #8e8e93;
+  color: #8e8e93;
 }
 
 a.link {
@@ -158,17 +159,6 @@ a.link {
 }
 
 
-
-
-
-
-
-
-
-
-
-/* css imported from app-covid */
-
 .menu-grid {
   padding: 10px;
   display: grid;
@@ -210,20 +200,20 @@ a.link {
   display: block;
   max-height: initial;
 }
-/* .prevention-list .item-inner {
-  display: flex;
-  vertical-align: center;
-} */
-.prevention-list__video{
+
+.prevention-list__video {
   width: 100%;
   height: 40vh;
 }
+
 .w-inherit {
   width: inherit;
 }
+
 .h-inherit {
   height: inherit;
 }
+
 .source {
   color: var(--f7-list-item-text-text-color);
 }
@@ -233,11 +223,13 @@ a.link {
   display: block;
   max-height: initial;
 }
+
 .transmitters {
   display: grid;
   grid-template-columns: repeat(auto-fill, calc(50% - 5px));
   gap: 10px;
 }
+
 .transmitter {
   display: flex;
   flex-direction: column;
@@ -246,17 +238,19 @@ a.link {
   background-color: #f6f6f6;
   text-align: center;
 }
+
 .transmitter__name {
   line-height: 12px;
   font-weight: 300;
 }
+
 .transmitter__name--fs, .info--fs {
   font-size: 0.8rem;
 }
+
 .source {
   color: var(--f7-list-item-text-text-color);
 }
-
 
 .help-card {
   height: 40vh;
@@ -266,28 +260,28 @@ a.link {
 /* small */
 @media (min-width: 576px) {
   .help-card {
-      height: 35vh;
+    height: 35vh;
   }
 }
 
 /* medium */
 @media (min-width: 768px) {
   .help-card {
-      height: 30vh;
+    height: 30vh;
   }
 }
 
 /* large */
 @media (min-width: 992px) {
   .help-card {
-      height: 25vh;
+    height: 25vh;
   }
 }
 
 /* extra large */
 @media (min-width: 1200px) {
   .help-card {
-      height: 20vh;
+    height: 20vh;
   }
 }
 
@@ -312,72 +306,72 @@ a.link {
 
 /* custom styles from app sheet contents */
 
-.custom-text-title{
+.custom-text-title {
   font-size: 6vw;
   line-height: 7vw;
   text-align: center;
 }
 
-.custom-text-subtitle{
+.custom-text-subtitle {
   font-size: 5vw;
   line-height: 5.5vw;
   text-align: center;
 }
 
-.custom-text-default{
+.custom-text-default {
   font-size: 4.2vw;
   line-height: 4.8vw;
   width: 100%;
 }
 
-.custom-text-font-legend{
+.custom-text-font-legend {
   width: 100%;
   margin-top: 3px;
   font-size: 3.3vw;
-  line-height: 3.3vw;  
+  line-height: 3.3vw;
   text-align: right;
 }
 
 
-.custom-image-large{
-  width:100%;
+.custom-image-large {
+  width: 100%;
 }
 
-.custom-image-medium{
+.custom-image-medium {
   width: 60%;
 }
 
-.custom-image-small{
-  width:30%;
+.custom-image-small {
+  width: 30%;
 }
 
-.width-100{
-  width:100%;
+.width-100 {
+  width: 100%;
 }
 
-.custom-video-small{
-  height:150px;
+.custom-video-small {
+  height: 150px;
   padding: 12px 0 12px 0;
 }
 
-.custom-video-medium{
+.custom-video-medium {
   height: 200px;
   padding: 12px 0 12px 0;
 }
 
-.custom-video-large{
+.custom-video-large {
   aspect-ratio: 1;
   padding: 12px 0 12px 0;
 }
 
-.card-content{
+.card-content {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: auto !important;
 }
 
-.card-header{
+.card-header {
   font-size: 18px !important;
   height: auto !important;
   min-height: auto !important;
@@ -385,30 +379,37 @@ a.link {
 }
 
 
-.custom-header-card-expansive{
+.custom-header-card-expansive {
   height: auto;
   width: 99%;
-  background-color: #7a98b1;
+  background-color: var(--color-2);
   border: 2px solid rgb(255 255 255);
   border-radius: 15px 15px 0 0;
   color: black !important;
 
 }
 
-.custom-header-card-expansive div{
+.custom-header-card-expansive div {
   color: black;
 }
 
-.custom-link{
- height: 100px; width:100%; color: black; border: 1px solid white;
-}
-
-
-.card-expandable{
-  border: 2px solid #7a98b1;
-}
-
-.card-expandable.card-opened{
+.custom-link {
   width: 100% !important;
-  margin: 0;
+  height: 100px;
+  color: black;
+  border: 1px solid white;
+}
+
+
+.card-expandable {
+  border: 2px solid #ffffff;
+}
+
+.card-expandable.card-opened {
+  width: 100% !important;
+  margin-left: 1.75% !important;
+}
+
+.no-scroll {
+  overflow-x: hidden !important;
 }

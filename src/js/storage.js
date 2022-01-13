@@ -15,6 +15,14 @@ export class Storage{
 		}
 	}
 
+	async setDarkTheme(state) {
+		localStorage.setItem("darkTheme", state);
+	}
+
+	async getDarkTheme() {
+		return localStorage.getItem("darkTheme");
+	}
+
 	async setSpreadsheetContent(content) {
 		localStorage.setItem("spreadsheetContent", JSON.stringify(content));
 	}

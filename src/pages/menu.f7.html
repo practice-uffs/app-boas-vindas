@@ -5,95 +5,45 @@
 			<div class="page-content">
 				<div class="list no-margin margin-top">
 					<ul>
-						<li class="item-content item-input">
+						<li class="item-content item-input ">
 							<div class="item-inner">
 								<div class="item-input-wrap">
-									<input type="text" placeholder="Selecione seu Campus" readonly="readonly"
-										id="picker-device" disabled/>
+									<input class="text-align-center" type="text" placeholder="Selecione seu Campus" readonly="readonly"
+									id="picker-device" disabled/>
 								</div>
 							</div>
+							<div class="item-media align-self-center"><i class="f7-icons">pencil_circle_fill</i></div>
 						</li>
 					</ul>
 				</div>
-				
-				<div class="menu-grid">
 
-					<a href="/content/guia_calouros" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/school.png" class="menu-grid__icon">
-							<div class="item-title">Guia dos Calouros</div>
-						</div>
-					</a>
 
-					<a href="/content/sobre" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/school.png" class="menu-grid__icon">
-							<div class="item-title">Sobre o Campus</div>
-						</div>
-					</a>
+				<div>
+					{{#each staticTabsInfo}}
+						{{#js_if "@index % 2 == 0"}}
+						<div class="row margin">
+						{{/js_if}}
 
-					<a href="/content/clima" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/stormy.png" class="menu-grid__icon">
-							<div class="item-title">Clima Local</div>
-						</div>
-					</a>
+							{{#unless active}}
+						 	<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1 disabled">
+							{{else}}
+							<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							{{/unless}}
+								<a href="{{link}}" class="menu-item-link">
+									<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
+										style="height: 100%;">
+										<div>
+											<img src="{{img}}" class="menu-item-icon">
+										</div>
+										<div class="menu-item-title">{{title}}</div>
+									</div>
+								</a>
+							</div>
 
-					<a href="/content/auxilio" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/scholarship.png" class="menu-grid__icon">
-							<div class="item-title">Auxílio Estudantil</div>
+						{{#js_if "@index % 2 == 1"}}
 						</div>
-					</a>
-
-					<a href="/content/projetos" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/group-chat.png" class="menu-grid__icon">
-							<div class="item-title">Grupos e projetos</div>
-						</div>
-					</a>
-
-					<a href="/content/canais" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/channel.png" class="menu-grid__icon">
-							<div class="item-title">Canais UFFS</div>
-						</div>
-					</a>
-
-					<a href="/content/lazer" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/park.png" class="menu-grid__icon">
-							<div class="item-title">Lazer</div>
-						</div>
-					</a>
-
-					<a href="/content/dicionario" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/talking.png" class="menu-grid__icon">
-							<div class="item-title">Dicionário local do sul</div>
-						</div>
-					</a>
-
-					<a href="/content/locomocao" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/map.png" class="menu-grid__icon">
-							<div class="item-title">Locomoção</div>
-						</div>
-					</a>
-
-					<a href="/content/biblioteca" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/library.png" class="menu-grid__icon">
-							<div class="item-title">Biblioteca</div>
-						</div>
-					</a>
-
-					<a href="/content/ajuda" class="menu-grid__item">
-						<div class="item-inner">
-							<img src="static/images/support.png" class="menu-grid__icon">
-							<div class="item-title">Ajuda</div>
-						</div>
-					</a>
+						{{/js_if}}
+					{{/each}}
 				</div>
 			</div>
 		</div>
@@ -101,10 +51,25 @@
 </template>
 
 <style>
-	a.disabled {
+	.disabled {
 		pointer-events: none;
 		cursor: default;
 		filter: grayscale(100%);
+	}
+
+	.menu-item-block {
+		border-radius: 20px;
+		background-color: var(--f7-bars-bg-color);
+	}
+
+	img.menu-item-icon {
+		height: 90px;
+	}
+
+	.menu-item-title{
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
 	}
 </style>
 
@@ -118,6 +83,7 @@
 					'biblioteca', 'ajuda'
 				],
 				availableTabs : {},
+				staticTabsInfo: null,
 				spreadsheetContent: null,
 				selectedCampus: null,
 				smartSelect: null,
@@ -125,6 +91,22 @@
 			}
 		},
 		methods: {
+			loadTabsInfoFromJSON: async function(){
+				var self = this;
+				var app = self.$app;
+
+				await app.request.json('static/json/menu-items.json', async function (data) {
+					data.forEach((value, index) => {
+						if(self.availableTabs[value.id]){
+							value.active = true;
+						}
+					})
+
+					self.$setState({
+						staticTabsInfo: data,
+					});
+				})
+			},
 			startSmartSelect: async function() {
 				var self = this;
 				var app = self.$app;
@@ -132,7 +114,9 @@
 				self.picker = app.picker.create({
 					rotateEffect: true,
 					freeMode: true,
+					toolbarCloseText: `<i class="f7-icons">xmark_circle_fill</i>`,
 					inputEl: '#picker-device',
+					backdrop: true,
 					cols: [
 						{
 							textAlign: 'center',
@@ -145,8 +129,6 @@
 						}
 					}
 				});
-
-				console.log(self.picker.params.cols[0].values);
 			},
 			loadStorageData: async function() {
 				var self = this;
@@ -183,7 +165,6 @@
 
 				if(self.spreadsheetContent  && self.selectedCampus){
 					self.displayContent();
-					console.log(self.selectedCampus);
 					self.picker.setValue([self.selectedCampus.cidade], 100);
 				}
 				self.loadData();
@@ -221,8 +202,6 @@
 				if(self.selectedCampus){
 					self.picker.setValue([self.selectedCampus.cidade], 100);
 				}
-
-				console.log(self.spreadsheetContent);
 				
 				self.loadingEffects(false);
 			},
@@ -266,38 +245,41 @@
 
 				self.setAvailableItems();
 			},
-			setAvailableItems: function(){
+			setAvailableItems: async function(){
 				var self = this;
 				var app = self.$app;
 
-				let items = app.$$(".menu-grid__item");
+				let links = app.$$(".menu-item-link");
 
-				items.each((index, value) => {
+				links.each((index, value) => {
 					let item = app.$$(value);
 					let tabId = item.attr('href').replace('/content/', '');
+					let parent = item.parent(".menu-item-block");
 					if(!self.availableTabs[tabId]){
-						item.addClass('disabled');
+						parent.addClass('disabled');
 					} else {
-						item.removeClass('disabled');
+						parent.removeClass('disabled');
 					}
 				})
 			},
-			loadingEffects: function(loading) {
+			loadingEffects: async function(loading) {
 				var self = this;
 				var app = self.$app;
 
-				let menuGrid = app.$$('.menu-grid');
+				await new Promise(resolve => setTimeout(resolve, 500));
+
+				let menuItem = app.$$('.menu-item-content');
 				let picker = app.$$('#picker-device');
 
 				if(loading) {
-					menuGrid.addClass('skeleton-text');
-					menuGrid.addClass('skeleton-effect-blink');
+					menuItem.addClass('skeleton-text');
+					menuItem.addClass('skeleton-effect-blink');
 					picker.prop({disabled: true});
 					app.progressbar.show();
 					return;
 				} 
-				menuGrid.removeClass('skeleton-text');
-				menuGrid.removeClass('skeleton-effect-blink');
+				menuItem.removeClass('skeleton-text');
+				menuItem.removeClass('skeleton-effect-blink');
 				picker.prop({disabled: false});
 				app.progressbar.hide();
 			},
@@ -313,10 +295,13 @@
 			}
 		},
 		on: {
-			tabInit: function (e, page) {
+			tabInit: async function (e, page) {
+				var self = this;
+				var app = self.$app;
+
 				this.startSmartSelect();
 				this.loadStorageData();
-				this.setAvailableItems();
+				this.loadTabsInfoFromJSON();
 			},
 		}
 	}

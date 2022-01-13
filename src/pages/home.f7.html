@@ -1,24 +1,107 @@
 <template>
-	<div class="page" data-name="home">
+	<div class="page" data-name="home" id="home-page">
 		<!-- Navbar -->
 		<div class="navbar">
 			<div class="navbar-bg"></div>
 			<div class="navbar-inner">
 				<div class="left">
-					<img src="static/images/logo/icon.svg" class="navbar-icon">
+					<img src="{{icon}}" class="navbar-icon">
 					<div class="title">UFFS Virtual</div>
 				</div>
 
 				<div class="right">
 					{{#if user}}			
-					<div @click="logout()" class="display-flex flex-direction-column justify-content-center align-items-center">
-							<i class="f7-icons">square_arrow_left</i>
-							<span class="badge color-green">{{user.username}}</span>
-					</div>
-					{{else}}
-					<a href="/login/" class="link"><i class="f7-icons">person_crop_circle</i></a>
+					<a href="#" class="link sheet-open" data-sheet="#about-sheet"><img
+							src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}" width="44" /></a>
 					{{/if}}
-					<a href="/about/" class="link"><i class="f7-icons">info_circle</i></a>
+					<a href="#" class="link sheet-open" data-sheet="#about-sheet"><i class="f7-icons">ellipsis_vertical</i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="sheet-modal" style="height:auto; border-radius: 5% 5% 0 0;" id="about-sheet">
+			<div class="sheet-modal-inner">
+				<div class="page-content">
+					<div class="block-title block-title-medium">Mais</div>
+					<div class="block no-padding no-margin">
+
+						{{#if user}}
+						<div class="list media-list no-margin">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-media"><img src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}"
+												width="44" /></div>
+										<div class="item-inner">
+											<div class="item-title-row">
+												<div class="item-title">{{user.name}}</div>
+											</div>
+											<div class="item-text">{{user.username}}</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<hr>
+						{{/if}}
+
+						<div class="list no-margin margin-vertical">
+							<ul>
+								
+								{{#if user}}
+								<li class="float-bottom">
+									<a href="#" class="item-link item-content" @click="logout()" @click="closeAboutSheet()">
+										<div class="item-media">
+											<i class="f7-icons">square_arrow_left</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">Sair</div>
+										</div>
+									</a>
+								</li>
+								{{else}}
+								<li class="float-bottom">
+									<a href="/login/" class="item-link item-content" @click="closeAboutSheet()" >
+										<div class="item-media">
+											<i class="f7-icons">person_crop_circle</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">Entrar</div>
+										</div>
+									</a>
+								</li>
+								{{/if}}
+
+								<hr>
+
+								{{#if isEnabled.darkTheme}}
+								<li>
+									<div class="item-content">
+										<div class="item-media"><i class="f7-icons">paintbrush</i></div>
+										<div class="item-inner">
+											<div class="item-title">Tema Escuro</div>
+											<label class="toggle toggle-init " id="dark-theme-toggle">
+												<input type="checkbox">
+												<span class="toggle-icon"></span>
+											</label>
+										</div>
+									</div>
+								</li>
+								{{/if}}
+
+								{{#if isEnabled.aboutPage}}
+								<li>
+									<a href="/about/" class="item-link item-content" @click="closeAboutSheet()">
+										<div class="item-media"><i class="f7-icons">info_circle</i></div>
+										<div class="item-inner">
+											<div class="item-title">Sobre</div>
+										</div>
+									</a>
+								</li>
+								{{/if}}
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -27,14 +110,16 @@
 		<div class="toolbar tabbar toolbar-bottom">
 			<div class="toolbar-inner">
 				{{#if isEnabled.menuPage}}
-				<a href="/" class="tab-link" data-route-tab-id="menu"><i class="f7-icons">menu</i></a>
+				<a href="/" class="tab-link" data-route-tab-id="menu"><i class="f7-icons">menu</i><small>Menu</small></a>
 				{{/if}}
 
 				{{#if isEnabled.auraPage}}
 					{{#if user}}
-					<a href="/aura/" class="tab-link" data-route-tab-id="aura"><i class="f7-icons">asterisk_circle</i></a>
+					<a href="/aura/" class="tab-link" data-route-tab-id="aura"><i
+							class="f7-icons">asterisk_circle</i></a>
 					{{else}}
-					<a href="#" @click="auraRedirect()" class="tab-link" data-route-tab-id="aura"><i class="f7-icons">asterisk_circle</i></a>
+					<a href="#" @click="auraRedirect()" class="tab-link" data-route-tab-id="aura"><i
+						class="f7-icons">asterisk_circle</i><small>Aura</small></a>
 					{{/if}}
 				{{/if}}
 			</div>
@@ -68,6 +153,9 @@
 				},
 				shareAd: IsEnabled.shareAd,
 				user: null,
+				icon: null,
+				icon_color: "static/images/logo/icon_practice.png",
+				icon_white: "static/images/logo/icon_practice_white.png"
 			}
 		},
 
@@ -92,11 +180,78 @@
 				});
 			},
 			pageAfterIn: function(e, page){
+				var app = this.$app;
+
 				this.loadUser();
+				this.createAboutSheet();
+				this.initDarkThemeToggle();
 			}
 		},
 
 		methods: {
+			initDarkThemeToggle: async function() {
+				let self = this;
+				let app = self.$app;
+
+				var homePage = app.$$("#home-page");
+
+				var toggle = app.toggle.get('#dark-theme-toggle');
+
+				if(await app.storage.getDarkTheme() == "true"){
+					toggle.checked = true;
+				} else {
+					toggle.checked = false;
+				}
+
+				this.darkThemeSelection();
+
+				toggle.on('change', () => {
+					this.darkThemeSelection();
+				});
+			},
+
+			darkThemeSelection: function(){
+				let self = this;
+				let app = self.$app;
+
+				var appPage = app.$$("#app");
+
+				var toggle = app.toggle.get('#dark-theme-toggle');
+
+				if(toggle.checked){
+					self.$setState({
+						icon: self.icon_white,
+					});
+					app.storage.setDarkTheme("true");
+					appPage.addClass("theme-dark");
+					return;
+				}
+				self.$setState({
+					icon: self.icon_color,
+				});
+				app.storage.setDarkTheme("false");
+				appPage.removeClass("theme-dark");
+			},
+
+			createAboutSheet: function(){
+				let self = this;
+				let app = self.$app;
+				
+				app.sheet.create({
+					el: '#about-sheet',
+					swipeToClose: true,
+					backdrop: true,
+					closeByOutsideClick: true
+				});
+			},
+
+			closeAboutSheet: function(){
+				let self = this;
+				let app = self.$app;
+
+				app.sheet.close('#about-sheet', true);
+			},
+
 			install: function () {
 				var app = this.$app;
 				var deferredPrompt = app.deferredInstallPrompt;

@@ -1,66 +1,15 @@
-/* iOS Cordova Tweak */
+iOS Cordova Tweak
 .device-cordova.device-ios {
   height: 100vh;
 }
 
 /* Custom color theme properties */
 :root {
-  --color-1: #264653;
-  --color-2: #2F7B9A;
-  --color-3: #FCAE17;
-  --color-4: #FA8334;
-  --color-5: #07a092;
-  --f7-theme-color: var(--color-2);
-  --f7-theme-color-rgb: var(--color-2);
-  --f7-theme-color-shade: var(--color-1);
-  --f7-theme-color-tint: #fff;
-  --f7-page-bg-color: #eee;
-}
-
-/* Invert navigation bars to fill style */
-:root,
-:root.theme-dark,
-:root .theme-dark {
-  --f7-bars-bg-color: white;
-  --f7-bars-bg-color-rgb: white;
-  --f7-bars-border-color: transparent;
-  --f7-bars-translucent-opacity: 0.9;
-  --f7-bars-text-color: var(--color-1);
-  --f7-bars-link-color: var(--color-2);
-  --f7-tabbar-link-active-color: var(--color-1);
-  --f7-tabbar-link-inactive-color: var(--color-1);
-  --f7-sheet-border-color: transparent;
-  --f7-tabbar-link-active-border-color: #444;
-  --f7-navbar-subtitle-text-color: rgba(34,34,34,0.85);
-}
-.appbar,
-.navbar,
-.toolbar,
-.subnavbar,
-.calendar-header,
-.calendar-footer {
-  --f7-touch-ripple-color: var(--f7-touch-ripple-white);
-  --f7-link-highlight-color: var(--f7-link-highlight-white);
-  --f7-button-text-color: #fff;
-  --f7-button-pressed-bg-color: rgba(255,255,255,0.1);
-}
-.navbar-large-transparent,
-.navbar-large.navbar-transparent {
-  --f7-navbar-large-title-text-color: #000;
-
-  --r: 0;
-  --g: 111;
-  --b: 60;
-  --progress: var(--f7-navbar-large-collapse-progress);
-  --f7-bars-link-color: rgb(
-    calc(var(--r) + (255 - var(--r)) * var(--progress)),
-    calc(var(--g) + (255 - var(--g)) * var(--progress)),
-    calc(var(--b) + (255 - var(--b)) * var(--progress))
-  );
-}
-.theme-dark .navbar-large-transparent,
-.theme-dark .navbar-large.navbar-transparent {
-  --f7-navbar-large-title-text-color: #fff;
+	--f7-theme-color: #07a092;
+	--f7-theme-color-rgb: 7, 160, 146;
+	--f7-theme-color-shade: #05796e;
+	--f7-theme-color-tint: #09c7b6;
+	--f7-dialog-border-radius: 20px 20px 0px 20px;
 }
 
 /* Your app custom styles here */
@@ -96,17 +45,17 @@ div.stat div.card-footer {
 
 .card-header-pic .card-header {
     height: 40vw;
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+    /* background-size: cover;
+    background-position: center; */
+    /* color: #fff; */
 }
 
 .card-header-pic .card-content-padding .date {
-    color: #8e8e93;
+    /* color: #8e8e93; */
 }
 
 a.link {
-  color: var(--f7-tabbar-link-active-color)
+  /* color: var(--f7-tabbar-link-active-color) */
 }
 
 .panel {
@@ -158,15 +107,6 @@ a.link {
 }
 
 
-
-
-
-
-
-
-
-
-
 /* css imported from app-covid */
 
 .menu-grid {
@@ -177,10 +117,10 @@ a.link {
 }
 
 .menu-grid__item {
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */
   text-align: center;
   text-transform: uppercase;
-  color: #1e2f42;
+  /* color: #1e2f42; */
   font-weight: bold;
   padding: 10px;
 }
@@ -190,7 +130,7 @@ a.link {
   font-weight: 400;
   padding: 8px;
   text-align: left;
-  background-color: #dff1e0;
+  /* background-color: #dff1e0; */
   font-size: 0.8em;
 }
 
@@ -243,7 +183,7 @@ a.link {
   flex-direction: column;
   justify-content: center;
   padding: 10px 2px 0 2px;
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */
   text-align: center;
 }
 .transmitter__name {
@@ -254,7 +194,7 @@ a.link {
   font-size: 0.8rem;
 }
 .source {
-  color: var(--f7-list-item-text-text-color);
+  /* color: var(--f7-list-item-text-text-color); */
 }
 
 
@@ -298,17 +238,13 @@ a.link {
 }
 
 .help-card__text {
-  color: #1e2f42;
+  /* color: #1e2f42; */
   text-align: center;
 }
 
 .help-card__icon {
   height: 55px;
 }
-
-
-/* end css app-covid */
-
 
 /* custom styles from app sheet contents */
 

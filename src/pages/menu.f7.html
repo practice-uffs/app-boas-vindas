@@ -19,6 +19,32 @@
 
 
 				<div>
+					<div class="row margin">
+						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							<a href="/guia_calouros/" class=" menu-item-link">
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
+									style="height: 100%;">
+									<div>
+										<img src="static/images/school.png" class="menu-item-icon">
+									</div>
+									<div class="menu-item-title">Guia do Calouro</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							<a href="/procedures/" class=" menu-item-link">
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
+									style="height: 100%;">
+									<div>
+										<img src="static/images/school.png" class="menu-item-icon">
+									</div>
+									<div class="menu-item-title">Guia dos Procedimentos</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
 					{{#each staticTabsInfo}}
 						{{#js_if "@index % 2 == 0"}}
 						<div class="row margin">
@@ -235,6 +261,10 @@
 
 				self.availableTabs = {};
 
+				self.availableTabs['guia_calouros'] = true;
+				self.availableTabs['procedures'] = true;
+
+
 				for(let tab of self.tabs){
 					if(pageContent[tab]){
 						self.availableTabs[tab] = true;
@@ -253,7 +283,7 @@
 
 				links.each((index, value) => {
 					let item = app.$$(value);
-					let tabId = item.attr('href').replace('/content/', '');
+					let tabId = item.attr('href').replace('/content/', '').replaceAll('/', '');
 					let parent = item.parent(".menu-item-block");
 					if(!self.availableTabs[tabId]){
 						parent.addClass('disabled');

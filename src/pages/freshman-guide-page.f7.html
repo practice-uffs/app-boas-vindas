@@ -1,0 +1,101 @@
+<template>
+    <div class="page" data-name="freshman_guide">
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md"></span>
+                    </a>
+                </div>
+                <div class="title">Guia dos Calouros</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="card padding-bottom">
+               <div class="card-content">
+                  <img class="custom-image-large" src="https://drive.google.com/uc?export=view&amp;id=1AiGBun8UQX2h3bkKr8RsfNw-bvKscur_" alt="Imagem" width="100%"><br>
+					<div class="custom-text-title">
+						<span>Olá! Seja bem-vindo(a) à UFFS!</span>
+					</div>
+					<div class="block">
+						<p>Este é o Guia do Calouro da <b>UFFS</b>! Os itens a seguir lhe darão informações importantes para sua adaptação na Universidade. Bem-vindo!</p>
+					</div>
+               </div>
+            </div>
+
+			{{#each items}}
+				
+				<div class="card card-expandable" style="height: 100px;">
+					<div class="card-content">
+						<div class="custom-header-card-expansive" style="height: 100px">
+							<div class="card-header text-color-white display-block ">
+								{{title}}
+								<br>
+								<small style="opacity: 0.7; font-size: 70%;">{{subtitle}}</small>
+							</div>
+							<a href="#" class="link card-close card-opened-fade-in color-white"
+								style="position: absolute; right: 15px; top: 15px">
+								<i class="icon f7-icons">xmark_circle_fill</i>
+							</a>
+						</div>
+						<div class="card-content-padding">
+							{{#each content}}
+								{{#js_if "this.type == 'text'"}}
+								<p>
+									{{content}}
+								</p>
+								{{else}}
+									{{#js_if "this.type == 'link'"}}
+									<div class="custom-item-link padding-vertical">
+										<div class="padding-horizontal"><i class="f7-icons">{{icon}}</i></div>
+										<div class="custom-item-link-content">
+											<div>{{title}}</div>
+											<div class="padding-horizontal">
+												<a class="link external" href="{{url}}">Acessar</a>
+											</div>
+										</div>
+									</div>
+									{{/js_if}}
+								{{/js_if}}
+							{{/each}}
+						</div>
+					</div>
+				</div>
+				
+			{{/each}}
+
+            
+         </div>
+    </div>
+</template>
+
+<script>
+    export default {
+		data: function () {
+			return {
+				items: null,
+			}
+		},
+		methods: {
+			loadData: async function() {
+				var self = this;
+				var app = this.$app;
+
+				await app.request.json('static/json/freshman-guide.json', async function (data) {
+					console.log(data);
+					self.$setState({
+						items: data,
+					});
+				})
+			}
+		},
+		on: {
+			pageInit: function (e, page){
+				this.loadData();
+			}
+		}
+	};
+</script>

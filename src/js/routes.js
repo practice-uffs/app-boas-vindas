@@ -3,13 +3,16 @@ import HomePage from "../pages/home.f7.html";
 import RightPanelPage from "../pages/right-panel.f7.html";
 
 import MenuPage from "../pages/menu.f7.html";
+import ProceduresGuidesPage from "../pages/procedures.f7.html";
+ 
 
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
 import ContentPage from "../pages/content-page.f7.html";
+
+import FreshmanGuidePage from "../pages/freshman-guide-page.f7.html";
 import AuraPage from "../pages/aura.f7.html";
 import LoginPage from "../pages/login.f7.html";
-
 
 import IsEnabled from "./isenabled";
 
@@ -40,6 +43,13 @@ const homePageRoute = function () {
 	route.tabs = tabs;
 	return route;
 };
+
+const proceduresGuidesPage = function () {
+  return {
+    path: '/procedures/',
+    component: ProceduresGuidesPage,
+  };
+}
 
 const rightPanelRoute = function () {
 	let route = {
@@ -94,16 +104,29 @@ const contentPageRoute = function () {
 	};
 }
 
-var routes = [
-	homePageRoute(),
-	rightPanelRoute(),
-	aboutPageRoute(),
-	loginPageRoute(),
+const freshmanGuidePageRoute = function () {
+  let route = {
+    path: "/guia_calouros/",
+    component: FreshmanGuidePage,
+  };
 
-	//new routes
-	contentPageRoute(),
-	initialPageRoute(),
-	notFoundPageRoute(),
+  return route;
+};
+
+var routes = [
+
+  homePageRoute(),
+  rightPanelRoute(),
+  aboutPageRoute(),
+	loginPageRoute(),
+  
+  //new routes
+  contentPageRoute(),
+  proceduresGuidesPage(),
+  freshmanGuidePageRoute(),
+
+  initialPageRoute(),
+  notFoundPageRoute(),
 ];
 
 // Removing undefined routes

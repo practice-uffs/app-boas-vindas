@@ -1,0 +1,369 @@
+[
+	{
+		"title": "Moodle Acadêmico",
+		"subtitle": "Materiais de suas aulas",
+		"content" : [
+			{
+				"type": "text",
+				"content": "O <b>Moodle</b> é um ambiente virtual onde os professores disponibilizam para você o material didático (slides, artigos, textos, tutoriais, links, etc.) de suas aulas, criam fóruns de discussão, disponibilizam atividades (entrega de trabalhos, grupos, etc.) e realizam avaliações."
+			},
+			{
+				"type": "text",
+				"content": "Com este guia você já sai na frente, fique atento quando o professor pedir alguma atividade na plataforma:"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Manual Moodle Acadêmico",
+				"url": "https://moodle-academico.uffs.edu.br/arquivos/manualaluno.pdf"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Acessar o Moodle Acadêmico",
+				"url": "https://moodle-academico.uffs.edu.br/login"
+			}
+		]
+	},
+	{
+		"title": "Portal do Aluno",
+		"subtitle": "Procedimentos acadêmicos",
+		"content": [{
+				"type": "text",
+				"content": "O <b>Portal do Aluno</b> é o sistema informatizado da UFFS que permite que você realize alguns procedimentos acadêmicos de forma on-line, como por exemplo: emitir documentos (atestado de frequência e atestado de situação de matrícula), acompanhar a integralização da matriz curricular de seu curso, acompanhar as notas, frequências e avaliações feitas pelos professores, atualizar o seu cadastro, efetuar rematrícula, entre outros"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Manual Portal do Aluno",
+				"url": "https://www.uffs.edu.br/campi/erechim/repositorio-campus-erechim/secretaria-academica/arquivo-1"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Acessar o Portal do Aluno",
+				"url": "https://id.uffs.edu.br/id/XUI/#login/"
+			}
+		]
+	},
+	{
+		"title": "Cisco Webex",
+		"subtitle": "Assista suas aulas remotas",
+		"content": [{
+				"type": "text",
+				"content": "O <b>Cisco Webex Meetings</b> é a plataforma utilizada pela UFFS para a realização das aulas no formato remoto e síncrono (aulas on-line com interação entre professor e aluno em tempo real). Você pode acessá-la pelo computador ou celular. Não há necessidade de fazer download, basta acessar o link da aula que o professor enviará para você com antecedência, por email ou pelo Moodle Acadêmico, e entrar do seu próprio navegador. Mas se você quiser baixar o aplicativo no seu  computador ou no seu celular, siga os passos abaixo:"
+			},
+			{
+				"type": "text",
+				"content": "<hr><b>Computador:</b><br><br>Opção 1: Acessar o link abaixo e fazer o download;<br><br>Opção 2: Entrar em uma reunião pela primeira vez no navegador da Web do seu computador e aceitar a oferta para instalar o aplicativo."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Download para computador",
+				"url": "https://www.webex.com/pt/downloads.html"
+			},
+			{
+				"type": "text",
+				"content": "<hr><b>Celular:</b><br><br>Opção 1: Procurar Cisco Webex Meetings na App Store ou Google Play e instalar;<br><br>Opção 2: Entrar em uma reunião pela primeira vez no navegador da Web do seu celular e aceitar a oferta para instalar o aplicativo."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Download para celular android",
+				"url": "https://play.google.com/store/apps/details?id=com.cisco.webex.meetings"
+			}
+		]
+	},
+	{
+		"title": "Horários das Aulas",
+		"subtitle": "Acesse através do site da UFFS",
+		"content": [{
+				"type": "text",
+				"content": "Primeiro você acessa o <a class='external' href='https://www.uffs.edu.br/'>site da UFFS</a>, seleciona seu campus clicando no menu, clicando no item Cursos, selecionando o seu curso e depois clicando em Horários."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Manual Portal do Aluno",
+				"url": "https://www.uffs.edu.br/campi/erechim/repositorio-campus-erechim/secretaria-academica/arquivo-1"
+			}
+		]
+	},
+	{
+		"title": "Calendário Acadêmico",
+		"subtitle": "Datas importantes para seu semestre",
+		"content": [{
+				"type": "text",
+				"content": "O <b>Calendário Acadêmico</b> estabelece os prazos para a efetivação de todos os atos acadêmicos durante o ano letivo da UFFS, como: data de início e de término de cada semestre letivo, datas de recessos acadêmico e administrativo, períodos de matrícula, rematrícula e ajustes, feriados, etc."
+			},
+			{
+				"type": "text",
+				"content": "Fique atento aos prazos estabelecidos no Calendário para não perder nenhuma data importante!"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Calendário acadêmico",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/calendario-academico"
+			}
+		]
+	},
+	{
+		"title": "Guia de Procedimentos",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "Trata-se de uma série de orientações importantes sobre os principais procedimentos acadêmicos referentes à Graduação da UFFS."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Guia de Procedimentos",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/guia_de_procedimentos#matricula_inicial"
+			}
+		]
+	},
+	{
+		"title": "Site Institucional",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "O <b>site da UFFS</b> é o principal canal de comunicação da Universidade. Nele você encontra desde notícias de todos os campi da UFFS até informações específicas de cada um deles, como horários de ônibus, eventos, e-mails e telefones dos setores, documentos, editais, etc.<br><br>Cada campi tem uma página própria. Nela há um menu (à esquerda) com uma infinidade de informações.<br><br>Então, fica a dica: separe um tempinho para explorar o site da sua Universidade. Depois, quando precisar de algum dado, você saberá onde encontrá-lo, evitando desperdício de tempo."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Site da UFFS",
+				"url": "https://www.uffs.edu.br/"
+			}
+		]
+	},
+	{
+		"title": "Redes Sociais",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "Ei, nós também estamos nas redes sociais! É mais uma forma de você ficar por dentro de tudo o que acontece na sua Universidade!<br><br>Mas atenção, a forma oficial da UFFS se comunicar com você é através do email. Então, fique atento(a) e verifique a sua caixa de entrada e sua caixa de spam periodicamente."
+			},
+			{
+				"type": "link",
+				"icon": "logo_instagram",
+				"title": "Instagram campus Chapecó",
+				"url": "https://www.instagram.com/uffs.campuschapeco/"
+			},
+			{
+				"type": "link",
+				"icon": "logo_instagram",
+				"title": "Instagram Escolhi Ser UFSS",
+				"url": "https://www.instagram.com/escolhiseruffs/"
+			},
+			{
+				"type": "link",
+				"icon": "logo_facebook",
+				"title": "Facebook UFFSOnline",
+				"url": "https://www.facebook.com/uffsonline/"
+			},
+			{
+				"type": "link",
+				"icon": "logo_twitter",
+				"title": "Twitter UFFS",
+				"url": "https://twitter.com/uffsonline"
+			}
+		]
+	},
+	{
+		"title": "Secretaria Acadêmica",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "<b>O que posso solicitar ou encaminhar junto a este setor?</b><br><br><b>A qualquer tempo:</b><ul><li>Atualização de dados cadastrais (quando não for possível via portal do aluno) e documentos pessoais;</li><li>Realização de prova de 2ª Chamada;</li><li>Quebra de pré-requisito (conforme Ato Deliberativo do respectivo curso);</li><li>Revisão de nota;</li><li>Recurso de revisão de nota;</li><li>Concessão de prestação alternativa (devido ao exercício de consciência e de crença);</li><li>Licença Tratamento Saúde Discente (regime domiciliar);</li><li>Retirada de diploma;</li><li>Segunda via de diploma;</li><li>Nova via de histórico escolar de conclusão;</li><li>Desistência de matrícula.</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "<b>Conforme Edital específico:</b><ul><li>Inscrição e matrícula em Processos Seletivos Especiais.</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "<b>Conforme prazo estipulado em calendário acadêmico:</b><ul><li>Matrículas;</li><li>Trancamento de matrícula (não pode ser solicitado no semestre de ingresso ou retorno);</li><li>Validação de Atividades Curriculares Complementares;</li><li>Validação de Componentes Curriculares (CCRs);</li><li>Recurso de validação de CCRs;</li><li>Mobilidade Acadêmica;</li><li>Retorno de Mobilidade Acadêmica;</li><li>Exame de suficiência;</li><li>Recurso de exame de suficiência.</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "<b>Excepcionalmente:</b><ul><li>Situação incompleta;</li><li>Cancelamento de CCR;</li><li>Ajuste de matrícula.</li></ul>"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Formulários",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/formularios"
+			},
+			{
+				"type": "link",
+				"icon": "envelope",
+				"title": "E-mail da Secretaria Acadêmica",
+				"url": "mailto:sec.acad.ch@uffs.edu.br"
+			}
+		]
+	},
+	{
+		"title": "Assuntos Estudantis (SAE)",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "<b>O que solicitar ou encaminhar junto a este setor?</b><br><br><b>A qualquer tempo:</b><ul><li>Encaminhar documentação para realizar análise socioeconômica;</li><li>Orientações em relação ao preenchimento do cadastro socioeconômico;</li><li>Orientações relativas aos auxílios oferecidos pela UFFS: Alimentação, Moradia, Transporte, Emergencial, PIN, etc;</li><li>Atendimento Social;</li><li>Atendimento Psicológico;</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "<b>Conforme editais:</b><ul><li>Inscrição para recebimento dos auxílios oferecidos pela UFFS (socioeconômico, PIN, emergencial, entre outros)</li><li>Inscrição no Programa Bolsa Permanência (PBP);</li><li>Plano de acompanhamento pedagógico e/ou psicossocial;</li></ul>"
+			},
+			{
+				"type": "link",
+				"icon": "envelope",
+				"title": "Contato por e-mail",
+				"url": "mailto:sae.ch@uffs.edu.br"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Cartilha de assistência estudantil durante a pandemia",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/preciso-de-ajuda-covid19"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Saiba mais sobre o SAE",
+				"url": "https://www.uffs.edu.br/campi/chapeco/assuntos-estudantis/apresentacao"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Análise socioeconômica",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/analise-socioeconomica"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Auxílios socioeconômicos",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/auxilios-socioeconomicos/apresentacao-dos-auxilios-socioeconomicos"
+			},
+			{
+				"type": "link",
+				"icon": "play_rectangle_fill",
+				"title": "Tutoriais",
+				"url": "https://www.youtube.com/channel/UCtVURHWXTRbOvUzK9SMq_Cg"
+			},
+			{
+				"type": "link",
+				"icon": "logo_instagram",
+				"title": "Programa de Promoção à Saúde do Estudante Universitário",
+				"url": "https://www.instagram.com/ppsuffs/"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Pró-Reitoria de Assuntos Estudantis",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/comprovacao-auxilio-moradia"
+			}
+		]
+	},
+	{
+		"title": "Acessoria Pedagógica",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "A <b>Assessoria Pedagógica</b> orienta os estudantes sobre rotina e métodos de  estudos. Você pode agendar horário para atendimento individual com as pedagogas e também participar de oficinas coletivas de apoio pedagógico."
+			},
+			{
+				"type": "text",
+				"content": "Caso você esteja com alguma dificuldade, procure este apoio que a instituição oferece. Nosso objetivo é que você consiga seguir todas as fases do curso sem reprovações, também que tenha um desempenho acadêmico cada vez melhor."
+			},
+			{
+				"type": "link",
+				"icon": "envelope",
+				"title": "Contato Acessoria pedagógica",
+				"url": "mailto:assessoriapedagogica.ch@uffs.edu.br"
+			}
+		]
+	},
+	{
+		"title": "Biblioteca",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "<b>O que solicitar ou encaminhar junto a este setor?</b><br><ul><li>Cadastro de novos usuários;</li><li>Empréstimo de materiais do acervo;</li><li>Empréstimo entre bibliotecas da UFFS (serviço também disponível on-line);</li><li>Renovação dos empréstimos (serviço também disponível on-line);</li><li>Pedido de reserva de materiais (serviço também disponível on-line);</li><li>Orientação e acesso a e-books, bases de dados, Portal de Periódicos da Capes, Plataforma Virtual Minha Biblioteca;</li><li>Orientação sobre normalização de trabalhos acadêmicos (Normas da ABNT);</li><li>Orientação sobre consulta ao acervo</li></ul>"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Página da Biblioteca",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/bibliotecas"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Consultar acervo",
+				"url": "http://consulta.uffs.edu.br/pergamum/biblioteca/index.php"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Manual de trabalhos acadêmicos",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/bibliotecas/normalizacao-de-trabalhos"
+			},
+			{
+				"type": "link",
+				"icon": "play_rectangle_fill",
+				"title": "Canal do YouTube",
+				"url": "https://www.youtube.com/channel/UCNGTDi-VWOLjpydCiklT8MA"
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Acervo de E-books",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/bibliotecas/e-books"
+			}
+		]
+	},
+	{
+		"title": "Acessibilidade",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "<b>O que solicitar ou encaminhar junto a este setor?</b><br><ul><li>Orientação e apoio acadêmico para Pessoas com Deficiência (PcD) ou com necessidades específicas de aprendizagem. As orientações podem ser em relação a processos e sistemas acadêmicos (matrícula, Moodle, sistemas... ) ou acompanhamento pedagógico;</li><li>Orientação quanto a garantia de equidade nos processos de ensino e aprendizagem;</li><li>Tradução e interpretação em Libras;</li><li>Solicitação de materiais adaptados (inclusive mesas e cadeiras);</li><li>Solicitação de acessibilidade arquitetônica (caso houver necessidade);</li><li>Elaboração de credencial de estacionamento.</li></ul>"
+			},
+			{
+				"type": "link",
+				"icon": "envelope",
+				"title": "E-mail Setor Acessibilidade",
+				"url": "mailto:acessibilidade.ch@uffs.edu.br"
+			},
+			{
+				"type": "link",
+				"icon": "envelope",
+				"title": "E-mail Setor de Libras",
+				"url": "mailto:libras.acessibilidade.ch@uffs.edu.br"
+			}
+		]
+	},
+	{
+		"title": "Estágios",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "Procure esse setor sempre que você precisar de informações e orientações sobre estágio obrigatório e estágio não obrigatório."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Programa de Estágios",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/programas/programa-de-estagios-1"
+			},
+			{
+				"type": "link",
+				"icon": "envelope",
+				"title": "E-mail para contato",
+				"url": "mailto:ch.estagios@uffs.edu.br"
+			}
+		]
+	}
+]

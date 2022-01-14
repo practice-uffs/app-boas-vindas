@@ -1,11 +1,5 @@
 [
 	{
-		"title": "Guia dos Calouros",
-		"img": "static/images/school.png",
-		"link": "/content/guia_calouros",
-		"id": "guia_calouros"
-	},
-	{
 		"title": "Sobre o Campus",
 		"img": "static/images/school.png",
 		"link": "/content/sobre",

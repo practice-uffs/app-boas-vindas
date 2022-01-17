@@ -1,0 +1,535 @@
+[
+	{
+		"title": "Calendário Acadêmico",
+		"popup_id": "popup-calendario-academico",
+		"content": [{
+				"type": "text",
+				"content": "O Calendário Acadêmico estabelece os prazos para a efetivação de todos os atos acadêmicos durante o ano letivo da UFFS. Ele pode ser encontrado na opção “Acesso Fácil”/Aluno. Ou pelo botão abaixo."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Calendário Acadêmico",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/calendario-academico"
+			}
+		]
+	},
+	{
+		"title": "Formas de Ingresso",
+		"popup_id": "popup-formas-ingresso",
+		"content": [{
+				"type": "text",
+				"content": "<h4>2.1  Processo seletivo regular – ENEM/SiSU</h4>O processo seletivo, principal porta de entrada para ingresso na UFFS, é realizado por meio do SiSU (Sistema de Seleção Unificada), do  <a class='external' href='http://www.mec.gov.br/'> Ministério da Educação (MEC)</a> . Para participar, o candidato deve realizar sua inscrição e acompanhar a primeira chamada no site do <a class='external' href='http://sisu.mec.gov.br/'>SiSU</a>. É imprescindível ter feito a prova do ENEM mais recente. É necessário também que o candidato, ao optar pela UFFS no SiSU, leia atentamente o edital e demais documentos publicados pela Universidade. Se não for classificado na primeira chamada, ainda há chance de ser chamado, caso opte por permanecer na lista de espera da UFFS no SiSU."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "SiSU",
+				"url": "http://sisu.mec.gov.br/"
+			},
+			{
+				"type": "text",
+				"content": "<h4>2.2  Processos seletivos especiais</h4>Em alguns casos, a seleção de candidatos para preenchimento das vagas é feita por meio de um processo seletivo especial, isto é, um processo independente do SiSU. Enquadram-se aqui os cursos oferecidos por meio de convênios e/ou destinados a públicos específicos,ou vagas destinadas ao atendimento de programas de acesso institucionais aprovados pelo Conselho Universitário (CONSUNI). Em cada caso, a forma e os critérios de seleção são especificados em editais próprios."
+			},
+			{
+				"type": "text",
+				"content": "<h4>2.3  Transferência externa</h4>De acordo com o Art. 28 da <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>, considera-se transferência externa a concessão de vaga a estudante regularmente matriculado em outra instituição de ensino superior, nacional ou estrangeira, para prosseguimento de seus estudos na UFFS.A seleção para ingresso por meio de transferência externa ocorre semestralmente, nas datas publicadas no Calendário Acadêmico, através de editais. O candidato deve ler atentamente o edital e comparecer para inscrição portando toda a documentação exigida."
+			},
+			{
+				"type": "text",
+				"content": "<h4>2.4  Transferência interna</h4>De acordo com o Art. 27 da <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>, considera-se transferência interna a troca de turno, de curso ou de campus no âmbito da UFFS, sendo vedada a transferência interna no semestre de ingresso ou de retorno na UFFS. A seleção para transferência interna ocorre semestralmente, nas datas publicadas no Calendário Acadêmico, através de editais. O candidato deve ler atentamente o edital e comparecer para inscrição portando toda a documentação exigida."
+			},
+			{
+				"type": "text",
+				"content": "<h4>2.5  Transferência ex officio</h4>De acordo com o Art. 30 da <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>, a UFFS aceita transferência ex officio em qualquer época do ano, independentemente da existência de vaga, quando requerida em razão de comprovada remoção redistribuição, que acarrete mudança de residência para município onde a UFFS possui campus ou localidade próxima deste, observadas as normas estabelecidas pelo Conselho Nacional de Educação, quando se tratar de servidor público federal ou membro das Forças Armadas, inclusive seus dependentes.Esta modalidade não se aplica quando o pedido for apresentado por servidor público estadual e municipal, funcionário de empresa pública e de economia mista, ou por servidor público federal, quando este for nomeado para cargo no serviço público ou para cargo de confiança.O estudante que requerer matrícula por transferência ex officio deve apresentar, além da documentação exigida para os ingressantes pelo processo seletivo de transferência do ano e semestre correspondente, os seguintes documentos:<ol><li>cópia da publicação oficial da remoção ou transferência de ofício, no Diário Oficial, Boletim Oficial ou equivalente veículo de divulgação;</li><li> comprovação de dependência, através de certidão de nascimento, casamento ou declaração judicial, quando se tratar de dependente;</li><li> atestado de residência anterior e atual. Os pedidos devem ser protocolados na Secretaria Acadêmica do campus para o qual pleiteia vaga e serão encaminhados para análise e parecer da Coordenação do Curso e submetido à decisão da PROGRAD (Pró-reitoria de Graduação).</li></ol>"
+			},
+			{
+				"type": "text",
+				"content": "<h4>2.6 Retorno de graduado</h4>De acordo com o inciso II do Art. 29 da <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>, considera-se retorno de graduado a concessão de vaga, na UFFS, para graduado da UFFS ou de outra instituição de ensino superior que pretenda fazer novo curso.A seleção para ingresso por meio de retorno de graduado ocorre semestralmente, nas datas publicadas no Calendário Acadêmico, através de editais. O candidato deve ler atentamente o edital e comparecer para inscrição portando toda a documentação exigida."
+			},
+			{
+				"type": "text",
+				"content": "<h4>2.7  Retorno de aluno-abandono da UFFS</h4>De acordo com o §1º do Art. 29 da <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>, entende-se por aluno-abandono da UFFS aquele que já esteve regularmente matriculado e rompeu seu vínculo com a Instituição, por haver desistido ou abandonado o curso.A seleção para reingresso por meio de retorno de aluno-abandono da UFFS ocorre semestralmente, nas datas publicadas no Calendário Acadêmico, através de editais. O candidato deve ler atentamente o edital e comparecer para inscrição portando toda a documentação exigida."
+			}
+		]
+	},
+	{
+		"title": "Matricula Inicial",
+		"popup_id": "popup-matricula-inicial",
+		"content": [{
+				"type": "text",
+				"content": "A matrícula do candidato classificado e chamado em processo seletivo o torna aluno da UFFS. Os prazos, procedimentos, locais e horários para matrícula são nos editais dos respectivos processos. O candidato que não comparecer pessoalmente ou não constituir procurador para efetuar a matrícula inicial no prazo estabelecido perderá o direito à vaga e será substituído pelo candidato seguinte na lista de classificação, conforme normas do edital competente. O mesmo se aplica ao candidato que não apresentar a documentação exigida no edital ou não comprovar as informações prestadas no ato da inscrição. O candidato menor de idade deve realizar a matrícula assistido por seu representante legal (pai, mãe ou tutor), devidamente identificado."
+			},
+			{
+				"type": "text",
+				"content": "No ato da matrícula inicial, os alunos oriundos do processo seletivo regular – ENEM – ou de processos seletivos especiais serão automaticamente matriculados no conjunto de disciplinas que compõe a primeira fase do currículo do curso. É possível adicionar/remover componentes no período de ajustes, com aval do coordenador do curso, desde que permaneça matriculado em componentes que somem no mínimo 50% da carga horária equivalente à primeira fase. Recomenda-se, portanto, buscar orientação com a Coordenação do Curso antes de realizar os ajustes."
+			},
+			{
+				"type": "text",
+				"content": "Já os ingressantes pelas formas de transferência ou retorno deverão matricular-se nos componentes curriculares desejados durante o período de rematrícula e/ou ajustes, obedecendo aos limites mínimos e máximos de créditos por semestre estabelecidos por seus cursos."
+			}
+		]
+	},
+	{
+		"title": "Renovação da Matrícula",
+		"popup_id": "popup-renovacao-matricula",
+		"content": [{
+				"type": "text",
+				"content": "A cada novo semestre letivo, o estudante deverá renovar sua matrícula, conforme prazos estabelecidos no <a class='external' href='https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/calendario-academico'>Calendário Acadêmico</a> e orientações emitidas pela PROGRAD. A não renovação da matrícula caracteriza abandono de curso e acarreta a perda da vaga na UFFS. <br> A renovação é feita sempre através do Portal do Aluno durante os períodos de rematrícula/ajuste de matrícula. Na ocasião, o estudante deve realizar a escolha do conjunto de componentes curriculares que pretende cursar no semestre que se inicia, sempre dentro dos limites de carga horária mínima e máxima estipuladas por seu curso.<br> Em casos específicos, quando não há componentes curriculares disponíveis para o estudante, este deve utilizar a opção de confirmação de vínculo disponível no portal.<br>Após o final do período de ajustes, os estudantes que não realizaram a escolha dos componentes, bem como aqueles que não confirmaram vínculo terão suas matrículas canceladas."
+			},
+			{
+				"type": "text",
+				"content": "<h4>4.1 Rematrícula</h4>É a renovação do vínculo do aluno com a UFFS, concretizada por meio da escolha dos componentes curriculares (CCRs) a serem cursados no próximo semestre. Os estudantes que estão ingressando pelas modalidades de transferências e retornos também devem realizar o procedimento. A rematrícula ocorre sempre no intervalo entre os semestres, conforme período estabelecido no Calendário Acadêmico. Durante este prazo, entre no <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a> e acesse a opção Pedido de Rematrícula. Escolha as turmas dos componentes curriculares que deseja cursar no próximo semestre e confirme. Salve ou imprima seu comprovante de matrícula. Excepcionalmente, se não houver turmas que você esteja apto a cursar,utilize a opção Confirmar vínculo. Todos os pedidos de inclusão de turmas permanecerão aguardando deferimento. Após o encerramento do período de rematrícula, eles serão processados automaticamente, conforme critérios do Regulamento de Graduação (para maiores informações, consulte o Art. 47 da <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>). Somente pedidos deferidos dão direito a frequentar as aulas da referida turma. Portanto, esteja atento ao resultado da análise através da opção Acompanhamento da Rematrícula no Portal do Aluno."
+			},
+			{
+				"type": "text",
+				"content": "<strong>Importante!</strong> <ul><li>No período de rematrícula, somente são mostradas as turmas referentes aos CCRs que fazem parte de sua matriz curricular e cujos pré-requisitos, quando existentes, já tenham sido cumpridos. A matrícula deve respeitar os limites mínimo e máximo de créditos por semestre letivo estabelecidos para cada curso.</li><li>É possível alterar seus pedidos de rematrícula durante todo o período.</li><li>Não é possível incluir turmas com sobreposição (choque) de horário. Os horários por curso são disponibilizados alguns dias antes da rematrícula no site do seu curso.</li><li>Somente frequente as aulas dos componentes para os quais sua matrícula seja deferida. Caso contrário, seu nome não constará no diário de classe e não será possível registrar notas e frequências.</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "<h4>4.2 Ajuste de Matrícula</h4>O ajuste possibilita incluir novas turmas ou excluir aquelas escolhidas anteriormente, no período de rematrícula. Neste período, também é possível solicitar vaga em componentes extracurriculares (isto é, fora da matriz de seu curso), a fim de cursá-los como disciplina isolada. O período para este procedimento ocorre após a rematrícula, em prazo estabelecido no Calendário Acadêmico. O estudante deve acessar, no <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a>, a opção Pedido de Ajuste, realizar as alterações desejadas em sua lista de CCRs, adicionando e/ou excluindo turmas e confirmar. É importante salvar ou imprimir seu comprovante de ajuste. Os pedidos de exclusão de turma são processados na mesma hora. Ou seja, ao excluir uma turma de sua lista de componentes, a vaga será liberada imediatamente. Já os pedidos de inclusão ficarão aguardando deferimento e serão processados automaticamente após o final do período, de acordo com os critérios do Regulamento de Graduação (para maiores informações, consulte o Art. 47 da <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>). Somente pedidos de inclusão deferidos garantem vaga na turma. Portanto, esteja atento ao resultado da análise antes de começar a frequentar as aulas. É importante destacar que a realização de ajustes não é obrigatória. Você somente deve fazê-lo caso não tenha conseguido matricular-se nos CCRs que deseja cursar no período de rematrícula.Portanto, se você fez rematrícula e não fez ajustes, continuará matriculado naquelas turmas escolhidas na rematrícula. Se você não fez a rematrícula, o ajuste é a última oportunidade de renovar seu vínculo com a UFFS e não perder sua vaga."
+			},
+			{
+				"type": "text",
+				"content": "<strong>Importante!</strong><ul><li>No período de ajustes é possível incluir turmas referentes aos CCRs ofertados pelo campus, sejam eles curriculares ou extracurriculares desde que os pré-requisitos, quando existentes, tenham sido cumpridos. Para visualizar os CCRs extracurriculares acesse a opção Carregar lista de CCRs disponíveis das matrizes de outros cursos.</li><li>O ajuste deve respeitar os limites mínimo e máximo de créditos por semestre letivo estabelecidos para cada curso.</li><li>É possível alterar seus pedidos de ajuste durante todo o período.</li><li>Mesmo que alguns CCRs oferecidos em outros cursos tenham nomes idênticos aos que compõem sua matriz, é possível que suas ementas, número de créditos e/ou bibliografias sejam distintos. Nesses casos, embora tenham o mesmo nome, os CCRs são identificados por códigos diferentes. Sempre consulte sua matriz curricular (opção Acompanhamento da Matriz) para certificar-se de que a disciplina que deseja frequentar em outro curso possui o mesmo código da turma em que está se matriculando. Caso contrário, a disciplina permanecerá em seu histórico como extracurricular e estará sujeita a todos os prazos e normas de compatibilidade para aproveitamento de estudos, de acordo com a Resolução <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0008'>08/2014 - CONSUNI/CGRAD.</a></li><li>A exclusão de CCRs no ajuste libera vagas para outros estudantes que tenham solicitado inclusão para a mesma turma. Portanto, se você já decidiu não frequentar alguma turma em que esteja matriculado, faça sua exclusão durante o período de ajustes. Assim você evita a necessidade de cancelá-lo posteriormente e deixa a vaga à disposição de colegas que precisam dela.</li><li>Somente frequente as aulas dos componentes curriculares para os quais sua matrícula foi deferida. No Portal do Aluno, a opção Notas no Semestre mostra os componentes nos quais você está matriculado no momento, o que significa que somente estes diários de classe poderão receber seus registros de nota e frequência.</li><li>Não é possível realizar ajuste condicional, ou seja, excluir uma turma somente se a inclusão de outra for deferida. Portanto, ao tentar trocar de turma, esteja ciente de que não há garantia de vaga.</li><li>Não é possível incluir turmas com sobreposição (choque) de horário. Os horários por curso são disponibilizados alguns dias antes da rematrícula na página do seu curso, no site da UFFS.</li></ul>"
+			}
+		]
+	},
+	{
+		"title": "Inclusão Extraordinária",
+		"popup_id": "popup-inclusao-extraordinaria",
+		"content": [{
+				"type": "text",
+				"content": "Após o período de ajustes, a fim de otimizar a ocupação e atender ao maior número possível de estudantes, as turmas que ainda possuem vagas em aberto poderão ser disponibilizadas para inclusão por alunos regulares. A ocupação se dá de forma imediata, por ordem de solicitação, até o preenchimento do total de vagas na turma. O limite máximo de créditos, o cumprimento dos pré-requisitos e a compatibilidade de horários é respeitada. É importante destacar que este período não é um novo ajuste de matrícula. Na inclusão extraordinária é possível apenas incluir turmas à matrícula do aluno, mas não é possível realizar exclusões."
+			}
+		]
+	},
+	{
+		"title": "Cancelamento de CCR",
+		"popup_id": "popup-cancelamento-ccr",
+		"content": [{
+				"type": "text",
+				"content": "O cancelamento consiste na solicitação do aluno para deixar de frequentar um componente curricular (ou mais componentes curriculares) no qual (nos quais) esteja matriculado no semestre corrente, respeitando o número mínimo de créditos estabelecidos para seu curso. O estudante pode cancelar cada componente curricular uma única vez no decorrer do curso. O procedimento é realizado no <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a> através da opção Pedido de Cancelamento, aberta apenas durante o período previsto no Calendário Acadêmico. Após a escolha dos componentes curriculares a serem cancelados, o sistema emitirá um atestado, documento que comprova que o estudante realizou a solicitação dentro do prazo previsto. Salve ou imprima este documento. Os pedidos de cancelamento são deferidos no ato e não poderão ser revertidos. Após o cancelamento, o nome do estudante não constará mais no diário de classe do professor do componente."
+			},
+			{
+				"type": "text",
+				"content": "<strong>Importante!</strong><ul><li>Cancelar componentes pode atrasar a conclusão de seu curso.</li><li>Em caso de cancelamento de um componente pertencente à sua fase regular no curso, na próxima rematrícula você perde a preferência na obtenção de vaga para este componente (a menos que a alteração da fase de oferta tenha sido solicitada pelo colegiado).</li><li>Evite ao máximo cancelar CCRs, pois as vagas liberadas nas turmas não poderão mais ser ocupadas por outros estudantes que precisam dela, ficando ociosas.</li></ul>"
+			}
+		]
+	},
+	{
+		"title": "Aproveitamento de conhecimentos prévios",
+		"popup_id": "popup-aproveitamento-ccr",
+		"content": [{
+				"type": "text",
+				"content": "Disciplinado pela Resolução <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0008'>08/2014 - CONSUNI/CGRAD.</a>, o aproveitamento de conhecimentos prévios visa à dispensa de componentes curriculares integrantes das matrizes dos cursos de graduação da UFFS e pode se dar de duas formas:<ul><li>Validação de Componente Curricular (CCR);</li><li>Exame de Suficiência.</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "<h4>7.1 Validação de Componente Curricular (CCR)</h4>Consiste no aproveitamento de componente(s) curricular(es) equivalente(s), cursado(s) com aprovação em curso de nível superior regularmente autorizado, na UFFS ou em outra Instituição de Educação Superior (IES). O total de créditos validados pelo estudante não pode ultrapassar 40% (quarenta por cento) do total de créditos do currículo pleno do curso no qual está matriculado na UFFS, exceto para estudantes que ingressaram no curso por transferência interna, retorno de aluno-abandono ou retorno de graduado da própria UFFS. As demais regras estão especificadas no Capítulo II da Resolução 08/2014 – CONSUNI/CGRAD. O período para solicitação de validação de CCR é previsto no Calendário Acadêmico. O interessado deve ler atentamente o Capítulo II da Resolução <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0008'>08/2014 - CONSUNI/CGRAD.</a> e comparecer à Secretaria Acadêmica do campus portanto a documentação especificada no art. 7, além do formulário DRA/DCA 005 (disponível também no <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a>) devidamente preenchido. Excepcionalmente, a validação de componentes cursados durante o período de mobilidade acadêmica internacionalpoderá ser protocolada a qualquer tempo, preferencialmente, em até 30 dias após o retorno do estudante à UFFS. O estudante deve apresentar os documentos comprobatórios das disciplinas cursadas em língua espanhola, inglesa ou francesa. Caso os documentos estejam em outro idioma que não espanhol, inglês ou francês, o estudante deverá providenciar, anteriormente ao pedido de validação, a tradução juramentada e arcar com os respectivos custos. Os componentes curriculares cuja validação foi deferida serão lançados no histórico escolar do estudante com a situação CCV (Componente Curricular Validado). O estudante pode consultar os lançamentos no <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a>, opção Acompanhamento da matriz. Em caso de indeferimento, o estudante pode protocolar recurso na Secretaria Acadêmica do campus, por meio do formulário DRA/DCA 012, em até 3 dias úteis após a publicação do resultado."
+			},
+			{
+				"type": "text",
+				"content": "<h4>7.2 Exame de Suficiência</h4>Consiste na demonstração de conhecimentos adquiridos em curso de nível superior que não se enquadra como validação de CCR, ou no trabalho em atividades relacionadas à área de conhecimento do componente curricular, mediante aprovação em exame aplicado por banca examinadora especial. O aproveitamento por exame de suficiência fica limitado a 10% (dez por cento) do total da carga horária do curso no qual está matriculado na UFFS. O exame não se aplica aos componentes curriculares de estágio e TCC, bem como àqueles nos quais o aluno já tenha sido reprovado (por nota, frequência ou em exame de suficiência anterior) ou esteja em curso no semestre letivo da solicitação. O período para solicitação de exame de suficiência é previsto no Calendário Acadêmico. O interessado deve ler atentamente o Capítulo III da Resolução <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0008'>08/2014 - CONSUNI/CGRAD.</a> e comparecer à Secretaria Acadêmica do campus portanto o formulário DRA/DCA 038 preenchido e a documentação exigida."
+			}
+		]
+	},
+	{
+		"title": "Validação de ACC",
+		"popup_id": "popup-validacao-acc",
+		"content": [{
+				"type": "text",
+				"content": "As Atividades Curriculares Complementares (ACCs) são atividades de enriquecimento curricular, científico e cultural que o estudante deve cumprir ao longo do curso de graduação, sendo necessárias para a integralização da carga horária total do curso. <br>Cada curso possui regulamentação específica para as ACCs, a qual estabelece as categorias de atividades e a carga horária a ser cumprida. Para mais informações, consulte o PPC de seu curso ou tire suas dúvidas com a Coordenação do Curso. <br>Para requerer a validação de atividades como ACC, o estudante deve comparecer à Secretaria Acadêmica, durante o prazo previsto no Calendário Acadêmico, portando o formulário <a class='external' href='https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/formularios/dra-dca-006'>DRA/DCA 006</a> preenchido e acompanhado do original e cópia do documento comprobatório. A solicitação será encaminhada ao curso para avaliação e as atividades deferidas serão lançadas no histórico do aluno. O estudante pode acompanhar a carga horária lançada por meio do <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a>, opção <strong>Acompanhamento da matriz.</strong> "
+			}
+		]
+	},
+	{
+		"title": "Trancamento de matrícula",
+		"popup_id": "popup-trancamento",
+		"content": [{
+				"type": "text",
+				"content": "O trancamento de matrícula é a interrupção temporária dos estudos sem que ocorra perda do vínculo do estudante com a UFFS. O trancamento tem duração de 1 (um) semestre letivo e pode ser renovado, até o limite total máximo de 4 semestres letivos de trancamento, consecutivos ou não, sendo vedado o trancamento no semestre de ingresso ou reingresso. <br>Ao trancar a matrícula, todos os componentes em andamento serão trancados para o aluno, isto é, não será mais possível frequentar as aulas naquele semestre. Se a intenção do aluno é deixar de frequentar apenas algum(ns) componente(s) específico(s), o procedimento a ser feito é o Cancelamento de CCR. <br>A solicitação de trancamento deve ser solicitada no prazo de até 45 dias corridos, contados do início do semestre letivo, na Secretaria Acadêmica, mediante preenchimento de requerimento específico, onde são coletados os despachos de um servidor da Biblioteca, do coordenador do curso e de um servidor do Setor de Assuntos Estudantis (SAE). Após realizar o trancamento, não será mais possível retornar aos estudos naquele semestre."
+			},
+			{
+				"type": "text",
+				"content": "A <strong> renovação do trancamento </strong> deve ser feita por meio do <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a>, no prazo previsto no Calendário Acadêmico, e somente será possível caso o estudante ainda não tenha atingido o limite de 4 semestres trancados."
+			},
+			{
+				"type": "text",
+				"content": "O <strong> destrancamento de matrícula </strong> também deve ser feito por meio do <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a>, no prazo previsto no Calendário Acadêmico. Logo após destrancar a matrícula, o estudante deve fazer a escolha dos componentes que pretende cursar no semestre correspondente ao destrancamento."
+			},
+			{
+				"type": "text",
+				"content": "O estudante com matrícula trancada que deixar de renovar o trancamento para o semestre seguinte, bem como aquele que extrapolar o limite de 4 semestres de trancamento ou que efetuar o destrancamento, mas não escolher os componentes terá sua matrícula cancelada após o final do período de renovação de matrícula."
+			}
+		]
+	},
+	{
+		"title": "Desistência",
+		"popup_id": "popup-desistencia",
+		"content": [{
+				"type": "text",
+				"content": "O estudante que não deseja mais ser aluno da UFFS pode requerer sua desistência formal a qualquer tempo na Secretaria Acadêmica. É necessário coletar os despachos de um servidor da Biblioteca, do coordenador do curso e de um servidor do Setor de Assuntos Estudantis (SAE ). A situação de matrícula será alterada para Desistente. O aluno ainda terá o direito de requerer o histórico escolar quando necessário. Alunos desistentes podem candidatar-se a uma nova vaga na UFFS por meio dos editais de aluno-abandono."
+			}
+		]
+	},
+	{
+		"title": "Abandono de curso",
+		"popup_id": "popup-abandono",
+		"content": [{
+				"type": "text",
+				"content": "É o rompimento do vínculo do acadêmico com a Instituição pela não renovação da matrícula ou do trancamento. A situação de matrícula do aluno será alterada para Cancelada. O aluno ainda terá o direito de requerer o histórico escolar quando necessário. Alunos que abandonaram o curso podem candidatar-se a uma nova vaga na UFFS por meio dos editais de aluno-abandono."
+			}
+		]
+	},
+	{
+		"title": "Infrequência",
+		"popup_id": "popup-infrequencia",
+		"content": [{
+				"type": "text",
+				"content": "O Regulamento de Graduação da UFFS prevê a perda da vaga pelo estudante que deixar de comparecer, sem justificativa, a todas as aulas de seu curso até o quinto dia letivo correspondente ao seu semestre de ingresso. A situação da matrícula será alterada para Eliminado, o que não dá ao aluno o direito de concorrer a uma nova vaga por meio de retorno de aluno-abandono."
+			}
+		]
+	},
+	{
+		"title": "Mobilidade acadêmica",
+		"popup_id": "popup-mobilidade",
+		"content": [{
+				"type": "text",
+				"content": "É o processo pelo qual um estudante matriculado em uma instituição de ensino superior (IES) pode estudar em outra e, após a conclusão dos estudos, obter atestado que lhe permita aproveitar os estudos realizados para a integralização do seu curso de graduação na instituição de origem. O objetivo é propiciar aos estudantes o contato com outras realidades e culturas, mediante o desenvolvimento de atividades acadêmicas em outras IES nacionais e estrangeiras, bem como receber em seus cursos estudantes matriculados em cursos de graduação de outras IES. A UFFS mantém programas de mobilidade acadêmica nas seguintes modalidades:<ul><li>Mobilidade Acadêmica Intercampi da UFFS;</li><li>Mobilidade Acadêmica Nacional – Programa de Mobilidade ANDIFES</li><li>Mobilidade Acadêmica Internacional – Programa Ciência sem Fronteiras</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "Para todas as modalidades de mobilidade acadêmica, o estudante interessado em participar deverá ter o Plano de Estudos aprovado pelo Colegiado de seu curso. Para mais informações sobre Mobilidade Acadêmica acesse a Resolução nº 2/2015 – CONSUNI/CGRAD."
+			},
+			{
+				"type": "text",
+				"content": "<strong>Atenção:</strong> o estudante que teve seu pedido de mobilidade aprovado deve, antes de viajar, requerer a alteração de sua situação de matrícula na Secretaria Acadêmica. Ao retornar, deve solicitar a reativação de sua matrícula, também na Secretaria Acadêmica. Dúvidas podem ser enviadas para o e-mail: mobilidadeacademica@uffs.edu.br"
+			}
+		]
+	},
+	{
+		"title": "Exercício domiciliar",
+		"popup_id": "popup-domiciliar",
+		"content": [{
+				"type": "text",
+				"content": "A realização de atividades compensatórias em regime domiciliar é prevista no Decreto-Lei nº. 1.044 de 21/10/1969 (alunos portadores de afecções) e na Lei nº. 6.202 de 17/04/1975 (estudante gestante), bem como no Regulamento de Graduação da UFFS. Dessa forma, serão merecedores de tratamento especial em regime domiciliar:"
+			},
+			{
+				"type": "text",
+				"content": "a) a estudante gestante, a partir do 8º mês de gestação, por um período de 3 meses;"
+			},
+			{
+				"type": "text",
+				"content": "b) o estudante com afecções, congênitas ou adquiridas, infecções, traumatismos ou outras condições mórbidas caracterizadas por:<ul><li>incapacidade física relativa, incompatível com a frequência aos trabalhos acadêmicos, desde que se verifique a conservação das condições intelectuais e emocionais para o prosseguimento da atividade acadêmica em regime domiciliar;</li><br><li>ocorrência isolada ou esporádica;</li><br><li>duração que não ultrapasse, ainda, o máximo admissível, em cada caso, para a continuidade do processo pedagógico de aprendizado, atendendo a que tais características se verificam, entre outros, em casos de síndromes hemorrágicos (tais como a hemofilia), asma, cardite, pericardites, afecções osteoarticulares submetidas a correções ortopédicas, nefropatias agudas ou subagudas, afecções reumáticas, etc.</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "Para solicitar o regime de Exercício Domiciliar o acadêmico ou seu representante deverá se dirigir até a Secretaria Acadêmica do campus em até 5 (cinco) dias úteis a contar da data do atestado/laudo médico, preencher o Formulário, anexar o atestado/laudo médico e aguardar o parecer do Médico Perito da UFFS e o deferimento do coordenador do curso."
+			},
+			{
+				"type": "text",
+				"content": "No tratamento especial em regime domiciliar, como compensação da ausência às aulas, o estudante deve realizar estudos/atividades domiciliares com acompanhamento do professor do CCR."
+			}
+		]
+	},
+	{
+		"title": "Quebra de pré-requisitos",
+		"popup_id": "popup-quebra-req",
+		"content": [{
+				"type": "text",
+				"content": "Para realizar a matrícula em componente curricular, é necessário que todos os pré-requisitos, se existentes, tenham sido cumpridos pelo aluno. Entretanto, em casos excepcionais, o Colegiado pode autorizar a quebra do(s) pré-requisito(s)."
+			},
+			{
+				"type": "text",
+				"content": "O estudante deve comparecer à Secretaria Acadêmica e preencher o DRA/DCA 014, o qual será encaminhado ao Colegiado para decisão. Se a solicitação for aprovada, o coordenador comunicará ao Departamento de Controle Acadêmico para que efetive a quebra no sistema, possibilitando, assim, a matrícula do aluno."
+			},
+			{
+				"type": "text",
+				"content": "Por depender de uma decisão do Colegiado, é importante que o aluno faça a solicitação com antecedência, a fim de que a decisão ocorra anteriormente ao prazo de renovação de matrícula. Após finalizado o período de renovação, a quebra não é mais viável, pois o estudante não terá mais a oportunidade de solicitar a inclusão do componente curricular."
+			}
+		]
+	},
+	{
+		"title": "Revisão de Nota",
+		"popup_id": "popup-revisao",
+		"content": [{
+				"type": "text",
+				"content": "É facultado ao estudante requerer ao coordenador de curso a revisão das notas das avaliações, mediante justificativa circunstanciada, protocolada junto à Secretaria Acadêmica por meio do formulário DRA/DCA 024, no prazo de, no máximo, 3 (três) dias letivos, após a divulgação do resultado e devolução do instrumento de avaliação corrigido ao estudante. Para mais informações, consulte o Art. 81 do Regulamento de Graduação."
+			}
+		]
+	},
+	{
+		"title": "Avaliação em 2ª chamada",
+		"popup_id": "popup-avaliacao",
+		"content": [{
+				"type": "text",
+				"content": "O estudante que não participou do processo avaliativo por ausência justificada deve solicitar prova de segunda chamada junto à Secretaria Acadêmica, através do formulário DRA/DCA 026 e mediante comprovação documental, no prazo máximo de 3 (três) dias úteis após cessado o motivo do impedimento, conforme §1º do Art. 78 da <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>."
+			}
+		]
+	},
+	{
+		"title": "Situação incompleta",
+		"popup_id": "popup-situacao-incompleta",
+		"content": [{
+				"type": "text",
+				"content": "De acordo com o Art. 80 do Regulamento de Graduação, \"o estudante que obtiver a frequência mínima, mas que por razões excepcionais, devidamente justificadas, submetidas à aprovação do colegiado do curso, não conseguir completar a avaliação do componente curricular dentro do período letivo, terá registrada situação no sistema acadêmico como “Incompleta”, pelo prazo definido pelo colegiado\"."
+			},
+			{
+				"type": "text",
+				"content": "Para tanto, o interessado deve apresentar requerimento na Secretaria Acadêmica antes do encerramento do respectivo diário de classe. O requerimento deve ser instruído com documentos que demonstrem os motivos que o impedem de completar o processo de avaliação do componente curricular (CCR) dentro do semestre letivo. O CCR em situação incompleta permanece em aberto no histórico do estudante. O estudante não deve matricular-se novamente em CCR que se encontra em situação incompleta."
+			},
+			{
+				"type": "text",
+				"content": "Mais detalhes sobre a tramitação encontram-se na <a class='external' href='https://www.uffs.edu.br/atos-normativos/instrucao-normativa/prograd/2016-0002'>Instrução Normativa nº 2/PROGRAD/2016.</a>"
+			}
+		]
+	},
+	{
+		"title": "Regime de ensino a distância",
+		"popup_id": "popup-ensino-distancia",
+		"content": [{
+				"type": "text",
+				"content": "É facultado ao aluno participante do programa de mobilidade acadêmica cujo afastamento da UFFS ocorra durante o semestre letivo, realizar as atividades dos CCRs em que está matriculado em regime especial de ensino a distância. Esse regime pode ser concedido apenas para o estudante que até a data do afastamento já tenha frequentado, pelo menos, 50% da carga horária total do componente curricular; ou quando do retorno do período de mobilidade se der antes de haver transcorrido 50% da carga horária total do componente curricular em que requerer matrícula (Resolução nº 2/2015 – CONSUNI/CGRAD)."
+			},
+			{
+				"type": "text",
+				"content": "O estudante deve requerer esta modalidade de atendimento na SECAC, através do formulário DRA/DCA 036, e aguardar a decisão do colegiado do curso."
+			}
+		]
+	},
+	{
+		"title": "Integralização Curricular",
+		"popup_id": "popup-integralizacao",
+		"content": [{
+				"type": "text",
+				"content": "A integralização do curso de graduação dar-se-á pelo cumprimento da carga horária total fixada na matriz curricular e dos demais requisitos constantes no Projeto Pedagógico do Curso (PPC)."
+			}
+		]
+	},
+	{
+		"title": "Colação de Grau / Diplomação",
+		"popup_id": "popup-diplomacao",
+		"content": [{
+				"type": "text",
+				"content": "A colação de grau é um ato acadêmico, realizado sob a presidência do reitor ou representante, para conferir ao formando o grau acadêmico a que faz jus. Somente após a colação de grau será dado andamento ao processo de diplomação (expedição e registro do diploma e emissão do histórico escolar de conclusão). De acordo com o Regulamento de Graduação da UFFS (Art. 96), está apto a colar grau o estudante regular que atenda aos seguintes requisitos:"
+			},
+			{
+				"type": "text",
+				"content": "I – integralização do curso ao qual está vinculado;"
+			},
+			{
+				"type": "text",
+				"content": "II – situação regular no Exame Nacional de Desempenho de Estudantes (ENADE) do respectivo curso;"
+			},
+			{
+				"type": "text",
+				"content": "III – documentação regularizada junto à Secretaria Acadêmica;"
+			},
+			{
+				"type": "text",
+				"content": "Os estudantes que se encontram matriculados em todos os componentes curriculares que faltam para integralização da matriz de seu curso são chamados de prováveis formandos. A Secretaria Acadêmica fornece <strong> Atestado de Provável Formando </strong> apenas nesses casos."
+			},
+			{
+				"type": "text",
+				"content": "A cada semestre, os prováveis formandos recebem por e-mail uma notificação para que preencham, no Portal do Aluno, a solicitação de diplomação. Nesse momento, o provável formando deverá conferir atentamente e atualizar, se for o caso, seus dados pessoais e de contato no sistema acadêmico. É importante frisar que caso o estudante tenha passado por alguma alteração em seu Registro Geral (RG) desde o ingresso na UFFS (mudança de nome, número ou data de emissão do RG), os dados atualizados devem ser informados, e o original e a cópia do novo documento devem ser apresentados na Secretaria Acadêmica, visto que essas informações serão incluídas no diploma. A UFFS se isenta de qualquer responsabilidade no caso de emissão de diplomas e históricos finais com dados desatualizados ou incorretos fornecidos pelo aluno. Caso isso ocorra, o aluno deverá posteriormente requisitar uma segunda via dos documentos, mediante o pagamento das taxas correspondentes."
+			},
+			{
+				"type": "text",
+				"content": "Após o preenchimento da solicitação de diplomação, os dados do aluno passarão pelas etapas de análise documental, análise curricular, análise do coordenador do curso, verificação de pendências e homologação final. O andamento das etapas pode ser conferido no Portal do Aluno. Excetuando-se a análise documental, todas as demais etapas ocorrem após a finalização do semestre."
+			},
+			{
+				"type": "text",
+				"content": "Após a homologação final, o estudante estará apto a colar grau e terá seu nome incluído na ata da respectiva cerimônia (gabinete ou solenidade oficial). A partir dessa etapa, também é possível solicitar na Secretaria Acadêmica o<strong> Atestado de Formando. </strong>"
+			},
+			{
+				"type": "text",
+				"content": "Após a colação de grau, iniciam-se os trâmites para expedição do diploma e do histórico escolar de conclusão. Esses documentos estarão disponíveis para retirada na Secretaria Acadêmica em até 180 (cento e oitenta) dias após a colação de grau. Para isso, o estudante deverá apresentar documento de identidade com foto, ou de seu procurador, mediante apresentação de procuração contendo firma reconhecida em cartório e documento de identidade com foto.  Caso o graduado necessite de documento comprobatório antes deste prazo, o mesmo poderá solicitar na Secretaria Acadêmica o <strong> Certificado de Colação de Grau.</strong><br>"
+			},
+			{
+				"type": "text",
+				"content": "Cabe ressaltar que as etapas descritas acima referem-se ao processo de diplomação, que envolvem apenas questões relacionadas à documentação e à integralização curricular do aluno. Já a solenidade oficial de colação de grau é um evento organizado no âmbito do campus e disciplinado pela Resolução 02/2016 - CONSUNI/CGAE. Questões relativas à cerimônia de colação de grau deverão ser tratadas pelo estudante com a comissão responsável pela organização da cerimônia no campus."
+			}
+		]
+	},
+	{
+		"title": "Jubilação",
+		"popup_id": "popup-jubilacao",
+		"content": [{
+				"type": "text",
+				"content": "A Jubilação se caracteriza como a perda da vaga na UFFS nas seguintes situações (<a class='external' href=' https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Art. 67 do Regulamento de Graduação</a>):"
+			},
+			{
+				"type": "text",
+				"content": "I – o discente que não concluir o curso no dobro do tempo de integralização da matriz prevista no Projeto Pedagógico do Curso;"
+			},
+			{
+				"type": "text",
+				"content": "II – o discente que reprovar em todos os componentes curriculares nos quais esteja matriculado em três semestres letivos, consecutivos ou não."
+			},
+			{
+				"type": "text",
+				"content": "III - O estudante  que reprovar por frequência em todos os componentes curriculares nos quais esteja matriculado em um semestre letivo."
+			},
+			{
+				"type": "text",
+				"content": "A jubilação ocorre após processo administrativo, garantindo ao estudante o direito à ampla defesa e ao contraditório. Todo o procedimento é descrito na <a class='external' href='https://www.uffs.edu.br/atos-normativos/instrucao-normativa/prograd/2017-0001'>Instrução Normativa nº 1/PROGRAD/2017</a>"
+			}
+		]
+	},
+	{
+		"title": "ENADE",
+		"popup_id": "popup-enade",
+		"content": [{
+				"type": "text",
+				"content": "O <a class='external' href='http://portal.inep.gov.br/enade'>Exame Nacional de Desempenho de Estudantes</a>, integrante do <a class='external' href='http://portal.inep.gov.br/superior-sinaes'>Sistema Nacional de Avaliação da Educação Superior (Sinaes)</a>, avalia o rendimento dos alunos dos cursos de graduação, em relação aos conteúdos programáticos dos cursos em que estão matriculados."
+			},
+			{
+				"type": "text",
+				"content": "De acordo com a <a class='external' href='http://download.inep.gov.br/download//superior/2011/portaria_normativa_n40_12_dezembro_2007.pdf'>Portaria nº 40 MEC/2007</a>, o Enade é componente curricular obrigatório dos cursos superiores, sendo a situação regular do aluno condição indispensável para colar grau e receber o diploma. A situação do aluno será registrada no histórico escolar do estudante."
+			},
+			{
+				"type": "text",
+				"content": "A periodicidade máxima de aplicação do Enade em cada área é trienal."
+			},
+			{
+				"type": "text",
+				"content": "Os estudantes que se enquadram como ingressantes ou concluintes dos cursos avaliados a cada ano serão inscritos pela UFFS. Os ingressantes são dispensados de participar da prova, porém os concluintes devem fazê-la impreterivelmente, sob pena de serem impedidos de colar grau em virtude da situação irregular no Enade."
+			},
+			{
+				"type": "text",
+				"content": "Já os estudantes dos cursos não avaliados no respectivo ano são automaticamente dispensados da prova e terão a dispensa registrada em seu histórico escolar."
+			}
+		]
+	},
+	{
+		"title": "Frequência às aulas",
+		"popup_id": "popup-frequencia",
+		"content": [{
+				"type": "text",
+				"content": "De acordo com o <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Regulamento de Graduação da UFFS</a>, Arts. 83 e 84, a frequência às aulas e demais atividades acadêmicas presenciais é obrigatória, excetuando-se os casos de exercício domiciliar amparados em lei."
+			},
+			{
+				"type": "text",
+				"content": "Para ser aprovado, independentemente dos resultados das avaliações, o estudante deverá obter frequência mínima de 75% (setenta e cinco) da carga horária total do componente, cabendo ao professor o seu registro no diário de classe eletrônico. O estudante pode acompanhar suas frequências no <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a>, opção Notas do Semestre."
+			},
+			{
+				"type": "text",
+				"content": "É importante ressaltar que a apresentação de atestados, declarações ou outros documentos para justificar faltas por parte do aluno não podem ser aceitos. O abono de faltas é concedido apenas nos casos previstos na legislação vigente, sendo eles:<ol style='list-style-type:upper-roman'><li>Portadores de afecções (<a class='external' href='http://www.planalto.gov.br/ccivil_03/decreto-lei/del1044.htm'>Decreto-Lei nº. 1.044 de 21/10/1969</a>) e gestantes (<a class='external' href='http://www.planalto.gov.br/ccivil_03/leis/1970-1979/l6202.htm'>Lei nº. 6.202 de 17/04/1975</a>), ambos submetidos aos trâmites de exercício domiciliar;</li><li>Estudante Membro do Conselho Nacional de Educação Superior – CONAES (<a class='external' href='http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l10.861.htm'>Lei nº. 10.861/04</a>);</li><li>Militares em exercício de manobras, apresentação das reservas ou cerimônia cívica (<a class='external' href='http://www.planalto.gov.br/ccivil_03/leis/l4375.htm'>Lei nº. 4.375 de 17 de agosto de 1964</a>), bem como aqueles oficiais ou aspirantes a oficial da reserva convocados para Serviço Ativo (R/68-RCORE aprovado pelo <a class='external' href='http://www2.camara.leg.br/legin/fed/decret/1980-1987/decreto-85587-29-dezembro-1980-435139-publicacaooriginal-1-pe.html'>Decreto nº. 85.587/80</a>). Esses dispositivos não se aplicam aos militares da ativa. Portanto, não são passíveis concessão de abono de falta a militar profissional, de carreira, a serviço de corporação, nem para prestação de Serviço Militar Obrigatório;</li><li>Estudante com participação em congressos científicos e em competições artísticas ou desportivas, desde que seja atendida a regulamentação da Portaria MEC nº 646, de 06 de junho de 1979, expedida por força do <a class='external' href='http://www2.camara.leg.br/legin/fed/decret/1970-1979/decreto-69053-11-agosto-1971-410865-publicacaooriginal-1-pe.html'>Decreto nº 69.053</a>, de 11 de agosto de 1971 e o Parecer CFE nº 5.211/1978 (Documento nº 214, p. 573/574).</li></ol>"
+			}
+		]
+	},
+	{
+		"title": "Regulamentação Disciplinar",
+		"popup_id": "popup-regulacao",
+		"content": [{
+				"type": "text",
+				"content": "Em caso de infrações disciplinares cometidas por estudantes da UFFS, serão observadas as penalidades e os trâmites regulamentados nos Artigos 98 a 107 do <a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Regulamento de Graduação</a>."
+			}
+		]
+	},
+	{
+		"title": "Horário de aulas",
+		"popup_id": "popup-horario",
+		"content": [{
+				"type": "text",
+				"content": "As aulas são ministradas, de segunda a sexta-feira, no intervalo das 7h30 às 18h50, para o diurno; das 19h às 22h40, para o período noturno; e, das 7h30 às 11h50, aos sábados."
+			},
+			{
+				"type": "text",
+				"content": "Cada período de aula tem duração de 50 minutos, equivalente a uma hora-aula."
+			}
+		]
+	},
+	{
+		"title": "Aluno-especial",
+		"popup_id": "popup-aluno-especial",
+		"content": [{
+				"type": "text",
+				"content": "Terminado o processo de renovação de matrícula dos alunos regulares, as vagas remanescentes em componentes curriculares poderão ser oferecidas por meio de edital a candidatos externos (que não possuem vínculo com a UFFS), que as frequentarão na forma de disciplina isolada. Os candidatos devem ter ensino médio concluído."
+			},
+			{
+				"type": "text",
+				"content": "Após a publicação do edital, o interessado deve se dirigir à Secretaria Acadêmica do campus portando a documentação exigida para realizar sua inscrição. Os resultados são divulgados por meio de editais. Candidatos com pedido deferido poderão fazer sua matrícula e frequentar as aulas."
+			},
+			{
+				"type": "text",
+				"content": "Ao final do semestre, caso tenha sido aprovado, o aluno-especial poderá requerer certificado."
+			}
+		]
+	},
+	{
+		"title": "Acúmulo de Vagas/Bolsa PROUNI",
+		"popup_id": "popup-acumulo",
+		"content": [{
+				"type": "text",
+				"content": "De acordo com a Lei nº 12.089 de 11 de novembro de 2009, é proibido que uma mesma pessoa ocupe, na condição de estudante, 2 (duas) vagas, simultaneamente, no mesmo curso ou em cursos diferentes em uma ou mais de uma instituição pública de ensino superior em todo o território nacional."
+			},
+			{
+				"type": "text",
+				"content": "Cabe ressaltar que o aluno mantém o vínculo mesmo que a matrícula esteja trancada na instituição. A situação de duplo vínculo será caracterizada após a realização e confrontação pelo MEC dos dados coletados no CENSO da Educação Superior realizado anualmente."
+			},
+			{
+				"type": "text",
+				"content": "Identificado o acúmulo de vagas, a instituição pública comunicará o estudante de que ele deverá optar por uma das vagas no prazo de 5 (cinco) dias úteis, contados do primeiro dia posterior à comunicação. Se neste período o aluno não comparecer ou não optar por uma das vagas, a instituição pública de ensino superior providenciará o cancelamento:<ol style='list-style-type:lower-alpha'> <li>da matrícula mais antiga juntamente com a nulidade dos créditos cursados, caso a duplicidade ocorra em instituições distintas; ou</li> <li>da mais matrícula mais recente, caso a duplicidade de vaga ocorra na mesma instituição.</li> </ol>"
+			},
+			{
+				"type": "text",
+				"content": "Além disso, conforme o Decreto nº 5.493/2005, é vedada a concessão de bolsa de estudo PROUNI para estudante matriculado em instituição pública e gratuita de ensino superior."
+			},
+			{
+				"type": "text",
+				"content": "Ao realizar a matrícula inicial na UFFS, o estudante assina um termo de ciência e responsabilidade em relação a essas duas situações."
+			}
+		]
+	},
+	{
+		"title": "Solicitação de documentos",
+		"popup_id": "popup-solicitacao",
+		"content": [{
+				"type": "text",
+				"content": "A Universidade Federal da Fronteira Sul (UFFS) disponibiliza aos estudantes, por meio do <a class='external' href='http://aluno.uffs.edu.br/'>Portal do Aluno</a>, documentos assinados eletronicamente (autoassinados). Os documentos possuem código para verificação da autenticidade, que é realizada por meio do link <a class='external' href='https://www.uffs.edu.br/institucional/secretarias/especial_de_tecnologia_e_informacao/sei/autenticacao-de-documentos'>autenticacao.uffs.edu.br</a>. Atualmente estão disponíveis as versões autoassinadas dos seguintes documentos:<ul><strong><li>Atestado de frequência;</li><li>Atestado de situação de matrícula;</li><li>Atestado de matrícula nos CCRs;</li><li>Histórico Escolar;</li><li>Histórico escolar de conclusão;</li><li>Horários dos alunos;</li><li>Planos de ensino;</li><li>Atestado de provável formando:</strong> fornecido apenas ao estudante regular matriculado nos componentes curriculares que faltam para a integralização de seu curso no semestre letivo corrente (ver art. 96 do Regulamento de Graduação);</li><li><strong>Atestado de formando:</strong> fornecido apenas ao estudante regular que esteja apto a colar grau, nos termos do art. 96 do Regulamento de Graduação;</li><li><strong>Certificado de colação de grau:</strong> fornecido apenas ao graduado da UFFS que tenha colado grau e ainda não tenha recebido o diploma.</li></ul>"
+			},
+			{
+				"type": "text",
+				"content": "Para os documentos relacionados abaixo a solicitação é realizada, na SECAC do campus,exclusivamente por meio do formulário DRA/DCA/DGD 001, com prazo de emissão de até 2 dias úteis após o protocolo de solicitação:<ul><strong><li>Certificado de aluno-especial;</li> <li>Certificado de aluno-ouvinte</li></strong>(para componentes cursados nesta modalidade entre 2010 e 2014.1);<strong><li>Nova via de histórico escolar de conclusão:</li></strong> fornecida ao estudante que já tenha recebido histórico escolar de conclusão. O processo de emissão deste documento poderá levar até 30 (trinta) dias, período compreendido entre a solicitação até a disponibilização para retirada na SECAC.</ul>"
+			},
+			{
+				"type": "text",
+				"content": "A SECAC também protocola pedidos de 2ª via de Diploma dos estudantes graduados pela UFFS. Nesse caso, está prevista taxa e prazo de 30 (trinta) entre a solicitação e a disponibilização para retirada."
+			},
+			{
+				"type": "text",
+				"content": "Os documentos assinados eletronicamente podem ser solicitados, também, na Secretaria Acadêmica (SECAC) do campus,  por meio do formulário DRA/DCA/DGD 001.  Neste caso a emissão do documento é realizada em até 2 dias úteis após a solicitação."
+			}
+		]
+	},
+	{
+		"title": "Moodle",
+		"popup_id": "popup-moodle",
+		"content": [{
+				"type": "text",
+				"content": "Moodle é o Ambiente Virtual de Ensino e Aprendizagem, destinado a proporcionar maior contato extraclasse entre o professor e seus alunos. O acesso ao ambiente é feito pelo endereço <a class='external' href='https://moodle-academico.uffs.edu.br/login/index.php'>http://moodle.uffs.edu.br</a>. Para acessar, o acadêmico deve informar seu login e senha. Caso não possua ou não lembre a senha, é necessário clicar em “Esqueceu seu usuário ou senha?” e seguir o procedimentos para recuperar ou alterar a senha. Se ainda assim não obtiver acesso, por favor encaminhe um e-mail relatando o problema para o endereço suportemoodle@uffs.edu.br."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Moodle",
+				"url": "https://moodle-academico.uffs.edu.br/login/index.php"
+			}
+		]
+	},
+	{
+		"title": "Onde obter ajuda",
+		"popup_id": "popup-ajuda",
+		"content": [{
+				"type": "text",
+				"content": "Diante de qualquer dúvida sobre o curso, procure seu coordenador. O e-mail e o ramal telefônico de cada coordenação constam em opção Cursos / Nome do campus / Nome do curso."
+			},
+			{
+				"type": "text",
+				"content": "Em caso de dúvidas sobre os procedimentos acadêmicos descritos abaixo, consulte o Regulamento de Graduação da UFFS (<a class='external' href='https://www.uffs.edu.br/atos-normativos/resolucao/consunicgrad/2014-0004'>Resolução 04/2014 – CONSUNI/CGRAD</a>) ou procure a Secretaria Acadêmica do seu campus."
+			}
+		]
+	}
+]

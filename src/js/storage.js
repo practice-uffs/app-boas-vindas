@@ -63,7 +63,7 @@ export class Storage{
 		let userData = localStorage["userData"];
 
 		if (!userData) {
-			return await app.api_practice.requestUserFromMural();
+			return await app.api_practice.requestUser();
 		} 
 		return JSON.parse(userData);
 	};
@@ -95,16 +95,6 @@ export class Storage{
 
 	setUserCredentials(userCredentials) {
 		localStorage["userCredentials"] = JSON.stringify(userCredentials);
-	};
-
-	removeAllButUserData() {
-		const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
-		const userData = JSON.parse(localStorage.getItem("userData"));
-
-		localStorage.clear();
-
-		this.setUserCredentials(userCredentials);
-		this.setUserData(userData);
 	};
 
 	clearUserCredentials() {

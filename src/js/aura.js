@@ -49,6 +49,7 @@ export class Aura{
     }
 
     clearChat() {
-        localStorage.removeItem("auraChat");
+		localStorage.removeItem("auraChat");
+        localStorage.removeItem("auraConsent");
     }
 }

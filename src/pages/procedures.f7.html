@@ -100,7 +100,6 @@
 				var app = this.$app;
 
 				await app.request.json('static/json/procedures.json', async function (data) {
-					console.log(data);
 					self.$setState({
 						items: data,
 					});

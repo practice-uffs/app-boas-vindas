@@ -77,6 +77,7 @@
 		data: function () {
 			return {
 				items: null,
+				dialog: null,
 			}
 		},
 		methods: {
@@ -85,17 +86,26 @@
 				var app = this.$app;
 
 				await app.request.json('static/json/freshman-guide.json', async function (data) {
-					console.log(data);
 					self.$setState({
 						items: data,
 					});
 				})
+			},
+			pageLoading: function() {
+				var self = this;
+				var app = this.$app;
+
+				self.dialog = app.dialog.preloader('Carregando...');
+				app.$$(".custom-image-large").on("load",function () {
+					app.dialog.close();
+				});
 			}
 		},
 		on: {
 			pageInit: function (e, page){
 				this.loadData();
-			}
+				this.pageLoading();
+			},
 		}
 	};
 </script>

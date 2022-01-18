@@ -2,7 +2,7 @@
 	<div data-name="aura" id="tab_aura" style="height: 100%;">
 
 		<div id="logo_aura">
-			<img src="static/images/aura/aura_logo.png" alt="" width="40%">
+			<img id="logo_aura_img" src="{{logo_aura}}" alt="" width="40%">
 		</div>
 
 		<div class="page-content messages-content">
@@ -36,7 +36,7 @@
 	.aura-consent-buttons {
 		padding-bottom: 10px;
 		display: none;
-		background-color: #fff;
+		background-color: var(--f7-page-bg-color);
 	}
 
 	#logo_aura {
@@ -45,8 +45,10 @@
 		z-index: 3;
 		text-align: center;
 		width: 100%;
-		background-image: linear-gradient(to bottom, white, white, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+		background-image: linear-gradient(to bottom, rgb(var(--f7-page-bg-color-rgb)), rgb(var(--f7-page-bg-color-rgb)),
+		rgba(var(--f7-page-bg-color-rgb), 0.8), rgba(var(--f7-page-bg-color-rgb), 0));
 	}
+
 </style>
 
 <script>
@@ -54,7 +56,8 @@
 		data: function () {
 			return {
 				chat: null,
-				messages: null
+				messages: null,
+				logo_aura: null,
 			}
 		},
 		methods: {
@@ -272,6 +275,23 @@
 					consentButtons.style.display = "flex";
 				}, 1500);
 			},
+			loadDarkModeInformation: async function(){
+				var self = this;
+				var app = self.$app;
+
+				var white_logo = "static/images/aura/aura_logo_white.png";
+				var colorful_logo = "static/images/aura/aura_logo.png";
+
+				if(app.$$("#app").hasClass('theme-dark')){
+					self.$setState({
+						logo_aura: white_logo
+					});
+					return;
+				}
+				self.$setState({
+					logo_aura: colorful_logo
+				});
+			}
 		},
 		on: {
 			tabInit: async function (e, page) {
@@ -280,6 +300,14 @@
 
 				await this.messageInit();
 				this.showButtons = false;
+				self.loadDarkModeInformation();
+
+				document.addEventListener("change", function() {
+					setTimeout(() => {
+						self.loadDarkModeInformation();
+					}, 50);
+				});
+
 
 				window.onresize = function () {
 					self.resizeMessagesContent();
@@ -290,6 +318,10 @@
 						behavior: 'smooth'
 					});
 				}
+
+				app.$$('#logo_aura_img').on("load", () => {
+					self.resizeMessagesContent();
+				})
 			},
 		}
 	}

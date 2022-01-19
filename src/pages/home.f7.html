@@ -196,7 +196,6 @@
 				var app = self.$app;
 
 				var homePage = app.$$("#home-page");
-				console.log(homePage);
 
 				var toggle = await app.toggle.create({
 					el: '#dark-theme-toggle',
@@ -206,8 +205,6 @@
 						}
 					}
 				});
-
-				console.log(toggle);
 
 				self.$setState({
 					darkThemeToggle : toggle

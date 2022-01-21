@@ -1,124 +1,338 @@
 <template>
-  <div data-name="menu">
-    <div class="page">
-      <!-- Conteúdo da página -->
-      <div class="page-content">
-        <div class="block-title block-title-medium">Campus {{title}}</div>
+	<div data-name="menu">
+		<div class="page">
+			<!-- Conteúdo da página -->
+			<div class="page-content">
+				<div class="list no-margin margin-top">
+					<ul>
+						<li class="item-content item-input ">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input class="text-align-center" type="text" placeholder="Selecione seu Campus" readonly="readonly"
+									id="picker-device" disabled/>
+								</div>
+							</div>
+							<div class="item-media align-self-center"><i class="f7-icons">pencil_circle_fill</i></div>
+						</li>
+					</ul>
+				</div>
 
-        <div class="menu-grid">
 
-          <a href="/guia_calouros/" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/creativity.png" class="menu-grid__icon">
-              <div class="item-title">Guia do Calouro</div>
-            </div>
-          </a>
-  
-          <a href="/procedures/" class="menu-grid__item item-link item-content">
-            <div class="item-inner">
-              <img src="static/images/procedure.png" class="menu-grid__icon">
-              <div class="item-title">Guia de Procedimentos</div>
-            </div>
-          </a>
+				<div>
+					<div class="row margin">
+						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							<a href="/guia_calouros/" class=" menu-item-link">
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
+									style="height: 100%;">
+									<div>
+										<img src="static/images/school.png" class="menu-item-icon">
+									</div>
+									<div class="menu-item-title">Guia do Calouro</div>
+								</div>
+							</a>
+						</div>
 
-          <a href="/content/sobre" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/school.png" class="menu-grid__icon">
-              <div class="item-title">Sobre o Campus</div>
-            </div>
-          </a>
-  
-          <a href="/content/clima" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/stormy.png" class="menu-grid__icon">
-              <div class="item-title">Clima Local</div>
-            </div>
-          </a>
-  
-          <a href="/content/auxilio" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/scholarship.png" class="menu-grid__icon">
-              <div class="item-title">Auxílio Estudantil</div>
-            </div>
-          </a>
-  
-          <a href="/content/projetos" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/group-chat.png" class="menu-grid__icon">
-              <div class="item-title">Grupos e projetos</div>
-            </div>
-          </a>
-  
-          <a href="/content/canais" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/channel.png" class="menu-grid__icon">
-              <div class="item-title">Canais UFFS</div>
-            </div>
-          </a>
-  
-          <a href="/content/lazer" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/park.png" class="menu-grid__icon">
-              <div class="item-title">Lazer</div>
-            </div>
-          </a>
-  
-          <a href="/content/dicionario" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/talking.png" class="menu-grid__icon">
-              <div class="item-title">Dicionário local do sul</div>
-            </div>
-          </a>
-  
-          <a href="/content/locomocao" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/map.png" class="menu-grid__icon">
-              <div class="item-title">Locomoção</div>
-            </div>
-          </a>
-  
-          <a href="/content/biblioteca" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/library.png" class="menu-grid__icon">
-              <div class="item-title">Biblioteca</div>
-            </div>
-          </a>
-  
-          <a href="/content/ajuda" class="menu-grid__item">
-            <div class="item-inner">
-              <img src="static/images/support.png" class="menu-grid__icon">
-              <div class="item-title">Ajuda</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							<a href="/procedures/" class=" menu-item-link">
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
+									style="height: 100%;">
+									<div>
+										<img src="static/images/school.png" class="menu-item-icon">
+									</div>
+									<div class="menu-item-title">Guia dos Procedimentos</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					{{#each staticTabsInfo}}
+						{{#js_if "@index % 2 == 0"}}
+						<div class="row margin">
+						{{/js_if}}
+
+							{{#unless active}}
+						 	<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1 disabled">
+							{{else}}
+							<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							{{/unless}}
+								<a href="{{link}}" class="menu-item-link">
+									<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
+										style="height: 100%;">
+										<div>
+											<img src="{{img}}" class="menu-item-icon">
+										</div>
+										<div class="menu-item-title">{{title}}</div>
+									</div>
+								</a>
+							</div>
+
+						{{#js_if "@index % 2 == 1"}}
+						</div>
+						{{/js_if}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
-<script>
-  export default {
-    data: function () {
-      return {
-        title: null,
-      }
-    },
-    methods: {
-      getTitle: function() {
-        let self = this;
-        var app = self.$app;
+<style>
+	.disabled {
+		pointer-events: none;
+		cursor: default;
+		filter: grayscale(100%);
+	}
 
-        app.storage.getSelectedCampus().then(data => {
-          self.$setState({
-            title: data.cidade,
-          });
-        })
-      }
-    },
-    on: {
-      tabInit: function (e, page) {
-        this.getTitle();
-      },
-    }
-  }
+	.menu-item-block {
+		border-radius: 20px;
+		background-color: var(--f7-bars-bg-color);
+	}
+
+	img.menu-item-icon {
+		height: 90px;
+	}
+
+	.menu-item-title{
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
+	}
+</style>
+
+<script>
+	export default {
+		data: function () {
+			return {
+				campus: null,
+				tabs: ['guia_calouros', 'sobre', 'clima', 'auxilio', 'lazer', 'projetos', 'canais', 'dicionario',
+					'locomocao',
+					'biblioteca', 'ajuda'
+				],
+				availableTabs : {},
+				staticTabsInfo: null,
+				spreadsheetContent: null,
+				selectedCampus: null,
+				smartSelect: null,
+				picker: null
+			}
+		},
+		methods: {
+			loadTabsInfoFromJSON: async function(){
+				var self = this;
+				var app = self.$app;
+
+				await app.request.json('static/json/menu-items.json', async function (data) {
+					data.forEach((value, index) => {
+						if(self.availableTabs[value.id]){
+							value.active = true;
+						}
+					})
+
+					self.$setState({
+						staticTabsInfo: data,
+					});
+				})
+			},
+			startSmartSelect: async function() {
+				var self = this;
+				var app = self.$app;
+
+				self.picker = app.picker.create({
+					rotateEffect: true,
+					freeMode: true,
+					toolbarCloseText: `<i class="f7-icons">xmark_circle_fill</i>`,
+					inputEl: '#picker-device',
+					backdrop: true,
+					cols: [
+						{
+							textAlign: 'center',
+							values: []
+						}
+					],
+					on: {
+						change: () => {
+							self.setSelectedCampusLink(self.picker.getValue());
+						}
+					}
+				});
+			},
+			loadStorageData: async function() {
+				var self = this;
+				var app = self.$app;
+
+				self.loadingEffects(true);
+
+				await app.storage.getCampusInformation().then(campusInformation => {
+					if(campusInformation){
+						self.$setState({
+							campus: campusInformation,
+						});
+
+						self.createPickerCampusArray(campusInformation);
+					}
+				});
+
+				await app.storage.getSelectedCampus().then(selectedCampus => {
+					if(selectedCampus){
+						self.$setState({
+							selectedCampus: selectedCampus,
+						});
+					}
+				});
+
+				await app.storage.getSpreadsheetContent().then(content => {
+					if(content){
+						self.$setState({
+							spreadsheetContent: content,
+						});
+						self.loadingEffects(false);
+					}
+				});
+
+				if(self.spreadsheetContent  && self.selectedCampus){
+					self.displayContent();
+					self.picker.setValue([self.selectedCampus.cidade], 100);
+				}
+				self.loadData();
+			},
+			loadData: async function () {
+				var self = this;
+				var app = self.$app;
+
+				await app.api.getCampus().then(campus => {
+					self.$setState({
+						campus: campus,
+					});
+					app.storage.setCampusInformation(campus);
+					self.createPickerCampusArray(campus);
+				});
+
+				var newSpreadsheetContent = [];
+
+				for (let item of this.campus) {
+					for (let tab of this.tabs) {
+						await app.api.getCampusContent('https://opensheet.vercel.app/' + item.id + '/' + tab).then(data => {
+							if (data) {
+								newSpreadsheetContent.push([item.id, tab, data]);
+							}
+						});
+					}
+				}
+
+				self.$setState({
+					spreadsheetContent : newSpreadsheetContent,
+				});
+
+				app.storage.setSpreadsheetContent(newSpreadsheetContent);
+
+				if(self.selectedCampus){
+					self.picker.setValue([self.selectedCampus.cidade], 100);
+				}
+				
+				self.loadingEffects(false);
+			},
+			setSelectedCampusLink: function (campusName) {
+				var self = this;
+				var app = self.$app;
+
+				let found = self.campus.find(element => element.cidade == campusName);
+
+				app.storage.setSelectedCampus(found);
+
+				self.$setState({
+					selectedCampus : found
+				});
+
+				self.displayContent();
+			},
+			displayContent: function() {
+				var self = this;
+				var app = self.$app;
+
+				app.storage.removePageContent();
+
+				let pageContent = {};
+
+				for (let item of self.spreadsheetContent) {
+					if (item[0] == self.selectedCampus.id && !item[2].error) {
+						pageContent[item[1]] = item[2];
+					}
+				}
+
+				self.availableTabs = {};
+
+				self.availableTabs['guia_calouros'] = true;
+				self.availableTabs['procedures'] = true;
+
+
+				for(let tab of self.tabs){
+					if(pageContent[tab]){
+						self.availableTabs[tab] = true;
+					}
+				}
+
+				app.storage.setPageContent(pageContent);
+
+				self.setAvailableItems();
+			},
+			setAvailableItems: async function(){
+				var self = this;
+				var app = self.$app;
+
+				let links = app.$$(".menu-item-link");
+
+				links.each((index, value) => {
+					let item = app.$$(value);
+					let tabId = item.attr('href').replace('/content/', '').replaceAll('/', '');
+					let parent = item.parent(".menu-item-block");
+					if(!self.availableTabs[tabId]){
+						parent.addClass('disabled');
+					} else {
+						parent.removeClass('disabled');
+					}
+				})
+			},
+			loadingEffects: async function(loading) {
+				var self = this;
+				var app = self.$app;
+
+				await new Promise(resolve => setTimeout(resolve, 500));
+
+				let menuItem = app.$$('.menu-item-content');
+				let picker = app.$$('#picker-device');
+
+				if(loading) {
+					menuItem.addClass('skeleton-text');
+					menuItem.addClass('skeleton-effect-blink');
+					picker.prop({disabled: true});
+					app.progressbar.show();
+					return;
+				} 
+				menuItem.removeClass('skeleton-text');
+				menuItem.removeClass('skeleton-effect-blink');
+				picker.prop({disabled: false});
+				app.progressbar.hide();
+			},
+			createPickerCampusArray: function(campusObject) {
+				var self = this;
+				var app = self.$app;
+
+				var campusArray = []
+				campusObject.forEach(element => {
+					campusArray.push(element.cidade);
+				});
+				self.picker.params.cols[0].values = campusArray;
+			}
+		},
+		on: {
+			tabInit: async function (e, page) {
+				var self = this;
+				var app = self.$app;
+
+				this.startSmartSelect();
+				this.loadStorageData();
+				this.loadTabsInfoFromJSON();
+			},
+		}
+	}
 </script>

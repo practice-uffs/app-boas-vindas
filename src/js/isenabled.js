@@ -16,6 +16,8 @@ var IsEnabled = {
 	loginPage: true,
 	
     bottomNavigationBar: true,
+
+	darkTheme: true,
 }
 
 export default IsEnabled;

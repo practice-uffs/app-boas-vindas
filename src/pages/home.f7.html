@@ -1,24 +1,106 @@
 <template>
-	<div class="page" data-name="home">
+	<div class="page" data-name="home" id="home-page">
 		<!-- Navbar -->
 		<div class="navbar">
 			<div class="navbar-bg"></div>
 			<div class="navbar-inner">
 				<div class="left">
-					<img src="static/images/logo/icon.svg" class="navbar-icon">
+					<img src="{{icon}}" class="navbar-icon">
 					<div class="title">UFFS Virtual</div>
 				</div>
 
 				<div class="right">
-					{{#if user}}			
-					<div @click="logout()" class="display-flex flex-direction-column justify-content-center align-items-center">
-							<i class="f7-icons">square_arrow_left</i>
-							<span class="badge color-green">{{user.username}}</span>
-					</div>
-					{{else}}
-					<a href="/login/" class="link"><i class="f7-icons">person_crop_circle</i></a>
+					{{#if user}}
+					<a href="#" class="link sheet-open" data-sheet="#about-sheet"><img
+							src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}" width="44" /></a>
 					{{/if}}
-					<a href="/about/" class="link"><i class="f7-icons">info_circle</i></a>
+					<a href="#" class="link sheet-open" data-sheet="#about-sheet"><i class="f7-icons">ellipsis_vertical</i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="sheet-modal" style="height:auto; border-radius: 5% 5% 0 0;" id="about-sheet">
+			<div class="sheet-modal-inner">
+				<div class="page-content">
+					<div class="block-title block-title-medium">Mais</div>
+					<div class="block no-padding no-margin">
+
+						{{#if user}}
+						<div class="list media-list no-margin">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-media"><img src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}"
+												width="44" /></div>
+										<div class="item-inner">
+											<div class="item-title-row">
+												<div class="item-title">{{user.name}}</div>
+											</div>
+											<div class="item-text">{{user.username}}</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						{{/if}}
+
+						<div class="list no-margin margin-bottom">
+							<ul>
+								
+								{{#if user}}
+								<li class="float-bottom">
+									<a href="#" class="item-link item-content" @click="logout()" @click="closeAboutSheet()">
+										<div class="item-media">
+											<i class="f7-icons">square_arrow_left</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">Sair</div>
+										</div>
+									</a>
+								</li>
+								{{else}}
+								<li class="float-bottom">
+									<a href="/login/" class="item-link item-content" @click="closeAboutSheet()" >
+										<div class="item-media">
+											<i class="f7-icons">person_crop_circle</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">Entrar</div>
+										</div>
+									</a>
+								</li>
+								{{/if}}
+
+								<hr>
+
+								{{#if isEnabled.darkTheme}}
+								<li>
+									<div class="item-content">
+										<div class="item-media"><i class="f7-icons">paintbrush</i></div>
+										<div class="item-inner">
+											<div class="item-title">Tema Escuro</div>
+											<label class="toggle" id="dark-theme-toggle">
+												<input type="checkbox">
+												<span class="toggle-icon"></span>
+											</label>
+										</div>
+									</div>
+								</li>
+								{{/if}}
+
+								{{#if isEnabled.aboutPage}}
+								<li>
+									<a href="/about/" class="item-link item-content" @click="closeAboutSheet()">
+										<div class="item-media"><i class="f7-icons">info_circle</i></div>
+										<div class="item-inner">
+											<div class="item-title">Sobre</div>
+										</div>
+									</a>
+								</li>
+								{{/if}}
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -27,14 +109,16 @@
 		<div class="toolbar tabbar toolbar-bottom">
 			<div class="toolbar-inner">
 				{{#if isEnabled.menuPage}}
-				<a href="/" class="tab-link" data-route-tab-id="menu"><i class="f7-icons">menu</i></a>
+				<a href="/" class="tab-link" data-route-tab-id="menu"><i class="f7-icons">menu</i><small>Menu</small></a>
 				{{/if}}
 
 				{{#if isEnabled.auraPage}}
 					{{#if user}}
-					<a href="/aura/" class="tab-link" data-route-tab-id="aura"><i class="f7-icons">asterisk_circle</i></a>
+					<a href="/aura/" class="tab-link" data-route-tab-id="aura"><i
+							class="f7-icons">asterisk_circle</i><small>Aura</small></a>
 					{{else}}
-					<a href="#" @click="auraRedirect()" class="tab-link" data-route-tab-id="aura"><i class="f7-icons">asterisk_circle</i></a>
+					<a href="#" @click="auraRedirect()" class="tab-link" data-route-tab-id="aura"><i
+						class="f7-icons">asterisk_circle</i><small>Aura</small></a>
 					{{/if}}
 				{{/if}}
 			</div>
@@ -55,6 +139,14 @@
 	</div>
 </template>
 
+<style>
+	.navbar-icon {
+		width: 40px;
+		width: 40px;
+		margin-left: 0.5em;
+	}
+</style>
+
 <script>
 	import IsEnabled from '../js/isenabled.js'
 
@@ -62,142 +154,161 @@
 		data: function () {
 			return {
 				isEnabled: IsEnabled,
-				appShareURL: 'https://uffs.cc/app-covid-chapeco',
-				installAd: function () {
-					return !window.matchMedia('(display-mode: standalone)').matches && IsEnabled.installAd;
-				},
-				shareAd: IsEnabled.shareAd,
 				user: null,
+				icon: null,
+				icon_color: "static/images/logo/icon_practice.png",
+				icon_white: "static/images/logo/icon_practice_white.png",
+				darkThemeToggle: null,
 			}
 		},
 
 		on: {
-			pageInit: function (e, page) {
-				var app = this.$app;
-				var link = document.getElementById('link-install-app');
+			pageAfterIn: async function(e, page){
+				let self = this;
+				let app = self.$app;
 
-				this.loadUser();
+				await this.loadUser();
+				await this.createAboutSheet();
+				await this.validateToken();
 
-				if (!link) {
-					return;
-				}
 
-				window.addEventListener('appinstalled', function (evt) {
-					app.toast.create({
-						text: 'Pronto! Adicionado à tela inicial.',
-						closeTimeout: 3000,
-					}).open();
-
-					link.style.display = 'none';
-				});
+				setTimeout(function() {
+					self.initDarkThemeToggle();
+				}, 100);
 			},
-			pageAfterIn: function(e, page){
-				this.loadUser();
-			}
 		},
 
 		methods: {
-			install: function () {
-				var app = this.$app;
-				var deferredPrompt = app.deferredInstallPrompt;
+			validateToken: async function(){
+				var self = this;
+				var app = self.$app;
 
-				if (!deferredPrompt) {
-					app.toast.create({
-						text: 'Não foi possível adicionar à tela inicial.',
-						closeTimeout: 2000,
-					}).open();
-					return;
-				}
+				app.api_practice.ping().then(async valid => {
+					if(!valid){
+						await self.requestLogout();
+						self.loadUser();
+						app.view.main.router.navigate('/');
+					}
+				})
+			},
+			initDarkThemeToggle: async function() {
+				var self = this;
+				var app = self.$app;
 
-				// Show the install prompt
-				deferredPrompt.prompt();
+				var homePage = app.$$("#home-page");
 
-				// Wait for the user to respond to the prompt
-				deferredPrompt.userChoice.then(function (choiceResult) {
-					if (choiceResult.outcome === 'accepted') {
-						console.log('User accepted the install prompt');
-					} else {
-						console.log('User dismissed the install prompt');
+				var toggle = await app.toggle.create({
+					el: '#dark-theme-toggle',
+					on: {
+						change: function () {
+							self.darkThemeSelection();
+						}
 					}
 				});
-			},
 
-			shareToClipboard: function () {
-				var app = this.$app;
+				self.$setState({
+					darkThemeToggle : toggle
+				})
 
-				if (!navigator.clipboard) {
-					return;
+				if(await app.storage.getDarkTheme() == "true"){
+					toggle.checked = true;
+				} else {
+					toggle.checked = false;
 				}
 
-				navigator.clipboard.writeText(this.appShareURL).then(function () {
-					// success
-					app.toast.create({
-						text: 'Link copiado! Basta colar ele agora, ex. no WhatsApp.',
-						closeTimeout: 5000,
-					}).open();
-				}, function () {
-					// fail
-					app.toast.create({
-						text: 'Hum, algum problema aconteceu. Desculpe.',
-						closeTimeout: 2000,
-					}).open();
-				});
+				this.darkThemeSelection();
+
+				return;
 			},
 
-			share: function () {
-				var app = this.$app;
+			darkThemeSelection: async function(){
+				let self = this;
+				let app = self.$app;
 
-				app.toast.create({
-					text: this.appShareURL,
-					closeTimeout: 6000,
-				}).open();
+				var appPage = app.$$("#app");
 
-				if (!navigator.share) {
-					this.shareToClipboard();
+				var toggle = self.darkThemeToggle;
+
+				if(toggle.checked){
+					await app.storage.setDarkTheme("true");
+					self.$setState({
+						icon: self.icon_white,
+					});
+					appPage.addClass("theme-dark");
 					return;
 				}
-
-				navigator.share({
-					title: 'PRACTICE',
-					text: 'Toda inovação do PRACTICE ao alcance de um toque!',
-					url: this.appShareURL,
+				await self.$setState({
+					icon: self.icon_color,
 				});
+				await app.storage.setDarkTheme("false");
+				appPage.removeClass("theme-dark");
+			},
+
+			createAboutSheet: async function(){
+				let self = this;
+				let app = self.$app;
+				
+				await app.sheet.create({
+					el: '#about-sheet',
+					swipeToClose: true,
+					backdrop: true,
+					closeByOutsideClick: true
+				});
+
+				return
+			},
+
+			closeAboutSheet: function(){
+				let self = this;
+				let app = self.$app;
+
+				app.sheet.close('#about-sheet', true);
 			},
 
 			logout: function () {
 				let self = this;
 				let app = self.$app;
 
-				app.dialog.confirm("Tem certeza que deseja sair?", function () {
-					app.api_practice.requestLogout().then((res) => {
-						if (res) {
-							return;
-						}
-						app.dialog.alert("Não foi possível te desconectar, tente novamente!");
-					})
-					.catch(() => {
-						app.dialog.alert("Ocorreu um erro em sua rede, tente novamente!");
-					});
+				app.dialog.confirm("Tem certeza que deseja sair?", async function () {
+					await self.requestLogout();
 					self.loadUser();
+					app.view.main.router.navigate('/');
 				});
 
 			},
 
-			loadUser: function () {
+			requestLogout: function (){
 				let self = this;
 				let app = self.$app;
 
-				app.storage.getUserData().then( async (userData) => {
+				app.api_practice.requestLogout().then((res) => {
+					if (res) {
+						return;
+					}
+					app.dialog.alert("Não foi possível te desconectar, tente novamente!");
+				})
+				.catch(() => {
+					app.dialog.alert("Ocorreu um erro em sua rede, tente novamente!");
+				});
+			},
+
+			loadUser: async function () {
+				let self = this;
+				let app = self.$app;
+
+				await app.storage.getUserCredentials();
+
+				await app.storage.getUserData().then( (userData) => {
 					self.$setState({
 						user: userData,
 					});
-
-					await app.storage.getUserCredentials();
 				}).catch(err => {
 					self.$setState({
 						user: null,
 					});
 				});
+
+				return;
 			},
 
 			auraRedirect: async function() {

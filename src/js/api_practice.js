@@ -46,11 +46,11 @@ export class ApiPractice {
 		return true;
 	};
 
-	async requestUserFromMural() {
+	async requestUser() {
 		var self = this;
 		var app = self.app;
 
-		return await app.request.promise.get(self.url + "mural/me").then(async (res) => {
+		return await app.request.promise.get(self.url + "user").then(async (res) => {
 			let data = JSON.parse(res.data);
 			if (data.error) {
 				await this.requestLogout();
@@ -59,6 +59,19 @@ export class ApiPractice {
 			const userData = JSON.parse(res.data);
 			app.storage.setUserData(userData);
 			return data.user;
+		});
+	}
+
+	async ping() {
+		var self = this;
+		var app = self.app;
+
+		return await app.request.promise.get(self.url + "ping").then(async (res) => {
+			let data = JSON.parse(res.data);
+			if (data.error) {
+				return false;
+			}
+			return true;
 		});
 	}
 }

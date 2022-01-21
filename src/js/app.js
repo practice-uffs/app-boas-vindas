@@ -23,6 +23,17 @@ import { ApiPractice } from './api_practice';
 // Import main app component
 import App from '../app.f7.html';
 
+var handleExternalLinks = function () {
+	$$(document).click(function (e) {
+		var element = $$(e.target);
+		if (element.hasClass("external")) {
+			var url = $$(element).attr("href");
+			$$(element).attr("href", "#");
+			window.open(url, "_system");
+		}
+	})
+}
+
 var app = new Framework7({
 	root: '#app', // App root element
 	component: App, // App main component
@@ -61,6 +72,8 @@ var app = new Framework7({
 			if (f7.device.cordova) {
 				// Init cordova APIs (see cordova-app.js)
 				cordovaApp.init(f7);
+				window.open = cordova.InAppBrowser.open;
+
 			} else {
 				// Save context to allow 'Add to home screen'
 				f7.deferredInstallPrompt = null;
@@ -79,6 +92,8 @@ var app = new Framework7({
 			new Aura(f7);
 			new ApiPractice(f7);
 			f7.$$ = $$;
+
+			handleExternalLinks();
 		},
 	},
 })

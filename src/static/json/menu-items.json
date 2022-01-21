@@ -1,0 +1,62 @@
+[
+	{
+		"title": "Sobre o Campus",
+		"img": "static/images/school.png",
+		"link": "/content/sobre",
+		"id": "sobre"
+	},
+	{
+		"title": "Clima Local",
+		"img": "static/images/stormy.png",
+		"link": "/content/clima",
+		"id": "clima"
+	},
+	{
+		"title": "Auxílio Estudantil",
+		"img": "static/images/scholarship.png",
+		"link": "/content/auxilio",
+		"id": "auxilio"
+	},
+	{
+		"title": "Grupos e projetos",
+		"img": "static/images/group-chat.png",
+		"link": "/content/projetos",
+		"id": "projetos"
+	},
+	{
+		"title": "Canais UFFS",
+		"img": "static/images/channel.png",
+		"link": "/content/canais",
+		"id": "canais"
+	},
+	{
+		"title": "Lazer",
+		"img": "static/images/park.png",
+		"link": "/content/lazer",
+		"id": "lazer"
+	},
+	{
+		"title": "Dicionário local do sul",
+		"img": "static/images/talking.png",
+		"link": "/content/dicionario",
+		"id": "dicionario"
+	},
+	{
+		"title": "Locomoção",
+		"img": "static/images/map.png",
+		"link": "/content/locomocao",
+		"id": "locomocao"
+	},
+	{
+		"title": "Biblioteca",
+		"img": "static/images/library.png",
+		"link": "/content/biblioteca",
+		"id": "biblioteca"
+	},
+	{
+		"title": "Ajuda",
+		"img": "static/images/support.png",
+		"link": "/content/ajuda",
+		"id": "ajuda"
+	}
+]

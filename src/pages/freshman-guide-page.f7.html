@@ -14,847 +14,98 @@
         </div>
 
         <div class="page-content">
-            <div class="card">
+            <div class="card padding-bottom">
                <div class="card-content">
-                  <br><span class="custom-text-title">Olá! Seja bem-vindo(a) à UFFS!</span><br>
-                  <img class="custom-image-large" src="https://drive.google.com/uc?export=view&amp;id=1zi5drAApIACvZIcV4dbrVFmiko0IUvpT" alt="Imagem" width="100%"> <br>
-                  <p class="custom-text-default" style="width: 95%;">O objetivo desta aba é trazer algumas informações importantes para estudantes que não querem deixar passar nenhum detalhe. <br>Então aproveite esse guia com algumas dicas que nós separamos para você ;)</span><br>
-                </div><br>
+                  <img class="custom-image-large" src="https://drive.google.com/uc?export=view&amp;id=1AiGBun8UQX2h3bkKr8RsfNw-bvKscur_" alt="Imagem" width="100%"><br>
+					<div class="custom-text-title">
+						<span>Olá! Seja bem-vindo(a) à UFFS!</span>
+					</div>
+					<div class="block">
+						<p>O objetivo desta aba é trazer algumas informações importantes para estudantes que não querem deixar passar nenhum detalhe. <br>Então aproveite esse guia com algumas dicas que nós separamos para você ;)</p>
+					</div>
+               </div>
             </div>
 
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Moodle Acadêmico</div>
-                    <div class="text-color-white padding-left padding-right card-header-text" >Materiais de suas aulas</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>O Moodle é um ambiente virtual onde os professores disponibilizam para você o material didático (slides, artigos, textos, tutoriais, links, etc.) de suas aulas, criam fóruns de discussão, disponibilizam atividades (entrega de trabalhos, grupos, etc.) e realizam avaliações. Fique atento quando o(a) professor(a) pedir alguma atividade na plataforma, geralmente a entrega é feita pelo portal.</p>
-                    </div>
+			{{#each items}}
+				
+				<div class="card card-expandable" style="height: 100px;">
+					<div class="card-content">
+						<div class="custom-header-card-expansive" style="height: 100px">
+							<div class="card-header text-color-white display-block ">
+								{{title}}
+								<br>
+								<small style="opacity: 0.7; font-size: 70%;">{{subtitle}}</small>
+							</div>
+							<a href="#" class="link card-close card-opened-fade-in color-white"
+								style="position: absolute; right: 15px; top: 15px">
+								<i class="icon f7-icons">xmark_circle_fill</i>
+							</a>
+						</div>
+						<div class="card-content-padding">
+							{{#each content}}
+								{{#js_if "this.type == 'text'"}}
+								<p>
+									{{content}}
+								</p>
+								{{else}}
+									{{#js_if "this.type == 'link'"}}
+									<div class="custom-item-link padding-vertical">
+										<div class="padding-horizontal"><i class="f7-icons">{{icon}}</i></div>
+										<div class="custom-item-link-content">
+											<div>{{title}}</div>
+											<div class="padding-horizontal">
+												<a class="link external" href="{{url}}">Acessar</a>
+											</div>
+										</div>
+									</div>
+									{{/js_if}}
+								{{/js_if}}
+							{{/each}}
+						</div>
+					</div>
+				</div>
+				
+			{{/each}}
 
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Manual Moodle Acadêmico</p>
-                                        <a class="external" href="https://moodle-academico.uffs.edu.br/arquivos/manualaluno.pdf">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Acessar o Moodle Acadêmico</p>
-                                        <a class="external" href="https://moodle-academico.uffs.edu.br/login">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Portal do Aluno</div>
-                    <div class="text-color-white padding-left padding-right card-header-text" >Procedimentos acadêmicos</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>O Portal do Aluno é o sistema informatizado da UFFS que permite que você realize alguns procedimentos acadêmicos de forma on-line, como por exemplo: emitir documentos (atestado de frequência e atestado de situação de matrícula), acompanhar a integralização da matriz curricular de seu curso, acompanhar as notas, frequências e avaliações feitas pelos professores, atualizar o seu cadastro, efetuar rematrícula, entre outros.</p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Manual Portal do Aluno</p>
-                                        <a class="external" href="https://www.uffs.edu.br/campi/erechim/repositorio-campus-erechim/secretaria-academica/arquivo-1">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Acessar o Portal do Aluno</p>
-                                        <a class="external" href="https://id.uffs.edu.br/id/XUI/#login/">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Horários das Aulas</div>
-                    <div class="text-color-white padding-left padding-right card-header-text" >Acesse através do site da UFFS.</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right" style="padding:10px;"> 
-                        <p>Você pode saber o horário das aulas que tem interesse acessando o <a href="https://www.uffs.edu.br/">site da UFFS</a>, selecionando seu campus, clicando no item Cursos, selecionando o seu curso e por fim clicando em Horários.</p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Manual Portal do Aluno</p>
-                                        <a class="external" href="https://www.uffs.edu.br/campi/erechim/repositorio-campus-erechim/secretaria-academica/arquivo-1">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Calendário Acadêmico</div>
-                   <div class="text-color-white padding-left padding-right card-header-text" >Algumas datas importantes para seu semestre</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>O Calendário Acadêmico estabelece os prazos para a
-                            efetivação de todos os atos acadêmicos durante o ano
-                            letivo da UFFS, como: data de início e de término de cada
-                            semestre letivo, datas de recessos acadêmico e
-                            administrativo, períodos de matrícula, rematrícula e
-                            ajustes, feriados, etc. Fique atento aos prazos
-                            estabelecidos no Calendário para não perder nenhuma data
-                            importante!</p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Calendário acadêmico</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/calendario-academico">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-           
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Site Institucional</div>
-                   <div class="text-color-white padding-left padding-right card-header-text" ></div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>O site da UFFS é o principal canal de comunicação da Universidade. Nele você encontra desde
-                            notícias de todos os campi da UFFS até informações específicas de cada um deles, como
-                            horários de ônibus, eventos, e-mails e telefones dos setores, documentos, editais, etc.
-                        
-                            Cada campi tem uma página própria. Nela há um
-                            menu (à esquerda) com uma infinidade de
-                            informações.
-                            Então, fica a dica: separe um tempinho para explorar
-                            o site da sua Universidade. Depois, quando precisar
-                            de algum dado, você saberá onde encontrá-lo,
-                            evitando desperdício de tempo.
-                        </p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Site da UFFS</p>
-                                        <a class="external" href="https://www.uffs.edu.br/">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
             
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Secretaria Acadêmica</div>
-                   <div class="text-color-white padding-left padding-right card-header-text" >O que posso solicitar ou
-                    encaminhar junto a
-                    este setor?</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p><strong>A qualquer tempo:</strong>
-                            <br>- Atualização de dados cadastrais (quando
-                            não for possível via portal do aluno) e
-                            documentos pessoais;
-                            <br>- Realização de prova de 2ª Chamada;
-                            <br>- Quebra de pré-requisito (conforme Ato
-                            Deliberativo do respectivo curso);
-                            <br>- Revisão de nota;
-                            <br>- Recurso de revisão de nota;
-                            <br>- Concessão de prestação alternativa
-                            (devido ao exercício de consciência e de
-                            crença);
-                            <br>- Licença Tratamento Saúde Discente
-                            (regime domiciliar);
-                            <br>- Retirada de diploma;
-                            <br>- Segunda via de diploma;
-                            <br>- Nova via de histórico escolar de
-                            conclusão;
-                            <br>- Desistência de matrícula.
-                            <br><br><strong>Conforme Edital específico:</strong>
-                            <br>- Inscrição e matrícula em Processos
-                            Seletivos
-                            Especiais.
-                            <br><br><strong>Conforme prazo estipulado em calendário acadêmico:</strong>
-                            <br>- Matrículas;
-                            <br>- Trancamento de matrícula (não pode ser
-                            solicitado no semestre de ingresso ou
-                            retorno);
-                            <br>- Validação de Atividades Curriculares
-                            Complementares;
-                            <br>- Validação de Componentes Curriculares
-                            (CCRs);
-                            <br>- Recurso de validação de CCRs;
-                            <br>- Mobilidade Acadêmica;
-                            <br>- Retorno de Mobilidade Acadêmica;
-                            <br>- Exame de suficiência;
-                            <br>- Recurso de exame de suficiência.
-                            <br><br><strong>Excepcionalmente:</strong>
-                            <br>- Situação incompleta;
-                            <br>- Cancelamento de CCR;
-                            <br>- Ajuste de matrícula.
-                        </p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Formulários</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/formularios">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">rectangle_paperclip</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">E-mail da Secretaria Acadêmica</p>
-                                        <a class="external" href="mailto:sec.acad.ch@uffs.edu.br">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Assuntos Estudantis (SAE)</div>
-                   <div class="text-color-white padding-left padding-right card-header-text" >O que solicitar ou encaminhar junto a este setor?</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p><strong>A qualquer tempo:</strong>
-                            <br>- Encaminhar documentação para realizar análise
-                            socioeconômica;
-                            <br>- Orientações em relação ao preenchimento do
-                            cadastro socioeconômico;
-                            <br>- Orientações relativas aos auxílios oferecidos pela
-                            UFFS: Alimentação, Moradia, Transporte,
-                            Emergencial, PIN, etc;
-                            <br>- Atendimento Social;
-                            <br>- Atendimento Psicológico;
-                            <br><br><strong>Conforme editais:</strong>
-                            <br>- Inscrição para recebimento dos auxílios oferecidos
-                            pela UFFS (socioeconômico, PIN, emergencial, entre
-                            outros)
-                            <br>- Inscrição no Programa Bolsa Permanência (PBP);
-                            <br>- Plano de acompanhamento pedagógico e/ou
-                            psicossocial;
-                        </p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">rectangle_paperclip</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Contato por e-mail</p>
-                                        <a class="external" href="mailto:sae.ch@uffs.edu.br">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Tutoriais</p>
-                                        <a class="external" href="https://www.youtube.com/channel/UCtVURHWXTRbOvUzK9SMq_Cg">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Assistência estudantil durante a pandemia</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/preciso-de-ajuda-covid19">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Análise socioeconômica</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/analise-socioeconomica">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Auxílios socioeconômicos</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/auxilios-socioeconomicos/apresentacao-dos-auxilios-socioeconomicos">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Saúde do Estudante Universitário</p>
-                                        <a class="external" href="https://www.instagram.com/ppsuffs/">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Pró-Reitoria de Assuntos Estudantis</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/comprovacao-auxilio-moradia">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Acessoria Pedagógica</div>
-                   <div class="text-color-white padding-left padding-right card-header-text" ></div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>A Assessoria Pedagógica orienta os
-                            estudantes sobre rotina e métodos de
-                            estudos. Você pode agendar horário para
-                            atendimento individual com as pedagogas e
-                            também participar de oficinas coletivas de
-                            apoio pedagógico.<br>
-                            Caso você esteja com alguma dificuldade,
-                            procure este apoio que a instituição
-                            oferece. Nosso objetivo é que você
-                            consiga seguir todas as fases do curso
-                            sem reprovações, também que tenha um
-                            desempenho acadêmico cada vez melhor.
-                        </p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Contato Acessoria pedagógica</p>
-                                        <a class="external" href="mailto:assessoriapedagogica.ch@uffs.edu.br">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Biblioteca</div>
-                   <div class="text-color-white padding-left padding-right card-header-text">O que solicitar ou encaminhar junto a este setor?</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>- Cadastro de novos usuários;
-                            <br>- Empréstimo de materiais do acervo;
-                            <br>- Empréstimo entre bibliotecas da UFFS (serviço
-                            também disponível on-line);
-                            <br>- Renovação dos empréstimos (serviço também
-                            disponível on-line);
-                            <br>- Pedido de reserva de materiais (serviço também
-                            disponível on-line);
-                            <br>- Orientação e acesso a e-books, bases de dados,
-                            Portal de Periódicos da Capes, Plataforma Virtual
-                            Minha Biblioteca;
-                            <br>- Orientação sobre normalização de trabalhos
-                            acadêmicos (Normas da ABNT);
-                            <br>- Orientação sobre consulta ao acervo                        
-                        </p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Página da Biblioteca</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/bibliotecas">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Consultar acervo</p>
-                                        <a class="external" href="http://consulta.uffs.edu.br/pergamum/biblioteca/index.php">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Manual de trabalhos acadêmicos</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/bibliotecas/normalizacao-de-trabalhos">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Canal do YouTube</p>
-                                        <a class="external" href="https://www.youtube.com/channel/UCNGTDi-VWOLjpydCiklT8MA">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Acervo de E-books</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/bibliotecas/e-books">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                    <div class="padding-bottom  custom-header-card-expansive">
-                        <div class="card-header text-color-white display-block">Acessibilidade</div>
-                        <div class="text-color-white padding-left padding-right card-header-text" >O que solicitar ou encaminhar junto a este setor?</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>- Orientação e apoio acadêmico para Pessoas com Deficiência (PcD) ou com necessidades
-                            específicas de aprendizagem. As orientações podem ser em relação a processos e sistemas
-                            acadêmicos (matrícula, Moodle, sistemas... ) ou acompanhamento pedagógico;<br> 
-                            <br>- Orientação quanto a garantia de equidade nos processos de ensino e aprendizagem;<br>
-                            <br>- Tradução e interpretação em Libras;<br>
-                            <br>- Solicitação de materiais adaptados (inclusive mesas e cadeiras);<br>
-                            <br>- Solicitação de acessibilidade arquitetônica (caso houver necessidade);<br>
-                            <br>- Elaboração de credencial de estacionamento.
-                        </p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">rectangle_paperclip</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">E-mail Setor Acessibilidade</p>
-                                        <a class="external" href="mailto:acessibilidade.ch@uffs.edu.br">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">rectangle_paperclip</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">E-mail Setor de Libras</p>
-                                        <a class="external" href="mailto:libras.acessibilidade.ch@uffs.edu.br">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Estágios</div>
-                   <div class="text-color-white padding-left padding-right card-header-text" ></div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>Procure esse setor sempre que você precisar de informações e orientações sobre estágio obrigatório e estágio não obrigatório.</p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Programa de Estágios</p>
-                                        <a class="external" href="https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/programas/programa-de-estagios-1">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">E-mail para contato</p>
-                                        <a class="external" href="mailto:re.estagios@uffs.edu.br">Acessar</a> 
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Cisco Webex</div>
-                   <div class="text-color-white padding-left padding-right card-header-text" >Assista suas aulas remotas</div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>O Cisco Webex Meetings é a plataforma
-                            utilizada pela UFFS para a realização das
-                            aulas no formato remoto e síncrono (aulas
-                            on-line com interação entre professor e
-                            aluno em tempo real). Você pode acessá-la
-                            pelo computador ou celular.
-                            Não há necessidade de fazer download,
-                            basta acessar o link da aula que o professor
-                            enviará para você com antecedência, por email ou pelo Moodle Acadêmico, e entrar do
-                            seu próprio navegador.
-                            Mas se você quiser baixar o aplicativo no seu
-                            computador ou no seu celular, siga os
-                            passos abaixo:</p>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p><strong>Computador:</strong> <br><br>
-                            Opção 1: Acessar o link abaixo e fazer o download;<br><br>
-                            Opção 2: Entrar em uma reunião pela primeira vez no navegador da Web do seu computador e
-                            aceitar a oferta para instalar o aplicativo.</p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Download para computador</p>
-                                        <a class="external" href="https://www.webex.com/pt/downloads.html">Baixar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div> <br><br>
-
-                    <div class="padding-left padding-right">
-                        <p><strong>Celular:</strong><br><br>
-                            Opção 1: Procurar Cisco Webex Meetings na App Store ou Google Play e instalar;<br><br>
-                            Opção 2: Entrar em uma reunião pela primeira vez no navegador da Web do seu celular e
-                            aceitar a oferta para instalar o aplicativo.
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">globe</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">	Download para celular android</p>
-                                        <a class="external" href="https://play.google.com/store/apps/details?id=com.cisco.webex.meetings">Baixar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="card card-expandable" style="margin: 10px;">
-                <div class="card-content padding-bottom-5 no-scroll">
-                  <div class="padding-bottom  custom-header-card-expansive">
-                    <div class="card-header text-color-white display-block">Redes Sociais</div>
-                   <div class="text-color-white padding-left padding-right card-header-text" ></div>
-                        <a href="#" class="link card-close card-opened-fade-in color-white"
-                        style="position: absolute; right: 15px; top: 15px">
-                        <i class="icon f7-icons">xmark_circle_fill</i>
-                        </a>
-                    </div>
-                    <div class="padding-left padding-right">
-                        <p>Ei, nós também estamos nas redes sociais! É mais uma forma de você ficar por dentro de tudo o
-                        que acontece na sua Universidade!
-                            <br><br>
-                        Mas atenção, a forma oficial da UFFS se comunicar com você é através do email. Então, fique atento(a) e verifique a sua caixa de entrada e
-                        sua caixa de spam periodicamente.
-                        </p>
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">logo_twitter</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Twitter</p>
-                                        <a class="external" href="https://twitter.com/uffsonline">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">logo_facebook</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Facebook</p>
-                                        <a class="external" href="https://www.facebook.com/groups/257157294392994">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-               
-                    <div class="padding-left padding-right" style='width: 100%;display: flex;'>
-                        <div class="card width-100 margin-left-5 margin-right-5 custom-link" >
-                            <div class="card-content card-content-padding custom-link" style="width: 100%;">
-                                <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">logo_instagram</i></div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; width:100%;">
-                                        <p style="max-width: 50%; text-align: center;">Instagram</p>
-                                        <a class="external" href="https://www.instagram.com/escolhiseruffs/">Acessar</a>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                        </div> 
-                    </div>
-   
-
-                </div>
-            </div>
          </div>
     </div>
 </template>
 
-
 <script>
-    export default {};
+    export default {
+		data: function () {
+			return {
+				items: null,
+				dialog: null,
+			}
+		},
+		methods: {
+			loadData: async function() {
+				var self = this;
+				var app = this.$app;
+
+				await app.request.json('static/json/freshman-guide.json', async function (data) {
+					self.$setState({
+						items: data,
+					});
+				})
+			},
+			pageLoading: function() {
+				var self = this;
+				var app = this.$app;
+
+				self.dialog = app.dialog.preloader('Carregando...');
+				app.$$(".custom-image-large").on("load",function () {
+					app.dialog.close();
+				});
+			}
+		},
+		on: {
+			pageInit: function (e, page){
+				this.loadData();
+				this.pageLoading();
+			},
+		}
+	};
 </script>

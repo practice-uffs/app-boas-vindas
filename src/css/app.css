@@ -128,3 +128,13 @@ iOS Cordova Tweak
 	aspect-ratio: 1;
 	padding: 12px 0 12px 0;
 }
+
+/* Expandable Card */
+.card-backdrop {
+	animation: none !important;
+	transition: 400ms;
+}
+
+.card-backdrop-in {
+	background-color: rgba(0, 0, 0, 0.2);
+}

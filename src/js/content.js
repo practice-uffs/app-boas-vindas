@@ -44,7 +44,7 @@ export class Content {
         }
         var videoId = getId(data.conteudo);
 
-        return `<iframe class="width-100 ${style_video_image_text(data)}" frameborder="0" src="//www.youtube.com/embed/${videoId}"></iframe>`;
+        return `<iframe class="embed-responsive-item width-100 ${style_video_image_text(data)}" frameborder="0" src="https://www.youtube.com/embed/${videoId}?autohide=1&playsinline=1&showinfo=0" frameborder="0" allowfullscreen></iframe>`;
     }
 
     async imagem(data) {
@@ -59,7 +59,7 @@ export class Content {
             data.extra = data.tipo == "email" ? "E-mail" : (data.tipo == "telefone" ? "Telefone" : undefined);
 		}
 
-		let icon = data.tipo == "email" ? "rectangle_paperclip" : data.tipo == "telefone" ? "phone" : "globe";
+		let icon = data.tipo == "email" ? "envelope" : data.tipo == "telefone" ? "phone" : "globe";
 		let title = data.extra;
 		let url = (data.tipo == "email" ? "mailto:" : data.tipo == "telefone" ? "tel:+" : "") + data.conteudo;
 

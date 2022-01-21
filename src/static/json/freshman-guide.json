@@ -9,7 +9,7 @@
 			},
 			{
 				"type": "text",
-				"content": "Com este guia você já sai na frente, fique atento quando o professor pedir alguma atividade na plataforma:"
+				"content": "Fique atento quando o(a) professor(a) pedir alguma atividade na plataforma, geralmente a entrega é feita pelo portal."
 			},
 			{
 				"type": "link",
@@ -47,40 +47,11 @@
 		]
 	},
 	{
-		"title": "Cisco Webex",
-		"subtitle": "Assista suas aulas remotas",
-		"content": [{
-				"type": "text",
-				"content": "O <b>Cisco Webex Meetings</b> é a plataforma utilizada pela UFFS para a realização das aulas no formato remoto e síncrono (aulas on-line com interação entre professor e aluno em tempo real). Você pode acessá-la pelo computador ou celular. Não há necessidade de fazer download, basta acessar o link da aula que o professor enviará para você com antecedência, por email ou pelo Moodle Acadêmico, e entrar do seu próprio navegador. Mas se você quiser baixar o aplicativo no seu  computador ou no seu celular, siga os passos abaixo:"
-			},
-			{
-				"type": "text",
-				"content": "<hr><b>Computador:</b><br><br>Opção 1: Acessar o link abaixo e fazer o download;<br><br>Opção 2: Entrar em uma reunião pela primeira vez no navegador da Web do seu computador e aceitar a oferta para instalar o aplicativo."
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Download para computador",
-				"url": "https://www.webex.com/pt/downloads.html"
-			},
-			{
-				"type": "text",
-				"content": "<hr><b>Celular:</b><br><br>Opção 1: Procurar Cisco Webex Meetings na App Store ou Google Play e instalar;<br><br>Opção 2: Entrar em uma reunião pela primeira vez no navegador da Web do seu celular e aceitar a oferta para instalar o aplicativo."
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Download para celular android",
-				"url": "https://play.google.com/store/apps/details?id=com.cisco.webex.meetings"
-			}
-		]
-	},
-	{
 		"title": "Horários das Aulas",
 		"subtitle": "Acesse através do site da UFFS",
 		"content": [{
 				"type": "text",
-				"content": "Primeiro você acessa o <a class='external' href='https://www.uffs.edu.br/'>site da UFFS</a>, seleciona seu campus clicando no menu, clicando no item Cursos, selecionando o seu curso e depois clicando em Horários."
+				"content": "Você pode saber o horário das aulas que tem interesse acessando o <a class='external' href='https://www.uffs.edu.br/'>site da UFFS</a>, selecionando seu campus, clicando no item Cursos, selecionando o seu curso e por fim clicando em Horários."
 			},
 			{
 				"type": "link",
@@ -110,26 +81,19 @@
 		]
 	},
 	{
-		"title": "Guia de Procedimentos",
-		"subtitle": "",
-		"content": [{
-				"type": "text",
-				"content": "Trata-se de uma série de orientações importantes sobre os principais procedimentos acadêmicos referentes à Graduação da UFFS."
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Guia de Procedimentos",
-				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/guia_de_procedimentos#matricula_inicial"
-			}
-		]
-	},
-	{
 		"title": "Site Institucional",
 		"subtitle": "",
 		"content": [{
 				"type": "text",
-				"content": "O <b>site da UFFS</b> é o principal canal de comunicação da Universidade. Nele você encontra desde notícias de todos os campi da UFFS até informações específicas de cada um deles, como horários de ônibus, eventos, e-mails e telefones dos setores, documentos, editais, etc.<br><br>Cada campi tem uma página própria. Nela há um menu (à esquerda) com uma infinidade de informações.<br><br>Então, fica a dica: separe um tempinho para explorar o site da sua Universidade. Depois, quando precisar de algum dado, você saberá onde encontrá-lo, evitando desperdício de tempo."
+				"content": "O <b>site da UFFS</b> é o principal canal de comunicação da Universidade. Nele você encontra desde notícias de todos os campi da UFFS até informações específicas de cada um deles, como horários de ônibus, eventos, e-mails e telefones dos setores, documentos, editais, etc."
+			},
+			{
+				"type": "text",
+				"content": "Cada campi tem uma página própria. Nela há um menu (à esquerda) com uma infinidade de informações."
+			},
+			{
+				"type": "text",
+				"content": "Então, fica a dica: separe um tempinho para explorar o site da sua Universidade. Depois, quando precisar de algum dado, você saberá onde encontrá-lo, evitando desperdício de tempo."
 			},
 			{
 				"type": "link",
@@ -140,44 +104,15 @@
 		]
 	},
 	{
-		"title": "Redes Sociais",
-		"subtitle": "",
-		"content": [{
-				"type": "text",
-				"content": "Ei, nós também estamos nas redes sociais! É mais uma forma de você ficar por dentro de tudo o que acontece na sua Universidade!<br><br>Mas atenção, a forma oficial da UFFS se comunicar com você é através do email. Então, fique atento(a) e verifique a sua caixa de entrada e sua caixa de spam periodicamente."
-			},
-			{
-				"type": "link",
-				"icon": "logo_instagram",
-				"title": "Instagram campus Chapecó",
-				"url": "https://www.instagram.com/uffs.campuschapeco/"
-			},
-			{
-				"type": "link",
-				"icon": "logo_instagram",
-				"title": "Instagram Escolhi Ser UFSS",
-				"url": "https://www.instagram.com/escolhiseruffs/"
-			},
-			{
-				"type": "link",
-				"icon": "logo_facebook",
-				"title": "Facebook UFFSOnline",
-				"url": "https://www.facebook.com/uffsonline/"
-			},
-			{
-				"type": "link",
-				"icon": "logo_twitter",
-				"title": "Twitter UFFS",
-				"url": "https://twitter.com/uffsonline"
-			}
-		]
-	},
-	{
 		"title": "Secretaria Acadêmica",
 		"subtitle": "",
 		"content": [{
 				"type": "text",
-				"content": "<b>O que posso solicitar ou encaminhar junto a este setor?</b><br><br><b>A qualquer tempo:</b><ul><li>Atualização de dados cadastrais (quando não for possível via portal do aluno) e documentos pessoais;</li><li>Realização de prova de 2ª Chamada;</li><li>Quebra de pré-requisito (conforme Ato Deliberativo do respectivo curso);</li><li>Revisão de nota;</li><li>Recurso de revisão de nota;</li><li>Concessão de prestação alternativa (devido ao exercício de consciência e de crença);</li><li>Licença Tratamento Saúde Discente (regime domiciliar);</li><li>Retirada de diploma;</li><li>Segunda via de diploma;</li><li>Nova via de histórico escolar de conclusão;</li><li>Desistência de matrícula.</li></ul>"
+				"content": "<b>O que posso solicitar ou encaminhar junto a este setor?</b>"
+			},
+			{
+				"type": "text",
+				"content": "<b>A qualquer tempo:</b><ul><li>Atualização de dados cadastrais (quando não for possível via portal do aluno) e documentos pessoais;</li><li>Realização de prova de 2ª Chamada;</li><li>Quebra de pré-requisito (conforme Ato Deliberativo do respectivo curso);</li><li>Revisão de nota;</li><li>Recurso de revisão de nota;</li><li>Concessão de prestação alternativa (devido ao exercício de consciência e de crença);</li><li>Licença Tratamento Saúde Discente (regime domiciliar);</li><li>Retirada de diploma;</li><li>Segunda via de diploma;</li><li>Nova via de histórico escolar de conclusão;</li><li>Desistência de matrícula.</li></ul>"
 			},
 			{
 				"type": "text",
@@ -210,7 +145,11 @@
 		"subtitle": "",
 		"content": [{
 				"type": "text",
-				"content": "<b>O que solicitar ou encaminhar junto a este setor?</b><br><br><b>A qualquer tempo:</b><ul><li>Encaminhar documentação para realizar análise socioeconômica;</li><li>Orientações em relação ao preenchimento do cadastro socioeconômico;</li><li>Orientações relativas aos auxílios oferecidos pela UFFS: Alimentação, Moradia, Transporte, Emergencial, PIN, etc;</li><li>Atendimento Social;</li><li>Atendimento Psicológico;</li></ul>"
+				"content": "<b>O que solicitar ou encaminhar junto a este setor?</b>"
+			},
+			{
+				"type": "text",
+				"content": "<b>A qualquer tempo:</b><ul><li>Encaminhar documentação para realizar análise socioeconômica;</li><li>Orientações em relação ao preenchimento do cadastro socioeconômico;</li><li>Orientações relativas aos auxílios oferecidos pela UFFS: Alimentação, Moradia, Transporte, Emergencial, PIN, etc;</li><li>Atendimento Social;</li><li>Atendimento Psicológico;</li></ul>"
 			},
 			{
 				"type": "text",
@@ -224,15 +163,15 @@
 			},
 			{
 				"type": "link",
-				"icon": "globe",
-				"title": "Cartilha de assistência estudantil durante a pandemia",
-				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/preciso-de-ajuda-covid19"
+				"icon": "play_rectangle_fill",
+				"title": "Tutoriais",
+				"url": "https://www.youtube.com/channel/UCtVURHWXTRbOvUzK9SMq_Cg"
 			},
 			{
 				"type": "link",
 				"icon": "globe",
-				"title": "Saiba mais sobre o SAE",
-				"url": "https://www.uffs.edu.br/campi/chapeco/assuntos-estudantis/apresentacao"
+				"title": "Assistência estudantil durante a pandemia",
+				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/preciso-de-ajuda-covid19"
 			},
 			{
 				"type": "link",
@@ -248,14 +187,8 @@
 			},
 			{
 				"type": "link",
-				"icon": "play_rectangle_fill",
-				"title": "Tutoriais",
-				"url": "https://www.youtube.com/channel/UCtVURHWXTRbOvUzK9SMq_Cg"
-			},
-			{
-				"type": "link",
 				"icon": "logo_instagram",
-				"title": "Programa de Promoção à Saúde do Estudante Universitário",
+				"title": "Saúde do Estudante Universitário",
 				"url": "https://www.instagram.com/ppsuffs/"
 			},
 			{
@@ -363,6 +296,66 @@
 				"icon": "envelope",
 				"title": "E-mail para contato",
 				"url": "mailto:ch.estagios@uffs.edu.br"
+			}
+		]
+	},
+	{
+		"title": "Cisco Webex",
+		"subtitle": "Assista suas aulas remotas",
+		"content": [{
+				"type": "text",
+				"content": "O <b>Cisco Webex Meetings</b> é a plataforma utilizada pela UFFS para a realização das aulas no formato remoto e síncrono (aulas on-line com interação entre professor e aluno em tempo real). Você pode acessá-la pelo computador ou celular. Não há necessidade de fazer download, basta acessar o link da aula que o professor enviará para você com antecedência, por email ou pelo Moodle Acadêmico, e entrar do seu próprio navegador. Mas se você quiser baixar o aplicativo no seu  computador ou no seu celular, siga os passos abaixo:"
+			},
+			{
+				"type": "text",
+				"content": "<hr><b>Computador:</b><br><br>Opção 1: Acessar o link abaixo e fazer o download;<br><br>Opção 2: Entrar em uma reunião pela primeira vez no navegador da Web do seu computador e aceitar a oferta para instalar o aplicativo."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Download para computador",
+				"url": "https://www.webex.com/pt/downloads.html"
+			},
+			{
+				"type": "text",
+				"content": "<hr><b>Celular:</b><br><br>Opção 1: Procurar Cisco Webex Meetings na App Store ou Google Play e instalar;<br><br>Opção 2: Entrar em uma reunião pela primeira vez no navegador da Web do seu celular e aceitar a oferta para instalar o aplicativo."
+			},
+			{
+				"type": "link",
+				"icon": "globe",
+				"title": "Download para celular android",
+				"url": "https://play.google.com/store/apps/details?id=com.cisco.webex.meetings"
+			}
+		]
+	},
+	{
+		"title": "Redes Sociais",
+		"subtitle": "",
+		"content": [{
+				"type": "text",
+				"content": "Ei, nós também estamos nas redes sociais! É mais uma forma de você ficar por dentro de tudo o que acontece na sua Universidade!"
+			},
+			{
+				"type": "text",
+				"content": "Mas atenção, a forma oficial da UFFS se comunicar com você é através do email. Então, fique atento(a) e verifique a sua caixa de entrada e sua caixa de spam periodicamente."
+			},
+			{
+				"type": "link",
+				"icon": "logo_twitter",
+				"title": "Twitter",
+				"url": "https://twitter.com/uffsonline"
+			},
+			{
+				"type": "link",
+				"icon": "logo_facebook",
+				"title": "Facebook",
+				"url": "https://www.facebook.com/groups/257157294392994"
+			},
+			{
+				"type": "link",
+				"icon": "logo_instagram",
+				"title": "Instagram",
+				"url": "https://www.instagram.com/escolhiseruffs/"
 			}
 		]
 	}

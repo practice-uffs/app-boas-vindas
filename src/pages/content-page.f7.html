@@ -13,13 +13,9 @@
             </div>
         </div>
         <div class="page-content">
-            <!-- <div class="card">
-                <div class="card-content card-content-padding"> -->
-                    {{#each content}}
-                        {{this}}
-                    {{/each}}
-                <!-- </div>
-            </div> -->
+			{{#each content}}
+				{{this}}
+			{{/each}}
         </div>
     </div>
 </template>
@@ -39,11 +35,6 @@
                 var app = self.$app;
 
                 switch (name) {
-                    case "guia_calouros":
-                        self.$setState({
-                            title: "Guia do Calouro",
-                        });
-                        break;
                     case "sobre":
                         self.$setState({
                             title: "Sobre o Campus",
@@ -101,7 +92,6 @@
                 var app = self.$app;
 
                 let campus = await app.storage.getSelectedCampus();
-                // let campusContent = await app.storage.getCampusContent(campus.id);
 
                 await app.storage.getPageContent(name).then(content => {
                     self.$setState({

@@ -18,20 +18,22 @@ export class Content {
                 case "telefone":   treatedContent.push(await this.littleCard(content)); break;
                 case "email":      treatedContent.push(await this.littleCard(content)); break;
                 case "novo bloco": treatedContent.push(newbloc);                        break;
-                case undefined:    treatedContent.push('<br>');                         break;
+                case undefined:    treatedContent.push('<p></p>');                      break;
+				case "separador": treatedContent.push('<hr class="margin-vertical">');  break;
+				case "item":      treatedContent.push(`<li>${content.conteudo}</li>`);  break;
                 default:           treatedContent.push(content.conteudo);               break;
             }
         }
         return treatedContent;
     }
 
-    async text(data) {
+	async text(data) {
         return `<div class="${style_video_image_text(data)}">${data.conteudo}</div>`
     }
 
     async map(data) {
         return data.conteudo.replace(
-            /width.*[0-9];"/g, 'width="100%" height="100%" style="aspect-ratio: 1; border: 0;"');
+            /width.*[0-9];"/g, `width="100%" height="100%" style="aspect-ratio: 1; border: 0; border-radius: 5px;"`);
     }
 
     async video(data) {
@@ -55,15 +57,21 @@ export class Content {
     async littleCard(data){
         if (data.extra == undefined) {
             data.extra = data.tipo == "email" ? "E-mail" : (data.tipo == "telefone" ? "Telefone" : undefined);
-        }
-        
-        return `<div style='display: flex; align-items: center; justify-content: space-between; width:100%; margin: 7px 0 7px 0'>
-                    <div class="item-media" style="padding-right:8px;"><i class="f7-icons">${data.tipo == "email" ? "rectangle_paperclip" : (data.tipo == "telefone" ? "phone" : "globe")}</i></div>
-                    <div style='display: flex; align-items: center; justify-content: ${data.extra == undefined ? "flex-end" : "space-between"}; width:100%;'>
-                        ${data.extra == undefined ? "" : "<p style='max-width: 50%; text-align: center;'>" + data.extra.substr(0, 25) + "</p>"}
-                        <a class="external" href="${data.tipo == "email" ? "mailto:" : (data.tipo == "telefone" ? "tel:+" : "")}${data.conteudo}">${data.extra != undefined ? "Acessar" : data.conteudo.substr(0, 50)}</a>
-                    </div>
-                </div>`;    
+		}
+
+		let icon = data.tipo == "email" ? "rectangle_paperclip" : data.tipo == "telefone" ? "phone" : "globe";
+		let title = data.extra;
+		let url = (data.tipo == "email" ? "mailto:" : data.tipo == "telefone" ? "tel:+" : "") + data.conteudo;
+
+		return `<div class="custom-item-link padding-vertical">
+					<div class="padding-horizontal"><i class="f7-icons">${icon}</i></div>
+					<div class="custom-item-link-content">
+						<div>${title}</div>
+						<div class="padding-horizontal">
+							<a class="link external" href="${url}">Acessar</a>
+						</div>
+					</div>
+				</div>`
     } 
 }
 

@@ -17,6 +17,7 @@ iOS Cordova Tweak
 	--f7-theme-color-tint: #009256; */
 
 	--f7-dialog-border-radius: 15px 15px 0px 15px;
+	--f7-card-box-shadow: var(--f7-elevation-3)
 }
 .md {
 	--f7-page-bg-color-rgb: 255, 255, 255;
@@ -27,73 +28,6 @@ iOS Cordova Tweak
 }
 
 /* custom styles from app sheet contents */
-
-.custom-text-title {
-	font-size: 150%;
-	font-weight: bold;
-	color: var(--f7-theme-color);
-	text-align: center;
-	padding: 15px 0px;
-}
-
-.custom-text-subtitle {
-	font-size: 5vw;
-	line-height: 5.5vw;
-	text-align: center;
-}
-
-.custom-text-default {
-	font-size: 4.2vw;
-	line-height: 4.8vw;
-	width: 100%;
-}
-
-.custom-text-font-legend {
-	width: 100%;
-	margin-top: 3px;
-	font-size: 3.3vw;
-	line-height: 3.3vw;
-	text-align: right;
-}
-
-
-.custom-image-large {
-	width: 100%;
-	border-radius: 5px;
-}
-
-.custom-image-medium {
-	width: 60%;
-	border-radius: 5px;
-}
-
-.custom-image-small {
-	width: 30%;
-	border-radius: 5px;
-}
-
-.width-100 {
-	width: 100%;
-}
-
-.height-100 {
-	height: 100%;
-}
-
-.custom-video-small {
-	height: 150px;
-	padding: 12px 0 12px 0;
-}
-
-.custom-video-medium {
-	height: 200px;
-	padding: 12px 0 12px 0;
-}
-
-.custom-video-large {
-	aspect-ratio: 1;
-	padding: 12px 0 12px 0;
-}
 
 .custom-header-card-expansive {
 	height: auto;
@@ -123,5 +57,74 @@ iOS Cordova Tweak
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width:100%;
+	width: 100%;
+}
+
+/* Text */
+.custom-text-title {
+	font-size: 160%;
+	font-weight: 600;
+	color: var(--f7-theme-color);
+	text-align: center;
+	margin: 15px 0px;
+}
+
+.custom-text-subtitle {
+	font-size: 130%;
+	font-weight: 500;
+	padding: 5px 0px;
+}
+
+.custom-text-default {
+	font-size: 105%;
+	width: 100%;
+	text-indent: 8%;
+	margin: 1em 0;
+}
+
+.custom-text-font-legend {
+	width: 100%;
+	margin-top: 0px;
+	font-size: 90%;
+	text-align: right;
+}
+
+/* Image */
+.custom-image-large {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.custom-image-medium {
+	width: 60%;
+	border-radius: 5px;
+}
+
+.custom-image-small {
+	width: 30%;
+	border-radius: 5px;
+}
+
+.width-100 {
+	width: 100%;
+}
+
+.height-100 {
+	height: 100%;
+}
+
+/* Video */
+.custom-video-small {
+	height: 150px;
+	padding: 12px 0 12px 0;
+}
+
+.custom-video-medium {
+	height: 200px;
+	padding: 12px 0 12px 0;
+}
+
+.custom-video-large {
+	aspect-ratio: 1;
+	padding: 12px 0 12px 0;
 }

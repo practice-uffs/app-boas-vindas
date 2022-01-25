@@ -17,6 +17,27 @@
 					</ul>
 				</div>
 
+				<p id="welcome-button" style="max-height: 40px;"><a class="button button-fill sheet-open" id="welcome-popup" 
+					  onclick="document.getElementById('welcome-button').className = 'hide'; localStorage.setItem('firstTime', 'false');"
+					  href="#" data-sheet=".boas-vindas-pop"
+					  style="display: flex; justify-content: space-evenly; max-height: 40px;">
+					  Um minuto da sua atenção
+					  <i class="f7-icons giggle">bell_fill</i>
+					</a>
+				</p>
+				
+				<div class="sheet-modal boas-vindas-pop" style="height:auto;">
+					<div class="sheet-modal-inner">
+					  <div class="page-content">
+						<div class="block">
+						  <p class='custom-text-title'>Estamos felizes em lhe receber ao aplicativo UFFS Virtual! 🙂</b></p>
+						  <p>A equipe do <a class="link external" href="https://practice.uffs.edu.br">Practice</a> colocou muito amor e enforço neste aplicativo para deixar sua vida um pouquinho mais fácil 🥰<br>
+						  <br>Condensamos as informações mais importantes para que você comece com o pé direito, e preparad@ para sua tragetória acadêmica!<br>
+						  <p>Então tire um tempinho para explorar tudo o que esse aplicativo tem a oferecer. E fique ciente que ainda estamos trabalhando para deixá-lo o mais redondinho o possível 😄</p>
+						</div>
+					  </div>
+					</div>
+				</div>
 
 				<div>
 					<div class="row margin">
@@ -44,6 +65,7 @@
 							</a>
 						</div>
 					</div>
+
 
 					{{#each staticTabsInfo}}
 						{{#js_if "@index % 2 == 0"}}
@@ -116,7 +138,21 @@
 				picker: null
 			}
 		},
+		
 		methods: {
+			Welcome: async function(){
+				var self = this;
+				var app = self.$app;
+			
+				if (localStorage.getItem('firstTime') == 'false') document.getElementById('welcome-popup').style.display = "none";
+
+				app.sheet.create({
+					el: '.boas-vindas-pop',
+					swipeToClose: true,
+					backdrop: true,
+				});
+			},
+
 			loadTabsInfoFromJSON: async function(){
 				var self = this;
 				var app = self.$app;
@@ -332,7 +368,10 @@
 				this.startSmartSelect();
 				this.loadStorageData();
 				this.loadTabsInfoFromJSON();
+
+				this.Welcome();
 			},
 		}
+
 	}
 </script>

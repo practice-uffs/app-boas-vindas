@@ -72,6 +72,8 @@
 				let self = this;
 				let app = self.$app;
 
+				console.log(app.storage.getCountTryLogin());
+
 				app.dialog.preloader("Carregando...");
 				let loginData = app.form.convertToData("#login-form");
 
@@ -79,8 +81,10 @@
 						app.dialog.close();
 						if (res) {
 							app.view.main.router.back();
+							app.storage.resetCountTryLogin();
 						} else {
 							app.dialog.alert("Credenciais incorretas, tente novamente!");
+							app.storage.addCountTryLogin();
 						}
 					})
 					.catch(() => {
@@ -103,6 +107,9 @@
 					input.attr("type", "password");
 				}
 			},
+			timeoutCount: function() {
+				
+			}
 		},
 		on: {
 			pageInit: function (e, page){

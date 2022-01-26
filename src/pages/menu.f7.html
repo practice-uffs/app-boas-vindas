@@ -119,6 +119,45 @@
 		font-weight: bold;
 		text-align: center;
 	}
+
+	.hide {
+	visibility: hidden;
+	opacity: 0;
+	max-height: 0px !important;
+	transition: max-height 0.3s, opacity 0.3s, visibility 0.3s linear;
+	}
+
+	.giggle {
+		animation: giggle 2s infinite both;
+	}
+
+	@keyframes giggle {
+		0%,
+		100% {
+			transform: translateX(0%);
+			transform-origin: 50% 50%;
+		}
+
+		15% {
+			transform: translateX(-10px) rotate(6deg);
+		}
+
+		30% {
+			transform: translateX(5px) rotate(-6deg);
+		}
+
+		45% {
+			transform: translateX(-5px) rotate(3.6deg);
+		}
+
+		60% {
+			transform: translateX(3px) rotate(-2.4deg);
+		}
+
+		75% {
+			transform: translateX(-2px) rotate(1.2deg);
+		}
+	}
 </style>
 
 <script>
@@ -126,7 +165,7 @@
 		data: function () {
 			return {
 				campus: null,
-				tabs: ['guia_calouros', 'sobre', 'clima', 'auxilio', 'lazer', 'projetos', 'canais', 'dicionario',
+				tabs: ['sobre', 'clima', 'auxilio', 'lazer', 'projetos', 'canais', 'dicionario',
 					'locomocao',
 					'biblioteca', 'ajuda'
 				],

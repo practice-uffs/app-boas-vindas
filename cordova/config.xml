@@ -8,7 +8,7 @@
         Equipe PRACTICE (UFFS)
     </author>
     <content src="index.html" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-whitelist" spec="1"/>
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -25,11 +25,17 @@
     </platform>
 
     <allow-navigation href="*" />
+	<allow-navigation href="https://*youtube.com/*"/>
+	<allow-navigation href="https://www.youtube.com/embed/*"/>   
+	<allow-navigation href="*youtube*" />
+	<allow-navigation href="*ytimg*" />
+	<allow-navigation href="*youtube-nocookie*" />
 
     <platform name="android">
       <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.CameraLauncher" />
       </feature>
+	  <preference name="loadUrlTimeoutValue" value="60000" />
       <preference name="StatusBarOverlaysWebView" value="false" />
       <preference name="android-minSdkVersion" value="22" />
       <preference name="SplashMaintainAspectRatio" value="true" />
@@ -56,6 +62,7 @@
       <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
         <application android:usesCleartextTraffic="true" />
       </edit-config>
+
     </platform>
 
 
@@ -99,4 +106,5 @@
     <preference name="Allow3DTouchLinkPreview" value="false" />
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <preference name="AllowInlineMediaPlayback" value="true" />
+	<preference name="MediaPlaybackRequiresUserAction" value="false" />
 </widget>

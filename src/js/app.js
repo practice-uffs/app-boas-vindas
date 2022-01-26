@@ -11,14 +11,13 @@ import '../css/app.css';
 import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
-// Import analytics stuff 
-import Abalytics from './abalytics.js';
 
 import { Api } from './api';
 import { Storage } from './storage.js';
 import { Content } from './content';
 import { Aura } from './aura.js';
 import { ApiPractice } from './api_practice';
+import { Abalytics } from './abalytics.js';
 
 // Import main app component
 import App from '../app.f7.html';
@@ -69,6 +68,8 @@ var app = new Framework7({
 	on: {
 		init: function () {
 			var f7 = this;
+			f7.$$ = $$;
+
 			if (f7.device.cordova) {
 				// Init cordova APIs (see cordova-app.js)
 				cordovaApp.init(f7);
@@ -85,13 +86,17 @@ var app = new Framework7({
 				})
 			}
 
-			Abalytics.init(f7);
+			window.screen.orientation.lock('portrait');
+
+			if (typeof cordova !== 'undefined') {
+				new Abalytics(f7);
+			}
+
 			new Storage(f7);
 			new Api(f7);
 			new Content(f7);
 			new Aura(f7);
 			new ApiPractice(f7);
-			f7.$$ = $$;
 
 			handleExternalLinks();
 		},

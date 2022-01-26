@@ -1,6 +1,5 @@
-iOS Cordova Tweak
-.device-cordova.device-ios {
-  height: 100vh;
+iOS Cordova Tweak .device-cordova.device-ios {
+	height: 100vh;
 }
 
 /* Custom color theme properties */
@@ -19,9 +18,11 @@ iOS Cordova Tweak
 	--f7-dialog-border-radius: 15px 15px 0px 15px;
 	--f7-card-box-shadow: var(--f7-elevation-3)
 }
+
 .md {
 	--f7-page-bg-color-rgb: 255, 255, 255;
 }
+
 .md .theme-dark,
 .md.theme-dark {
 	--f7-page-bg-color-rgb: 18, 18, 18;

@@ -17,6 +17,27 @@
 					</ul>
 				</div>
 
+				<p id="welcome-button" style="max-height: 40px;"><a class="button button-fill sheet-open" id="welcome-popup" 
+					  onclick="document.getElementById('welcome-button').className = 'hide'; localStorage.setItem('firstTime', 'false');"
+					  href="#" data-sheet=".boas-vindas-pop"
+					  style="display: flex; justify-content: space-evenly; max-height: 40px;">
+					  Um minuto da sua atenção
+					  <i class="f7-icons giggle">bell_fill</i>
+					</a>
+				</p>
+				
+				<div class="sheet-modal boas-vindas-pop" style="height:auto;">
+					<div class="sheet-modal-inner">
+					  <div class="page-content">
+						<div class="block">
+						  <p class='custom-text-title'>Estamos felizes em lhe receber ao aplicativo UFFS Virtual! 🙂</b></p>
+						  <p>A equipe do <a class="link external" href="https://practice.uffs.edu.br">Practice</a> colocou muito amor e enforço neste aplicativo para deixar sua vida um pouquinho mais fácil 🥰<br>
+						  <br>Condensamos as informações mais importantes para que você comece com o pé direito, e preparad@ para sua tragetória acadêmica!<br>
+						  <p>Então tire um tempinho para explorar tudo o que esse aplicativo tem a oferecer. E fique ciente que ainda estamos trabalhando para deixá-lo o mais redondinho o possível 😄</p>
+						</div>
+					  </div>
+					</div>
+				</div>
 
 				<div>
 					<div class="row margin">
@@ -44,6 +65,7 @@
 							</a>
 						</div>
 					</div>
+
 
 					{{#each staticTabsInfo}}
 						{{#js_if "@index % 2 == 0"}}
@@ -97,6 +119,45 @@
 		font-weight: bold;
 		text-align: center;
 	}
+
+	.hide {
+	visibility: hidden;
+	opacity: 0;
+	max-height: 0px !important;
+	transition: max-height 0.3s, opacity 0.3s, visibility 0.3s linear;
+	}
+
+	.giggle {
+		animation: giggle 2s infinite both;
+	}
+
+	@keyframes giggle {
+		0%,
+		100% {
+			transform: translateX(0%);
+			transform-origin: 50% 50%;
+		}
+
+		15% {
+			transform: translateX(-10px) rotate(6deg);
+		}
+
+		30% {
+			transform: translateX(5px) rotate(-6deg);
+		}
+
+		45% {
+			transform: translateX(-5px) rotate(3.6deg);
+		}
+
+		60% {
+			transform: translateX(3px) rotate(-2.4deg);
+		}
+
+		75% {
+			transform: translateX(-2px) rotate(1.2deg);
+		}
+	}
 </style>
 
 <script>
@@ -116,7 +177,21 @@
 				picker: null
 			}
 		},
+		
 		methods: {
+			Welcome: async function(){
+				var self = this;
+				var app = self.$app;
+			
+				if (localStorage.getItem('firstTime') == 'false') document.getElementById('welcome-popup').style.display = "none";
+
+				app.sheet.create({
+					el: '.boas-vindas-pop',
+					swipeToClose: true,
+					backdrop: true,
+				});
+			},
+
 			loadTabsInfoFromJSON: async function(){
 				var self = this;
 				var app = self.$app;
@@ -332,7 +407,10 @@
 				this.startSmartSelect();
 				this.loadStorageData();
 				this.loadTabsInfoFromJSON();
+
+				this.Welcome();
 			},
 		}
+
 	}
 </script>

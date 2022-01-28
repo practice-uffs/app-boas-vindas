@@ -118,4 +118,12 @@ export class Storage{
 	resetCountTryLogin() {
 		localStorage.setItem("countTryLogin", 0);
 	}
+
+	getCountdownLogin() {
+		return localStorage.getItem("getCountdownLogin");
+	}
+
+	setCountdownLogin(value) {
+		localStorage.setItem("getCountdownLogin", value);
+	}
 }

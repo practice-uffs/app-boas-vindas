@@ -27,7 +27,7 @@
 											<input id="input_password" type="password" name="password"
 												placeholder="Sua senha"
 												data-error-message="Esse campo precisa ser preenchido" required
-												validate />
+												validate/>
 											<span class="input-clear-button"></span>
 										</div>
 										<div class="padding-left display-flex align-items-center"
@@ -37,13 +37,30 @@
 									</div>
 								</div>
 							</li>
+
+							<div class="block-footer">
+								{{#if countDown}}
+								<span>
+									<h4>Login bloqueado</h4>
+								</span>
+								<span class="small">
+									Tente novamente em {{countDown}} segundos
+								</span>
+								{{else}}
+								<span class="small">
+									{{attempts}} tentativas restantes
+								</span>
+								{{/if}}
+							</div>
+
+
 						</ul>
 					</div>
 					
 					<div class="list">
 						<ul>
 							<li>
-								<button class="button list-button" type="submit">Entrar</button>
+								<button class="button list-button" type="submit" id="button-login">Entrar</button>
 							</li>
 						</ul>
 					</div>
@@ -64,7 +81,8 @@
 	export default {
 		data: function () {
 			return {
-
+				countDown: null,
+				attempts: 5
 			}
 		},
 		methods: {
@@ -78,9 +96,21 @@
 				app.api_practice.requestLogin(loginData.username, loginData.password).then((res) => {
 						app.dialog.close();
 						if (res) {
+							app.storage.resetCountTryLogin();
 							app.view.main.router.back();
 						} else {
 							app.dialog.alert("Credenciais incorretas, tente novamente!");
+							app.storage.addCountTryLogin();
+
+							app.$$("input").val("");
+
+							self.$setState({
+								attempts : self.attempts-1
+							});
+
+							if(app.storage.getCountTryLogin() >= 5){
+								self.timeoutCount(30);
+							}
 						}
 					})
 					.catch(() => {
@@ -103,11 +133,63 @@
 					input.attr("type", "password");
 				}
 			},
+			timeoutCount: async function(count) {
+				let self = this;
+				let app = self.$app;
+
+				app.$$("#button-login").prop("disabled", true);
+				app.$$("input").prop("disabled", true);
+
+				await new Promise(resolve => {
+					var interval = setInterval(function(){
+						self.$setState({
+							countDown : count
+						});
+
+						app.storage.setCountdownLogin(count);
+
+						count--;
+
+						if(count < 0) {
+							self.$setState({
+								attempts : 5
+							});
+							resolve();
+							clearInterval(interval);
+						}
+					}, 1000);
+				})
+
+				app.storage.resetCountTryLogin();
+				app.$$("#button-login").prop("disabled", false);
+				app.$$("input").prop("disabled", false);
+			},
+			getCountdown: async function() {
+				let self = this;
+				let app = self.$app;
+
+				var data =  app.storage.getCountdownLogin();
+				var countTry =  app.storage.getCountTryLogin();
+
+				if(countTry){
+					self.$setState({
+						attempts : 5 - countTry,
+					});
+				}
+
+				if(data != "NaN" || data != null){
+					if(data > 0){
+						self.timeoutCount(parseInt(data));
+					}
+				}
+			}
 		},
 		on: {
 			pageInit: function (e, page){
 				let self = this;
 				let app = self.$app;
+
+				self.getCountdown();
 
 				app.$$('#login-form').submit((e) => {
 					e.preventDefault();

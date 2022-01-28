@@ -11,8 +11,8 @@
 
 				<div class="right">
 					{{#if user}}
-					<a href="#" class="link sheet-open" data-sheet="#about-sheet"><img
-							src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}" width="44" /></a>
+					<a href="#" class="link sheet-open" data-sheet="#about-sheet">
+						<img class="user-icon" src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}" style="height: 35px; width: 35px;"/></a>
 					{{/if}}
 					<a href="#" class="link sheet-open" data-sheet="#about-sheet"><i class="f7-icons">ellipsis_vertical</i></a>
 				</div>
@@ -30,7 +30,7 @@
 							<ul>
 								<li>
 									<div class="item-content">
-										<div class="item-media"><img src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}"
+										<div class="item-media"><img class="user-icon" src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}"
 												width="44" /></div>
 										<div class="item-inner">
 											<div class="item-title-row">
@@ -144,6 +144,13 @@
 		width: 40px;
 		width: 40px;
 		margin-left: 0.5em;
+	}
+
+	.user-icon {
+		width: 40px;
+		height: 40px;
+		object-fit: cover;
+		border-radius: 50%;
 	}
 </style>
 

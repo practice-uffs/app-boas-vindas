@@ -20,6 +20,9 @@ export class Storage{
 	}
 
 	async getDarkTheme() {
+		if (localStorage.getItem("darkTheme") == null) {
+			return 'true';
+		}
 		return localStorage.getItem("darkTheme");
 	}
 

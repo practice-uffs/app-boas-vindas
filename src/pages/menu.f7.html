@@ -65,7 +65,7 @@
 							</a>
 						</div>
 					</div>
-
+					
 
 					{{#each staticTabsInfo}}
 						{{#js_if "@index % 2 == 0"}}
@@ -81,7 +81,16 @@
 									<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
 										style="height: 100%;">
 										<div>
-											<img src="{{imgdark}}" class="menu-item-icon">
+											{{#if darkTheme}}
+												{{#js_if "darkTheme == true"}}
+													dark
+												{{else}}
+													white
+												{{/js_if}}
+											{{else}}
+												sasqueee	
+											{{/if}}
+											
 										</div>
 										<div class="menu-item-title">{{title}}</div>
 									</div>
@@ -174,7 +183,8 @@
 				spreadsheetContent: null,
 				selectedCampus: null,
 				smartSelect: null,
-				picker: null
+				picker: null,
+				darkTheme: null
 			}
 		},
 		
@@ -397,6 +407,21 @@
 					campusArray.push(element.cidade);
 				});
 				self.picker.params.cols[0].values = campusArray;
+			},
+			loadMenuDarkModeInformation: async function(){
+				var self = this;
+				var app = self.$app;
+				
+				if(app.$$("#app").hasClass('theme-dark')){
+					self.$setState({
+						darkTheme: true
+					});
+					return;
+				}
+
+				self.$setState({
+					darkTheme: false
+				});
 			}
 		},
 		on: {
@@ -409,6 +434,14 @@
 				this.loadTabsInfoFromJSON();
 
 				this.Welcome();
+
+				self.loadMenuDarkModeInformation();
+				
+				document.addEventListener("change", function() {
+					setTimeout(() => {
+						self.loadMenuDarkModeInformation();
+					}, 50);
+				});
 			},
 		}
 

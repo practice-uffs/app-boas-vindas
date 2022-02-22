@@ -1,61 +1,71 @@
 [
 	{
 		"title": "Sobre o Campus",
-		"img": "static/images/school.png",
+		"imgwhite": "static/images/whitetheme/sobre.png",
+		"imgdark": "static/images/darktheme/sobre.png",
 		"link": "/content/sobre",
 		"id": "sobre"
 	},
 	{
 		"title": "Clima Local",
-		"img": "static/images/stormy.png",
+		"imgwhite": "static/images/whitetheme/clima.png",
+		"imgdark": "static/images/darktheme/clima.png",
 		"link": "/content/clima",
 		"id": "clima"
 	},
 	{
 		"title": "Auxílio Estudantil",
-		"img": "static/images/scholarship.png",
+		"imgwhite": "static/images/whitetheme/auxilio.png",
+		"imgdark": "static/images/darktheme/auxilio.png",
 		"link": "/content/auxilio",
 		"id": "auxilio"
 	},
 	{
 		"title": "Grupos e projetos",
-		"img": "static/images/group-chat.png",
+		"imgwhite": "static/images/whitetheme/projetos.png",
+		"imgdark": "static/images/darktheme/projetos.png",
 		"link": "/content/projetos",
 		"id": "projetos"
 	},
 	{
 		"title": "Canais UFFS",
-		"img": "static/images/channel.png",
+		"imgwhite": "static/images/whitetheme/canais.png",
+		"imgdark": "static/images/darktheme/canais.png",
 		"link": "/content/canais",
 		"id": "canais"
 	},
 	{
 		"title": "Lazer",
-		"img": "static/images/park.png",
+		"imgwhite": "static/images/whitetheme/lazer.png",
+		"imgdark": "static/images/darktheme/lazer.png",
 		"link": "/content/lazer",
 		"id": "lazer"
 	},
 	{
 		"title": "Dicionário local do sul",
-		"img": "static/images/talking.png",
+		"imgwhite": "static/images/whitetheme/dicionario.png",
+		"imgdark": "static/images/darktheme/dicionario.png",
 		"link": "/content/dicionario",
 		"id": "dicionario"
 	},
 	{
 		"title": "Locomoção",
-		"img": "static/images/map.png",
+		"imgwhite": "static/images/whitetheme/locomocao.png",
+		"imgdark": "static/images/darktheme/locomocao.png",
 		"link": "/content/locomocao",
 		"id": "locomocao"
 	},
 	{
 		"title": "Biblioteca",
-		"img": "static/images/library.png",
+		"imgwhite": "static/images/whitetheme/biblioteca.png",
+		"imgdark": "static/images/darktheme/biblioteca.png",
 		"link": "/content/biblioteca",
 		"id": "biblioteca"
 	},
 	{
 		"title": "Ajuda",
-		"img": "static/images/support.png",
+		"imgwhite": "static/images/whitetheme/ajuda.png",
+		"imgdark": "static/images/darktheme/ajuda.png",
 		"link": "/content/ajuda",
 		"id": "ajuda"
 	}

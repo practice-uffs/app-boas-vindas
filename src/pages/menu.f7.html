@@ -81,22 +81,16 @@
 									<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
 										style="height: 100%;">
 										<div>
-											{{#if darkTheme}}
-												{{#js_if "darkTheme == true"}}
-													dark
-												{{else}}
-													white
-												{{/js_if}}
+											{{#js_if "../darkTheme === false" }}
+												<img src="{{imgdark}}" class="menu-item-icon">
 											{{else}}
-												sasqueee	
-											{{/if}}
-											
+												<img src="{{imgwhite}}" class="menu-item-icon">
+											{{/js_if}}
 										</div>
 										<div class="menu-item-title">{{title}}</div>
 									</div>
 								</a>
 							</div>
-
 						{{#js_if "@index % 2 == 1"}}
 						</div>
 						{{/js_if}}
@@ -143,7 +137,7 @@
 	@keyframes giggle {
 		0%,
 		100% {
-			transform: translateX(0%);
+			transform: translateX(0%);	
 			transform-origin: 50% 50%;
 		}
 

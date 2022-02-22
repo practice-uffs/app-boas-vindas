@@ -2,7 +2,7 @@ export class Api{
     constructor(app) {
         this.app = app;
         this.app.api = this;
-		this.url = 'https://opensheet.vercel.app/1U0tVzmz0h1aeIE-4QEvrEnUvwLitmA2nUykO1j-vA2w/Campi';
+		this.url = 'https://opensheet.elk.sh/1U0tVzmz0h1aeIE-4QEvrEnUvwLitmA2nUykO1j-vA2w/Campi';
     }
 
     async getCampus() {

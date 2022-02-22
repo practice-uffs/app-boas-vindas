@@ -4,7 +4,7 @@
     "pwa",
     "cordova"
   ],
-  "name": "uffs-virtual",
+  "name": "uffs-boas-vindas",
   "framework": "core",
   "template": "tabs",
   "bundler": "webpack",

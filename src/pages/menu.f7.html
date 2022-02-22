@@ -8,8 +8,8 @@
 						<li class="item-content item-input ">
 							<div class="item-inner">
 								<div class="item-input-wrap">
-									<input class="text-align-center" type="text" placeholder="Selecione seu Campus" readonly="readonly"
-									id="picker-device" disabled/>
+									<input class="text-align-center" type="text" placeholder="Selecione seu Campus"
+										readonly="readonly" id="picker-device" disabled />
 								</div>
 							</div>
 							<div class="item-media align-self-center"><i class="f7-icons">pencil_circle_fill</i></div>
@@ -17,25 +17,32 @@
 					</ul>
 				</div>
 
-				<p id="welcome-button" style="max-height: 40px;"><a class="button button-fill sheet-open" id="welcome-popup" 
-					  onclick="document.getElementById('welcome-button').className = 'hide'; localStorage.setItem('firstTime', 'false');"
-					  href="#" data-sheet=".boas-vindas-pop"
-					  style="display: flex; justify-content: space-evenly; max-height: 40px;">
-					  Um minuto da sua atenção
-					  <i class="f7-icons giggle">bell_fill</i>
+				<p id="welcome-button" style="max-height: 40px;"><a class="button button-fill sheet-open"
+						id="welcome-popup"
+						onclick="document.getElementById('welcome-button').className = 'hide'; localStorage.setItem('firstTime', 'false');"
+						href="#" data-sheet=".boas-vindas-pop"
+						style="display: flex; justify-content: space-evenly; max-height: 40px;">
+						Um minuto da sua atenção
+						<i class="f7-icons giggle">bell_fill</i>
 					</a>
 				</p>
-				
+
 				<div class="sheet-modal boas-vindas-pop" style="height:auto;">
 					<div class="sheet-modal-inner">
-					  <div class="page-content">
-						<div class="block">
-						  <p class='custom-text-title'>Estamos felizes em lhe receber ao aplicativo UFFS Virtual! 🙂</b></p>
-						  <p>A equipe do <a class="link external" href="https://practice.uffs.edu.br">Practice</a> colocou muito amor e enforço neste aplicativo para deixar sua vida um pouquinho mais fácil 🥰<br>
-						  <br>Condensamos as informações mais importantes para que você comece com o pé direito, e preparad@ para sua tragetória acadêmica!<br>
-						  <p>Então tire um tempinho para explorar tudo o que esse aplicativo tem a oferecer. E fique ciente que ainda estamos trabalhando para deixá-lo o mais redondinho o possível 😄</p>
+						<div class="page-content">
+							<div class="block">
+								<p class='custom-text-title'>Estamos felizes em lhe receber ao aplicativo UFFS Virtual!
+									🙂</b></p>
+								<p>A equipe do <a class="link external" href="https://practice.uffs.edu.br">Practice</a>
+									colocou muito amor e enforço neste aplicativo para deixar sua vida um pouquinho mais
+									fácil 🥰<br>
+									<br>Condensamos as informações mais importantes para que você comece com o pé
+									direito, e preparad@ para sua tragetória acadêmica!<br>
+									<p>Então tire um tempinho para explorar tudo o que esse aplicativo tem a oferecer. E
+										fique ciente que ainda estamos trabalhando para deixá-lo o mais redondinho o
+										possível 😄</p>
+							</div>
 						</div>
-					  </div>
 					</div>
 				</div>
 
@@ -68,15 +75,15 @@
 
 
 					{{#each staticTabsInfo}}
-						{{#js_if "@index % 2 == 0"}}
-						<div class="row margin">
+					{{#js_if "@index % 2 == 0"}}
+					<div class="row margin">
 						{{/js_if}}
 
-							{{#unless active}}
-						 	<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1 disabled">
+						{{#unless active}}
+						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1 disabled">
 							{{else}}
 							<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
-							{{/unless}}
+								{{/unless}}
 								<a href="{{link}}" class="menu-item-link">
 									<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
 										style="height: 100%;">
@@ -88,14 +95,14 @@
 								</a>
 							</div>
 
-						{{#js_if "@index % 2 == 1"}}
+							{{#js_if "@index % 2 == 1"}}
 						</div>
 						{{/js_if}}
-					{{/each}}
+						{{/each}}
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </template>
 
 <style>
@@ -114,17 +121,17 @@
 		height: 90px;
 	}
 
-	.menu-item-title{
+	.menu-item-title {
 		text-transform: uppercase;
 		font-weight: bold;
 		text-align: center;
 	}
 
 	.hide {
-	visibility: hidden;
-	opacity: 0;
-	max-height: 0px !important;
-	transition: max-height 0.3s, opacity 0.3s, visibility 0.3s linear;
+		visibility: hidden;
+		opacity: 0;
+		max-height: 0px !important;
+		transition: max-height 0.3s, opacity 0.3s, visibility 0.3s linear;
 	}
 
 	.giggle {
@@ -132,6 +139,7 @@
 	}
 
 	@keyframes giggle {
+
 		0%,
 		100% {
 			transform: translateX(0%);
@@ -169,7 +177,7 @@
 					'locomocao',
 					'biblioteca', 'ajuda'
 				],
-				availableTabs : {},
+				availableTabs: {},
 				staticTabsInfo: null,
 				spreadsheetContent: null,
 				selectedCampus: null,
@@ -177,13 +185,14 @@
 				picker: null
 			}
 		},
-		
+
 		methods: {
-			Welcome: async function(){
+			Welcome: async function () {
 				var self = this;
 				var app = self.$app;
-			
-				if (localStorage.getItem('firstTime') == 'false') document.getElementById('welcome-popup').style.display = "none";
+
+				if (localStorage.getItem('firstTime') == 'false') document.getElementById('welcome-popup').style
+					.display = "none";
 
 				app.sheet.create({
 					el: '.boas-vindas-pop',
@@ -192,13 +201,13 @@
 				});
 			},
 
-			loadTabsInfoFromJSON: async function(){
+			loadTabsInfoFromJSON: async function () {
 				var self = this;
 				var app = self.$app;
 
 				await app.request.json('static/json/menu-items.json', async function (data) {
 					data.forEach((value, index) => {
-						if(self.availableTabs[value.id]){
+						if (self.availableTabs[value.id]) {
 							value.active = true;
 						}
 					})
@@ -208,7 +217,7 @@
 					});
 				})
 			},
-			startSmartSelect: async function() {
+			startSmartSelect: async function () {
 				var self = this;
 				var app = self.$app;
 
@@ -218,12 +227,10 @@
 					toolbarCloseText: `<i class="f7-icons">xmark_circle_fill</i>`,
 					inputEl: '#picker-device',
 					backdrop: true,
-					cols: [
-						{
-							textAlign: 'center',
-							values: []
-						}
-					],
+					cols: [{
+						textAlign: 'center',
+						values: []
+					}],
 					on: {
 						change: () => {
 							self.setSelectedCampusLink(self.picker.getValue());
@@ -231,14 +238,14 @@
 					}
 				});
 			},
-			loadStorageData: async function() {
+			loadStorageData: async function () {
 				var self = this;
 				var app = self.$app;
 
 				self.loadingEffects(true);
 
 				await app.storage.getCampusInformation().then(campusInformation => {
-					if(campusInformation){
+					if (campusInformation) {
 						self.$setState({
 							campus: campusInformation,
 						});
@@ -248,7 +255,7 @@
 				});
 
 				await app.storage.getSelectedCampus().then(selectedCampus => {
-					if(selectedCampus){
+					if (selectedCampus) {
 						self.$setState({
 							selectedCampus: selectedCampus,
 						});
@@ -256,7 +263,7 @@
 				});
 
 				await app.storage.getSpreadsheetContent().then(content => {
-					if(content){
+					if (content) {
 						self.$setState({
 							spreadsheetContent: content,
 						});
@@ -264,7 +271,7 @@
 					}
 				});
 
-				if(self.spreadsheetContent  && self.selectedCampus){
+				if (self.spreadsheetContent && self.selectedCampus) {
 					self.displayContent();
 					self.picker.setValue([self.selectedCampus.cidade], 100);
 				}
@@ -286,24 +293,25 @@
 
 				for (let item of this.campus) {
 					for (let tab of this.tabs) {
-						await app.api.getCampusContent('https://opensheet.vercel.app/' + item.id + '/' + tab).then(data => {
-							if (data) {
-								newSpreadsheetContent.push([item.id, tab, data]);
-							}
-						});
+						await app.api.getCampusContent('https://opensheet.elk.sh/' + item.id + '/' + tab).then(
+							data => {
+								if (data) {
+									newSpreadsheetContent.push([item.id, tab, data]);
+								}
+							});
 					}
 				}
 
 				self.$setState({
-					spreadsheetContent : newSpreadsheetContent,
+					spreadsheetContent: newSpreadsheetContent,
 				});
 
 				app.storage.setSpreadsheetContent(newSpreadsheetContent);
 
-				if(self.selectedCampus){
+				if (self.selectedCampus) {
 					self.picker.setValue([self.selectedCampus.cidade], 100);
 				}
-				
+
 				self.loadingEffects(false);
 			},
 			setSelectedCampusLink: function (campusName) {
@@ -315,12 +323,12 @@
 				app.storage.setSelectedCampus(found);
 
 				self.$setState({
-					selectedCampus : found
+					selectedCampus: found
 				});
 
 				self.displayContent();
 			},
-			displayContent: function() {
+			displayContent: function () {
 				var self = this;
 				var app = self.$app;
 
@@ -340,8 +348,8 @@
 				self.availableTabs['procedures'] = true;
 
 
-				for(let tab of self.tabs){
-					if(pageContent[tab]){
+				for (let tab of self.tabs) {
+					if (pageContent[tab]) {
 						self.availableTabs[tab] = true;
 					}
 				}
@@ -350,7 +358,7 @@
 
 				self.setAvailableItems();
 			},
-			setAvailableItems: async function(){
+			setAvailableItems: async function () {
 				var self = this;
 				var app = self.$app;
 
@@ -360,14 +368,14 @@
 					let item = app.$$(value);
 					let tabId = item.attr('href').replace('/content/', '').replaceAll('/', '');
 					let parent = item.parent(".menu-item-block");
-					if(!self.availableTabs[tabId]){
+					if (!self.availableTabs[tabId]) {
 						parent.addClass('disabled');
 					} else {
 						parent.removeClass('disabled');
 					}
 				})
 			},
-			loadingEffects: async function(loading) {
+			loadingEffects: async function (loading) {
 				var self = this;
 				var app = self.$app;
 
@@ -376,19 +384,23 @@
 				let menuItem = app.$$('.menu-item-content');
 				let picker = app.$$('#picker-device');
 
-				if(loading) {
+				if (loading) {
 					menuItem.addClass('skeleton-text');
 					menuItem.addClass('skeleton-effect-blink');
-					picker.prop({disabled: true});
+					picker.prop({
+						disabled: true
+					});
 					app.progressbar.show();
 					return;
-				} 
+				}
 				menuItem.removeClass('skeleton-text');
 				menuItem.removeClass('skeleton-effect-blink');
-				picker.prop({disabled: false});
+				picker.prop({
+					disabled: false
+				});
 				app.progressbar.hide();
 			},
-			createPickerCampusArray: function(campusObject) {
+			createPickerCampusArray: function (campusObject) {
 				var self = this;
 				var app = self.$app;
 

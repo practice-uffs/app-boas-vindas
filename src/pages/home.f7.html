@@ -6,15 +6,17 @@
 			<div class="navbar-inner">
 				<div class="left">
 					<img src="{{icon}}" class="navbar-icon">
-					<div class="title">UFFS Virtual</div>
+					<div class="title">Boas-Vindas</div>
 				</div>
 
 				<div class="right">
 					{{#if user}}
 					<a href="#" class="link sheet-open" data-sheet="#about-sheet">
-						<img class="user-icon" src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}" style="height: 35px; width: 35px;"/></a>
+						<img class="user-icon" src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}"
+							style="height: 35px; width: 35px;" /></a>
 					{{/if}}
-					<a href="#" class="link sheet-open" data-sheet="#about-sheet"><i class="f7-icons">ellipsis_vertical</i></a>
+					<a href="#" class="link sheet-open" data-sheet="#about-sheet"><i
+							class="f7-icons">ellipsis_vertical</i></a>
 				</div>
 			</div>
 		</div>
@@ -30,7 +32,8 @@
 							<ul>
 								<li>
 									<div class="item-content">
-										<div class="item-media"><img class="user-icon" src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}"
+										<div class="item-media"><img class="user-icon"
+												src="https://cc.uffs.edu.br/avatar/iduffs/{{user.username}}"
 												width="44" /></div>
 										<div class="item-inner">
 											<div class="item-title-row">
@@ -46,10 +49,11 @@
 
 						<div class="list no-margin margin-bottom">
 							<ul>
-								
+
 								{{#if user}}
 								<li class="float-bottom">
-									<a href="#" class="item-link item-content" @click="logout()" @click="closeAboutSheet()">
+									<a href="#" class="item-link item-content" @click="logout()"
+										@click="closeAboutSheet()">
 										<div class="item-media">
 											<i class="f7-icons">square_arrow_left</i>
 										</div>
@@ -60,7 +64,7 @@
 								</li>
 								{{else}}
 								<li class="float-bottom">
-									<a href="/login/" class="item-link item-content" @click="closeAboutSheet()" >
+									<a href="/login/" class="item-link item-content" @click="closeAboutSheet()">
 										<div class="item-media">
 											<i class="f7-icons">person_crop_circle</i>
 										</div>
@@ -109,17 +113,18 @@
 		<div class="toolbar tabbar toolbar-bottom">
 			<div class="toolbar-inner">
 				{{#if isEnabled.menuPage}}
-				<a href="/" class="tab-link" data-route-tab-id="menu"><i class="f7-icons">menu</i><small>Menu</small></a>
+				<a href="/" class="tab-link" data-route-tab-id="menu"><i
+						class="f7-icons">menu</i><small>Menu</small></a>
 				{{/if}}
 
 				{{#if isEnabled.auraPage}}
-					{{#if user}}
-					<a href="/aura/" class="tab-link" data-route-tab-id="aura"><i
-							class="f7-icons">asterisk_circle</i><small>Aura</small></a>
-					{{else}}
-					<a href="#" @click="auraRedirect()" class="tab-link" data-route-tab-id="aura"><i
+				{{#if user}}
+				<a href="/aura/" class="tab-link" data-route-tab-id="aura"><i
 						class="f7-icons">asterisk_circle</i><small>Aura</small></a>
-					{{/if}}
+				{{else}}
+				<a href="#" @click="auraRedirect()" class="tab-link" data-route-tab-id="aura"><i
+						class="f7-icons">asterisk_circle</i><small>Aura</small></a>
+				{{/if}}
 				{{/if}}
 			</div>
 		</div>
@@ -170,7 +175,7 @@
 		},
 
 		on: {
-			pageAfterIn: async function(e, page){
+			pageAfterIn: async function (e, page) {
 				let self = this;
 				let app = self.$app;
 
@@ -179,26 +184,26 @@
 				await this.validateToken();
 
 
-				setTimeout(function() {
+				setTimeout(function () {
 					self.initDarkThemeToggle();
 				}, 100);
 			},
 		},
 
 		methods: {
-			validateToken: async function(){
+			validateToken: async function () {
 				var self = this;
 				var app = self.$app;
 
 				app.api_practice.ping().then(async valid => {
-					if(!valid){
+					if (!valid) {
 						await self.requestLogout();
 						self.loadUser();
 						app.view.main.router.navigate('/');
 					}
 				})
 			},
-			initDarkThemeToggle: async function() {
+			initDarkThemeToggle: async function () {
 				var self = this;
 				var app = self.$app;
 
@@ -214,10 +219,10 @@
 				});
 
 				self.$setState({
-					darkThemeToggle : toggle
+					darkThemeToggle: toggle
 				})
 
-				if(await app.storage.getDarkTheme() == "true"){
+				if (await app.storage.getDarkTheme() == "true") {
 					toggle.checked = true;
 				} else {
 					toggle.checked = false;
@@ -228,7 +233,7 @@
 				return;
 			},
 
-			darkThemeSelection: async function(){
+			darkThemeSelection: async function () {
 				let self = this;
 				let app = self.$app;
 
@@ -236,7 +241,7 @@
 
 				var toggle = self.darkThemeToggle;
 
-				if(toggle.checked){
+				if (toggle.checked) {
 					await app.storage.setDarkTheme("true");
 					self.$setState({
 						icon: self.icon_white,
@@ -251,10 +256,10 @@
 				appPage.removeClass("theme-dark");
 			},
 
-			createAboutSheet: async function(){
+			createAboutSheet: async function () {
 				let self = this;
 				let app = self.$app;
-				
+
 				await app.sheet.create({
 					el: '#about-sheet',
 					swipeToClose: true,
@@ -265,7 +270,7 @@
 				return
 			},
 
-			closeAboutSheet: function(){
+			closeAboutSheet: function () {
 				let self = this;
 				let app = self.$app;
 
@@ -284,19 +289,19 @@
 
 			},
 
-			requestLogout: function (){
+			requestLogout: function () {
 				let self = this;
 				let app = self.$app;
 
 				app.api_practice.requestLogout().then((res) => {
-					if (res) {
-						return;
-					}
-					app.dialog.alert("Não foi possível te desconectar, tente novamente!");
-				})
-				.catch(() => {
-					app.dialog.alert("Ocorreu um erro em sua rede, tente novamente!");
-				});
+						if (res) {
+							return;
+						}
+						app.dialog.alert("Não foi possível te desconectar, tente novamente!");
+					})
+					.catch(() => {
+						app.dialog.alert("Ocorreu um erro em sua rede, tente novamente!");
+					});
 			},
 
 			loadUser: async function () {
@@ -305,7 +310,7 @@
 
 				await app.storage.getUserCredentials();
 
-				await app.storage.getUserData().then( (userData) => {
+				await app.storage.getUserData().then((userData) => {
 					self.$setState({
 						user: userData,
 					});
@@ -318,7 +323,7 @@
 				return;
 			},
 
-			auraRedirect: async function() {
+			auraRedirect: async function () {
 				let self = this;
 				let app = self.$app;
 
@@ -326,8 +331,7 @@
 					title: "🤖 Aura",
 					text: `Para conversar com a <b>Aura</b>, você terá que fazer login com seu idUFFS`,
 					content: "",
-					buttons: [
-						{
+					buttons: [{
 							text: "Cancelar",
 							bold: true,
 						},
@@ -339,7 +343,7 @@
 							}
 						},
 					]
-					
+
 				})
 
 				auraDialog.open(true);

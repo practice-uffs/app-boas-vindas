@@ -31,7 +31,8 @@
 					<div class="sheet-modal-inner">
 						<div class="page-content">
 							<div class="block">
-								<p class='custom-text-title'>Estamos felizes em lhe receber ao aplicativo UFFS Virtual!
+								<p class='custom-text-title'>Estamos felizes em lhe receber ao aplicativo de Boas-Vindas
+									da UFFS!
 									🙂</b></p>
 								<p>A equipe do <a class="link external" href="https://practice.uffs.edu.br">Practice</a>
 									colocou muito amor e enforço neste aplicativo para deixar sua vida um pouquinho mais
@@ -53,7 +54,11 @@
 								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
 									style="height: 100%;">
 									<div>
-										<img src="static/images/school.png" class="menu-item-icon">
+										{{#js_if "../darkTheme === false" }}
+										<img src="static/images/darktheme/guia-calouro.png" class="menu-item-icon">
+										{{else}}
+										<img src="static/images/whitetheme/guia-calouro.png" class="menu-item-icon">
+										{{/js_if}}
 									</div>
 									<div class="menu-item-title">Guia do Calouro</div>
 								</div>
@@ -65,7 +70,13 @@
 								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
 									style="height: 100%;">
 									<div>
-										<img src="static/images/school.png" class="menu-item-icon">
+										{{#js_if "../darkTheme === false" }}
+										<img src="static/images/darktheme/guia-de-procedimentos.png"
+											class="menu-item-icon">
+										{{else}}
+										<img src="static/images/whitetheme/guia-de-procedimentos.png"
+											class="menu-item-icon">
+										{{/js_if}}
 									</div>
 									<div class="menu-item-title">Guia dos Procedimentos</div>
 								</div>
@@ -88,13 +99,16 @@
 									<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
 										style="height: 100%;">
 										<div>
-											<img src="{{img}}" class="menu-item-icon">
+											{{#js_if "../darkTheme === false" }}
+											<img src="{{imgdark}}" class="menu-item-icon">
+											{{else}}
+											<img src="{{imgwhite}}" class="menu-item-icon">
+											{{/js_if}}
 										</div>
 										<div class="menu-item-title">{{title}}</div>
 									</div>
 								</a>
 							</div>
-
 							{{#js_if "@index % 2 == 1"}}
 						</div>
 						{{/js_if}}
@@ -118,7 +132,8 @@
 	}
 
 	img.menu-item-icon {
-		height: 90px;
+		height: 60px;
+		padding: 15px;
 	}
 
 	.menu-item-title {
@@ -182,7 +197,8 @@
 				spreadsheetContent: null,
 				selectedCampus: null,
 				smartSelect: null,
-				picker: null
+				picker: null,
+				darkTheme: null
 			}
 		},
 
@@ -409,6 +425,21 @@
 					campusArray.push(element.cidade);
 				});
 				self.picker.params.cols[0].values = campusArray;
+			},
+			loadMenuDarkModeInformation: async function () {
+				var self = this;
+				var app = self.$app;
+
+				if (app.$$("#app").hasClass('theme-dark')) {
+					self.$setState({
+						darkTheme: true
+					});
+					return;
+				}
+
+				self.$setState({
+					darkTheme: false
+				});
 			}
 		},
 		on: {
@@ -421,6 +452,14 @@
 				this.loadTabsInfoFromJSON();
 
 				this.Welcome();
+
+				self.loadMenuDarkModeInformation();
+
+				document.addEventListener("change", function () {
+					setTimeout(() => {
+						self.loadMenuDarkModeInformation();
+					}, 50);
+				});
 			},
 		}
 

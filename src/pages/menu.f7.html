@@ -54,9 +54,9 @@
 									style="height: 100%;">
 									<div>
 										{{#js_if "../darkTheme === false" }}
-											<img src="static/images/darktheme/guia-calouro.png" class="padding menu-item-icon">
+										<img src="static/images/darktheme/guia-calouro.png" class="menu-item-icon">
 										{{else}}
-											<img src="static/images/whitetheme/guia-calouro.png" class="padding menu-item-icon">
+										<img src="static/images/whitetheme/guia-calouro.png" class="menu-item-icon">
 										{{/js_if}}
 									</div>
 									<div class="menu-item-title">Guia do Calouro</div>
@@ -70,9 +70,11 @@
 									style="height: 100%;">
 									<div>
 										{{#js_if "../darkTheme === false" }}
-											<img src="static/images/darktheme/guia-de-procedimentos.png" class="padding menu-item-icon">
+										<img src="static/images/darktheme/guia-de-procedimentos.png"
+											class="menu-item-icon">
 										{{else}}
-											<img src="static/images/whitetheme/guia-de-procedimentos.png" class="padding menu-item-icon">
+										<img src="static/images/whitetheme/guia-de-procedimentos.png"
+											class="menu-item-icon">
 										{{/js_if}}
 									</div>
 									<div class="menu-item-title">Guia dos Procedimentos</div>
@@ -80,7 +82,7 @@
 							</a>
 						</div>
 					</div>
-					
+
 
 					{{#each staticTabsInfo}}
 					{{#js_if "@index % 2 == 0"}}
@@ -97,16 +99,16 @@
 										style="height: 100%;">
 										<div>
 											{{#js_if "../darkTheme === false" }}
-												<img src="{{imgdark}}" class="padding menu-item-icon">
+											<img src="{{imgdark}}" class="menu-item-icon">
 											{{else}}
-												<img src="{{imgwhite}}" class="padding menu-item-icon">
+											<img src="{{imgwhite}}" class="menu-item-icon">
 											{{/js_if}}
 										</div>
 										<div class="menu-item-title">{{title}}</div>
 									</div>
 								</a>
 							</div>
-						{{#js_if "@index % 2 == 1"}}
+							{{#js_if "@index % 2 == 1"}}
 						</div>
 						{{/js_if}}
 						{{/each}}
@@ -129,7 +131,8 @@
 	}
 
 	img.menu-item-icon {
-		height: 90px;
+		height: 60px;
+		padding: 15px;
 	}
 
 	.menu-item-title {
@@ -153,7 +156,7 @@
 
 		0%,
 		100% {
-			transform: translateX(0%);	
+			transform: translateX(0%);
 			transform-origin: 50% 50%;
 		}
 
@@ -422,11 +425,11 @@
 				});
 				self.picker.params.cols[0].values = campusArray;
 			},
-			loadMenuDarkModeInformation: async function(){
+			loadMenuDarkModeInformation: async function () {
 				var self = this;
 				var app = self.$app;
-				
-				if(app.$$("#app").hasClass('theme-dark')){
+
+				if (app.$$("#app").hasClass('theme-dark')) {
 					self.$setState({
 						darkTheme: true
 					});
@@ -450,8 +453,8 @@
 				this.Welcome();
 
 				self.loadMenuDarkModeInformation();
-				
-				document.addEventListener("change", function() {
+
+				document.addEventListener("change", function () {
 					setTimeout(() => {
 						self.loadMenuDarkModeInformation();
 					}, 50);

@@ -1,6 +1,6 @@
 {
-  "name": "uffs-virtual",
-  "short_name": "uffs-virtual",
+  "name": "uffs-boas-vindas",
+  "short_name": "uffs-boas-vindas",
   "description": "Aplicativo móvel do PRACTICE",
   "lang": "pt-BR",
   "start_url": "/?source=pwa20200609",

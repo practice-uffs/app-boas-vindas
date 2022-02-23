@@ -2,11 +2,11 @@
 	<div class="page no-navbar no-toolbar no-swipeback" data-name="login">
 		<div class="page-content login-screen-content display-flex flex-direction-column justify-content-center">
 			<div>
-				<div class="login-screen-title">UFFS Virtual</div>
+				<div class="login-screen-title">Boas-Vindas</div>
 				<div class="block-header">
 					<p>Entre com seu idUFFS e senha</p>
 				</div>
-				<form id="login-form" action="#" >
+				<form id="login-form" action="#">
 					<div class="list">
 						<ul>
 							<li class="item-content item-input">
@@ -27,7 +27,7 @@
 											<input id="input_password" type="password" name="password"
 												placeholder="Sua senha"
 												data-error-message="Esse campo precisa ser preenchido" required
-												validate/>
+												validate />
 											<span class="input-clear-button"></span>
 										</div>
 										<div class="padding-left display-flex align-items-center"
@@ -56,7 +56,7 @@
 
 						</ul>
 					</div>
-					
+
 					<div class="list">
 						<ul>
 							<li>
@@ -105,10 +105,10 @@
 							app.$$("input").val("");
 
 							self.$setState({
-								attempts : self.attempts-1
+								attempts: self.attempts - 1
 							});
 
-							if(app.storage.getCountTryLogin() >= 5){
+							if (app.storage.getCountTryLogin() >= 5) {
 								self.timeoutCount(30);
 							}
 						}
@@ -133,7 +133,7 @@
 					input.attr("type", "password");
 				}
 			},
-			timeoutCount: async function(count) {
+			timeoutCount: async function (count) {
 				let self = this;
 				let app = self.$app;
 
@@ -141,18 +141,18 @@
 				app.$$("input").prop("disabled", true);
 
 				await new Promise(resolve => {
-					var interval = setInterval(function(){
+					var interval = setInterval(function () {
 						self.$setState({
-							countDown : count
+							countDown: count
 						});
 
 						app.storage.setCountdownLogin(count);
 
 						count--;
 
-						if(count < 0) {
+						if (count < 0) {
 							self.$setState({
-								attempts : 5
+								attempts: 5
 							});
 							resolve();
 							clearInterval(interval);
@@ -164,28 +164,28 @@
 				app.$$("#button-login").prop("disabled", false);
 				app.$$("input").prop("disabled", false);
 			},
-			getCountdown: async function() {
+			getCountdown: async function () {
 				let self = this;
 				let app = self.$app;
 
-				var data =  app.storage.getCountdownLogin();
-				var countTry =  app.storage.getCountTryLogin();
+				var data = app.storage.getCountdownLogin();
+				var countTry = app.storage.getCountTryLogin();
 
-				if(countTry){
+				if (countTry) {
 					self.$setState({
-						attempts : 5 - countTry,
+						attempts: 5 - countTry,
 					});
 				}
 
-				if(data != "NaN" || data != null){
-					if(data > 0){
+				if (data != "NaN" || data != null) {
+					if (data > 0) {
 						self.timeoutCount(parseInt(data));
 					}
 				}
 			}
 		},
 		on: {
-			pageInit: function (e, page){
+			pageInit: function (e, page) {
 				let self = this;
 				let app = self.$app;
 

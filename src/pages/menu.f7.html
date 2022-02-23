@@ -46,7 +46,11 @@
 								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
 									style="height: 100%;">
 									<div>
-										<img src="static/images/school.png" class="menu-item-icon">
+										{{#js_if "../darkTheme === false" }}
+											<img src="static/images/darktheme/guia-calouro.png" class="padding menu-item-icon">
+										{{else}}
+											<img src="static/images/whitetheme/guia-calouro.png" class="padding menu-item-icon">
+										{{/js_if}}
 									</div>
 									<div class="menu-item-title">Guia do Calouro</div>
 								</div>
@@ -58,7 +62,11 @@
 								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
 									style="height: 100%;">
 									<div>
-										<img src="static/images/school.png" class="menu-item-icon">
+										{{#js_if "../darkTheme === false" }}
+											<img src="static/images/darktheme/guia-de-procedimentos.png" class="padding menu-item-icon">
+										{{else}}
+											<img src="static/images/whitetheme/guia-de-procedimentos.png" class="padding menu-item-icon">
+										{{/js_if}}
 									</div>
 									<div class="menu-item-title">Guia dos Procedimentos</div>
 								</div>
@@ -82,9 +90,9 @@
 										style="height: 100%;">
 										<div>
 											{{#js_if "../darkTheme === false" }}
-												<img src="{{imgdark}}" class="menu-item-icon">
+												<img src="{{imgdark}}" class="padding menu-item-icon">
 											{{else}}
-												<img src="{{imgwhite}}" class="menu-item-icon">
+												<img src="{{imgwhite}}" class="padding menu-item-icon">
 											{{/js_if}}
 										</div>
 										<div class="menu-item-title">{{title}}</div>

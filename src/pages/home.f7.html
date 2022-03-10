@@ -119,11 +119,9 @@
 
 				{{#if isEnabled.auraPage}}
 				{{#if user}}
-				<a href="/aura/" class="tab-link" data-route-tab-id="aura"><i
-						class="f7-icons">asterisk_circle</i><small>Aura</small></a>
+				<a href="/aura/" class="tab-link tab-link-aura" data-route-tab-id="aura"><img src="static/images/aura/aura_icon.svg"><small>Aura</small></a>
 				{{else}}
-				<a href="#" @click="auraRedirect()" class="tab-link" data-route-tab-id="aura"><i
-						class="f7-icons">asterisk_circle</i><small>Aura</small></a>
+				<a href="#" @click="auraRedirect()" class="tab-link tab-link-aura" data-route-tab-id="aura"><img src="static/images/aura/aura_icon.svg"><small>Aura</small></a>
 				{{/if}}
 				{{/if}}
 			</div>
@@ -156,6 +154,10 @@
 		height: 40px;
 		object-fit: cover;
 		border-radius: 50%;
+	}
+
+	.tab-link-aura {
+		padding-top: 5px;
 	}
 </style>
 

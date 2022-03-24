@@ -119,9 +119,11 @@
 
 				{{#if isEnabled.auraPage}}
 				{{#if user}}
-				<a href="/aura/" class="tab-link tab-link-aura" data-route-tab-id="aura"><img src="static/images/aura/aura_icon.svg"><small>Aura</small></a>
+				<a href="/aura/" class="tab-link tab-link-aura" data-route-tab-id="aura"><img
+						src="static/images/aura/aura_icon.svg"><small>Aura</small></a>
 				{{else}}
-				<a href="#" @click="auraRedirect()" class="tab-link tab-link-aura" data-route-tab-id="aura"><img src="static/images/aura/aura_icon.svg"><small>Aura</small></a>
+				<a href="#" @click="auraRedirect()" class="tab-link tab-link-aura" data-route-tab-id="aura"><img
+						src="static/images/aura/aura_icon.svg"><small>Aura</small></a>
 				{{/if}}
 				{{/if}}
 			</div>
@@ -330,7 +332,7 @@
 				let app = self.$app;
 
 				let auraDialog = await app.dialog.create({
-					title: "🤖 Aura",
+					title: `<img src='static/images/aura/aura_icon.svg'> Aura - Assistente virtual da UFFS`,
 					text: `Para conversar com a <b>Aura</b>, você terá que fazer login com seu idUFFS`,
 					content: "",
 					buttons: [{

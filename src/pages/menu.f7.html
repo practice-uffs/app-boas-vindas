@@ -3,12 +3,13 @@
 		<div class="page">
 			<!-- Conteúdo da página -->
 			<div class="page-content">
-				<div class="list no-margin margin-top">
+				<div class="block-title margin " style="font-size: 14px;">Selecione seu Campus:</div>
+				<div class=" list no-margin">
 					<ul>
 						<li class="item-content item-input ">
 							<div class="item-inner">
 								<div class="item-input-wrap">
-									<input class="text-align-center" type="text" placeholder="Selecione seu Campus"
+									<input class="text-align-center" type="text" placeholder="Seu Campus"
 										readonly="readonly" id="picker-device" disabled />
 								</div>
 							</div>
@@ -121,6 +122,20 @@
 </template>
 
 <style>
+	#picker-device {
+		font-size: 20px;
+		font-weight: bold;
+		height: 60px;
+	}
+
+	.picker-item {
+		font-size: 120%;
+	}
+
+	.sheet-modal {
+		height: 40%;
+	}
+
 	.disabled {
 		pointer-events: none;
 		cursor: default;
@@ -228,6 +243,8 @@
 							value.active = true;
 						}
 					})
+
+					console.log(data)
 
 					self.$setState({
 						staticTabsInfo: data,

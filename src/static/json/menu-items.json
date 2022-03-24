@@ -1,5 +1,4 @@
-[
-	{
+[{
 		"title": "Sobre o Campus",
 		"imgwhite": "static/images/whitetheme/sobre.png",
 		"imgdark": "static/images/darktheme/sobre.png",
@@ -42,7 +41,7 @@
 		"id": "lazer"
 	},
 	{
-		"title": "Dicionário local do sul",
+		"title": "Dicionário local",
 		"imgwhite": "static/images/whitetheme/dicionario.png",
 		"imgdark": "static/images/darktheme/dicionario.png",
 		"link": "/content/dicionario",

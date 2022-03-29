@@ -1,122 +1,123 @@
 <template>
-    <div class="page" data-name="content-page">
-        <div class="navbar">
-            <div class="navbar-bg"></div>
-            <div class="navbar-inner sliding">
-                <div class="left">
-                    <a href="#" class="link back">
-                        <i class="icon icon-back"></i>
-                        <span class="if-not-md"></span>
-                    </a>
-                </div>
-                <div class="title">{{title}}</div>
-            </div>
-        </div>
-        <div class="page-content">
+	<div class="page" data-name="content-page">
+		<div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="if-not-md"></span>
+					</a>
+				</div>
+				<div class="title">{{title}}</div>
+			</div>
+		</div>
+		<div class="page-content">
 			{{#each content}}
-				{{this}}
+			{{this}}
 			{{/each}}
-        </div>
-    </div>
+		</div>
+	</div>
 </template>
 
 <script>
-    export default {
-        data: function () {
-            return {
-                title: null,
-                content: [],
-                filterData: null,
-            }
-        },
-        methods: {
-            setTitle: async function (name) {
-                var self = this;
-                var app = self.$app;
+	export default {
+		data: function () {
+			return {
+				title: null,
+				content: [],
+				filterData: null,
+			}
+		},
+		methods: {
+			setTitle: async function (name) {
+				var self = this;
+				var app = self.$app;
 
-                switch (name) {
-                    case "sobre":
-                        self.$setState({
-                            title: "Sobre o Campus",
-                        });
-                        break;
-                    case "clima":
-                        self.$setState({
-                            title: "Clima Local",
-                        });
-                        break;
-                    case "auxilio":
-                        self.$setState({
-                            title: "Auxílio Estudantil",
-                        });
-                        break;
-                    case "projetos":
-                        self.$setState({
-                            title: "Grupos e Projetos",
-                        });
-                        break;
-                    case "lazer":
-                        self.$setState({
-                            title: "Lazer",
-                        });
-                        break;
-                    case "canais":
-                        self.$setState({
-                            title: "Canais UFFS",
-                        });
-                        break;
-                    case "dicionario":
-                        self.$setState({
-                            title: "Dicionário Sulista",
-                        });
-                        break;
-                    case "locomocao":
-                        self.$setState({
-                            title: "Locomoção",
-                        });
-                        break;
-                    case "biblioteca":
-                        self.$setState({
-                            title: "Biblioteca",
-                        });
-                        break;
-                    case "ajuda":
-                        self.$setState({
-                            title: "Ajuda",
-                        });
-                        break;
-                }
-            },
-            getData: async function (name) {
-                var self = this;
-                var app = self.$app;
+				switch (name) {
+					case "campus":
+						self.$setState({
+							title: "Sobre o Campus",
+						});
+						break;
+					case "cidade":
+						self.$setState({
+							title: "Sobre a Cidade",
+						});
+						break;
+					case "auxilio":
+						self.$setState({
+							title: "Auxílio Estudantil",
+						});
+						break;
+					case "projetos":
+						self.$setState({
+							title: "Grupos e Projetos",
+						});
+						break;
+					case "lazer":
+						self.$setState({
+							title: "Lazer",
+						});
+						break;
+					case "canais":
+						self.$setState({
+							title: "Canais UFFS",
+						});
+						break;
+					case "dicionario":
+						self.$setState({
+							title: "Dicionário Sulista",
+						});
+						break;
+					case "locomocao":
+						self.$setState({
+							title: "Locomoção",
+						});
+						break;
+					case "biblioteca":
+						self.$setState({
+							title: "Biblioteca",
+						});
+						break;
+					case "ajuda":
+						self.$setState({
+							title: "Ajuda",
+						});
+						break;
+				}
+			},
+			getData: async function (name) {
+				var self = this;
+				var app = self.$app;
 
-                let campus = await app.storage.getSelectedCampus();
+				let campus = await app.storage.getSelectedCampus();
 
-                await app.storage.getPageContent(name).then(content => {
-                    self.$setState({
-                        filterData: content,
-                    });
-                })
-            },
-            handleData: async function () {
-                var self = this;
-                var app = self.$app;
+				console.log(campus)
 
-                await app.content.contentsTreatment(this.filterData).then(newData => {
-                    self.$setState({
-                        content: newData,
-                    });
-                });
-            }
-        },
-        on: {
-            pageInit: async function (e, page) {
-                await this.setTitle(page.route.params.name);
-                await this.getData(page.route.params.name);
-                await this.handleData();
-            },
-        }
-    }
-    
+				await app.storage.getPageContent(name).then(content => {
+					self.$setState({
+						filterData: content,
+					});
+				})
+			},
+			handleData: async function () {
+				var self = this;
+				var app = self.$app;
+
+				await app.content.contentsTreatment(this.filterData).then(newData => {
+					self.$setState({
+						content: newData,
+					});
+				});
+			}
+		},
+		on: {
+			pageInit: async function (e, page) {
+				await this.setTitle(page.route.params.name);
+				await this.getData(page.route.params.name);
+				await this.handleData();
+			},
+		}
+	}
 </script>

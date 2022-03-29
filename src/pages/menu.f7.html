@@ -2,7 +2,12 @@
 	<div data-name="menu">
 		<div class="page">
 			<!-- Conteúdo da página -->
-			<div class="page-content">
+			<div class="page-content ptr-content" data-ptr-distance="55">
+				<div class="ptr-preloader">
+					<div class="preloader"></div>
+					<div class="ptr-arrow"></div>
+				</div>
+
 				<div class="block-title margin " style="font-size: 14px;">Selecione seu Campus:</div>
 				<div class=" list no-margin">
 					<ul>
@@ -344,6 +349,8 @@
 					self.picker.setValue([self.selectedCampus.cidade], 100);
 				}
 
+				self.displayContent();
+
 				self.loadingEffects(false);
 			},
 			setSelectedCampusLink: function (campusName) {
@@ -456,6 +463,39 @@
 				self.$setState({
 					darkTheme: false
 				});
+			},
+			updateUniqueCampusData: async function () {
+				var self = this;
+				var app = self.$app;
+				self.loadingEffects(true);
+
+				for (let item of self.spreadsheetContent) {
+					if (item[0] == self.selectedCampus.id) {
+						await app.api.getCampusContent('https://opensheet.elk.sh/' + item[0] + '/' + item[1]).then(
+							data => {
+								if (data) {
+									item[2] = data
+								}
+							}
+						);
+					}
+				}
+
+				app.storage.setSpreadsheetContent(self.spreadsheetContent);
+
+				self.displayContent();
+
+				self.loadingEffects(false);
+			},
+			pullToRefresh: function () {
+				var self = this;
+				var app = self.$app;
+
+				var $ptrContent = app.$('.ptr-content');
+				$ptrContent.on('ptr:refresh', async function (e) {
+					await self.updateUniqueCampusData();
+					app.ptr.done();
+				});
 			}
 		},
 		on: {
@@ -468,6 +508,7 @@
 				this.loadTabsInfoFromJSON();
 
 				this.Welcome();
+				this.pullToRefresh();
 
 				self.loadMenuDarkModeInformation();
 

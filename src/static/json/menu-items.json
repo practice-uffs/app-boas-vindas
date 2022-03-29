@@ -1,17 +1,16 @@
-[
-	{
+[{
 		"title": "Sobre o Campus",
-		"imgwhite": "static/images/whitetheme/sobre.png",
-		"imgdark": "static/images/darktheme/sobre.png",
-		"link": "/content/sobre",
-		"id": "sobre"
+		"imgwhite": "static/images/whitetheme/campus.png",
+		"imgdark": "static/images/darktheme/campus.png",
+		"link": "/content/campus",
+		"id": "campus"
 	},
 	{
-		"title": "Clima Local",
-		"imgwhite": "static/images/whitetheme/clima.png",
-		"imgdark": "static/images/darktheme/clima.png",
-		"link": "/content/clima",
-		"id": "clima"
+		"title": "Sobre a Cidade",
+		"imgwhite": "static/images/whitetheme/cidade.png",
+		"imgdark": "static/images/darktheme/cidade.png",
+		"link": "/content/cidade",
+		"id": "cidade"
 	},
 	{
 		"title": "Auxílio Estudantil",
@@ -42,7 +41,7 @@
 		"id": "lazer"
 	},
 	{
-		"title": "Dicionário local do sul",
+		"title": "Dicionário local",
 		"imgwhite": "static/images/whitetheme/dicionario.png",
 		"imgdark": "static/images/darktheme/dicionario.png",
 		"link": "/content/dicionario",

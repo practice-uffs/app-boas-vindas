@@ -21,11 +21,15 @@ iOS Cordova Tweak .device-cordova.device-ios {
 
 .md {
 	--f7-page-bg-color-rgb: 255, 255, 255;
+	--f7-toolbar-bg-color-rgb: 247, 247, 248;
+	--f7-bars-bg-color-rgb: 247, 247, 248;
 }
 
 .md .theme-dark,
 .md.theme-dark {
 	--f7-page-bg-color-rgb: 18, 18, 18;
+	--f7-toolbar-bg-color-rgb: 32,32,32;
+	--f7-bars-bg-color-rgb: 32,32,32;
 }
 
 /* custom styles from app sheet contents */
@@ -138,4 +142,16 @@ iOS Cordova Tweak .device-cordova.device-ios {
 
 .card-backdrop-in {
 	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.toolbar {
+	background-color: rgba(var(--f7-toolbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity));
+	-webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
+	backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
+}
+
+.navbar-bg {
+	background-color: rgba(var(--f7-toolbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity));
+	-webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
+	backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
 }

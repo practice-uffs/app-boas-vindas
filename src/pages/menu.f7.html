@@ -2,13 +2,19 @@
 	<div data-name="menu">
 		<div class="page">
 			<!-- Conteúdo da página -->
-			<div class="page-content">
-				<div class="list no-margin margin-top">
+			<div class="page-content ptr-content" data-ptr-distance="55">
+				<div class="ptr-preloader">
+					<div class="preloader"></div>
+					<div class="ptr-arrow"></div>
+				</div>
+
+				<div class="block-title margin " style="font-size: 14px;">Selecione seu Campus:</div>
+				<div class=" list no-margin">
 					<ul>
 						<li class="item-content item-input ">
 							<div class="item-inner">
 								<div class="item-input-wrap">
-									<input class="text-align-center" type="text" placeholder="Selecione seu Campus"
+									<input class="text-align-center" type="text" placeholder="Seu Campus"
 										readonly="readonly" id="picker-device" disabled />
 								</div>
 							</div>
@@ -31,17 +37,18 @@
 					<div class="sheet-modal-inner">
 						<div class="page-content">
 							<div class="block">
-								<p class='custom-text-title'>Estamos felizes em lhe receber ao aplicativo de Boas-Vindas
-									da UFFS!
+								<p class='custom-text-title'>Estamos felizes em te receber no Aplicativo de Boas-Vindas
 									🙂</b></p>
 								<p>A equipe do <a class="link external" href="https://practice.uffs.edu.br">Practice</a>
-									colocou muito amor e enforço neste aplicativo para deixar sua vida um pouquinho mais
-									fácil 🥰<br>
-									<br>Condensamos as informações mais importantes para que você comece com o pé
-									direito, e preparad@ para sua tragetória acadêmica!<br>
-									<p>Então tire um tempinho para explorar tudo o que esse aplicativo tem a oferecer. E
-										fique ciente que ainda estamos trabalhando para deixá-lo o mais redondinho o
-										possível 😄</p>
+									colocou muito amor e esforço neste aplicativo, para tornar o início da sua vida
+									acadêmica um pouquinho mais fácil. 🥰<br>
+									<br>Concentramos as principais informações de todos os Campi da UFFS, e de suas
+									respectivas cidades, para que você possa se sentir ainda mais preparado, e comece a
+									sua jornada acadêmica com o pé direito.<br>
+									<p>Portanto, tire um tempinho para explorar tudo que esse aplicativo tem a oferecer,
+										e fique ciente de que estamos trabalhando para deixá-lo o mais completo
+										possível! 😄</p>
+									<p><b>O Practice e a UFFS te desejam Boas-Vindas!</b></p>
 							</div>
 						</div>
 					</div>
@@ -120,6 +127,20 @@
 </template>
 
 <style>
+	#picker-device {
+		font-size: 20px;
+		font-weight: bold;
+		height: 60px;
+	}
+
+	.picker-item {
+		font-size: 120%;
+	}
+
+	.sheet-modal {
+		height: 40%;
+	}
+
 	.disabled {
 		pointer-events: none;
 		cursor: default;
@@ -188,7 +209,7 @@
 		data: function () {
 			return {
 				campus: null,
-				tabs: ['sobre', 'clima', 'auxilio', 'lazer', 'projetos', 'canais', 'dicionario',
+				tabs: ['campus', 'cidade', 'auxilio', 'lazer', 'projetos', 'canais', 'dicionario',
 					'locomocao',
 					'biblioteca', 'ajuda'
 				],
@@ -328,6 +349,8 @@
 					self.picker.setValue([self.selectedCampus.cidade], 100);
 				}
 
+				self.displayContent();
+
 				self.loadingEffects(false);
 			},
 			setSelectedCampusLink: function (campusName) {
@@ -440,6 +463,39 @@
 				self.$setState({
 					darkTheme: false
 				});
+			},
+			updateUniqueCampusData: async function () {
+				var self = this;
+				var app = self.$app;
+				self.loadingEffects(true);
+
+				for (let item of self.spreadsheetContent) {
+					if (item[0] == self.selectedCampus.id) {
+						await app.api.getCampusContent('https://opensheet.elk.sh/' + item[0] + '/' + item[1]).then(
+							data => {
+								if (data) {
+									item[2] = data
+								}
+							}
+						);
+					}
+				}
+
+				app.storage.setSpreadsheetContent(self.spreadsheetContent);
+
+				self.displayContent();
+
+				self.loadingEffects(false);
+			},
+			pullToRefresh: function () {
+				var self = this;
+				var app = self.$app;
+
+				var $ptrContent = app.$('.ptr-content');
+				$ptrContent.on('ptr:refresh', async function (e) {
+					await self.updateUniqueCampusData();
+					app.ptr.done();
+				});
 			}
 		},
 		on: {
@@ -452,6 +508,7 @@
 				this.loadTabsInfoFromJSON();
 
 				this.Welcome();
+				this.pullToRefresh();
 
 				self.loadMenuDarkModeInformation();
 

@@ -58,7 +58,7 @@
 					<div class="row margin">
 						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
 							<a href="/guia_calouros/" class=" menu-item-link">
-								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between always-active"
 									style="height: 100%;">
 									<div>
 										{{#js_if "../darkTheme === false" }}
@@ -74,7 +74,7 @@
 
 						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
 							<a href="/procedures/" class=" menu-item-link">
-								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between"
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between always-active"
 									style="height: 100%;">
 									<div>
 										{{#js_if "../darkTheme === false" }}
@@ -376,7 +376,7 @@
 				let pageContent = {};
 
 				for (let item of self.spreadsheetContent) {
-					if (item[0] == self.selectedCampus.id && !item[2].error) {
+					if (self.selectedCampus && item[0] == self.selectedCampus.id && !item[2].error) {
 						pageContent[item[1]] = item[2];
 					}
 				}
@@ -419,8 +419,15 @@
 				var app = self.$app;
 
 				await new Promise(resolve => setTimeout(resolve, 500));
-
 				let menuItem = app.$$('.menu-item-content');
+				let alwaysActive = app.$$('.always-active');
+
+				for (let item of Object.keys(menuItem)) {
+					if (Object.is(menuItem[item], alwaysActive[item])) {
+						delete menuItem[item];
+					}
+				}
+
 				let picker = app.$$('#picker-device');
 
 				if (loading) {
@@ -470,7 +477,7 @@
 				self.loadingEffects(true);
 
 				for (let item of self.spreadsheetContent) {
-					if (item[0] == self.selectedCampus.id) {
+					if (self.selectedCampus && item[0] == self.selectedCampus.id) {
 						await app.api.getCampusContent('https://opensheet.elk.sh/' + item[0] + '/' + item[1]).then(
 							data => {
 								if (data) {

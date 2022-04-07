@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="cc.uffs.practice.app_boas_vindas" version="0.4.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<widget id="cc.uffs.practice.app_boas_vindas" version="0.4.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>UFFS Boas-Vindas</name>
     <description>
       Toda inovação que o PRACTICE oferece ao alcance de um toque na tela!
@@ -32,9 +32,6 @@
 	<allow-navigation href="*youtube-nocookie*" />
 
     <platform name="android">
-      <feature name="Camera">
-        <param name="android-package" value="org.apache.cordova.CameraLauncher" />
-      </feature>
 	  <preference name="loadUrlTimeoutValue" value="60000" />
       <preference name="StatusBarOverlaysWebView" value="false" />
       <preference name="android-minSdkVersion" value="22" />
@@ -57,7 +54,6 @@
       <icon density="xxhdpi" src="res/icon/android/mipmap-xxhdpi/ic_launcher.png" />
       <icon density="xxxhdpi" src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" />
 	  <config-file parent="/manifest/" target="app/src/main/AndroidManifest.xml">
-        <uses-permission android:name="android.permission.CAMERA" />
       </config-file>
       <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
         <application android:usesCleartextTraffic="true" />

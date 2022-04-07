@@ -352,6 +352,11 @@
 				self.displayContent();
 
 				self.loadingEffects(false);
+
+				app.ptr.done();
+
+				self.pullToRefresh()
+
 			},
 			setSelectedCampusLink: function (campusName) {
 				var self = this;
@@ -487,12 +492,11 @@
 						);
 					}
 				}
+				self.loadingEffects(false);
 
 				app.storage.setSpreadsheetContent(self.spreadsheetContent);
 
 				self.displayContent();
-
-				self.loadingEffects(false);
 			},
 			pullToRefresh: function () {
 				var self = this;

@@ -149,9 +149,3 @@ iOS Cordova Tweak .device-cordova.device-ios {
 	-webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
 	backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
 }
-
-.navbar-bg {
-	background-color: rgba(var(--f7-toolbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity));
-	-webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
-	backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
-}

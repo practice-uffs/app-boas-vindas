@@ -1,25 +1,26 @@
+
 <p align="center">
-    <img width="600" src=".github/logo.png" title="Logo do projeto"><br /><br />
-    <img src="https://img.shields.io/maintenance/yes/2020?style=for-the-badge" title="Status do projeto">
-    <img src="https://img.shields.io/github/workflow/status/ccuffs/template/ci.uffs.cc?label=Build&logo=github&logoColor=white&style=for-the-badge" title="Status do build">
+    <img width="170" src="src/static/icons/256x256.png" title="Logo do projeto"><br /><br />
+    <img src="https://img.shields.io/maintenance/yes/2022?style=for-the-badge" title="Status do projeto">
+    <img src="https://img.shields.io/github/workflow/status/practice-uffs/app-boas-vindas/ci.uffs.cc?label=Build&logo=github&logoColor=white&style=for-the-badge" title="Status do build">
 </p>
 
-# App PRACTICE
+# UFFS Boas Vindas
 
-Esse repositório contém o código-fonte com o template para novos aplicativos do *PRACTICE*.
+Esse repositório contém o código-fonte do aplicativo UFFS Boas Vindas
 
 ### Descrição
 
-Como objetivo principal, o PRACTICE busca estruturar ambientes, capacitar agentes educacionais e produzir e mediar na produção de conteúdos que possibitem a produção de conteúdos de ensino e tecnologias baseadas em metodologias ativas para promover a inovação do processo de aprendizagem de estudantes em componentes curriculares e extracurriculares da UFFS. 
+Como objetivo principal, o PRACTICE busca estruturar ambientes, capacitar agentes educacionais e produzir e mediar na produção de conteúdos que possibilitem a produção de conteúdos de ensino e tecnologias baseadas em metodologias ativas para promover a inovação do processo de aprendizagem de estudantes em componentes curriculares e extracurriculares da UFFS. 
 
-Esse template é um dos facilitadores que está sendo criado para ajudar a produção de novos aplicativos.
+Esse aplicativo é um dos facilitadores que está sendo desenvolvido para ajudar a comunidade acadêmica, principalmente aqueles que são novos na universidade. O objetivo do aplicativo é disponibilizar com poucos toques informações relativas aos diversos campus da Universidade Federal da Fronteira Sul. No app o(a) acadêmico(a) pode encontrar informações sobre o Campus que irá estudar, utilizando apenas o seu celular, ele(ela) também encontrará orientações sobre os principais procedimentos, auxílio estudantil, canais de contato, clima local, história da cidade, opções de lazer, dicionário local, dentre outras informações relacionadas às cidades em que os Campi da UFFS estão presentes.
 
 ### Equipe
 
 **Coordenação:**
 * Fernando Bevilacqua - _Professor Ciência da Computação, UFFS Chapecó/SC - [fernando.bevilacqua@uffs.edu.br](mailto:fernando.bevilacqua@uffs.edu.br)_
 
-**[Equipe de desenvolvimento](https://github.com/orgs/practice-uffs/teams/dev):**
+**[Equipe de desenvolvimento](https://github.com/orgs/practice-uffs/teams/dev)**
 
 **Suporte:**
 * [Equipe PRACTICE](https://practice.uffs.cc/)
@@ -137,5 +138,7 @@ Veja todas as alterações desse projeto no arquivo [CHANGELOG.md](CHANGELOG.md)
 
 ## Créditos de ícones e arte
 
-Os ícones e o logo utilizados nesse aplicativo foram feitos por diversos artistas de [www.flaticon.com](https://www.flaticon.com).
-Icons made by [Freepik](https://www.flaticon.com/authors/Freepik), [Eucalyp](https://www.flaticon.com/authors/Eucalyp), [Smashicons](https://www.flaticon.com/authors/Smashicons), [Surang](https://www.flaticon.com/authors/Surang), [Monkik](https://www.flaticon.com/authors/Monkik), [Iconixar](https://www.flaticon.com/authors/Iconixar), [Photo3idea-studio](https://www.flaticon.com/authors/Photo3idea-studio), [Ultimatearm](https://www.flaticon.com/authors/Ultimatearm), [PongsakornRed](https://www.flaticon.com/authors/PongsakornRed), [Nhor Phai](https://www.flaticon.com/authors/Nhor-Phai), [Payungkead](https://www.flaticon.com/authors/Payungkead), [Mynamepong](https://www.flaticon.com/authors/Mynamepong), [Good Ware](https://www.flaticon.com/authors/Good-Ware), [Xnimrodx](https://www.flaticon.com/authors/Xnimrodx), [Srip](https://www.flaticon.com/authors/Srip) from [www.flaticon.com](https://www.flaticon.com).
+Os ícones e o logo utilizados nesse aplicativo foram feitos por diversos artistas:
+
+<a class="link external" href="https://thenounproject.com/dinosoftlab" target="_blank">DinosoftLab</a>
+Icons made by [dinosoftlab](https://thenounproject.com/dinosoftlab)

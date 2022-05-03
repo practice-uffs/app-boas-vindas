@@ -1,8 +1,8 @@
 
 <p align="center">
     <img width="170" src="src/static/icons/256x256.png" title="Logo do projeto"><br /><br />
-    <img src="https://img.shields.io/maintenance/yes/2020?style=for-the-badge" title="Status do projeto">
-    <img src="https://img.shields.io/github/workflow/status/ccuffs/template/ci.uffs.cc?label=Build&logo=github&logoColor=white&style=for-the-badge" title="Status do build">
+    <img src="https://img.shields.io/maintenance/yes/2022?style=for-the-badge" title="Status do projeto">
+    <img src="https://img.shields.io/github/workflow/status/practice-uffs/app-boas-vindas/ci.uffs.cc?label=Build&logo=github&logoColor=white&style=for-the-badge" title="Status do build">
 </p>
 
 # UFFS Boas Vindas

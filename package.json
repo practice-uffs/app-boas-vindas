@@ -7,7 +7,7 @@
 	"license": "UNLICENSED",
 	"scripts": {
 		"start": "npm run dev",
-		"dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.js --host=localhost",
+		"dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.js --host=127.0.0.2",
 		"build-dev": "cross-env NODE_ENV=development node ./build/build.js",
 		"build-prod": "cross-env NODE_ENV=production node ./build/build.js",
 		"install-deps-cordova": "cross-env NODE_ENV=production && cd cordova && cordova platform add android",

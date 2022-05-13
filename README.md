@@ -121,6 +121,16 @@ Se tudo estiver certo, para fazer deploy (final) na Google Play, rode:
 npm run build-prod-cordova
 ```
 
+#### 5.1 Assinatura do App blundle
+
+Essa etapa é necessária para realizar o upload do aplicativo na Google Play Store. Para isso, é necessário utilizar a `chave` de assinatura encontrada no drive do `dev`. Você deve baixar o arquivo `keys.zip` e extraí-lo na mesma pasta aonde foi gerado a build de produção do aplicativo, o caminho do arquivo provavelmente será esse: `app-practice/cordova/platforms/android/app/build/outputs/bundle/release/app-release.aab`. Com o `app-release.aab` e o `keystore.jsk` na mesma pasta, você deve abrir um terminal (Linux) neste diretório e executar esse comando:
+
+```
+jarsigner -tsa http://timestamp.digicert.com -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore keystore.jks app-release.aab upload
+```
+
+Após isso, seu build pode ser carregado na Google Play Store através do [Google Play Console](https://play.google.com/console/developers).
+
 ## Contribua
 
 Sua ajuda é muito bem-vinda, independente da forma! Confira o arquivo [CONTRIBUTING.md](CONTRIBUTING.md) para conhecer todas as formas de contribuir com o projeto. Por exemplo, [sugerir uma nova funcionalidade](https://github.com/practice-uffs/app-practice/issues/new?assignees=&labels=&template=feature_request.md&title=), [reportar um problema/bug](https://github.com/practice-uffs/app-practice/issues/new?assignees=&labels=bug&template=bug_report.md&title=), ou simplemente utilizar o projeto e comentar sua experiência.

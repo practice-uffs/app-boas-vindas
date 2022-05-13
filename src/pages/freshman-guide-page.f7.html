@@ -1,79 +1,99 @@
 <template>
-    <div class="page" data-name="freshman_guide">
-        <div class="navbar">
-            <div class="navbar-bg"></div>
-            <div class="navbar-inner sliding">
-                <div class="left">
-                    <a href="#" class="link back">
-                        <i class="icon icon-back"></i>
-                        <span class="if-not-md"></span>
-                    </a>
-                </div>
-                <div class="title">Guia dos Calouros</div>
-            </div>
-        </div>
+	<div class="page" data-name="freshman_guide">
+		<div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="if-not-md"></span>
+					</a>
+				</div>
+				<div class="title">Guia dos Calouros</div>
+			</div>
+		</div>
 
-        <div class="page-content">
-            <div class="card padding-bottom">
-               <div class="card-content">
-                  <img class="custom-image-large" src="https://drive.google.com/uc?export=view&amp;id=1AiGBun8UQX2h3bkKr8RsfNw-bvKscur_" alt="Imagem" width="100%"><br>
+		<div class="page-content">
+			<div class="card padding-bottom">
+				<div class="card-content">
+					<img class="custom-image-large"
+						src="https://drive.google.com/uc?export=view&amp;id=1AiGBun8UQX2h3bkKr8RsfNw-bvKscur_"
+						alt="Imagem" width="100%"><br>
 					<div class="custom-text-title">
 						<span>Olá! Seja bem-vindo(a) à UFFS!</span>
 					</div>
 					<div class="block">
-						<p>O objetivo desta aba é trazer algumas informações importantes para estudantes que não querem deixar passar nenhum detalhe. <br>Então aproveite esse guia com algumas dicas que nós separamos para você ;)</p>
-					</div>
-               </div>
-            </div>
-
-			{{#each items}}
-				
-				<div class="card card-expandable no-shadow" style="height: 100px;">
-					<div class="card-content">
-						<div class="custom-header-card-expansive" style="height: 100px">
-							<div class="card-header text-color-white display-block ">
-								{{title}}
-								<br>
-								<small style="opacity: 0.7; font-size: 70%;">{{subtitle}}</small>
-							</div>
-							<a href="#" class="link card-close card-opened-fade-in color-white"
-								style="position: absolute; right: 15px; top: 15px">
-								<i class="icon f7-icons">xmark_circle_fill</i>
-							</a>
-						</div>
-						<div class="card-content-padding">
-							{{#each content}}
-								{{#js_if "this.type == 'text'"}}
-								<p>
-									{{content}}
-								</p>
-								{{else}}
-									{{#js_if "this.type == 'link'"}}
-									<div class="custom-item-link padding-vertical">
-										<div class="padding-horizontal"><i class="f7-icons">{{icon}}</i></div>
-										<div class="custom-item-link-content">
-											<div>{{title}}</div>
-											<div class="padding-horizontal">
-												<a class="link external" href="{{url}}">Acessar</a>
-											</div>
-										</div>
-									</div>
-									{{/js_if}}
-								{{/js_if}}
-							{{/each}}
-						</div>
+						<p>O objetivo desta aba é trazer algumas informações importantes para estudantes que não querem
+							deixar passar nenhum detalhe. <br>Então aproveite esse guia com algumas dicas que nós
+							separamos para você ;)</p>
 					</div>
 				</div>
-				
+			</div>
+
+			{{#each items}}
+
+			<div class="card card-expandable no-shadow" style="height: 100px;">
+				<div class="card-content">
+					<div class="custom-header-card-expansive" style="height: 100px">
+						<div class="card-header text-color-white display-block clip">
+							<span class="marquee">{{title}}</span>
+							<br>
+							<small class="marquee" style="opacity: 0.7; font-size: 70%;">
+								{{subtitle}}
+							</small>
+						</div>
+						<a href="#" class="link card-close card-opened-fade-in color-white"
+							style="position: absolute; right: 15px; top: 15px">
+							<i class="icon f7-icons">xmark_circle_fill</i>
+						</a>
+					</div>
+					<div class="card-content-padding">
+						{{#each content}}
+						{{#js_if "this.type == 'text'"}}
+						<p>
+							{{content}}
+						</p>
+						{{else}}
+						{{#js_if "this.type == 'link'"}}
+						<div class="custom-item-link padding-vertical">
+							<div class="padding-horizontal"><i class="f7-icons">{{icon}}</i></div>
+							<div class="custom-item-link-content">
+								<div>{{title}}</div>
+								<div class="padding-horizontal">
+									<a class="link external" href="{{url}}">Acessar</a>
+								</div>
+							</div>
+						</div>
+						{{/js_if}}
+						{{/js_if}}
+						{{/each}}
+					</div>
+				</div>
+			</div>
+
 			{{/each}}
 
-            
-         </div>
-    </div>
+
+		</div>
+	</div>
 </template>
 
+<style>
+	.marquee {
+		overflow: hidden;
+		text-overflow: clip;
+		word-wrap: normal !important;
+		overflow-wrap: normal !important;
+	}
+
+	.clip {
+		text-overflow: clip;
+		white-space: nowrap;
+	}
+</style>
+
 <script>
-    export default {
+	export default {
 		data: function () {
 			return {
 				items: null,
@@ -81,7 +101,7 @@
 			}
 		},
 		methods: {
-			loadData: async function() {
+			loadData: async function () {
 				var self = this;
 				var app = this.$app;
 
@@ -91,21 +111,46 @@
 					});
 				})
 			},
-			pageLoading: function() {
+			pageLoading: function () {
 				var self = this;
 				var app = this.$app;
 
 				self.dialog = app.dialog.preloader('Carregando...');
-				app.$$(".custom-image-large").on("load",function () {
+				app.$$(".custom-image-large").on("load", function () {
 					app.dialog.close();
 				});
+			},
+			detectOverflow: function () {
+				var self = this;
+				var app = this.$app;
+
+				var marquees = app.$$('.marquee');
+				Object.values(marquees).map((marquee, index) => {
+					if ((index < (Object.values(marquees).length - 1)) && self.isOverflown(marquee)) {
+						let text = app.$$(marquee).text();
+						app.$$(marquee).html(`<marquee>${text}</marquee>`);
+					}
+				})
+			},
+			isOverflown: function (element) {
+				var self = this;
+				var app = this.$app;
+				let dad = app.$$(element).parents('.card-expandable');
+
+				let leftPadding = app.$$(element).parent().css('padding-left');
+				leftPadding = parseFloat(leftPadding.substring(0, leftPadding.length - 2));
+
+				return app.$$(element).outerWidth() + leftPadding + 1 > dad.width();
 			}
 		},
 		on: {
-			pageInit: function (e, page){
+			pageInit: function (e, page) {
 				this.loadData();
 				this.pageLoading();
 			},
+			pageAfterIn: function (e, page) {
+				this.detectOverflow();
+			}
 		}
 	};
 </script>

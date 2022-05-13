@@ -271,6 +271,13 @@
 					on: {
 						change: () => {
 							self.setSelectedCampusLink(self.picker.getValue());
+
+						},
+						close: () => {
+							self.loadingEffects(true);
+							setTimeout(() => {
+								self.loadingEffects(false);
+							}, 1000);
 						}
 					}
 				});
@@ -455,7 +462,8 @@
 				var self = this;
 				var app = self.$app;
 
-				var campusArray = []
+				var campusArray = [];
+				console.log(campusObject);
 				campusObject.forEach(element => {
 					campusArray.push(element.cidade);
 				});

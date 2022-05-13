@@ -27,7 +27,11 @@ var handleExternalLinks = function () {
 		var element = $$(e.target);
 		if (element.hasClass("external")) {
 			var url = $$(element).attr("href");
+			if (url == "#") {
+				url = $$(element).data("ext_href");
+			}
 			$$(element).attr("href", "#");
+			$$(element).data("ext_href", url);
 			window.open(url, "_system");
 		}
 	})

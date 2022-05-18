@@ -1,9 +1,7 @@
-[
-	{
+[{
 		"title": "Moodle Acadêmico",
 		"subtitle": "Materiais de suas aulas",
-		"content" : [
-			{
+		"content": [{
 				"type": "text",
 				"content": "O <b>Moodle</b> é um ambiente virtual onde os professores disponibilizam para você o material didático (slides, artigos, textos, tutoriais, links, etc.) de suas aulas, criam fóruns de discussão, disponibilizam atividades (entrega de trabalhos, grupos, etc.) e realizam avaliações."
 			},
@@ -200,7 +198,7 @@
 		]
 	},
 	{
-		"title": "Acessoria Pedagógica",
+		"title": "Assessoria Pedagógica",
 		"subtitle": "",
 		"content": [{
 				"type": "text",
@@ -213,7 +211,7 @@
 			{
 				"type": "link",
 				"icon": "envelope",
-				"title": "Contato Acessoria pedagógica",
+				"title": "Contato Assessoria pedagógica",
 				"url": "mailto:assessoriapedagogica.ch@uffs.edu.br"
 			}
 		]
@@ -349,7 +347,7 @@
 				"type": "link",
 				"icon": "logo_facebook",
 				"title": "Facebook",
-				"url": "https://www.facebook.com/groups/257157294392994"
+				"url": "https://www.facebook.com/uffsonline"
 			},
 			{
 				"type": "link",

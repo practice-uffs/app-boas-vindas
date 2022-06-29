@@ -34,7 +34,7 @@ export class Content {
     async map(data) {
         return data.conteudo.replace(
             /width.*[0-9];"/g, `width="100%" height="100%" style="aspect-ratio: 1; border: 0; border-radius: 5px;"`
-        )+`${data.extra ? '<button class="col button button-fill button-round"><a style="color:white;" class="link external" target="_blank" href="'+data.extra+'">Abrir no google maps</a></button>' : ''}`;
+        )+`${data.extra ? '<button class="col button button-fill button-round"><a style="color:white;" class="link external"  href="'+data.extra+'">Abrir no google maps</a></button>' : ''}`;
     }
 
     async video(data) {

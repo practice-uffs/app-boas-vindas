@@ -26,6 +26,15 @@ export class Storage{
 		return localStorage.getItem("darkTheme");
 	}
 
+	async setDiaryText(data, text) {
+		localStorage.setItem(data, text);
+	}
+
+	getDiaryText(date) {
+		let text = localStorage.getItem(date);
+		return text;
+	}
+
 	async setSpreadsheetContent(content) {
 		localStorage.setItem("spreadsheetContent", JSON.stringify(content));
 	}

@@ -1,0 +1,22 @@
+[{
+    "title": "Meditação Guiada",
+    "imgwhite": "static/images/whitetheme/campus.png",
+    "imgdark": "static/images/darktheme/campus.png",
+    "link": "/content/campus",
+    "id": "meditacao"
+},
+{
+    "title": "Diário Pessoal",
+    "imgwhite": "static/images/whitetheme/campus.png",
+    "imgdark": "static/images/darktheme/campus.png",
+    "link": "/content/campus",
+    "id": "diary"
+},
+{
+    "title": "Buscar Ajuda",
+    "imgwhite": "static/images/whitetheme/campus.png",
+    "imgdark": "static/images/darktheme/campus.png",
+    "link": "/content/campus",
+    "id": "seek-help"
+}
+]

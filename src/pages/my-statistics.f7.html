@@ -1,0 +1,549 @@
+<template>
+    <div class="page" data-name="my-statistics">
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Voltar</span>
+                    </a>
+                </div>
+                <div class="title">Minhas estatísticas</div>
+            </div>
+        </div>
+        
+        <div class="page-content" >
+            <div class="card">
+                <div class="block block-strong">Estatísticas Diárias</div>
+                <div class="block no-padding">
+                    <div id="demo-calendar-inline-container"></div>
+                </div>
+            </div>
+
+            <div class="padding-10" >
+                <div class="card no-margin " >
+                    <div class="card-header">
+                        <p>Como vem sendo sua saúde alimentar</p>
+                    </div>
+                    <div class="card-content padding-10 display-flex align-content-center" >
+                        <div class="row padding" >
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_iynlqgqh.json">
+                                </lottie-player>
+                            </div>
+
+                            <div class="col-70">
+                                <div class="display-flex align-content-center">
+                                    <div class="gauge gauge-init my-gauge-feeding" data-type="semicircle"
+                                        data-value="0.44" data-value-text="44%" data-value-text-color="#ff9800"
+                                        data-border-color="#ff9800"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_r7rljnuu.json">
+                                </lottie-player>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="padding-10" >
+                <div class="card no-margin " >
+                    <div class="card-header">
+                        <p>Como você avalia seu tempo de lazer</p>
+                    </div>
+                    <div class="card-content padding-10 display-flex align-content-center" >
+                        <div class="row padding" >
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_iynlqgqh.json">
+                                </lottie-player>
+                            </div>
+
+                            <div class="col-70" >
+                                <div class="display-flex align-content-center">
+                                    <div
+                                        class="gauge gauge-init my-gauge-leisure"
+                                        data-type="semicircle"
+                                        data-value="0.44"
+                                        data-value-text="44%"
+                                        data-value-text-color="#ff9800"
+                                        data-border-color="#ff9800"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_r7rljnuu.json">
+                                </lottie-player>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="padding-10" >
+                <div class="card no-margin " >
+                    <div class="card-header">
+                        <p>Como está a qualidade do sono</p>
+                    </div>
+                    <div class="card-content padding-10 display-flex align-content-center" >
+                        <div class="row padding" >
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_iynlqgqh.json">
+                                </lottie-player>
+                            </div>
+
+                            <div class="col-70" >
+                                <div class="display-flex align-content-center">
+                                    <div
+                                        class="gauge gauge-init my-gauge-sleep"
+                                        data-type="semicircle"
+                                        data-value="0.44"
+                                        data-value-text="44%"
+                                        data-value-text-color="#ff9800"
+                                        data-border-color="#ff9800"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_r7rljnuu.json">
+                                </lottie-player>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="padding-10" >
+                <div class="card no-margin " >
+                    <div class="card-header">
+                        <p>Estatísticas sobre atividades físicas</p>
+                    </div>
+                    <div class="card-content padding-10 display-flex align-content-center" >
+                        <div class="row padding" >
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_iynlqgqh.json">
+                                </lottie-player>
+                            </div>
+
+                            <div class="col-70" >
+                                <div class="display-flex align-content-center">
+                                    <div
+                                        class="gauge gauge-init my-gauge-activity"
+                                        data-type="semicircle"
+                                        data-value="0.44"
+                                        data-value-text="44%"
+                                        data-value-text-color="#ff9800"
+                                        data-border-color="#ff9800"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_r7rljnuu.json">
+                                </lottie-player>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="padding-10" >
+                <div class="card no-margin " >
+                    <div class="card-header">
+                        <p>Como está o nível do seu humor</p>
+                    </div>
+                    <div class="card-content padding-10 display-flex align-content-center" >
+                        <div class="row padding" >
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_iynlqgqh.json">
+                                </lottie-player>
+                            </div>
+
+                            <div class="col-70" >
+                                <div class="display-flex align-content-center">
+                                    <div
+                                        class="gauge gauge-init my-gauge-happyness"
+                                        data-type="semicircle"
+                                        data-value="0.44"
+                                        data-value-text="44%"
+                                        data-value-text-color="#ff9800"
+                                        data-border-color="#ff9800"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="col-15 gauge-level lottie-statistics" >
+                                <lottie-player
+                                    src="https://assets5.lottiefiles.com/private_files/lf30_r7rljnuu.json">
+                                </lottie-player>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+    </div>
+</template>
+<script>
+    export default {
+        methods: {
+            data: function () {
+                var self = this;
+                var app = self.$app;
+                var dynamicPopup;
+                return {
+                    dynamicPopup:
+                        app.popup.create({
+                            content: `
+                                <div class="popup">
+                                    <div class="navbar">
+                                        <div class="navbar-bg"></div>
+                                        <div class="navbar-inner">
+                                            <div class="left">
+                                                <a href="#" class="link popup-close">
+                                                    <i class="icon icon-back"></i> </a>
+                                                <span class="if-not-md">Back</span>
+                                                </a>
+                                            </div>
+                                            <div class="title">Seus registros</div>
+                                        </div>
+                                    </div>
+                                    <div class="page-content" style="margin-top: 0; padding: 0 0 35px 0;">
+                                            <div class="card">
+                                                <div class="card-content card-content-padding daily-popup-content">                           
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> `,
+                        }),
+                }
+            },
+
+            updateGauges: function(){
+                var self = this;
+                var app = self.$app;
+
+                var gaugeFeeding = app.gauge.get('.my-gauge-feeding');
+                var gaugeLeisure = app.gauge.get('.my-gauge-leisure');
+                var gaugeSleep = app.gauge.get('.my-gauge-sleep');
+                var gaugeActivity = app.gauge.get('.my-gauge-activity');
+                var gaugeHappyness = app.gauge.get('.my-gauge-happyness');
+
+                gaugeFeeding.update({
+                    value: this.getAverageInPercentage('feeding'),
+                    valueText: (this.getAverageInPercentage('feeding') * 100) + '%'
+                });
+                gaugeLeisure.update({
+                    value: this.getAverageInPercentage('leisure'),
+                    valueText: (this.getAverageInPercentage('leisure') * 100) + '%'
+                });
+                gaugeSleep.update({
+                    value: this.getAverageInPercentage('sleep'),
+                    valueText: (this.getAverageInPercentage('sleep') * 100) + '%'
+                });
+                gaugeActivity.update({
+                    value: this.getAverageInPercentage('activity'),
+                    valueText: (this.getAverageInPercentage('activity')*100) + '%'
+                });
+                gaugeHappyness.update({
+                    value: this.getAverageInPercentage('happyness'),
+                    valueText: (this.getAverageInPercentage('happyness') * 100) + '%'
+                });
+
+            },
+
+            getAverageInPercentage: function(type){
+                var self = this;
+                var app = self.$app;
+
+                let history;
+                let scaleMax;
+                switch (type) {
+                    case 'feeding':
+                        scaleMax = 4;
+                        history = app.storage.getFoodHistory();
+                        break;
+                    case 'leisure':
+                        scaleMax = 1;
+                        history = app.storage.getLeisureHistory();
+                        break;
+                    case 'sleep':
+                        scaleMax = 4;
+                        history = app.storage.getSleepHistory();
+                        break;
+                    case 'activity':
+                        scaleMax = 5;
+                        history = app.storage.getPhysicalActivityHistory();
+                        break;
+                    case 'happyness':
+                        scaleMax = 4;
+                        history = app.storage.getHappinessHistory();
+                        break;
+                }
+                let average = 0;
+                if (history != null) {
+                    history.history.forEach(element => {
+                        average = average + element.answer;
+                    });
+                    average = average / history.history.length;
+                    let percentage = average / scaleMax;
+                    return percentage.toFixed(2);
+                } else {
+                    return 0;
+                }
+
+            },
+
+            today: function () {
+                let self = this;
+                let app = self.$app;
+                var $$ = Dom7;
+                let data = new Date();
+                $$('.calendar-day').forEach((day) => {
+                    if (day.attributes['data-day'].value == data.getDate()
+                    &&  day.attributes['data-month'].value == data.getMonth()
+                    &&  day.attributes['data-year'].value == data.getFullYear())
+                    $$($$(day)[0].childNodes[1]).addClass("today");
+                });
+            },
+
+            calendar: function () {
+                let self = this;
+                let app = self.$app;
+                var $$ = Dom7;
+                var monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+                var calendarInline = app.calendar.create({
+                    containerEl: '#demo-calendar-inline-container',
+                    value: [new Date()],
+                    weekHeader: true,
+                    dayNamesShort: ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'],
+                    firstDay: 0,
+                    renderToolbar: function () {
+                        return '<div class="toolbar calendar-custom-toolbar no-shadow">' +
+                            '<div class="toolbar-inner">' +
+                            '<div class="left">' +
+                            '<a href="#" class="link icon-only"><i class="icon icon-back ' + (app.theme === 'md' ? 'color-black' : '') + '"></i></a>' +
+                            '</div>' +
+                            '<div class="center"></div>' +
+                            '<div class="right">' +
+                            '<a href="#" class="link icon-only"><i class="icon icon-forward ' + (app.theme === 'md' ? 'color-black' : '') + '"></i></a>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>';
+                    },
+
+                    on: {
+                        dayClick: function () {
+                            $$('.calendar-day').on('click', function (e) {
+                                //Data recupera a data do dia no qual o usuário clicou.
+                                let data = "" +
+                                   (this.attributes['data-day'].value<10 ? "0" + this.attributes['data-day'].value : this.attributes['data-day'].value) +
+                                   (this.attributes['data-month'].value<10 ? "0" + this.attributes['data-month'].value : this.attributes['data-month'].value) +
+                                    this.attributes['data-year'].value;
+                                //console.log(data); //Caso necessário verificar o formato
+                               
+                               
+                                // open: function (popup) {
+                                var popupContent = `
+                                    <p class="block no-shadow inset">Aqui ficarão listadas as informações coletadas no mini-quiz que aparece no menu principal.
+                                    <br><br> A função do diário já está funcional!</p>
+                                    <br><hr> 
+                                    <div class="list accordion-list">
+                                        <ul>
+                                            <li class="accordion-item"><a class="item-content item-link" href="#">
+                                            <div class="item-inner">
+                                                <div class="item-title"><b>Diário</b></div>
+                                            </div>
+                                            </a>
+                                            <div class="accordion-item-content">
+                                            <div class="block no-shadow" style="margin: 10px 0px;">`+
+                                                (app.storage.getDiaryText(data) == null ? "Você não registrou nada este dia!" : app.storage.getDiaryText(data))
+                                            + `</div>
+                                        </div>
+                                    </li>
+                                </div> `;
+                                self.dynamicPopup.open();
+
+                                self.$$('.daily-popup-content').html(popupContent)
+                                //  },
+                                });
+
+                            },
+                        
+                        init: function (c) {
+                            // $$('.popup-close').on('click', function () {
+                            //     // let self = this;
+                            //     // let app = self.$app;
+                            //     // var $$ = Dom7;
+
+                            //     // var popup = app.$$('.popup');
+                            //     console.log("fechando o pop");
+                            //     // popup.close(true);
+                            //});
+
+                            $$('.calendar-custom-toolbar .center').text(monthNames[c.currentMonth] + ', ' + c.currentYear);
+                            $$('.calendar-custom-toolbar .left .link').on('click', function () {
+                                calendarInline.prevMonth();
+                                self.colorCalendarDays();
+                                self.today();
+                            });
+                            $$('.calendar-custom-toolbar .right .link').on('click', function () {
+                                calendarInline.nextMonth();
+                                self.colorCalendarDays();
+                                self.today();
+                            });
+                       
+                            self.colorCalendarDays();
+
+                        },
+                        monthYearChangeStart: function (c) {
+                            $$('.calendar-custom-toolbar .center').text(monthNames[c.currentMonth] + ', ' + c.currentYear);
+                        }
+                    }
+                });
+            },
+
+            getQuestionnaireAnswerAverage: function (calendarDate, answers) {
+                let sum = 0;
+                let numAnswers = 0;
+                for (let i = 0; i < answers.length; i++) {
+                    const happynessHistoryDate = new Date(answers[i].created_at);
+                    const answerTimestamp = new Date(happynessHistoryDate.getFullYear(), happynessHistoryDate.getMonth(), happynessHistoryDate.getDate()).getTime();
+
+                    if (calendarDate == answerTimestamp) {
+                        sum += answers[i].answer;
+                        numAnswers++;
+                    } else if (calendarDate < answerTimestamp) {
+                        break;
+                    }
+                }
+
+                if (numAnswers > 0) {
+                    return Math.round(sum/numAnswers);
+                }
+
+                return -1;
+            },
+            colorCalendarDays: function () {
+                let self = this;
+                let app = self.$app;
+                var $$ = Dom7;
+
+                if(app.storage.getHappinessHistory() == null) return;
+
+                const happynessHistory = app.storage.getHappinessHistory().history;
+                //happynessHistory = happynessHistory.history;
+
+                $$('.calendar-day').forEach((day) => {
+                    const colors = {
+                        0: "#cc3333",
+                        1: "#cc5933",
+                        2: "#cca633",
+                        3: "#739900",
+                        4: "#009926"
+                    }
+                    const date = {
+                        day: day.attributes['data-day'].value,
+                        month: day.attributes['data-month'].value,
+                        year: day.attributes['data-year'].value
+                    }                
+
+                    const dateTimestamp = new Date(date.year, date.month, date.day).getTime();
+                    if (!$$(day).hasClass('calendar-day-prev') && !$$(day).hasClass('calendar-day-next')) {
+                        let answerAverage = self.getQuestionnaireAnswerAverage(dateTimestamp, happynessHistory);
+                        if (answerAverage != -1) {
+                            console.log(answerAverage, date)
+                            $$($$(day)[0].childNodes[1]).css('background-color', colors[answerAverage])
+                        }
+                    }
+                });
+            },
+        },
+        on: {
+            pageAfterin: function (e, page) {
+                this.updateGauges();
+                this.calendar();
+                this.today();
+            },
+       
+        },
+    };
+</script>
+
+<style>
+    .h100{
+        height: 100%;
+    }
+    .gauge-level{
+        display: flex;
+        height: 100%;
+    }
+    .gauge-level-icon{
+        display: inline-block;
+        align-self: flex-end;
+    }
+    .calendar-day.calendar-day-selected .calendar-day-number {
+        background-color: inherit;
+        color: var(--f7-calendar-day-text-color);
+    }
+    .toolbar .title {
+        font-weight: bold;
+        font-size: 1rem;
+        margin-left: 24px;
+    }
+    .popup-question {
+        font-size: .85rem;
+        text-align: justify;
+    }
+    .popup-answer {
+        display: flex;
+        align-items: center;
+        font-size: .85rem;
+        margin-left: 10px;
+    }
+    .popup-answer i {
+        margin-right: 5px;
+        font-size: 24px;
+    }
+    .page-content.block {
+        margin-top: 48px;
+        margin-bottom: 40px;
+        padding-top: 10px;
+    }
+    .divider {
+        border: solid 1px var(--f7-card-header-border-color);
+    }
+    .popup .card {
+        margin: 60px 20px 30px 20px;
+    }
+    .no-shadow {
+        box-shadow: 0 0px 0px 0 rgb(0 0 0 / 10%), 0 0px 0px 0 rgb(0 0 0 / 0%)
+    }
+    .today {
+        border-style: solid;
+        border-color: var(--color-2);
+    }
+</style>

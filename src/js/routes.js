@@ -5,14 +5,18 @@ import RightPanelPage from "../pages/right-panel.f7.html";
 import MenuPage from "../pages/menu.f7.html";
 import ProceduresGuidesPage from "../pages/procedures.f7.html";
  
-
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
 import ContentPage from "../pages/content-page.f7.html";
 
 import FreshmanGuidePage from "../pages/freshman-guide-page.f7.html";
-import AuraPage from "../pages/aura.f7.html";
+import AuraPage from "../pages/bemestar.f7.html";
 import LoginPage from "../pages/login.f7.html";
+
+import MeditationPage from '../pages/meditation.f7.html';
+import SeekHelpPage from '../pages/seek-help.f7.html';
+import DiaryPage from '../pages/diary.f7.html';
+import MyStatisticsPage from '../pages/my-statistics.f7.html';
 
 import IsEnabled from "./isenabled";
 
@@ -113,12 +117,40 @@ const freshmanGuidePageRoute = function () {
   return route;
 };
 
+const meditationPage = function () {
+	let route = {
+	  path: "/meditation/",
+	  component: MeditationPage,
+	};
+  
+	return route;
+  };
+
+const diaryPage = function () {
+	let route = {
+	  path: "/diary/",
+	  component: DiaryPage,
+	};
+  
+	return route;
+  };
+
+const seekHelpPage = function () {
+	let route = {
+	  path: "/seekhelp/",
+	  component: SeekHelpPage,
+	};
+  
+	return route;
+  };
+  
+
 var routes = [
 
   homePageRoute(),
   rightPanelRoute(),
   aboutPageRoute(),
-	loginPageRoute(),
+  loginPageRoute(),
   
   //new routes
   contentPageRoute(),
@@ -127,6 +159,10 @@ var routes = [
 
   initialPageRoute(),
   notFoundPageRoute(),
+
+  meditationPage(),
+  seekHelpPage(),
+  diaryPage(),
 ];
 
 // Removing undefined routes

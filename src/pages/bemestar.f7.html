@@ -1,0 +1,473 @@
+<template>
+	<div data-name="menu">
+		<div class="page">
+			<!-- Conteúdo da página -->
+			<div class="page-content ptr-content" data-ptr-distance="55">
+				<div class="ptr-preloader">
+					<div class="preloader"></div>
+					<div class="ptr-arrow"></div>
+				</div>
+
+				<div class="margin-horizontal text-align-center">
+					<p style="max-width: 60%; margin: auto;font-size: calc(10px + 0.5rem); font-weight: 500;">Desenvolvido com o objetivo de informar e orientar sobre alguns assuntos relacionados à saúde mental.</p>
+				</div>
+
+				<div>
+					<div class="row margin">
+						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							<a href="/diary/" class="menu-item-link">
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between always-active"
+									style="height: 100%;">
+									<div>
+										{{#js_if "../darkTheme === false" }}
+										<img src="static/images/whitetheme/writing.png" class="menu-item-icon">
+										{{else}}
+										<img src="static/images/darktheme/guia-de-procedimentos.png" class="menu-item-icon">
+										{{/js_if}}
+									</div>
+									<div class="menu-item-title">Diário Pessoal</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							<a href="/meditation/" class="menu-item-link">
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between always-active"
+									style="height: 100%;">
+									<div>
+										{{#js_if "../darkTheme === false" }}
+										<img src="static/images/whitetheme/meditation.png"
+											class="menu-item-icon">
+										{{else}}
+										<img src="static/images/darktheme/guia-de-procedimentos.png"
+											class="menu-item-icon">
+										{{/js_if}}
+									</div>
+									<div class="menu-item-title">Meditação Guiada</div>
+								</div>
+							</a>
+						</div>
+                    </div>
+                    <div class="row margin">
+                        <div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							<a href="/seekhelp/" class="menu-item-link">
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between always-active"
+									style="height: 100%;">
+									<div>
+										{{#js_if "../darkTheme === false" }}
+										<img src="static/images/whitetheme/help.png"
+											class="menu-item-icon">
+										{{else}}
+										<img src="static/images/darktheme/guia-de-procedimentos.png"
+											class="menu-item-icon">
+										{{/js_if}}
+									</div>
+									<div class="menu-item-title">Buscar Ajuda</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</template>
+
+<style>
+	#picker-device {
+		font-size: 20px;
+		font-weight: bold;
+		height: 60px;
+	}
+
+	.picker-item {
+		font-size: 120%;
+	}
+
+	.sheet-modal {
+		height: 40%;
+	}
+
+	.disabled {
+		pointer-events: none;
+		cursor: default;
+		filter: grayscale(100%);
+	}
+
+	.menu-item-block {
+		border-radius: 20px;
+		background-color: var(--f7-bars-bg-color);
+	}
+
+	img.menu-item-icon {
+		height: 60px;
+		padding: 15px;
+	}
+
+	.menu-item-title {
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.hide {
+		visibility: hidden;
+		opacity: 0;
+		max-height: 0px !important;
+		transition: max-height 0.3s, opacity 0.3s, visibility 0.3s linear;
+	}
+
+	.giggle {
+		animation: giggle 2s infinite both;
+	}
+
+	@keyframes giggle {
+
+		0%,
+		100% {
+			transform: translateX(0%);
+			transform-origin: 50% 50%;
+		}
+
+		15% {
+			transform: translateX(-10px) rotate(6deg);
+		}
+
+		30% {
+			transform: translateX(5px) rotate(-6deg);
+		}
+
+		45% {
+			transform: translateX(-5px) rotate(3.6deg);
+		}
+
+		60% {
+			transform: translateX(3px) rotate(-2.4deg);
+		}
+
+		75% {
+			transform: translateX(-2px) rotate(1.2deg);
+		}
+	}
+</style>
+
+<script>
+	export default {
+		data: function () {
+			return {
+				darkTheme: null
+			}
+		},
+
+		methods: {
+			Welcome: async function () {
+				var self = this;
+				var app = self.$app;
+				app.sheet.create({
+					el: '.boas-vindas-pop',
+					swipeToClose: true,
+					backdrop: true,
+				});
+			},
+
+			loadTabsInfoFromJSON: async function () {
+				var self = this;
+				var app = self.$app;
+
+				await app.request.json('static/json/menu-items.json', async function (data) {
+					data.forEach((value, index) => {
+						if (self.availableTabs[value.id]) {
+							value.active = true;
+						}
+					})
+
+					self.$setState({
+						staticTabsInfo: data,
+					});
+				})
+			},
+			startSmartSelect: async function () {
+				var self = this;
+				var app = self.$app;
+
+				self.picker = app.picker.create({
+					rotateEffect: true,
+					freeMode: true,
+					toolbarCloseText: `<i class="f7-icons">xmark_circle_fill</i>`,
+					inputEl: '#picker-device',
+					backdrop: true,
+					cols: [{
+						textAlign: 'center',
+						values: []
+					}],
+					on: {
+						change: () => {
+							self.setSelectedCampusLink(self.picker.getValue());
+
+						},
+						close: () => {
+							self.loadingEffects(true);
+							setTimeout(() => {
+								self.loadingEffects(false);
+							}, 1000);
+						}
+					}
+				});
+			},
+			loadStorageData: async function () {
+				var self = this;
+				var app = self.$app;
+
+				self.loadingEffects(true);
+
+				await app.storage.getCampusInformation().then(campusInformation => {
+					if (campusInformation) {
+						self.$setState({
+							campus: campusInformation,
+						});
+
+						self.createPickerCampusArray(campusInformation);
+					}
+				});
+
+				await app.storage.getSelectedCampus().then(selectedCampus => {
+					if (selectedCampus) {
+						self.$setState({
+							selectedCampus: selectedCampus,
+						});
+					}
+				});
+
+				await app.storage.getSpreadsheetContent().then(content => {
+					if (content) {
+						self.$setState({
+							spreadsheetContent: content,
+						});
+						self.loadingEffects(false);
+					}
+				});
+
+				if (self.spreadsheetContent && self.selectedCampus) {
+					self.displayContent();
+					self.picker.setValue([self.selectedCampus.cidade], 100);
+				}
+				self.loadData();
+			},
+			loadData: async function () {
+				var self = this;
+				var app = self.$app;
+
+				await app.api.getCampus().then(campus => {
+					self.$setState({
+						campus: campus,
+					});
+					app.storage.setCampusInformation(campus);
+					self.createPickerCampusArray(campus);
+				});
+
+				var newSpreadsheetContent = [];
+
+				for (let item of this.campus) {
+					for (let tab of this.tabs) {
+						await app.api.getCampusContent('https://opensheet.elk.sh/' + item.id + '/' + tab).then(
+							data => {
+								if (data) {
+									newSpreadsheetContent.push([item.id, tab, data]);
+								}
+							});
+					}
+				}
+
+				self.$setState({
+					spreadsheetContent: newSpreadsheetContent,
+				});
+
+				app.storage.setSpreadsheetContent(newSpreadsheetContent);
+
+				if (self.selectedCampus) {
+					self.picker.setValue([self.selectedCampus.cidade], 100);
+				}
+
+				self.displayContent();
+
+				self.loadingEffects(false);
+
+				app.ptr.done();
+
+				self.pullToRefresh()
+
+			},
+			setSelectedCampusLink: function (campusName) {
+				var self = this;
+				var app = self.$app;
+
+				let found = self.campus.find(element => element.cidade == campusName);
+
+				app.storage.setSelectedCampus(found);
+
+				self.$setState({
+					selectedCampus: found
+				});
+
+				self.displayContent();
+			},
+			displayContent: function () {
+				var self = this;
+				var app = self.$app;
+
+				app.storage.removePageContent();
+
+				let pageContent = {};
+
+				for (let item of self.spreadsheetContent) {
+					if (self.selectedCampus && item[0] == self.selectedCampus.id && !item[2].error) {
+						pageContent[item[1]] = item[2];
+					}
+				}
+
+				self.availableTabs = {};
+
+				self.availableTabs['guia_calouros'] = true;
+				self.availableTabs['procedures'] = true;
+
+
+				for (let tab of self.tabs) {
+					if (pageContent[tab]) {
+						self.availableTabs[tab] = true;
+					}
+				}
+
+				app.storage.setPageContent(pageContent);
+
+				self.setAvailableItems();
+			},
+			setAvailableItems: async function () {
+				var self = this;
+				var app = self.$app;
+
+				let links = app.$$(".menu-item-link");
+
+				links.each((index, value) => {
+					let item = app.$$(value);
+					let tabId = item.attr('href').replace('/content/', '').replaceAll('/', '');
+					let parent = item.parent(".menu-item-block");
+					if (!self.availableTabs[tabId]) {
+						parent.addClass('disabled');
+					} else {
+						parent.removeClass('disabled');
+					}
+				})
+			},
+			loadingEffects: async function (loading) {
+				var self = this;
+				var app = self.$app;
+
+				await new Promise(resolve => setTimeout(resolve, 500));
+				let menuItem = app.$$('.menu-item-content');
+				let alwaysActive = app.$$('.always-active');
+
+				for (let item of Object.keys(menuItem)) {
+					if (Object.is(menuItem[item], alwaysActive[item])) {
+						delete menuItem[item];
+					}
+				}
+
+				let picker = app.$$('#picker-device');
+
+				if (loading) {
+					menuItem.addClass('skeleton-text');
+					menuItem.addClass('skeleton-effect-blink');
+					picker.prop({
+						disabled: true
+					});
+					app.progressbar.show();
+					return;
+				}
+				menuItem.removeClass('skeleton-text');
+				menuItem.removeClass('skeleton-effect-blink');
+				picker.prop({
+					disabled: false
+				});
+				app.progressbar.hide();
+			},
+			createPickerCampusArray: function (campusObject) {
+				var self = this;
+				var app = self.$app;
+
+				var campusArray = [];
+				campusObject.forEach(element => {
+					campusArray.push(element.cidade);
+				});
+				self.picker.params.cols[0].values = campusArray;
+			},
+			loadMenuDarkModeInformation: async function () {
+				var self = this;
+				var app = self.$app;
+
+				if (app.$$("#app").hasClass('theme-dark')) {
+					self.$setState({
+						darkTheme: true
+					});
+					return;
+				}
+
+				self.$setState({
+					darkTheme: false
+				});
+			},
+			updateUniqueCampusData: async function () {
+				var self = this;
+				var app = self.$app;
+				self.loadingEffects(true);
+
+				for (let item of self.spreadsheetContent) {
+					if (self.selectedCampus && item[0] == self.selectedCampus.id) {
+						await app.api.getCampusContent('https://opensheet.elk.sh/' + item[0] + '/' + item[1]).then(
+							data => {
+								if (data) {
+									item[2] = data
+								}
+							}
+						);
+					}
+				}
+				self.loadingEffects(false);
+
+				app.storage.setSpreadsheetContent(self.spreadsheetContent);
+
+				self.displayContent();
+			},
+			pullToRefresh: function () {
+				var self = this;
+				var app = self.$app;
+
+				var $ptrContent = app.$('.ptr-content');
+				$ptrContent.on('ptr:refresh', async function (e) {
+					await self.updateUniqueCampusData();
+					app.ptr.done();
+				});
+			}
+		},
+		on: {
+			tabInit: async function (e, page) {
+				var self = this;
+				var app = self.$app;
+
+				this.startSmartSelect();
+				this.loadStorageData();
+				this.loadTabsInfoFromJSON();
+
+				this.Welcome();
+				this.pullToRefresh();
+
+				self.loadMenuDarkModeInformation();
+
+				document.addEventListener("change", function () {
+					setTimeout(() => {
+						self.loadMenuDarkModeInformation();
+					}, 50);
+				});
+			},
+		}
+
+	}
+</script>

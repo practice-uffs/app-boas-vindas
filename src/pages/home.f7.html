@@ -116,16 +116,8 @@
 				<a href="/" class="tab-link" data-route-tab-id="menu"><i
 						class="f7-icons">menu</i><small>Menu</small></a>
 				{{/if}}
-
-				{{#if isEnabled.auraPage}}
-				{{#if user}}
-				<a href="/aura/" class="tab-link tab-link-aura" data-route-tab-id="aura"><img
+				<a href="/bemestar/" class="tab-link" data-route-tab-id="bemestar"><img
 						src="static/images/aura/aura_icon.svg"><small>Bem Estar</small></a>
-				{{else}}
-				<a href="#" @click="auraRedirect()" class="tab-link tab-link-aura" data-route-tab-id="aura"><img
-						src="static/images/aura/aura_icon.svg"><small>Bem Estar</small></a>
-				{{/if}}
-				{{/if}}
 			</div>
 		</div>
 
@@ -135,10 +127,8 @@
 				{{#if isEnabled.menuPage}}
 				<div class="page-content tab" id="menu"></div>
 				{{/if}}
+				<div class="page-content tab" id="bemestar"></div>
 
-				{{#if isEnabled.auraPage}}
-				<div class="page-content tab" id="aura"></div>
-				{{/if}}
 			</div>
 		</div>
 	</div>

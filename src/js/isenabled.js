@@ -7,7 +7,7 @@
 var IsEnabled = {
 	menuPage: true,
 	
-	auraPage: true,
+	auraPage: false,
 	
 	rightPanel: true,
 	
@@ -18,6 +18,8 @@ var IsEnabled = {
     bottomNavigationBar: true,
 
 	darkTheme: true,
+
+	bemestarpage: true,
 }
 
 export default IsEnabled;

@@ -10,8 +10,12 @@ import NotFoundPage from "../pages/404.f7.html";
 import ContentPage from "../pages/content-page.f7.html";
 
 import FreshmanGuidePage from "../pages/freshman-guide-page.f7.html";
-import AuraPage from "../pages/bemestar.f7.html";
+import BemEstarPage from "../pages/bemestar.f7.html";
 import LoginPage from "../pages/login.f7.html";
+
+import MeditationPage from "../pages/meditation.f7.html";
+import DiaryPage from "../pages/diary.f7.html";
+
 
 import IsEnabled from "./isenabled";
 
@@ -31,11 +35,11 @@ const homePageRoute = function () {
 			component: MenuPage,
 		});
 	}
-	if (IsEnabled.auraPage) {
+	if (IsEnabled.bemestarpage) {
 		tabs.push({
-			path: "/aura/",
-			id: "aura",
-			component: AuraPage,
+			path: "/bemestar/",
+			id: "bemestar",
+			component: BemEstarPage,
 		})
 	}
 
@@ -112,12 +116,26 @@ const freshmanGuidePageRoute = function () {
   return route;
 };
 
+const meditationPage = function () {
+	return {
+		path: '/meditation/',
+		component: MeditationPage,
+	};
+}
+
+const diaryPage = function () {
+	return {
+		path: '/diary/',
+		component: DiaryPage,
+	};
+}
+
 var routes = [
 
   homePageRoute(),
   rightPanelRoute(),
   aboutPageRoute(),
-	loginPageRoute(),
+  loginPageRoute(),
   
   //new routes
   contentPageRoute(),
@@ -126,6 +144,9 @@ var routes = [
 
   initialPageRoute(),
   notFoundPageRoute(),
+
+  meditationPage(),
+  diaryPage(),
 ];
 
 // Removing undefined routes

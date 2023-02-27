@@ -15,7 +15,7 @@ import LoginPage from "../pages/login.f7.html";
 
 import MeditationPage from "../pages/meditation.f7.html";
 import DiaryPage from "../pages/diary.f7.html";
-
+import SeekHelpPage from "../pages/seek-help.f7.html";
 
 import IsEnabled from "./isenabled";
 
@@ -118,7 +118,7 @@ const freshmanGuidePageRoute = function () {
 
 const meditationPage = function () {
 	return {
-		path: '/meditation/',
+		path: "/meditation/",
 		component: MeditationPage,
 	};
 }
@@ -127,6 +127,13 @@ const diaryPage = function () {
 	return {
 		path: '/diary/',
 		component: DiaryPage,
+	};
+}
+
+const seekhelpPage = function () {
+	return {
+		path: '/seekhelp/',
+		component: SeekHelpPage,
 	};
 }
 
@@ -147,6 +154,7 @@ var routes = [
 
   meditationPage(),
   diaryPage(),
+  seekhelpPage(),
 ];
 
 // Removing undefined routes

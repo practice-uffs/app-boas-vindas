@@ -96,6 +96,10 @@ export class Storage{
 		}
 	};
 
+	async setDiaryText(data, text) {
+		localStorage.setItem(data, text);
+	}
+
 	setUserCredentials(userCredentials) {
 		localStorage["userCredentials"] = JSON.stringify(userCredentials);
 	};
@@ -128,5 +132,10 @@ export class Storage{
 
 	setCountdownLogin(value) {
 		localStorage.setItem("getCountdownLogin", value);
+	}
+
+	getDiaryText(date) {
+		let text = localStorage.getItem(date);
+		return text;
 	}
 }

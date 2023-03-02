@@ -150,7 +150,6 @@ var routes = [
   freshmanGuidePageRoute(),
 
   initialPageRoute(),
-  notFoundPageRoute(),
 
   meditationPage(),
   diaryPage(),

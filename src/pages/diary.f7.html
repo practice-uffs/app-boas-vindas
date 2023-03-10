@@ -4,7 +4,7 @@
             <div class="navbar-bg"></div>
             <div class="navbar-inner sliding">
                 <div class="left">
-                    <a href="#" class="link back">
+                    <a href="/bemestar/" class="link back">
                         <i class="icon icon-back"></i>
                         <span class="if-not-md">Voltar</span>
                     </a>
@@ -14,19 +14,30 @@
         </div>
         <div class="page-content" >
             <p class="block block-strong inset">Boas vindas ao seu diário! 😄 <br> Aqui você poderá relatar como você está se sentindo, é terapêutico, e vai ajudar você ao falar com mais certeza à algum especialista sobre como você se sentiu em determinado dia. <br></p>
-
-
+            <div class="imessage">
+                {{#each messages}}
+                <div class="cloud-container">
+                        <p class="from-me">{{ mensagem }}</p>
+                        <p class="from-me-date">{{ data }}</p>
+                </div>
+				{{/each}}
+            </div>
             <div class="text-editor text-editor-init" data-placeholder="Como você está se sentindo agora? 🖊️"  data-buttons='[[], []]'>
               <div class="text-editor-content" contenteditable></div>
             </div>
-
             <button @click="saveText()" class="button col button-outline button-round save-button">Salvar</button>
-
         </div>
     </div>
 </template>
 <script>
     export default {
+        data: function() {
+            let date = new Date();
+            return {
+                messages: null,
+                today: ""+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear(),
+            }
+        },
         methods: {
             saveText: function () {
                 var self = this;
@@ -35,12 +46,11 @@
                 var textEditor = app.textEditor.get('.text-editor');
                 
 		        let date = new Date();
-                let data = ""+ (date.getDate()<10 ? "0" + date.getDate() : date.getDate()) + (date.getMonth()<10 ? "0" + date.getMonth() : date.getMonth()) + date.getFullYear();
+                let data = ""+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
 
                 app.storage.setDiaryText(data, textEditor.getValue());
                 this.showToastBottom();
             },
-
             showToastBottom: function () {
                 let toastBottom;
                 var self = this;
@@ -53,6 +63,15 @@
                 }
                 toastBottom.open();
             },
+            loadMessageFromJSON: async function () {
+				var self = this;
+				var app = self.$app;
+
+                var diary_content = JSON.parse(localStorage.getItem("diary_content"));
+                self.$setState({
+					messages: diary_content,
+				});
+			},
         },
         on: {
             pageBeforein: async function () {
@@ -60,14 +79,16 @@
                 let app = self.$app;
 		        
                 let date = new Date();
-                let data = ""+ (date.getDate()<10 ? "0" + date.getDate() : date.getDate()) + (date.getMonth()<10 ? "0" + date.getMonth() : date.getMonth()) + date.getFullYear();
+                let data = ""+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
+
+                this.loadMessageFromJSON();
 
                 var textEditor = app.textEditor.get('.text-editor');
-                let texto = localStorage.getItem(data);
+                var texto = [];
+                texto = app.storage.getDiaryText(data);
                 if (texto) {
                     textEditor.setValue(texto);
                 } 
-
             }
         },
     };
@@ -85,5 +106,53 @@
     }
     .text-editor-toolbar{
         padding: 0;
+    }
+    .imessage {
+        background-color: #fff;
+        border: 1px solid #e5e5ea;
+        border-radius: 0.25rem;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 1rem;
+        max-width: 600px;
+        padding: 0.5rem 1.5rem;
+    }
+
+    .imessage p {
+        border-radius: 1.15rem;
+        line-height: 1.25;
+        max-width: 75%;
+        position: relative;
+        word-wrap: break-word;
+    }
+
+    p.from-them {
+        align-items: flex-start;
+        background-color: #e5e5ea;
+        color: #000;
+    }
+
+    .cloud-container {
+        border-radius: 1.15rem;
+        line-height: 1.25;
+        max-width: 75%;
+        position: relative;
+        word-wrap: break-word;
+        background-color: #248bf5;
+        display: flex;
+        align-self: flex-end;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    p.from-me {
+        align-self: flex-end;
+        color: #fff;
+        padding: 0.5rem .875rem;
+    }
+    p.from-me-date {
+        align-self: flex-end;
+        color: #e5e5ea;
+        padding: 0rem .875rem;
+        margin-top: 0px;
     }
 </style>

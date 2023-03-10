@@ -154,6 +154,8 @@ var routes = [
   meditationPage(),
   diaryPage(),
   seekhelpPage(),
+  // Sempre deixar essa por ultimo.
+  notFoundPageRoute(),
 ];
 
 // Removing undefined routes

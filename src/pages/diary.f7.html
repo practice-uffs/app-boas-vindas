@@ -14,15 +14,23 @@
         </div>
         <div class="page-content" >
             <p class="block block-strong inset">Boas vindas ao seu diário! 😄 <br> Aqui você poderá relatar como você está se sentindo, é terapêutico, e vai ajudar você ao falar com mais certeza à algum especialista sobre como você se sentiu em determinado dia. <br></p>
-            <div class="imessage">
-                {{#each messages}}
-                <div class="cloud-container">
-                        <p class="from-me">{{ mensagem }}</p>
-                        <p class="from-me-date">{{ data }}</p>
+            <div>
+            {{#js_if "../messages" }}
+                <div class="imessage" id="mensagem">
+                    {{#each messages}}
+                    <div class="cloud-container">
+                            <p class="from-me">{{ mensagem }}</p>
+                            <p class="from-me-date">{{ data }}</p>
+                    </div>
+                    {{/each}}
                 </div>
-				{{/each}}
+            {{else}}
+            <div class="block block-strong inset">
+                <p>Você ainda não possui diário, comece a escrever agora mesmo! 🙂</p>
             </div>
-            <div class="text-editor text-editor-init" data-placeholder="Como você está se sentindo agora? 🖊️"  data-buttons='[[], []]'>
+            {{/js_if}}
+            </div>
+            <div class="text-editor text-editor-init" style="height: 8.2rem; margin-top: 35px" data-placeholder="Como você está se sentindo agora? 🖊️"  data-buttons='[[], []]'>
               <div class="text-editor-content" contenteditable></div>
             </div>
             <button @click="saveText()" class="button col button-outline button-round save-button">Salvar</button>
@@ -36,6 +44,7 @@
             return {
                 messages: null,
                 today: ""+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear(),
+                darkTheme: null
             }
         },
         methods: {
@@ -71,6 +80,21 @@
                 self.$setState({
 					messages: diary_content,
 				});
+			},
+            loadMenuDarkModeInformation: async function () {
+				var self = this;
+				var app = self.$app;
+
+				if (app.$$("#app").hasClass('theme-dark')) {
+					self.$setState({
+						darkTheme: true
+					});
+					return;
+				}
+
+				self.$setState({
+					darkTheme: false
+			    });
 			},
         },
         on: {
@@ -108,28 +132,20 @@
         padding: 0;
     }
     .imessage {
-        background-color: #fff;
-        border: 1px solid #e5e5ea;
-        border-radius: 0.25rem;
+        max-height: 16rem;
+        overflow: auto;
         display: flex;
         flex-direction: column;
         margin: 0 auto 1rem;
         max-width: 600px;
         padding: 0.5rem 1.5rem;
     }
-
     .imessage p {
         border-radius: 1.15rem;
         line-height: 1.25;
         max-width: 75%;
         position: relative;
         word-wrap: break-word;
-    }
-
-    p.from-them {
-        align-items: flex-start;
-        background-color: #e5e5ea;
-        color: #000;
     }
 
     .cloud-container {
@@ -140,17 +156,17 @@
         word-wrap: break-word;
         background-color: #248bf5;
         display: flex;
-        align-self: flex-end;
+        align-self: flex-start;
         flex-direction: column;
         margin-top: 15px;
     }
     p.from-me {
-        align-self: flex-end;
+        align-self: flex-start;
         color: #fff;
         padding: 0.5rem .875rem;
     }
     p.from-me-date {
-        align-self: flex-end;
+        align-self: flex-start;
         color: #e5e5ea;
         padding: 0rem .875rem;
         margin-top: 0px;

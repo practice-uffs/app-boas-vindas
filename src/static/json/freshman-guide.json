@@ -33,29 +33,8 @@
 			{
 				"type": "link",
 				"icon": "globe",
-				"title": "Manual Portal do Aluno",
-				"url": "https://www.uffs.edu.br/campi/erechim/repositorio-campus-erechim/secretaria-academica/arquivo-1"
-			},
-			{
-				"type": "link",
-				"icon": "globe",
 				"title": "Acessar o Portal do Aluno",
 				"url": "https://id.uffs.edu.br/id/XUI/#login/"
-			}
-		]
-	},
-	{
-		"title": "Horários das Aulas",
-		"subtitle": "Acesse através do site da UFFS",
-		"content": [{
-				"type": "text",
-				"content": "Você pode saber o horário das aulas que tem interesse acessando o <a class='external' href='https://www.uffs.edu.br/'>site da UFFS</a>, selecionando seu campus, clicando no item Cursos, selecionando o seu curso e por fim clicando em Horários."
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Manual Portal do Aluno",
-				"url": "https://www.uffs.edu.br/campi/erechim/repositorio-campus-erechim/secretaria-academica/arquivo-1"
 			}
 		]
 	},
@@ -129,90 +108,6 @@
 				"icon": "globe",
 				"title": "Formulários",
 				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/formularios"
-			},
-			{
-				"type": "link",
-				"icon": "envelope",
-				"title": "E-mail da Secretaria Acadêmica",
-				"url": "mailto:sec.acad.ch@uffs.edu.br"
-			}
-		]
-	},
-	{
-		"title": "Assuntos Estudantis (SAE)",
-		"subtitle": "",
-		"content": [{
-				"type": "text",
-				"content": "<b>O que solicitar ou encaminhar junto a este setor?</b>"
-			},
-			{
-				"type": "text",
-				"content": "<b>A qualquer tempo:</b><ul><li>Encaminhar documentação para realizar análise socioeconômica;</li><li>Orientações em relação ao preenchimento do cadastro socioeconômico;</li><li>Orientações relativas aos auxílios oferecidos pela UFFS: Alimentação, Moradia, Transporte, Emergencial, PIN, etc;</li><li>Atendimento Social;</li><li>Atendimento Psicológico;</li></ul>"
-			},
-			{
-				"type": "text",
-				"content": "<b>Conforme editais:</b><ul><li>Inscrição para recebimento dos auxílios oferecidos pela UFFS (socioeconômico, PIN, emergencial, entre outros)</li><li>Inscrição no Programa Bolsa Permanência (PBP);</li><li>Plano de acompanhamento pedagógico e/ou psicossocial;</li></ul>"
-			},
-			{
-				"type": "link",
-				"icon": "envelope",
-				"title": "Contato por e-mail",
-				"url": "mailto:sae.ch@uffs.edu.br"
-			},
-			{
-				"type": "link",
-				"icon": "play_rectangle_fill",
-				"title": "Tutoriais",
-				"url": "https://www.youtube.com/channel/UCtVURHWXTRbOvUzK9SMq_Cg"
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Assistência estudantil durante a pandemia",
-				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/preciso-de-ajuda-covid19"
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Análise socioeconômica",
-				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/analise-socioeconomica"
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Auxílios socioeconômicos",
-				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/auxilios-socioeconomicos/apresentacao-dos-auxilios-socioeconomicos"
-			},
-			{
-				"type": "link",
-				"icon": "logo_instagram",
-				"title": "Saúde do Estudante Universitário",
-				"url": "https://www.instagram.com/ppsuffs/"
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Pró-Reitoria de Assuntos Estudantis",
-				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/assuntos-estudantis/comprovacao-auxilio-moradia"
-			}
-		]
-	},
-	{
-		"title": "Assessoria Pedagógica",
-		"subtitle": "",
-		"content": [{
-				"type": "text",
-				"content": "A <b>Assessoria Pedagógica</b> orienta os estudantes sobre rotina e métodos de  estudos. Você pode agendar horário para atendimento individual com as pedagogas e também participar de oficinas coletivas de apoio pedagógico."
-			},
-			{
-				"type": "text",
-				"content": "Caso você esteja com alguma dificuldade, procure este apoio que a instituição oferece. Nosso objetivo é que você consiga seguir todas as fases do curso sem reprovações, também que tenha um desempenho acadêmico cada vez melhor."
-			},
-			{
-				"type": "link",
-				"icon": "envelope",
-				"title": "Contato Assessoria pedagógica",
-				"url": "mailto:assessoriapedagogica.ch@uffs.edu.br"
 			}
 		]
 	},
@@ -252,48 +147,6 @@
 				"icon": "globe",
 				"title": "Acervo de E-books",
 				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/bibliotecas/e-books"
-			}
-		]
-	},
-	{
-		"title": "Acessibilidade",
-		"subtitle": "",
-		"content": [{
-				"type": "text",
-				"content": "<b>O que solicitar ou encaminhar junto a este setor?</b><br><ul><li>Orientação e apoio acadêmico para Pessoas com Deficiência (PcD) ou com necessidades específicas de aprendizagem. As orientações podem ser em relação a processos e sistemas acadêmicos (matrícula, Moodle, sistemas... ) ou acompanhamento pedagógico;</li><li>Orientação quanto a garantia de equidade nos processos de ensino e aprendizagem;</li><li>Tradução e interpretação em Libras;</li><li>Solicitação de materiais adaptados (inclusive mesas e cadeiras);</li><li>Solicitação de acessibilidade arquitetônica (caso houver necessidade);</li><li>Elaboração de credencial de estacionamento.</li></ul>"
-			},
-			{
-				"type": "link",
-				"icon": "envelope",
-				"title": "E-mail Setor Acessibilidade",
-				"url": "mailto:acessibilidade.ch@uffs.edu.br"
-			},
-			{
-				"type": "link",
-				"icon": "envelope",
-				"title": "E-mail Setor de Libras",
-				"url": "mailto:libras.acessibilidade.ch@uffs.edu.br"
-			}
-		]
-	},
-	{
-		"title": "Estágios",
-		"subtitle": "",
-		"content": [{
-				"type": "text",
-				"content": "Procure esse setor sempre que você precisar de informações e orientações sobre estágio obrigatório e estágio não obrigatório."
-			},
-			{
-				"type": "link",
-				"icon": "globe",
-				"title": "Programa de Estágios",
-				"url": "https://www.uffs.edu.br/institucional/pro-reitorias/graduacao/programas/programa-de-estagios-1"
-			},
-			{
-				"type": "link",
-				"icon": "envelope",
-				"title": "E-mail para contato",
-				"url": "mailto:ch.estagios@uffs.edu.br"
 			}
 		]
 	},

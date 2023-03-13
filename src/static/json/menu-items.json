@@ -41,13 +41,6 @@
 		"id": "lazer"
 	},
 	{
-		"title": "Dicionário local",
-		"imgwhite": "static/images/whitetheme/dicionario.png",
-		"imgdark": "static/images/darktheme/dicionario.png",
-		"link": "/content/dicionario",
-		"id": "dicionario"
-	},
-	{
 		"title": "Locomoção",
 		"imgwhite": "static/images/whitetheme/locomocao.png",
 		"imgdark": "static/images/darktheme/locomocao.png",
@@ -60,12 +53,5 @@
 		"imgdark": "static/images/darktheme/biblioteca.png",
 		"link": "/content/biblioteca",
 		"id": "biblioteca"
-	},
-	{
-		"title": "Ajuda",
-		"imgwhite": "static/images/whitetheme/ajuda.png",
-		"imgdark": "static/images/darktheme/ajuda.png",
-		"link": "/content/ajuda",
-		"id": "ajuda"
 	}
 ]

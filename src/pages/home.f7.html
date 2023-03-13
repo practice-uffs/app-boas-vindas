@@ -117,7 +117,7 @@
 						class="f7-icons">menu</i><small>Menu</small></a>
 				{{/if}}
 				<a href="/bemestar/" class="tab-link" data-route-tab-id="bemestar"><i
-					class="f7-icons">smiley</i><small>Bem Estar</small></a>
+					class="f7-icons" style="font-size: 20px;">smiley</i><small>Bem Estar</small></a>
 			</div>
 		</div>
 
@@ -128,7 +128,6 @@
 				<div class="page-content tab" id="menu"></div>
 				{{/if}}
 				<div class="page-content tab" id="bemestar"></div>
-
 			</div>
 		</div>
 	</div>
@@ -183,7 +182,6 @@
 				}, 100);
 			},
 		},
-
 		methods: {
 			validateToken: async function () {
 				var self = this;
@@ -282,7 +280,6 @@
 				});
 
 			},
-
 			requestLogout: function () {
 				let self = this;
 				let app = self.$app;

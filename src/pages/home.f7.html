@@ -191,7 +191,6 @@
 					if (!valid) {
 						await self.requestLogout();
 						self.loadUser();
-						app.view.main.router.navigate('/');
 					}
 				})
 			},
@@ -313,32 +312,6 @@
 
 				return;
 			},
-
-			auraRedirect: async function () {
-				let self = this;
-				let app = self.$app;
-
-				let auraDialog = await app.dialog.create({
-					title: `<img src='static/images/aura/aura_icon.svg'> Aura - Assistente virtual da UFFS`,
-					text: `Para conversar com a <b>Aura</b>, você terá que fazer login com seu idUFFS`,
-					content: "",
-					buttons: [{
-							text: "Cancelar",
-							bold: true,
-						},
-						{
-							text: "Fazer Login",
-							bold: true,
-							onClick: () => {
-								app.view.main.router.navigate('/login/');
-							}
-						},
-					]
-
-				})
-
-				auraDialog.open(true);
-			}
 		}
 	}
 </script>

@@ -21,7 +21,7 @@
                     <div class="message-container">
                         <div class="cloud-container">
                             <div style="display: flex; align-self: flex-end; padding-right: 10px; padding-top: 5px">
-                                <a @click="deleteText('{{ data }}'')"style="font-size: 10px; color: #fff;">x</a>
+                                <a @click="deleteText('{{ data }}'')"style="font-size: 15px; color: #fff;">x</a>
                             </div>
                             <p class="from-me">{{ mensagem }}</p>
                             <p class="from-me-date">{{ data }}</p>
@@ -31,14 +31,16 @@
                 </div>
             {{else}}
             <div class="block block-strong inset">
-                <p>Você ainda não possui diário, comece a escrever agora mesmo! 🙂</p>
+                <p>Você ainda não possui um diário, comece a escrever agora mesmo! 🙂</p>
             </div>
             {{/js_if}}
             </div>
             <div class="text-editor text-editor-init" style="height: 8.2rem; margin-top: 35px" data-placeholder="Como você está se sentindo agora? 🖊️"  data-buttons='[[], []]'>
               <div class="text-editor-content" contenteditable></div>
             </div>
-            <button @click="saveText()" class="button col button-outline button-round save-button">Salvar</button>
+            <div style="align-items: center; justify-content: center; display: flex;">
+                <button @click="saveText()" class="button col button-large button-outline button-round save-button">Salvar</button>
+            </div>
         </div>
     </div>
 </template>
@@ -56,6 +58,13 @@
                 var app = self.$app;
 
                 var textEditor = app.textEditor.get('.text-editor');
+                var str = textEditor.getValue();
+
+                str = str.split('&nbsp;').join('');
+                if (str == ' <br>' || str == '<br>') {
+                    this.showToastBottom('2');
+                    return;
+                }
                 
 		        const today = new Date();
                 const yyyy = today.getFullYear();
@@ -67,7 +76,7 @@
 
                 const formattedToday = dd + '/' + mm + '/' + yyyy;
 
-                app.storage.setDiaryText(formattedToday, textEditor.getValue());
+                app.storage.setDiaryText(formattedToday, str);
                 this.showToastBottom('false');
             },
             deleteText: function (dia) {
@@ -178,7 +187,7 @@
 <style>
     .save-button{
         background-color: var(--f7-bars-bg-color);
-        width: 85%;
+        width: auto;
         margin-left: 7.5%;
     }
     .text-editor-content {
@@ -194,7 +203,6 @@
         display: flex;
         flex-direction: column;
         margin: 0 auto 1rem;
-        max-width: 600px;
         padding: 0.5rem 1.5rem;
     }
     .imessage p {

@@ -110,13 +110,12 @@ export class Storage{
 				var json = {"mensagem": text, "data": data};
 				diary_content[filteredObj].mensagem = JSON.stringify(json);
 			} /*/
-			for (var i = 0; i < diary_content.length; i++) {
+			for (var i = 0; i < Object.keys(diary_content).length; i++) {
 				if (diary_content[i]['data'] == data) {
 					index = i;
 				}
 			}
 			if (index != (-1)) {
-				console.log(index);
 				diary_content[index]['mensagem'] = text;
 				localStorage.setItem('diary_content', JSON.stringify(diary_content));
 			}
@@ -168,7 +167,7 @@ export class Storage{
 	getDiaryText(data) {
 		var diary_content = JSON.parse(localStorage.getItem('diary_content'));
 
-		for (var i = 0; i < diary_content.length; i++) {
+		for (var i = 0; i < Object.keys(diary_content).length; i++) {
 			if (diary_content[i]['data'] == data) {
 				return diary_content[i]['mensagem'];
 			}

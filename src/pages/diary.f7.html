@@ -72,7 +72,7 @@
                 var diary_content = JSON.parse(localStorage.getItem('diary_content'));
 
                 var index = -1;
-                for (var i = 0; i < diary_content.length; i++) {
+                for (var i = 0; i < Object.keys(diary_content).length; i++) {
                     if (diary_content[i]['data'] == dia) {
                         index = i;
                     }
@@ -82,13 +82,14 @@
                     diary_content.splice(index, 1);
                 }
 
-                // não esta funcionando
-                if ( diary_content.lenght == 0 ) {
-                    localStorage.removeItem('diary_content');
+                if ( Object.keys(diary_content).length != 0 ) {
+                    localStorage.setItem('diary_content', JSON.stringify(diary_content));
+                    this.showToastBottom('true');
                 }
-
-                localStorage.setItem('diary_content', JSON.stringify(diary_content));
-                this.showToastBottom('true');
+                else {
+                    localStorage.removeItem('diary_content');
+                    this.showToastBottom('true');
+                }
             },
             showToastBottom: function (temp) {
                 let toastBottom;

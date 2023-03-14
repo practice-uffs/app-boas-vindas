@@ -18,9 +18,14 @@
             {{#js_if "../messages" }}
                 <div class="imessage" id="mensagem">
                     {{#each messages}}
-                    <div class="cloud-container">
+                    <div class="message-container">
+                        <div class="cloud-container">
+                            <div style="display: flex; align-self: flex-end; padding-right: 10px; padding-top: 5px">
+                                <a @click="deleteText('{{ data }}'')"style="font-size: 10px; color: #fff;">x</a>
+                            </div>
                             <p class="from-me">{{ mensagem }}</p>
                             <p class="from-me-date">{{ data }}</p>
+                        </div>
                     </div>
                     {{/each}}
                 </div>
@@ -58,17 +63,55 @@
                 let data = ""+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
 
                 app.storage.setDiaryText(data, textEditor.getValue());
-                this.showToastBottom();
+                this.showToastBottom('false');
             },
-            showToastBottom: function () {
+            deleteText: function (dia) {
+                var self = this;
+                var app = self.$app;
+
+                var diary_content = JSON.parse(localStorage.getItem('diary_content'));
+
+                var index = -1;
+                for (var i = 0; i < diary_content.length; i++) {
+                    if (diary_content[i]['data'] == dia) {
+                        index = i;
+                    }
+                }
+
+                if ( index > -1 ) {
+                    diary_content.splice(index, 1);
+                }
+
+                if ( diary_content.lenght == 0 ) {
+                    localStorage.removeItem('diary_content');
+                }
+
+                localStorage.setItem('diary_content', JSON.stringify(diary_content));
+                this.showToastBottom('true');
+            },
+            showToastBottom: function (temp) {
                 let toastBottom;
                 var self = this;
                 var app = self.$app;
                 if (!toastBottom) {
-                    toastBottom = app.toast.create({
+                    if ( temp == 'false' ) {
+                        toastBottom = app.toast.create({
                         text: 'Seu texto foi salvo!',
                         closeTimeout: 3000,
-                    });
+                        });
+                    }
+                    else if ( temp == 'true') {
+                        toastBottom = app.toast.create({
+                        text: 'Seu texto foi deletado!',
+                        closeTimeout: 3000,
+                        });
+                    }
+                    else {
+                        toastBottom = app.toast.create({
+                        text: 'Seu texto não foi salvo!',
+                        closeTimeout: 3000,
+                        });
+                    }
                 }
                 toastBottom.open();
             },
@@ -143,7 +186,6 @@
     .imessage p {
         border-radius: 1.15rem;
         line-height: 1.25;
-        max-width: 75%;
         position: relative;
         word-wrap: break-word;
     }
@@ -170,5 +212,9 @@
         color: #e5e5ea;
         padding: 0rem .875rem;
         margin-top: 0px;
+    }
+    .message-container {
+        display: flex;
+
     }
 </style>

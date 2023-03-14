@@ -8,13 +8,17 @@
 					<div class="ptr-arrow"></div>
 				</div>
 
+				{{#js_if "(../selectedCampus)" }}
 				<div class="block-title margin " style="font-size: 14px;">Selecione seu Campus:</div>
+				{{ else }}
+				<div></div>
+				{{/js_if}}
 				<div class=" list no-margin">
 					<ul>
 						<li class="item-content item-input ">
 							<div class="item-inner">
 								<div class="item-input-wrap">
-									<input class="text-align-center" type="text" placeholder="Seu Campus"
+									<input class="text-align-center" type="text" placeholder="Selecione seu Campus"
 										readonly="readonly" id="picker-device" disabled />
 								</div>
 							</div>

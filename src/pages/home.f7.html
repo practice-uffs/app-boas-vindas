@@ -6,7 +6,7 @@
 			<div class="navbar-inner">
 				<div class="left">
 					<img src="{{icon}}" class="navbar-icon">
-					<div class="title">UFFS</div>
+					<div class="title">UFFS {{ ../atual }}</div>
 				</div>
 
 				<div class="right">
@@ -113,10 +113,10 @@
 		<div class="toolbar tabbar toolbar-bottom">
 			<div class="toolbar-inner">
 				{{#if isEnabled.menuPage}}
-				<a href="/" class="tab-link" data-route-tab-id="menu"><i
+				<a href="/" class="tab-link" data-route-tab-id="menu" id="boasvindas_name"><i
 						class="f7-icons">menu</i><small>Boas-Vindas</small></a>
 				{{/if}}
-				<a href="/bemestar/" class="tab-link" data-route-tab-id="bemestar"><i
+				<a href="/bemestar/" class="tab-link" data-route-tab-id="bemestar" id="bemestar_name"><i
 					class="f7-icons" style="font-size: 20px;">smiley</i><small>Bem-Estar</small></a>
 			</div>
 		</div>
@@ -164,6 +164,7 @@
 				icon_color: "static/images/logo/boas-vindas-transparent.png",
 				icon_white: "static/images/logo/boas-vindas-transparent.png",
 				darkThemeToggle: null,
+				atual: 'Boas-Vindas',
 			}
 		},
 
@@ -176,6 +177,19 @@
 				await this.createAboutSheet();
 				await this.validateToken();
 
+				var el = document.getElementById('bemestar_name');
+				el.addEventListener('click', function(e) {
+					self.$setState({
+						atual: 'Bem-Estar',
+					});
+				});
+
+				var el = document.getElementById('boasvindas_name');
+				el.addEventListener('click', function(e) {
+					self.$setState({
+						atual: 'Boas-Vindas',
+					});
+				});
 
 				setTimeout(function () {
 					self.initDarkThemeToggle();

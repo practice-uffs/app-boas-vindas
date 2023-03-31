@@ -1,4 +1,12 @@
-[{
+[	
+	{
+		"title": "Guia dos Calouros",
+		"imgwhite": "static/images/whitetheme/guia-calouro.png",
+		"imgdark": "static/images/darktheme/guia-calouro.png",
+		"link": "/content/calouros",
+		"id": "calouros"
+	},
+	{
 		"title": "Sobre o Campus",
 		"imgwhite": "static/images/whitetheme/campus.png",
 		"imgdark": "static/images/darktheme/campus.png",
@@ -20,7 +28,7 @@
 		"id": "auxilio"
 	},
 	{
-		"title": "Grupos e projetos",
+		"title": "Grupos e projetoss",
 		"imgwhite": "static/images/whitetheme/projetos.png",
 		"imgdark": "static/images/darktheme/projetos.png",
 		"link": "/content/projetos",

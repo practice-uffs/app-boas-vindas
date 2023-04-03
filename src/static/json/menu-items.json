@@ -1,4 +1,12 @@
-[{
+[	
+	{
+		"title": "Guia dos Calouros",
+		"imgwhite": "static/images/whitetheme/guia-calouro.png",
+		"imgdark": "static/images/darktheme/guia-calouro.png",
+		"link": "/content/calouros",
+		"id": "calouros"
+	},
+	{
 		"title": "Sobre o Campus",
 		"imgwhite": "static/images/whitetheme/campus.png",
 		"imgdark": "static/images/darktheme/campus.png",
@@ -20,7 +28,7 @@
 		"id": "auxilio"
 	},
 	{
-		"title": "Grupos e projetos",
+		"title": "Grupos e projetoss",
 		"imgwhite": "static/images/whitetheme/projetos.png",
 		"imgdark": "static/images/darktheme/projetos.png",
 		"link": "/content/projetos",
@@ -41,13 +49,6 @@
 		"id": "lazer"
 	},
 	{
-		"title": "Dicionário local",
-		"imgwhite": "static/images/whitetheme/dicionario.png",
-		"imgdark": "static/images/darktheme/dicionario.png",
-		"link": "/content/dicionario",
-		"id": "dicionario"
-	},
-	{
 		"title": "Locomoção",
 		"imgwhite": "static/images/whitetheme/locomocao.png",
 		"imgdark": "static/images/darktheme/locomocao.png",
@@ -60,12 +61,5 @@
 		"imgdark": "static/images/darktheme/biblioteca.png",
 		"link": "/content/biblioteca",
 		"id": "biblioteca"
-	},
-	{
-		"title": "Ajuda",
-		"imgwhite": "static/images/whitetheme/ajuda.png",
-		"imgdark": "static/images/darktheme/ajuda.png",
-		"link": "/content/ajuda",
-		"id": "ajuda"
 	}
 ]

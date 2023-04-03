@@ -1,0 +1,268 @@
+<template>
+    <div class="page" data-name="diary">
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="/bemestar/" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Voltar</span>
+                    </a>
+                </div>
+                <div class="title">Meu Diário</div>
+            </div>
+        </div>
+        <div class="page-content" >
+            <p class="block block-strong inset">Boas vindas ao seu diário! 😄 <br> Aqui você poderá relatar como você está se sentindo, é terapêutico, e vai ajudar você ao falar com mais certeza à algum especialista sobre como você se sentiu em determinado dia. <br></p>
+            <div>
+            {{#js_if "../messages" }}
+                <div class="imessage">
+                    {{#each messages}}
+                    <div class="message-container">
+                        <div class="cloud-container">
+                            <div class="btn-delete-message">
+                                <a @click="deleteText('{{ data }}'')">x</a>
+                            </div>
+                            <p class="from-me-date">{{ data }}</p>
+                            <p class="from-me">{{ mensagem }}</p>
+                          
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            {{else}}
+            <div class="block block-strong inset">
+                <p>Você ainda não possui um diário, comece a escrever agora mesmo! 🙂</p>
+            </div>
+            {{/js_if}}
+            </div>
+            <div class="text-editor text-editor-init" style="height: 8.2rem;" data-placeholder="Como você está se sentindo agora? 🖊️"  data-buttons='[[], []]'>
+              <div class="text-editor-content" contenteditable></div>
+            </div>
+            <div style="align-items: center; justify-content: center; display: flex;">
+                <button @click="saveText()" class="button col button-large button-outline button-round save-button">Salvar</button>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    export default {
+        data: function() {
+            return {
+                messages: null,
+                darkTheme: null
+            }
+        },
+        methods: {
+            saveText: function () {
+                var self = this;
+                var app = self.$app;
+
+                var textEditor = app.textEditor.get('.text-editor');
+                var str = textEditor.getValue();
+
+                str = str.split('&nbsp;').join('');
+                if (str == ' <br>' || str == '<br>') {
+                    this.showToastBottom('2');
+                    return;
+                }
+                
+		        const today = new Date();
+                const yyyy = today.getFullYear();
+                let mm = today.getMonth() + 1; // Months start at 0!
+                let dd = today.getDate();
+
+                if (dd < 10) dd = '0' + dd;
+                if (mm < 10) mm = '0' + mm;
+
+                const formattedToday = dd + '/' + mm + '/' + yyyy;
+
+                app.storage.setDiaryText(formattedToday, str);
+                this.showToastBottom('false');
+                app.view.main.router.refreshPage();
+            },
+            deleteText: function (dia) {
+                var self = this;
+                var app = self.$app;
+
+                var diary_content = JSON.parse(localStorage.getItem('diary_content'));
+
+                var index = -1;
+                for (var i = 0; i < Object.keys(diary_content).length; i++) {
+                    if (diary_content[i]['data'] == dia) {
+                        index = i;
+                    }
+                }
+
+                if ( index > -1 ) {
+                    diary_content.splice(index, 1);
+                }
+
+                if ( Object.keys(diary_content).length != 0 ) {
+                    localStorage.setItem('diary_content', JSON.stringify(diary_content));
+                    this.showToastBottom('true');
+                }
+                else {
+                    localStorage.removeItem('diary_content');
+                    this.showToastBottom('true');
+                }
+                app.view.main.router.refreshPage();
+                
+            },
+            showToastBottom: function (temp) {
+                let toastBottom;
+                var self = this;
+                var app = self.$app;
+                if (!toastBottom) {
+                    if ( temp == 'false' ) {
+                        toastBottom = app.toast.create({
+                        text: 'Seu texto foi salvo!',
+                        closeTimeout: 3000,
+                        });
+                    }
+                    else if ( temp == 'true') {
+                        toastBottom = app.toast.create({
+                        text: 'Seu texto foi deletado!',
+                        closeTimeout: 3000,
+                        });
+                    }
+                    else {
+                        toastBottom = app.toast.create({
+                        text: 'Seu texto não foi salvo!',
+                        closeTimeout: 3000,
+                        });
+                    }
+                }
+                toastBottom.open();
+            },
+            loadMessageFromJSON: async function () {
+				var self = this;
+				var app = self.$app;
+
+                var diary_content = JSON.parse(localStorage.getItem("diary_content"));
+                self.$setState({
+					messages: diary_content,
+				});
+			},
+            loadMenuDarkModeInformation: async function () {
+				var self = this;
+				var app = self.$app;
+
+				if (app.$$("#app").hasClass('theme-dark')) {
+					self.$setState({
+						darkTheme: true
+					});
+					return;
+				}
+
+				self.$setState({
+					darkTheme: false
+			    });
+			},
+        },
+        on: {
+            pageBeforein: async function () {
+                let self = this;
+                let app = self.$app;
+		        
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                let mm = today.getMonth() + 1; // Months start at 0!
+                let dd = today.getDate();
+
+                if (dd < 10) dd = '0' + dd;
+                if (mm < 10) mm = '0' + mm;
+
+                const formattedToday = dd + '/' + mm + '/' + yyyy;
+
+                this.loadMessageFromJSON();
+
+                var textEditor = app.textEditor.get('.text-editor');
+                var texto = [];
+                texto = app.storage.getDiaryText(formattedToday);
+                if (texto) {
+                    textEditor.setValue(texto);
+                } 
+            }
+        },
+    };
+</script>
+
+<style>
+
+    .btn-delete-message{
+        display: flex; 
+        align-self: flex-end;
+        z-index: 10;
+    }
+
+    .btn-delete-message a{
+        font-size: 22px;
+        color: #fff;
+        padding: 5px 10px;
+        position: absolute;
+        right: 0;
+    }
+
+
+
+    .save-button{
+        background-color: var(--f7-bars-bg-color);
+        width: auto;
+        padding: 0px 30px;
+    }
+
+    .text-editor{ 
+        margin-top: var(--f7-block-padding-vertical);
+    }
+
+    .text-editor-content {
+        font-size: var(--f7-block-font-size);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    }
+    .text-editor-toolbar{
+        padding: 0;
+    }
+    .imessage {
+        max-height: 16rem;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        margin-left: calc(var(--f7-block-inset-side-margin) + var(--f7-safe-area-outer-left));
+    }
+    .imessage p {
+        border-radius: 1.15rem;
+        line-height: 1.25;
+        position: relative;
+        word-wrap: break-word;
+    }
+
+    .cloud-container {
+        border-radius: 1.15rem;
+        line-height: 1.25;
+        max-width: 75%;
+        position: relative;
+        word-wrap: break-word;
+        background-color: #248bf5;
+        display: flex;
+        align-self: flex-start;
+        flex-direction: column;
+    }
+    p.from-me {
+        align-self: flex-start;
+        color: #fff;
+        padding: 0px 30px 15px 15px;
+        margin: 0;
+    }
+    p.from-me-date {
+        align-self: flex-start;
+        color: #e5e5ea;
+        margin-left: calc(var(--f7-block-inset-side-margin) + var(--f7-safe-area-outer-left));
+        margin-right: 40px;
+    }
+    .message-container {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+</style>

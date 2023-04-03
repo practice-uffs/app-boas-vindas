@@ -145,7 +145,31 @@ iOS Cordova Tweak .device-cordova.device-ios {
 }
 
 .toolbar {
-	background-color: rgba(var(--f7-toolbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity));
+	background-color: rgba(var(--f7-toolbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)));
 	-webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
 	backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+	
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--f7-toolbar-bg-color-rgb);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }

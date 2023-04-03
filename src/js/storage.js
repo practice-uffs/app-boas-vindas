@@ -96,6 +96,40 @@ export class Storage{
 		}
 	};
 
+	async setDiaryText(data, text) {
+		var diary_content = [];
+		var index = -1;
+		if (localStorage.getItem("diary_content")) {
+			diary_content = JSON.parse(localStorage.getItem("diary_content"));
+			/*/ var filteredObj = diary_content.find(function(item, i) {
+				if (item.data == data){
+				return i;
+			  }
+			});
+			if (filteredObj) {
+				var json = {"mensagem": text, "data": data};
+				diary_content[filteredObj].mensagem = JSON.stringify(json);
+			} /*/
+			for (var i = 0; i < Object.keys(diary_content).length; i++) {
+				if (diary_content[i]['data'] == data) {
+					index = i;
+				}
+			}
+			if (index != (-1)) {
+				diary_content[index]['mensagem'] = text;
+				localStorage.setItem('diary_content', JSON.stringify(diary_content));
+			}
+			else {
+				diary_content.push({"mensagem":text, "data":data });
+				localStorage.setItem('diary_content', JSON.stringify(diary_content));
+			}
+		}
+		else {
+			diary_content = [{"mensagem": text, "data": data}];
+			localStorage.setItem("diary_content", JSON.stringify(diary_content));
+		}
+	}
+
 	setUserCredentials(userCredentials) {
 		localStorage["userCredentials"] = JSON.stringify(userCredentials);
 	};
@@ -128,5 +162,15 @@ export class Storage{
 
 	setCountdownLogin(value) {
 		localStorage.setItem("getCountdownLogin", value);
+	}
+
+	getDiaryText(data) {
+		var diary_content = JSON.parse(localStorage.getItem('diary_content'));
+
+		for (var i = 0; i < Object.keys(diary_content).length; i++) {
+			if (diary_content[i]['data'] == data) {
+				return diary_content[i]['mensagem'];
+			}
+		} 
 	}
 }

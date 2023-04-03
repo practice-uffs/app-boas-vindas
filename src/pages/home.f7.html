@@ -6,7 +6,7 @@
 			<div class="navbar-inner">
 				<div class="left">
 					<img src="{{icon}}" class="navbar-icon">
-					<div class="title">Boas-Vindas</div>
+					<div class="title">UFFS {{ ../atual }}</div>
 				</div>
 
 				<div class="right">
@@ -49,7 +49,7 @@
 
 						<div class="list no-margin margin-bottom">
 							<ul>
-
+								<!-- Botão de entrar
 								{{#if user}}
 								<li class="float-bottom">
 									<a href="#" class="item-link item-content" @click="logout()"
@@ -74,7 +74,7 @@
 									</a>
 								</li>
 								{{/if}}
-
+								-->
 								<hr>
 
 								{{#if isEnabled.darkTheme}}
@@ -111,21 +111,11 @@
 
 		<!-- Tabs toolbar -->
 		<div class="toolbar tabbar toolbar-bottom">
-			<div class="toolbar-inner">
+			<div class="toolbar-inner" >
 				{{#if isEnabled.menuPage}}
-				<a href="/" class="tab-link" data-route-tab-id="menu"><i
-						class="f7-icons">menu</i><small>Menu</small></a>
+				<a href="/" class="tab-link" data-route-tab-id="menu" id="boasvindas_name"><small>Boas-Vindas</small></a>
 				{{/if}}
-
-				{{#if isEnabled.auraPage}}
-				{{#if user}}
-				<a href="/aura/" class="tab-link tab-link-aura" data-route-tab-id="aura"><img
-						src="static/images/aura/aura_icon.svg"><small>Aura</small></a>
-				{{else}}
-				<a href="#" @click="auraRedirect()" class="tab-link tab-link-aura" data-route-tab-id="aura"><img
-						src="static/images/aura/aura_icon.svg"><small>Aura</small></a>
-				{{/if}}
-				{{/if}}
+				<a href="/bemestar/" class="tab-link" data-route-tab-id="bemestar" id="bemestar_name"><small>Bem-Estar</small></a>
 			</div>
 		</div>
 
@@ -135,10 +125,7 @@
 				{{#if isEnabled.menuPage}}
 				<div class="page-content tab" id="menu"></div>
 				{{/if}}
-
-				{{#if isEnabled.auraPage}}
-				<div class="page-content tab" id="aura"></div>
-				{{/if}}
+				<div class="page-content tab" id="bemestar"></div>
 			</div>
 		</div>
 	</div>
@@ -175,6 +162,7 @@
 				icon_color: "static/images/logo/boas-vindas-transparent.png",
 				icon_white: "static/images/logo/boas-vindas-transparent.png",
 				darkThemeToggle: null,
+				atual: 'Boas-Vindas',
 			}
 		},
 
@@ -187,13 +175,25 @@
 				await this.createAboutSheet();
 				await this.validateToken();
 
+				var el = document.getElementById('bemestar_name');
+				el.addEventListener('click', function(e) {
+					self.$setState({
+						atual: 'Bem-Estar',
+					});
+				});
+
+				var el = document.getElementById('boasvindas_name');
+				el.addEventListener('click', function(e) {
+					self.$setState({
+						atual: 'Boas-Vindas',
+					});
+				});
 
 				setTimeout(function () {
 					self.initDarkThemeToggle();
 				}, 100);
 			},
 		},
-
 		methods: {
 			validateToken: async function () {
 				var self = this;
@@ -203,7 +203,6 @@
 					if (!valid) {
 						await self.requestLogout();
 						self.loadUser();
-						app.view.main.router.navigate('/');
 					}
 				})
 			},
@@ -292,7 +291,6 @@
 				});
 
 			},
-
 			requestLogout: function () {
 				let self = this;
 				let app = self.$app;
@@ -326,32 +324,6 @@
 
 				return;
 			},
-
-			auraRedirect: async function () {
-				let self = this;
-				let app = self.$app;
-
-				let auraDialog = await app.dialog.create({
-					title: `<img src='static/images/aura/aura_icon.svg'> Aura - Assistente virtual da UFFS`,
-					text: `Para conversar com a <b>Aura</b>, você terá que fazer login com seu idUFFS`,
-					content: "",
-					buttons: [{
-							text: "Cancelar",
-							bold: true,
-						},
-						{
-							text: "Fazer Login",
-							bold: true,
-							onClick: () => {
-								app.view.main.router.navigate('/login/');
-							}
-						},
-					]
-
-				})
-
-				auraDialog.open(true);
-			}
 		}
 	}
 </script>

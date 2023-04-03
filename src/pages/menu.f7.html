@@ -8,17 +8,20 @@
 					<div class="ptr-arrow"></div>
 				</div>
 
+				{{#js_if "(../selectedCampus)" }}
 				<div class="block-title margin " style="font-size: 14px;">Selecione seu Campus:</div>
+				{{ else }}
+				<div></div>
+				{{/js_if}}
 				<div class=" list no-margin">
 					<ul>
 						<li class="item-content item-input ">
 							<div class="item-inner">
 								<div class="item-input-wrap">
-									<input class="text-align-center" type="text" placeholder="Seu Campus"
+									<input class="text-align-center" type="text" placeholder="Selecione seu Campus"
 										readonly="readonly" id="picker-device" disabled />
 								</div>
 							</div>
-							<div class="item-media align-self-center"><i class="f7-icons">pencil_circle_fill</i></div>
 						</li>
 					</ul>
 				</div>
@@ -42,12 +45,10 @@
 								<p>A equipe do <a class="link external" href="https://practice.uffs.edu.br">Practice</a>
 									colocou muito amor e esforço neste aplicativo, para tornar o início da sua vida
 									acadêmica um pouquinho mais fácil. 🥰<br>
-									<br>Concentramos as principais informações de todos os Campi da UFFS, e de suas
+									<br>Concentramos as principais informações de todos os campi da UFFS, e de suas
 									respectivas cidades, para que você possa se sentir ainda mais preparado, e comece a
 									sua jornada acadêmica com o pé direito.<br>
-									<p>Portanto, tire um tempinho para explorar tudo que esse aplicativo tem a oferecer,
-										e fique ciente de que estamos trabalhando para deixá-lo o mais completo
-										possível! 😄</p>
+									<p>Portanto, selecione o seu câmpus, e tire um tempinho para explorar tudo que esse aplicativo tem a oferecer. Lembrando que estamos trabalhando para deixá-lo o mais completo possível!  😄</p>
 									<p><b>O Practice e a UFFS te desejam Boas-Vindas!</b></p>
 							</div>
 						</div>
@@ -55,48 +56,10 @@
 				</div>
 
 				<div>
-					<div class="row margin">
-						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
-							<a href="/guia_calouros/" class=" menu-item-link">
-								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between always-active"
-									style="height: 100%;">
-									<div>
-										{{#js_if "../darkTheme === false" }}
-										<img src="static/images/darktheme/guia-calouro.png" class="menu-item-icon">
-										{{else}}
-										<img src="static/images/whitetheme/guia-calouro.png" class="menu-item-icon">
-										{{/js_if}}
-									</div>
-									<div class="menu-item-title">Guia do Calouro</div>
-								</div>
-							</a>
-						</div>
-
-						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
-							<a href="/procedures/" class=" menu-item-link">
-								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between always-active"
-									style="height: 100%;">
-									<div>
-										{{#js_if "../darkTheme === false" }}
-										<img src="static/images/darktheme/guia-de-procedimentos.png"
-											class="menu-item-icon">
-										{{else}}
-										<img src="static/images/whitetheme/guia-de-procedimentos.png"
-											class="menu-item-icon">
-										{{/js_if}}
-									</div>
-									<div class="menu-item-title">Guia dos Procedimentos</div>
-								</div>
-							</a>
-						</div>
-					</div>
-
-
 					{{#each staticTabsInfo}}
 					{{#js_if "@index % 2 == 0"}}
 					<div class="row margin">
 						{{/js_if}}
-
 						{{#unless active}}
 						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1 disabled">
 							{{else}}
@@ -120,6 +83,23 @@
 						</div>
 						{{/js_if}}
 						{{/each}}
+						<div class="col-50 padding-half align-self-stretch menu-item-block elevation-1">
+							<a href="/procedures/" class=" menu-item-link">
+								<div class="menu-item-content display-flex flex-direction-column align-items-center justify-content-space-between always-active"
+									style="height: 100%;">
+									<div>
+										{{#js_if "../darkTheme === false" }}
+										<img src="static/images/darktheme/guia-de-procedimentos.png"
+											class="menu-item-icon">
+										{{else}}
+										<img src="static/images/whitetheme/guia-de-procedimentos.png"
+											class="menu-item-icon">
+										{{/js_if}}
+									</div>
+									<div class="menu-item-title">Guia dos Procedimentos</div>
+								</div>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -210,8 +190,7 @@
 			return {
 				campus: null,
 				tabs: ['campus', 'cidade', 'auxilio', 'lazer', 'projetos', 'canais', 'dicionario',
-					'locomocao',
-					'biblioteca', 'ajuda'
+					'locomocao', 'biblioteca', 'ajuda', 'calouros'
 				],
 				availableTabs: {},
 				staticTabsInfo: null,
@@ -237,7 +216,6 @@
 					backdrop: true,
 				});
 			},
-
 			loadTabsInfoFromJSON: async function () {
 				var self = this;
 				var app = self.$app;
@@ -395,9 +373,7 @@
 
 				self.availableTabs = {};
 
-				self.availableTabs['guia_calouros'] = true;
 				self.availableTabs['procedures'] = true;
-
 
 				for (let tab of self.tabs) {
 					if (pageContent[tab]) {

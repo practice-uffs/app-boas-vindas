@@ -4,7 +4,7 @@ import RightPanelPage from "../pages/right-panel.f7.html";
 
 import MenuPage from "../pages/menu.f7.html";
 import ProceduresGuidesPage from "../pages/procedures.f7.html";
-
+import HorariosDeOnibus from "../pages/horarios.f7.html";
 import AboutPage from "../pages/about.f7.html";
 import NotFoundPage from "../pages/404.f7.html";
 import ContentPage from "../pages/content-page.f7.html";
@@ -53,6 +53,15 @@ const proceduresGuidesPage = function () {
     component: ProceduresGuidesPage,
   };
 }
+
+const horariosDeOnibusPage = function () {
+	return {
+	  path: '/horarios/',
+	  component: HorariosDeOnibus,
+	};
+  }
+
+  
 
 const rightPanelRoute = function () {
 	let route = {
@@ -147,6 +156,7 @@ var routes = [
   //new routes
   contentPageRoute(),
   proceduresGuidesPage(),
+  horariosDeOnibusPage(),
   freshmanGuidePageRoute(),
 
   initialPageRoute(),

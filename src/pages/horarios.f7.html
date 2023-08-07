@@ -1,0 +1,123 @@
+<template>
+    <div div class="page" data-name="horarios">
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md"></span>
+                    </a>
+                </div>
+                <div class="title">Horários de Ônibus</div>
+            </div>
+        </div>
+
+        <!-- Horários de Ônibus aqui -->
+        <div class="page-content">
+            <div class="block-title">Horários:</div>
+            <ul class="horarios-list">
+                <li>TOMAZELLI / FAG / UNIVERSIDADE FEDERAL / THIAGO VILA PÁSCOA / VILA ESPERANÇA / FACH II. - 04:15:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 06:35:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 06:55:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 07:20:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 07:30:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 08:15:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 09:10:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 10:10:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 11:15:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 12:00:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 13:15:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 13:40:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 14:30:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 16:25:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 17:35:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 18:05:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 20:15:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 21:15:00</li>
+                <li>24- UNIVERSIDADE FEDERAL - 21:45:00</li>
+            </ul>
+
+            <!-- Aqui está o link da Auto Viação -->
+            <div class="block-title">Links:</div>
+            <ul class="links-list">
+                <a href="http://horarios.autoviacao.com/" onclick="window.open('http://horarios.autoviacao.com/', '_system', 'location=yes'); return false;">Acesse o site da Auto Viação para mais informações</a>
+
+
+            </ul>
+        </div>
+    </div>
+</template>
+
+<style>
+    .page {
+        padding: 10px; /* Adiciona um espaçamento interno para afastar o conteúdo das bordas */
+        border: 1px solid #ddd; /* Adiciona uma borda com cor cinza claro */
+        border-radius: 10px; /* Arredonda os cantos da borda */
+        background-color: black; /* Define um fundo branco para a página */
+    }
+
+    .navbar {
+        background-color: #007bff; /* Define uma cor de fundo azul para a barra de navegação */
+        color: #fff; /* Define a cor do texto na barra de navegação para branco */
+    }
+
+    .navbar-inner::after {
+        background-color: transparent; /* Remove o gradiente de fundo da barra de navegação */
+    }
+
+    .title {
+        font-size: 24px; /* Define um tamanho de fonte maior para o título */
+    }
+    .links-list a {
+        height: auto;
+        min-height: var(--f7-list-item-min-height);
+        white-space: normal;
+    }
+
+    .block-title {
+        white-space: normal;
+    }
+
+    .horarios-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .horarios-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .horarios-list li {
+        font-size: 16px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc; /* Adiciona uma borda com cor cinza claro */
+        border-radius: 5px; /* Arredonda os cantos da borda */
+        padding: 10px; /* Adiciona espaçamento interno para afastar o conteúdo da borda */
+        background-color: black; /* Define um fundo preto para a linha */
+    }
+</style>
+
+<script>
+    export default {
+        data: function () {
+            return {
+                items: null,
+            };
+        },
+        methods: {
+            loadData: async function () {
+                var self = this;
+                var app = this.$app;
+
+            
+            },
+        },
+        on: {
+            pageInit: function (e, page) {
+                this.loadData();
+            },
+        },
+    };
+</script>
